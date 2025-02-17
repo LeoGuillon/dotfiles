@@ -1,0 +1,22 @@
+matches:
+  
+  - trigger: ":data"
+    replace: "```dataview\n\n```"
+  
+  - trigger: ":list"
+    replace: "```dataview\nLIST\n```"
+
+  - trigger: ":table"
+    replace: "```dataview\nTABLE WITHOUT ID\n```"
+
+  - trigger: ":tasks"
+    replace: "```tasks\n\n```"
+
+  - trigger: ":tp"
+    replace: "<% tp.$|$ %>"
+  
+  - trigger: ":h3"
+    replace: "###"
+  
+  - trigger: ":h4"
+    replace: "####"

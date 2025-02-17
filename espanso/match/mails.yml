@@ -1,0 +1,13 @@
+matches:
+  - trigger: ":cdlt"
+    replace: "Cordialement,\n"
+
+  - trigger: ":dispo"
+    replace: "Je reste à votre disposition pour toute information complémentaire"
+  
+  - trigger: ":mperso"
+    replace: "leo.guillon@lilo.org"
+  
+  - trigger: ":mpro"
+    replace: "leo-2.guillon@polymtl.ca"
+  

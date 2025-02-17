@@ -1,0 +1,6 @@
+matches:
+  - trigger: ":install"
+    replace: "brew install --cask"
+    
+  - trigger: ":uninstall"
+    replace: "brew uninstall"
