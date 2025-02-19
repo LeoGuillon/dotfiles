@@ -7,6 +7,7 @@ CONFIG_FILES=(
   homebrew
   matrix
   navigation
+  tmux
 )
 
 for filename in "${CONFIG_FILES[@]}"; do
