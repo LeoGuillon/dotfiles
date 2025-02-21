@@ -16,3 +16,6 @@ export YAZI_CONFIG_HOME=$HOME/dotfiles/yazi
 
 # to run if espanso not setup yet
 # ln -s "$HOME/dotfiles/espanso" "$HOME/Library/Application Support"
+
+# Created by `pipx` on 2025-02-19 19:06:41
+export PATH="$PATH:/Users/leo/.local/bin"
