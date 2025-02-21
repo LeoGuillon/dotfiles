@@ -14,35 +14,70 @@ palette = "catppuccin_mocha"
 # ---------------------------------------------------------------------------------
 
 format = """\
-$directory\
-$git_branch
+$directory $git_branch$git_status $git_metrics
 $character
+"""
+
+right_format = """\
+$rlang$julia
 """
 
 # ---------------------------------------------------------------------------------
 # (MODULES)
 # ---------------------------------------------------------------------------------
 
-# [character]
-# success_symbol = "[[󰄛](green) ⇒](peach)"
-# error_symbol = "[[󰄛](red) ⇒](peach)"
-# vimcmd_symbol = "[󰄛 ⇒](subtext1)" # For use with zsh-vi-mode
-# [character] # ▓▒░    nerdfont ids start with `nf-ple-`
-# success_symbol = "[ ](fg:black)"
-# error_symbol = "[ ](fg:red)"
-# vimcmd_symbol = "[ ](fg:cyan)"
+# (LEFT SIDE)
+
+# path
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "bold fg:lavender"
+format = "[$path]($style)"
 
 # git
 
 [git_branch]
 symbol = ""
 style = "fg:bold mauve"
-format = "on [$symbol $branch]($style) "
+format = "on [$symbol $branch]($style)"
 
-[directory]
-truncation_length = 4
-style = "bold fg:lavender"
-format = "[$path ]($style)"
+[git_metrics]
+disabled = false
+added_style = "green"
+deleted_style = "red"
+format = '\([+$added]($added_style) [-$deleted]($deleted_style)\)'
+
+[git_status]
+modified = '*'
+style = "bold mauve"
+format = '[$all_status$ahead_behind]($style)'
+
+# (RIGHT SIDE)
+
+[rlang]
+detect_files = []
+symbol = "R"
+style = "blue bold"
+format = "[$symbol ($version)]($style)"
+
+[julia]
+detect_files = []
+symbol = "ஃ"
+style = "bold mauve"
+format = "[$symbol ($version)]($style)"
+
+# (PROMPT LINE)
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❯](bold lavender)"
+# [character] # ▓▒░    nerdfont ids start with `nf-ple-`
+# success_symbol = "[ ](fg:black)"
+# error_symbol = "[ ](fg:red)"
+# vimcmd_symbol = "[ ](fg:cyan)"
 
 # ---------------------------------------------------------------------------------
 # (PALETTES)

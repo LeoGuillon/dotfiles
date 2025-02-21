@@ -1,5 +1,5 @@
 alias t="tmux"
-alias tn="tmux new -t"
+alias tn="tmux new-session -A -s"
 alias ta="tmux attach -t"
 alias td="tmux detach"
-alias tl="tmux list-sessions"
+alias tls="tmux list-sessions"
