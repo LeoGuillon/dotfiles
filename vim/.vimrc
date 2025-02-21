@@ -21,6 +21,10 @@ nnoremap <Esc> :nohl<Esc>
 nnoremap <leader>n mzo<Esc>`z
 nnoremap <leader>N mzO<Esc>`z
 
+" common typos while programming : adding a , or ; at the end of line
+nnoremap <leader>, mzA,<Esc>`z
+nnoremap <leader>; mzA;<Esc>`z
+
 " quick toggle casing ; credits : https://nanotipsforvim.prose.sh/quickly-toggle-casing
 nnoremap <leader>u mzlblgueh~`z
 

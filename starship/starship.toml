@@ -1,0 +1,112 @@
+# ressources :
+# nerd font icons cheat sheet : https://www.nerdfonts.com/cheat-sheet
+# https://github.com/chrisgrieser/.config/blob/0d60da98d8142a4579a006540b3e1bb8562a2c00/starship/starship.toml
+# https://www.adamdehaven.com/snippets/how-to-customize-your-shell-prompt-with-starship
+
+
+# Insert a blank line between each shell prompt
+add_newline = true
+
+palette = "catppuccin_mocha"
+
+# ---------------------------------------------------------------------------------
+# (FORMAT)
+# ---------------------------------------------------------------------------------
+
+format = """\
+$directory $git_branch$git_status $git_metrics
+$character
+"""
+
+right_format = """\
+$rlang$julia
+"""
+
+# ---------------------------------------------------------------------------------
+# (MODULES)
+# ---------------------------------------------------------------------------------
+
+# (LEFT SIDE)
+
+# path
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "bold fg:lavender"
+format = "[$path]($style)"
+
+# git
+
+[git_branch]
+symbol = ""
+style = "fg:bold mauve"
+format = "on [$symbol $branch]($style)"
+
+[git_metrics]
+disabled = false
+added_style = "green"
+deleted_style = "red"
+format = '\([+$added]($added_style) [-$deleted]($deleted_style)\)'
+
+[git_status]
+modified = '*'
+style = "bold mauve"
+format = '[$all_status$ahead_behind]($style)'
+
+# (RIGHT SIDE)
+
+[rlang]
+detect_files = []
+symbol = "R"
+style = "blue bold"
+format = "[$symbol ($version)]($style)"
+
+[julia]
+detect_files = []
+symbol = "ஃ"
+style = "bold mauve"
+format = "[$symbol ($version)]($style)"
+
+# (PROMPT LINE)
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❯](bold lavender)"
+# [character] # ▓▒░    nerdfont ids start with `nf-ple-`
+# success_symbol = "[ ](fg:black)"
+# error_symbol = "[ ](fg:red)"
+# vimcmd_symbol = "[ ](fg:cyan)"
+
+# ---------------------------------------------------------------------------------
+# (PALETTES)
+# ---------------------------------------------------------------------------------
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"

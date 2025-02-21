@@ -38,6 +38,6 @@ function mtx {
 deep () {
   mode="${1:-default}"
 
-  osascript $HOME/dotfiles/applescripts/work_session.applescript
-  mtx $mode
+  osascript $DOTFILES/applescripts/work_session.applescript
+  # mtx $mode
 }
