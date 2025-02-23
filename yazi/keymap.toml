@@ -78,6 +78,7 @@ keymap = [
 	{ on = "d",         run = "remove",                      desc = "Trash selected files" },
 	{ on = "D",         run = "remove --permanently",        desc = "Permanently delete selected files" },
 	{ on = "a",         run = "create",                      desc = "Create a file (ends with / for directories)" },
+	{ on = "A",         run = "create --dir",                desc = "Create a directory" },
 	{ on = "r",         run = "rename --cursor=before_ext",  desc = "Rename selected file(s)" },
 	{ on = ";",         run = "shell --interactive",         desc = "Run a shell command" },
 	{ on = ":",         run = "shell --block --interactive", desc = "Run a shell command (block until finishes)" },
@@ -166,12 +167,12 @@ keymap = [
 
 keymap = [
 	{ on = "<Esc>", run = "close", desc = "Close task manager" },
-	{ on = "<C-[>", run = "close", desc = "Close task manager" },
-	{ on = "<C-c>", run = "close", desc = "Close task manager" },
+	# { on = "<C-[>", run = "close", desc = "Close task manager" },
+	# { on = "<C-c>", run = "close", desc = "Close task manager" },
 	{ on = "w",     run = "close", desc = "Close task manager" },
 
-	{ on = "k", run = "arrow -1", desc = "Move cursor up" },
-	{ on = "j", run = "arrow 1",  desc = "Move cursor down" },
+	# { on = "k", run = "arrow -1", desc = "Move cursor up" },
+	# { on = "j", run = "arrow 1",  desc = "Move cursor down" },
 
 	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
 	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
@@ -356,11 +357,13 @@ keymap = [
 	{ on = "<C-c>", run = "close",  desc = "Hide the help" },
 
 	# Navigation
-	{ on = "k", run = "arrow -1", desc = "Move cursor up" },
-	{ on = "j", run = "arrow 1",  desc = "Move cursor down" },
+	# { on = "k", run = "arrow -1", desc = "Move cursor up" },
+	# { on = "j", run = "arrow 1",  desc = "Move cursor down" },
 
 	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
 	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
+	{ on = "<C-Up>",    run = "arrow -6", desc = "Move cursor up 6 times" },
+	{ on = "<C-Down>",  run = "arrow 6",  desc = "Move cursor down 6 times" },
 
 	# Filtering
 	{ on = "f", run = "filter", desc = "Apply a filter for the help items" },
