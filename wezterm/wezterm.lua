@@ -1,0 +1,30 @@
+-- Pull in the wezterm API
+local wezterm = require("wezterm")
+
+-- This will hold the configuration.
+local config = wezterm.config_builder()
+
+-- This is where you actually apply your config choices
+
+config.font = wezterm.font{
+  family = "JetBrainsMono Nerd Font Mono",
+  weight = "Medium"
+}
+config.font_size = 12
+
+config.color_scheme = "Catppuccin Mocha"
+
+config.enable_tab_bar = false
+config.window_decorations = "RESIZE"
+config.window_padding = {
+  left = 2,
+  right = 2,
+  top = 2,
+  bottom = 2,
+}
+
+config.window_background_opacity = 0.8
+config.macos_window_background_blur = 90
+
+-- and finally, return the configuration to wezterm
+return config
