@@ -19,7 +19,7 @@ $character
 """
 
 right_format = """\
-$rlang$julia
+$lua$rlang$julia
 """
 
 # ---------------------------------------------------------------------------------
@@ -56,9 +56,14 @@ format = '[$all_status$ahead_behind]($style)'
 
 # (RIGHT SIDE)
 
+[lua]
+symbol = ""
+style = "blue bold"
+format = "[$symbol ($version)]($style)"
+
 [rlang]
 detect_files = []
-symbol = "R"
+symbol = ""
 style = "blue bold"
 format = "[$symbol ($version)]($style)"
 
