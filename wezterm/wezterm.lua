@@ -17,9 +17,9 @@ config.color_scheme = "Catppuccin Mocha"
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_padding = {
-  left = 2,
-  right = 2,
-  top = 2,
+  left = 10,
+  right = 10,
+  top = 5,
   bottom = 2,
 }
 
