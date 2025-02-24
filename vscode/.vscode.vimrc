@@ -13,32 +13,44 @@ nnoremap U <C-r>
 nnoremap + <C-a>
 nnoremap - <C-x>
 
-" window management using a syntax similar to tmux
-" nnoremap <C-a> <C-w>
-nnoremap <C-w>- <C-w>s
-nnoremap <C-w><Bar> <C-w>v
+" window management using the same prefix as tmux
+nnoremap <C-a> <C-w>
+nnoremap <C-a>- <C-w>s
+nnoremap <C-a>| <C-w>v
+" nnoremap <C-a><Bar> <C-w>v " vim correct syntax
 
 " fast vertical navigation ; credits : https://nanotipsforvim.prose.sh/vertical-navigation-%E2%80%93-without-relative-line-numbers
-nnoremap <S-Left> ^
-nnoremap <S-Down> 6j
-nnoremap <S-Up> 6k
-nnoremap <S-Right> $
+nnoremap <C-Left> ^
+nnoremap <C-Down> 6j
+nnoremap <C-Up> 6k
+nnoremap <C-Right> $
 
-vnoremap <S-Left> ^
-vnoremap <S-Down> 6j
-vnoremap <S-Up> 6k
-vnoremap <S-Right> $
+vnoremap <C-Left> ^
+vnoremap <C-Down> 6j
+vnoremap <C-Up> 6k
+vnoremap <C-Right> $
 
-inoremap <S-Left> ^
-inoremap <S-Down> 6j
-inoremap <S-Up> 6k
-inoremap <S-Right> $
+inoremap <C-Left> ^
+inoremap <C-Down> 6j
+inoremap <C-Up> 6k
+inoremap <C-Right> $
 
-" pane switching
-nnoremap <C-Left> <C-w>h
-nnoremap <C-Down> <C-w>j
-nnoremap <C-Up> <C-w>k
-nnoremap <C-Right> <C-w>l
+" correct intendet binding for fast navigation with shift, not available yet in VSCode
+" nnoremap <S-Left> ^
+" nnoremap <S-Down> 6j
+" nnoremap <S-Up> 6k
+" nnoremap <S-Right> $
+
+" vnoremap <S-Left> ^
+" vnoremap <S-Down> 6j
+" vnoremap <S-Up> 6k
+" vnoremap <S-Right> $
+
+" pane switching : correct mapping, but no correct yet in VS Code, due to issues with shift+direction
+" nnoremap <C-Left> <C-w>h
+" nnoremap <C-Down> <C-w>j
+" nnoremap <C-Up> <C-w>k
+" nnoremap <C-Right> <C-w>l
 
 " ergol specific keymaps ; credits : https://ergol.org/articles/vim_pour_les_ergonautes/
 " swap line navigation to account for shifted and non-shifted characters
