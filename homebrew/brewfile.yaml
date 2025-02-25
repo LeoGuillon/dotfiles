@@ -15,8 +15,16 @@ brew:
   yazi
   zoxide
 cask:
+  alfred
+  alt-tab
   beeper
+  espanso
   flux
   firefox
+  font-jetbrains-mono-nerd-font 
+  julia
+  karabiner-elements
+  obsidian
+  wezterm
   zen
 # to complete…
