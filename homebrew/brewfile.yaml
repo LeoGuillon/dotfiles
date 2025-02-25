@@ -1,0 +1,22 @@
+brew:
+  eza
+  fzf
+  lazygit
+  lua
+  neovim
+  pandoc
+  pipx
+  ripgrep
+  starship
+  stow
+  thefuck
+  tmux
+  tree
+  yazi
+  zoxide
+cask:
+  beeper
+  flux
+  firefox
+  zen
+# to complete…

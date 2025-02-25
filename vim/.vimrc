@@ -74,11 +74,11 @@ onoremap aa a'
 vnoremap ia i'
 vnoremap aa a'
 
-" backtick quoted text (in a de[v] setting)
-onoremap iv i`
-onoremap av a`
-vnoremap iv i`
-vnoremap av a`
+" [i]nline code
+onoremap ii i`
+onoremap ai a`
+vnoremap ii i`
+vnoremap ai a`
 
 " [c]urly brackets
 onoremap ic iB

@@ -17,4 +17,5 @@ done
 # Created by `pipx` on 2025-02-19 19:06:41
 export PATH="$PATH:/Users/leo/.local/bin"
 eval "$(starship init zsh)"
-# eval "$(zoxide init zsh)"
+eval $(thefuck --alias)
+eval "$(zoxide init zsh)"

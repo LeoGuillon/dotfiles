@@ -8,6 +8,9 @@
 # (FILES AND FOLDERS NAVIGATION)
 # ---------------------------------------------------------------------------------
 
+# uses zoxide as default cd
+alias cd z
+
 alias ..=" cd .."
 alias ...=" cd ../.."
 

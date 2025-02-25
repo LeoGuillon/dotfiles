@@ -1,0 +1,189 @@
+{
+  "description": "media-layer, accessible by holding spacebar",
+  "manipulators": [
+    {
+      "conditions": [
+        {
+          "name": "NAV",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "from": {
+        "key_code": "d",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "key_code": "volume_increment"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "NAV",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "from": {
+        "key_code": "s",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "key_code": "volume_decrement"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "NAV",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "from": {
+        "key_code": "a",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "key_code": "mute"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "NAV",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "from": {
+        "key_code": "w",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "key_code": "play_or_pause"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "NAV",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "from": {
+        "key_code": "q",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "key_code": "rewind"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "NAV",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "from": {
+        "key_code": "e",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "key_code": "fastforward"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "NAV",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "from": {
+        "key_code": "f",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "key_code": "display_brightness_decrement"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "NAV",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "from": {
+        "key_code": "r",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "key_code": "display_brightness_increment"
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}

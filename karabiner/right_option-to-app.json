@@ -1,0 +1,33 @@
+{
+  "description": "right_option -> tab if alone, app layer if held",
+  "manipulators": [
+    {
+      "from": {
+        "key_code": "right_option",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to_if_held_down": {
+        "set_variable": {
+          "name": "APP",
+          "value": 1
+        }
+      },
+      "to_after_key_up": {
+        "set_variable": {
+          "name": "APP",
+          "value": 0
+        }
+      },
+      "to_if_alone": [
+        {
+          "key_code": "tab"
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}

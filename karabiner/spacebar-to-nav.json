@@ -1,0 +1,34 @@
+{
+  "description": "Spacebar to navmedia layer",
+  "manipulators": [
+    {
+      "description": "spacebar (press) -> spacebar ; spacebar (hold) -> nav layer",
+      "from": {
+        "key_code": "spacebar",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to_if_held_down": {
+        "set_variable": {
+          "name": "NAV",
+          "value": 1
+        }
+      },
+      "to_after_key_up": {
+        "set_variable": {
+          "name": "NAV",
+          "value": 0
+        }
+      },
+      "to_if_alone": [
+        {
+          "key_code": "spacebar"
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}

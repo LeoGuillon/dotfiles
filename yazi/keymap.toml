@@ -19,8 +19,8 @@ keymap = [
 	{ on = "<Up>",    run = "arrow -1", desc = "Move cursor up" },
 	{ on = "<Down>",  run = "arrow 1",  desc = "Move cursor down" },
 
-	{ on = "<C-Up>",    run = "arrow -6", desc = "Move cursor up 6 times" },
-	{ on = "<C-Down>",  run = "arrow 6",  desc = "Move cursor down 6 times" },
+	{ on = "<S-Up>",    run = "arrow -6", desc = "Move cursor up 6 times" },
+	{ on = "<S-Down>",  run = "arrow 6",  desc = "Move cursor down 6 times" },
 
 	{ on = "<C-u>", run = "arrow -50%",  desc = "Move cursor up half page" },
 	{ on = "<C-d>", run = "arrow 50%",   desc = "Move cursor down half page" },
@@ -44,6 +44,9 @@ keymap = [
 
 	# { on = "H", run = "back",    desc = "Go back to the previous directory" },
 	# { on = "L", run = "forward", desc = "Go forward to the next directory" },
+
+	{ on = "<S-Left>",  run = "back",    desc = "Go back to the previous directory" },
+	{ on = "<S-Right>", run = "forward", desc = "Go forward to the next directory" },
 
 	# Toggle
 	{ on = "<Space>", run = [ "toggle", "arrow 1" ], desc = "Toggle the current selection state" },
@@ -362,8 +365,8 @@ keymap = [
 
 	{ on = "<Up>",   run = "arrow -1", desc = "Move cursor up" },
 	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
-	{ on = "<C-Up>",    run = "arrow -6", desc = "Move cursor up 6 times" },
-	{ on = "<C-Down>",  run = "arrow 6",  desc = "Move cursor down 6 times" },
+	{ on = "<S-Up>",    run = "arrow -6", desc = "Move cursor up 6 times" },
+	{ on = "<S-Down>",  run = "arrow 6",  desc = "Move cursor down 6 times" },
 
 	# Filtering
 	{ on = "f", run = "filter", desc = "Apply a filter for the help items" },
