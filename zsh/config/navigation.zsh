@@ -9,7 +9,8 @@
 # ---------------------------------------------------------------------------------
 
 # uses zoxide as default cd
-alias cd z
+alias cd="z"
+alias cdi="zi"
 
 alias ..=" cd .."
 alias ...=" cd ../.."
@@ -20,6 +21,7 @@ function mcd {
   cd $1
 }
 
+# creates a file and opens it right away
 function topen {
   touch "$1" && $EDITOR "$1"
 }

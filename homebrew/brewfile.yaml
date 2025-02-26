@@ -1,30 +1,68 @@
 brew:
+  curl
   eza
   fzf
+  git
+  jupyterlab
   lazygit
   lua
+  mas
   neovim
   pandoc
   pipx
+  pyenv
   ripgrep
+  sevenzip
   starship
   stow
   thefuck
   tmux
   tree
+  tree-sitter
   yazi
   zoxide
 cask:
+  1password
+  1password-cli
   alfred
   alt-tab
+  appcleaner
   beeper
+  ccleaner
+  chatgpt
+  cold-turkey-blocker
+  discord
+  dockey
   espanso
   flux
   firefox
   font-jetbrains-mono-nerd-font 
+  font-symbols-only-nerd-font
+  hiddenbar
+  iterm2
   julia
   karabiner-elements
+  latest
+  libreoffice
+  mactex-no-gui
+  messenger
+  monitorcontrol
+  nordvpn
+  notion
+  numi
   obsidian
+  r
+  raindropio
+  rectangle
+  rstudio
+  scroll-reverser
+  slimhud
+  telegram
+  tex-live-utility
+  vlc
   wezterm
-  zen
-# to complete…
+  zen-browser
+  zotero
+mas:
+  6714467650  # Perplexity
+  1497435571  # Simple Comic
