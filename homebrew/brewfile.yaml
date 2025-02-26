@@ -16,6 +16,7 @@ brew:
   starship
   stow
   thefuck
+  tldr
   tmux
   tree
   tree-sitter
