@@ -1,13 +1,18 @@
 " ——————————————————————————————————————————————————————————————————————————————
 " (CONVENIANCE MAPPINGS)
+" ——————————————————————————————————————————————————————————————————————————————
+
+" Esc cleans the command line and highlights
+" source : https://nanotipsforvim.prose.sh/esc-in-normal-mode
+nnoremap <Esc> :nohl<CR>:echo<CR>
 
 " make the command mode a bit more accessible
 nnoremap ' :
 
 " move the delete and change to the black hole register
 " credits : https://nanotipsforvim.prose.sh/keeping-your-register-clean-from-dd
-nnoremap x _x
-nnoremap c _c
+nnoremap x "_x
+nnoremap c "_c
 
 " yank from cursor to the end of line
 nnoremap Y y$
@@ -23,6 +28,9 @@ nnoremap U <C-r>
 nnoremap + <C-a>
 nnoremap - <C-x>
 
+" togglecase command doesn't move forward a character
+nnoremap ~ v~
+
 " ergo-l layout specific keymaps ; credits : https://ergol.org/articles/vim_pour_les_ergonautes/
 " swap line navigation to account for shifted and non-shifted characters
 nnoremap , ;
@@ -30,20 +38,37 @@ nnoremap ; ,
 " jump history next to each other
 nnoremap <C-c> <C-i>
 
-
 " ——————————————————————————————————————————————————————————————————————————————
+" (VISUAL MODE)
+
+" double v to enter visual block mode
+vnoremap v <C-v>
+
+" enter V multiple times to select multiple lines
+vnoremap V j
+
+" indenting in visual mode keeps the selection on
+vnoremap > >gv
+vnoremap < <gv
+
+——————————————————————————————————————————————————————————————————————————————
 " (COMMENTS)
+" ——————————————————————————————————————————————————————————————————————————————
+
+" most of these commands are supplements to the 'gc' command
 
 " appends a comment at the end of line
-nnoremap gcA mzo<Esc>gcc`zJA "
+nnoremap gcA mzo<Esc>gcc`zJA
 
 " appends a line comment above or below
-nnoremap gco o<Esc>gccA
-nnoremap gcO O<Esc>gccA
+" in order to respect the indentation
+nnoremap gco oz<Esc>gccfzcl
+nnoremap gcO Oz<Esc>gccfzcl
 
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (NAVIGATION)
+" ——————————————————————————————————————————————————————————————————————————————
 
 " window management using the same prefix as tmux
 nnoremap <C-a> <C-w>
@@ -81,6 +106,7 @@ nnoremap <C-Right> <C-w>l
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (TEXT OBJECTS)
+" ——————————————————————————————————————————————————————————————————————————————
 
 " remapped text objects ; credits : https://nanotipsforvim.prose.sh/remapping-all-your-textobjs-for-speed
 " reminder : already existing text objects

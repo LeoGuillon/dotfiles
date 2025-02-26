@@ -6,7 +6,7 @@ export PATH="$PATH:/Users/leo.guillon/.local/bin"
 # export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 
-export EDITOR="code"
+export EDITOR="nvim"
 
 export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml
 
