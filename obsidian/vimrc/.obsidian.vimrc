@@ -4,10 +4,10 @@
 
 " Esc cleans the command line and highlights
 " source : https://nanotipsforvim.prose.sh/esc-in-normal-mode
-nnoremap <Esc> :nohl<CR>:echo<CR>
+" nnoremap <Esc> :nohl<CR>:echo<CR>
 
-" make the command mode a bit more accessible
-nnoremap ' :
+" ——————————————————————————————————————————————————————————————————————————————
+" (YANKING AND PASTING)
 
 " move the delete and change to the black hole register
 " credits : https://nanotipsforvim.prose.sh/keeping-your-register-clean-from-dd
@@ -28,20 +28,40 @@ nnoremap P mzg$p`z
 " redo on U instead of <C-r>
 nnoremap U <C-r>
 
+" togglecase command doesn't move forward a character
+nnoremap ~ v~
+
+" ——————————————————————————————————————————————————————————————————————————————
+" (ERGO-L LAYOUT SPECIFIC KEYMAPS)
+" credits : https://ergol.org/articles/vim_pour_les_ergonautes/
+
+" swap line navigation to account for shifted and non-shifted characters
+nnoremap , ;
+nnoremap ; ,
+
+" jump history next to each other
+nnoremap <C-c> <C-i>
+
+" personal improvement : find previous on \
+" due to the symmetry between \ and / on symbol layer
+nnoremap \ ?
+
 " increment/decrement on +/-
 nnoremap + <C-a>
 nnoremap - <C-x>
 
-" togglecase command doesn't move forward a character
-nnoremap ~ v~
+" ——————————————————————————————————————————————————————————————————————————————
+" (VISUAL MODE)
 
-" ergo-l layout specific keymaps ; credits : https://ergol.org/articles/vim_pour_les_ergonautes/
-" swap line navigation to account for shifted and non-shifted characters
-nnoremap , ;
-nnoremap ; ,
-" jump history next to each other
-nnoremap <C-c> <C-i>
+" double v to enter visual block mode
+vnoremap v <C-v>
 
+" enter V multiple times to select multiple lines
+vnoremap V gj
+
+" indenting in visual mode keeps the selection on
+vnoremap > >gv
+vnoremap < <gv
 
 " ───────────────────────────────────────────────────────────────────────────────
 " (NAVIGATION)
@@ -65,6 +85,9 @@ vnoremap <S-Down> 6j
 vnoremap <S-Up> 6k
 vnoremap <S-Right> $
 
+" going to next/previous search results centers the screen
+nnoremap n nzz
+nnoremap N Nzz
 
 " ───────────────────────────────────────────────────────────────────────────────
 " (TEXT OBJECTS)
