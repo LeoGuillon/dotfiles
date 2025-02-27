@@ -4,7 +4,7 @@
 
 " Esc cleans the command line and highlights
 " source : https://nanotipsforvim.prose.sh/esc-in-normal-mode
-nnoremap <Esc> :nohl<CR>:echo<CR>
+" nnoremap <Esc> :nohl<CR>:echo<CR>
 
 " make the command mode a bit more accessible
 nnoremap ' :
