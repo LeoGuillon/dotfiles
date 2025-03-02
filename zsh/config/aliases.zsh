@@ -5,3 +5,5 @@
 alias c="clear"
 alias r='exec zsh'
 alias q="exit"
+
+alias n="nvim"
