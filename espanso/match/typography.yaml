@@ -1,0 +1,14 @@
+matches:
+  # french guillemets correct spacing
+  - trigger: "« "
+    replace: "« "
+
+  - trigger: "«"
+    replace: "« "
+
+  - trigger: "» "
+    replace: "» "
+
+  - trigger: "»"
+    replace: "» "
+
