@@ -3,8 +3,9 @@ return {
   branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },-- fzf implemented in C for moar speed
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- fzf implemented in C for moar speed
     "nvim-tree/nvim-web-devicons",
+    "folke/todo-comments.nvim",
   },
   config = function()
     local telescope = require("telescope")
@@ -22,10 +23,12 @@ return {
 
     telescope.load_extension("fzf")
 
-    local map = vim.keymap 
+    local map = vim.keymap
     map.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
     map.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
     map.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     map.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+    -- TODO: add more telescope+other plugins shortcuts
+    map.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos in cwd" })
   end,
 }

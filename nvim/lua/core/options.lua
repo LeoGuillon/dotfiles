@@ -1,3 +1,7 @@
+-- makes sure netrw plugin is disable for nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local opt = vim.opt
 
 -- line numbers
@@ -5,7 +9,7 @@ opt.relativenumber = true
 opt.number = true
 
 -- tabs and indentation
-opt.tabstop = 2 
+opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true -- make tabs as spaces
 opt.autoindent = true -- keeps the indentation on following line
@@ -45,4 +49,3 @@ opt.scrolloff = 999 -- makes the cursor always centered
 opt.wrap = false -- disable word wrap
 
 opt.spelllang = { "en", "fr" }
-

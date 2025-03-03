@@ -1,13 +1,18 @@
 return {
   "nvim-tree/nvim-tree.lua",
   dependencies = "nvim-tree/nvim-web-devicons",
+  opts = {
+    actions = {
+      open_file = {
+        quit_on_open = true,
+      },
+    },
+    update_focused_file = { enable = true },
+    view = {
+      side = "right",
+    },
+  },
   config = function()
-    require("nvim-tree").setup({
-      view = {
-        side = "right",
-      }
-    })
-    
     -- (CUSTOM ACTIONS)
     local api = require("nvim-tree.api")
 
@@ -65,5 +70,6 @@ return {
     -- map("n", ".", api.tree.toggle_help, { desc = "Toggle dotfiles display"})
     -- editing
 
+    require("nvim-tree").setup({})
   end,
 }
