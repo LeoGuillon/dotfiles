@@ -6,9 +6,7 @@
       "from": {
         "key_code": "caps_lock",
         "modifiers": {
-          "optional": [
-            "any"
-          ]
+          "optional": ["any"]
         }
       },
       "to": [
@@ -24,11 +22,9 @@
     },
     {
       "from": {
-        "key_code": "escape",
+        "key_code": "non_us_backslash",
         "modifiers": {
-          "optional": [
-            "any"
-          ]
+          "optional": ["any"]
         }
       },
       "to": [
@@ -40,3 +36,4 @@
     }
   ]
 }
+

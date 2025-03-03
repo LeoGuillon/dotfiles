@@ -6,19 +6,36 @@
       "description": "left_command -> return_or_enter if alone, left_command if held",
       "from": {
         "key_code": "left_command",
-        "modifiers": {"optional": ["any"]}
+        "modifiers": { "optional": ["any"] }
       },
-      "to": [{"key_code": "left_command"}],
-      "to_if_alone": [{"key_code": "return_or_enter"}]
+      "to": [{ "key_code": "left_command" }],
+      "to_if_alone": [{ "key_code": "return_or_enter" }]
+    },
+    {
+      "type": "basic",
+      "description": "right_command + left_shift -> delete_forward if alone, right_option (e.g. altgr) if held",
+      "from": {
+        "key_code": "right_command",
+        "modifiers": {
+          "mandatory": ["left_shift"],
+          "optional": ["left_command", "left_option", "left_control"]
+        }
+      },
+      "to_if_alone": [{ "key_code": "delete_forward" }],
+      "to": [
+        {
+          "key_code": "right_option"
+        }
+      ]
     },
     {
       "type": "basic",
       "description": "right_command -> delete_or_backspace if alone, right_option (e.g. altgr) if held",
       "from": {
         "key_code": "right_command",
-        "modifiers": {"optional": ["any"]}
+        "modifiers": { "optional": ["any"] }
       },
-      "to_if_alone": [{"key_code": "delete_or_backspace"}],
+      "to_if_alone": [{ "key_code": "delete_or_backspace" }],
       "to": [
         {
           "key_code": "right_option"
@@ -27,4 +44,3 @@
     }
   ]
 }
-
