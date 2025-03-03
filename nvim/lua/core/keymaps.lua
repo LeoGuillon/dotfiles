@@ -47,7 +47,6 @@ map("n", "<leader>~", "mzlblgueh~`z", { desc = "Smart word togglecasing" })
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (COMMENTING)
 
-
 -- handled in Comment.nvim plugin
 -- map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add comment below" })
 -- map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add comment above" })
@@ -56,8 +55,21 @@ map("n", "<leader>~", "mzlblgueh~`z", { desc = "Smart word togglecasing" })
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (NEW LINES)
 
-map("n", "gl", "mzo<esc>^D`z", { desc = "Add an empty line below" })
-map("n", "gL", "mzO<esc>^D`z", { desc = "Add an empty line above" })
+map("n", "gn", "mzo<esc>^D`z", { desc = "Add an empty line below" })
+map("n", "gN", "mzO<esc>^D`z", { desc = "Add an empty line above" })
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (NEW LINES)
+-- credits : https://github.com/chrisgrieser/.config/blob/9fb7bea009be951f9676ef52634a7d12d9717953/nvim/lua/config/leader-keybindings.lua
+
+local trail_chars = {
+  ",",
+  ";",
+  ".",
+}
+for _, key in pairs(trail_chars) do
+  map("n", "<leader>" .. key, ("mzA%s<Esc>`z"):format(key), { desc = ("add %s to eol"):format(key) })
+end
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (ERGO-L LAYOUT SPECIFIC KEYMAPS)
@@ -94,11 +106,10 @@ map({ "n", "v" }, "<S-Up>", "6k", { desc = "Move up 6 lines" })
 map({ "n", "v" }, "<S-Right>", "$", { desc = "Go to end of line" })
 
 -- Window navigation
-map("n", "<C-Left>", "<C-w>h", { desc = "Go to Left Window", remap = true }) 
+map("n", "<C-Left>", "<C-w>h", { desc = "Go to Left Window", remap = true })
 map("n", "<C-Down>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
 map("n", "<C-Up>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
 map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window", remap = true })
-
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (TEXT OBJECTS)
@@ -108,31 +119,29 @@ map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 -- credits : https://nanotipsforvim.prose.sh/remapping-all-your-textobjs-for-speed
 
 -- [c]urly brace
-vim.keymap.set("o", "ic", "i}", { desc = "inner {}"}) 
-vim.keymap.set("o", "ac", "a}", { desc = "outer {}"})
+vim.keymap.set("o", "ic", "i}", { desc = "inner {}" })
+vim.keymap.set("o", "ac", "a}", { desc = "outer {}" })
 
 -- [r]ectangular bracket
-vim.keymap.set("o", "ir", "i]", { desc = "inner []"}) 
-vim.keymap.set("o", "ar", "a]", { desc = "outer []"})
+vim.keymap.set("o", "ir", "i]", { desc = "inner []" })
+vim.keymap.set("o", "ar", "a]", { desc = "outer []" })
 
 -- che[v]rons
-vim.keymap.set("o", "iv", "i>", { desc = "inner <>"}) 
-vim.keymap.set("o", "av", "a>", { desc = "outer <>"})
+vim.keymap.set("o", "iv", "i>", { desc = "inner <>" })
+vim.keymap.set("o", "av", "a>", { desc = "outer <>" })
 
 -- [m]assive word
-vim.keymap.set("o", "im", "iW", { desc = "inner WORD"}) 
-vim.keymap.set("o", "am", "aW", { desc = "outer WORD"})
+vim.keymap.set("o", "im", "iW", { desc = "inner WORD" })
+vim.keymap.set("o", "am", "aW", { desc = "outer WORD" })
 
 -- [q]uoted text
-vim.keymap.set("o", "iq", 'i"', { desc = 'inner "'}) 
-vim.keymap.set("o", "aq", 'a"', { desc = 'outer "'})
+vim.keymap.set("o", "iq", 'i"', { desc = 'inner "' })
+vim.keymap.set("o", "aq", 'a"', { desc = 'outer "' })
 
 -- [a]postrothe quoted text
-vim.keymap.set("o", "ia", "a'", { desc = "inner '"}) 
-vim.keymap.set("o", "aa", "a'", { desc = "outer '"})
+vim.keymap.set("o", "ia", "a'", { desc = "inner '" })
+vim.keymap.set("o", "aa", "a'", { desc = "outer '" })
 
 -- [i]nline code
-vim.keymap.set("o", "ii", "i`", { desc = "inner `"}) 
-vim.keymap.set("o", "ai", "a`", { desc = "outer `"})
-
-
+vim.keymap.set("o", "ii", "i`", { desc = "inner `" })
+vim.keymap.set("o", "ai", "a`", { desc = "outer `" })

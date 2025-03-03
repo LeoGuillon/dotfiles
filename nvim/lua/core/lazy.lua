@@ -16,16 +16,21 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- configuration and plugins importation
-require("lazy").setup({ { import = "plugins" } }, {
-  -- adds an icon in lualine
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  -- uses catppuccin theme during plugin installation
-  install = { colorscheme = { "catppuccin" } },
-  -- removes the startup notification
-  change_detection = {
-    notify = false,
-  },
-})
+require("lazy").setup(
+  { 
+    { import = "plugins" },
+    { import = "plugins.lsp" },
+  }, {
+    -- adds an icon in lualine
+    checker = {
+      enabled = true,
+      notify = false,
+    },
+    -- uses catppuccin theme during plugin installation
+    install = { colorscheme = { "catppuccin" } },
+    -- removes the startup notification
+    change_detection = {
+      notify = false,
+    },
+  }
+)
