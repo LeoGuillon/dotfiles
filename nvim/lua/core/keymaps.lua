@@ -84,14 +84,28 @@ map("n", "<C-c>", "<C-i>", { desc = "Jump to previous location" }) -- so that th
 map("n", "+", "<C-a>", { desc = "Increment" })
 map("n", "-", "<C-x>", { desc = "Decrement" })
 
+-- ——————————————————————————————————————————————————————————————————————————————
+-- PERSONAL IMPROVEMENTS
+
+-- remapping of hjkl to other functions
+-- as regular arrow movements are mapped to the arrow keys, to another layer
+-- [j]oin lines
+map("n", "j", "J", { desc = "Join next line to the current" })
+map("n", "J", "kJ", { desc = "Join current line to the previous" })
+
+-- [k]nit lines
+-- opposite functions to j/J
+map("n", "k", "i<CR><Esc>", { desc = "Unjoin to the next line" })
+
 map("n", "\\", "?", { desc = "Find previous" }) -- due to the symmetry between \ and / on symbol layer
 
 map("n", "'", ":", { desc = "Command line" }) -- makes it a bit more accessible
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (VISUAL MODE)
+-- ——————————————————————————————————————————————————————————————————————————————
 
-map("v", "v", "<C-v>", { desc = "Visual block mode" })
+map("v", "v", "<C-v>", { desc = "Visual block mode" }) -- double tap v to enter visual block mode
 map("v", "V", "j", { desc = "Select next line" })
 
 -- ——————————————————————————————————————————————————————————————————————————————

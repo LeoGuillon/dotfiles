@@ -10,13 +10,17 @@ return {
 
           keymaps = {
 
-            -- [e]quals
-            ["ae"] = { query = "@assignment.outer", desc = "outer part of an assignment" },
-            ["ie"] = { query = "@assignment.inner", desc = "inner part of an assignment" },
-            ["le"] = { query = "@assignment.lhs", desc = "left hand side of an assignment" },
-            ["re"] = { query = "@assignment.rhs", desc = "right hand side of an assignment" },
+            -- [a]ssignment
+            ["aa"] = { query = "@assignment.outer", desc = "outer part of an assignment" },
+            ["ia"] = { query = "@assignment.inner", desc = "inner part of an assignment" },
+            ["la"] = { query = "@assignment.lhs", desc = "left hand side of an assignment" },
+            ["ra"] = { query = "@assignment.rhs", desc = "right hand side of an assignment" },
 
             -- coding text [o]bjects
+
+            -- [c]omments
+            ["aoc"] = { query = "@comment.outer", desc = "outer part of an comment" },
+            ["ioc"] = { query = "@comment.inner", desc = "inner part of an comment" },
 
             -- [i]f else
             ["aoi"] = { query = "@conditional.outer", desc = "outer part of a conditional" },
@@ -33,10 +37,13 @@ return {
             -- function or class [d]efinition
             ["aod"] = { query = "@call.outer", desc = "outer part of a function definition" },
             ["iod"] = { query = "@call.inner", desc = "inner part of a function definition" },
-          }
 
-        }
-      }
+            -- function [p]arameter
+            ["aop"] = { query = "@parameter.outer", desc = "outer part of a function parameter" },
+            ["iop"] = { query = "@parameter.inner", desc = "inner part of a function parameter" },
+          },
+        },
+      },
     })
-  end
+  end,
 }
