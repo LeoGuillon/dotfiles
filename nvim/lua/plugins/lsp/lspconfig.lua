@@ -57,8 +57,8 @@ return {
       opts.desc = "Show documentation for what is under cursor"
       vim.keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
-      opts.desc = "Format buffer"
-      vim.keymap.set({ "n", "x" }, "F", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
+      -- opts.desc = "Format buffer"
+      -- vim.keymap.set({ "n", "x" }, "F", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
 
       opts.desc = "Restart LSP"
       vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary

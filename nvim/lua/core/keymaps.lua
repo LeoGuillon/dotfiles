@@ -11,10 +11,10 @@ local map = vim.keymap.set
 
 -- deleting and changing to the black hole register
 -- credits : https://nanotipsforvim.prose.sh/keeping-your-register-clean-from-dd
-map({ "n", "v" }, "x", '"_x', { desc = "Delete character to the void register" })
-map({ "n", "v" }, "c", '"_c', { desc = "Change to the void register" })
-map({ "n", "v" }, "C", '"_C', { desc = "Change until the end of line to the void register" })
-vim.keymap.set("n", "dd", function()
+map({ "n", "v" }, "x", '"_x', { desc = "Delete under cursor" })
+map({ "n", "v" }, "c", '"_c', { desc = "Change" })
+map({ "n", "v" }, "C", '"_C', { desc = "Change until the end of line" })
+map("n", "dd", function()
   if vim.fn.getline(".") == "" then
     return '"_dd'
   end
@@ -97,7 +97,7 @@ map("n", "J", "kJ", { desc = "Join current line to the previous" })
 -- opposite functions to j/J
 map("n", "k", "i<CR><Esc>", { desc = "Unjoin to the next line" })
 
-map("n", "\\", "?", { desc = "Find previous" }) -- due to the symmetry between \ and / on symbol layer
+map("n", "\\", "?", { desc = "Search backwards" }) -- due to the symmetry between \ and / on symbol layer
 
 map("n", "'", ":", { desc = "Command line" }) -- makes it a bit more accessible
 
