@@ -7,7 +7,9 @@ return {
 
     conform.setup({
       formatters_by_ft = {
+        bib = { "tex-fmt" },
         c = { "clang-format" },
+        cls = { "tex-fmt" },
         cpp = { "clang-format" },
         css = { "prettier" },
         javascript = { "prettier" },
@@ -25,6 +27,12 @@ return {
         toml = { "prettier" },
         typescript = { "prettier" },
         yaml = { "prettier" },
+      },
+      formatters = {
+        ["tex-fmt"] = {
+          command = "tex-fmt",
+          prepend_args = { "--nowrap" },
+        },
       },
       format_on_save = {
         lsp_fallback = true,

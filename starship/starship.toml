@@ -58,19 +58,19 @@ format = '[$all_status$ahead_behind]($style)'
 [lua]
 symbol = ""
 style = "blue bold"
-format = "[$symbol ($version)]($style)"
+format = "via [$symbol ($version)]($style)"
 
 [rlang]
 detect_files = []
 symbol = ""
 style = "blue bold"
-format = "[$symbol ($version)]($style)"
+format = "via [$symbol ($version)]($style)"
 
 [julia]
 detect_files = []
 symbol = "ஃ"
 style = "bold mauve"
-format = "[$symbol ($version)]($style)"
+format = "via [$symbol ($version)]($style)"
 
 # (PROMPT LINE)
 
