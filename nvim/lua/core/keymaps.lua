@@ -3,6 +3,13 @@ vim.g.mapleader = " "
 local map = vim.keymap.set
 
 -- ——————————————————————————————————————————————————————————————————————————————
+-- (BETTER ESCAPE)
+-- ——————————————————————————————————————————————————————————————————————————————
+-- credits : https://nanotipsforvim.prose.sh/esc-in-normal-mode
+
+-- map("n", "<esc>", ":nohl<cr>:echo<cr>", { desc = "Escape and clear hlsearch" })
+
+-- ——————————————————————————————————————————————————————————————————————————————
 -- (EDITION)
 -- ——————————————————————————————————————————————————————————————————————————————
 
@@ -108,22 +115,29 @@ map("n", "'", ":", { desc = "Command line" }) -- makes it a bit more accessible
 map("v", "v", "<C-v>", { desc = "Visual block mode" }) -- double tap v to enter visual block mode
 map("v", "V", "j", { desc = "Select next line" })
 
+map("v", "<", "<gv", { desc = "Indent selection to the left" })
+map("v", ">", ">gv", { desc = "Indent selection to the right" })
+
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (NAVIGATION)
 -- ——————————————————————————————————————————————————————————————————————————————
 
+-- better up/down
+map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
+map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
+
 -- Faster navigation
--- credits :
-map({ "n", "v" }, "<S-Left>", "^", { desc = "Go to first non-blank character" })
-map({ "n", "v" }, "<S-Down>", "6j", { desc = "Move down 6 lines" })
-map({ "n", "v" }, "<S-Up>", "6k", { desc = "Move up 6 lines" })
-map({ "n", "v" }, "<S-Right>", "$", { desc = "Go to end of line" })
+-- credits : https://nanotipsforvim.prose.sh/motion-setup--hjkl-as-amplified-hjkl
+map({ "n", "v" }, "<S-Left>", "^", { desc = "Go to first non-blank character", silent = true })
+map({ "n", "v" }, "<S-Down>", "6j", { desc = "Move down 6 lines", silent = true })
+map({ "n", "v" }, "<S-Up>", "6k", { desc = "Move up 6 lines", silent = true })
+map({ "n", "v" }, "<S-Right>", "$", { desc = "Go to end of line", silent = true })
 
 -- Window navigation
-map("n", "<C-Left>", "<C-w>h", { desc = "Go to Left Window", remap = true })
-map("n", "<C-Down>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
-map("n", "<C-Up>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
-map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window", remap = true })
+map("n", "<C-Left>", "<C-w>h", { desc = "Go to Left Window", silent = true, remap = true })
+map("n", "<C-Down>", "<C-w>j", { desc = "Go to Lower Window", silent = true, remap = true })
+map("n", "<C-Up>", "<C-w>k", { desc = "Go to Upper Window", silent = true, remap = true })
+map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window", silent = true, remap = true })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (TEXT OBJECTS)
@@ -133,29 +147,36 @@ map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 -- credits : https://nanotipsforvim.prose.sh/remapping-all-your-textobjs-for-speed
 
 -- [c]urly brace
-vim.keymap.set("o", "ic", "i}", { desc = "inner {}" })
-vim.keymap.set("o", "ac", "a}", { desc = "outer {}" })
+map("o", "ic", "i}", { desc = "inner {}" })
+map("o", "ac", "a}", { desc = "outer {}" })
 
 -- [r]ectangular bracket
-vim.keymap.set("o", "ir", "i]", { desc = "inner []" })
-vim.keymap.set("o", "ar", "a]", { desc = "outer []" })
+map("o", "ir", "i]", { desc = "inner []" })
+map("o", "ar", "a]", { desc = "outer []" })
 
 -- che[v]rons
-vim.keymap.set("o", "iv", "i>", { desc = "inner <>" })
-vim.keymap.set("o", "av", "a>", { desc = "outer <>" })
+map("o", "iv", "i>", { desc = "inner <>" })
+map("o", "av", "a>", { desc = "outer <>" })
 
 -- [m]assive word
-vim.keymap.set("o", "im", "iW", { desc = "inner WORD" })
-vim.keymap.set("o", "am", "aW", { desc = "outer WORD" })
+map("o", "im", "iW", { desc = "inner WORD" })
+map("o", "am", "aW", { desc = "outer WORD" })
 
 -- [q]uoted text
-vim.keymap.set("o", "iq", 'i"', { desc = 'inner "' })
-vim.keymap.set("o", "aq", 'a"', { desc = 'outer "' })
+map("o", "iq", 'i"', { desc = 'inner "' })
+map("o", "aq", 'a"', { desc = 'outer "' })
 
 -- [a]postrothe quoted text
-vim.keymap.set("o", "ia", "a'", { desc = "inner '" })
-vim.keymap.set("o", "aa", "a'", { desc = "outer '" })
+map("o", "ia", "a'", { desc = "inner '" })
+map("o", "aa", "a'", { desc = "outer '" })
 
 -- [i]nline code
-vim.keymap.set("o", "ii", "i`", { desc = "inner `" })
-vim.keymap.set("o", "ai", "a`", { desc = "outer `" })
+map("o", "ii", "i`", { desc = "inner `" })
+map("o", "ai", "a`", { desc = "outer `" })
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (LEADER MAPPINGS)
+-- ——————————————————————————————————————————————————————————————————————————————
+
+-- Lazy UI opening
+map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Open Lazy" })
