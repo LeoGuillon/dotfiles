@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https:/rraw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+# yaml-language-server: $schema=https:/raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
 #───────────────────────────────────────────────────────────────────────────────
 
 matches:
@@ -11,15 +11,20 @@ matches:
     replace: "beaucoup"
     word: true
     propagate_case: true
-  
+
+  - trigger: "cdlt"
+    replace: "cordialement"
+    word: true
+    propagate_case: true
+
   - trigger: "!cad"
     replace: "c'est à dire"
     propagate_case: true
-  
+
   - trigger: "!ssi"
     replace: "si et seulement si"
     propagate_case: true
-    
+
   - trigger: "!pre"
     replace: "pregame action"
     propagate_case: true

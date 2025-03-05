@@ -137,6 +137,7 @@ keymap = [
 	{ on = [ "g", "d" ],       run = "cd ~/Documents",   desc = "Documents" },
 	{ on = [ "g", "." ],       run = "cd ~/dotfiles",    desc = "dotfiles" },
 	{ on = [ "g", "l" ],       run = "cd ~/Downloads",   desc = "Downloads" },
+	{ on = [ "g", "i" ],       run = "cd ~/Pictures",    desc = "Pictures" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
 
 	# Tabs
