@@ -4,7 +4,6 @@ export PATH="$DOTFILES/zsh/scripts:$PATH"
 
 CONFIG_FILES=(
   aliases
-  display
   fzf
   git
   homebrew

@@ -1,53 +1,9 @@
 {
-  "description": "media-layer, accessible by holding spacebar",
+  "description": "nav layer, left side : media control and home-row mods",
   "manipulators": [
     {
-      "conditions": [
-        {
-          "name": "NAV",
-          "type": "variable_if",
-          "value": 1
-        }
-      ],
-      "from": {
-        "key_code": "d",
-        "modifiers": {
-          "optional": [
-            "any"
-          ]
-        }
-      },
-      "to": [
-        {
-          "key_code": "volume_increment"
-        }
-      ],
-      "type": "basic"
-    },
-    {
-      "conditions": [
-        {
-          "name": "NAV",
-          "type": "variable_if",
-          "value": 1
-        }
-      ],
-      "from": {
-        "key_code": "s",
-        "modifiers": {
-          "optional": [
-            "any"
-          ]
-        }
-      },
-      "to": [
-        {
-          "key_code": "volume_decrement"
-        }
-      ],
-      "type": "basic"
-    },
-    {
+      "type": "basic",
+      "description": "",
       "conditions": [
         {
           "name": "NAV",
@@ -58,19 +14,77 @@
       "from": {
         "key_code": "a",
         "modifiers": {
-          "optional": [
-            "any"
-          ]
+          "optional": ["any"]
         }
       },
-      "to": [
+      "to_if_alone": [
         {
           "key_code": "mute"
         }
       ],
-      "type": "basic"
+      "to": [
+        {
+          "key_code": "left_control"
+        }
+      ]
     },
     {
+      "type": "basic",
+      "description": "",
+      "conditions": [
+        {
+          "name": "NAV",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "from": {
+        "key_code": "d",
+        "modifiers": {
+          "optional": ["any"]
+        }
+      },
+      "to_if_alone": [
+        {
+          "key_code": "volume_increment"
+        }
+      ],
+      "to": [
+        {
+          "key_code": "left_command"
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "description": "",
+      "conditions": [
+        {
+          "name": "NAV",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "from": {
+        "key_code": "s",
+        "modifiers": {
+          "optional": ["any"]
+        }
+      },
+      "to_if_alone": [
+        {
+          "key_code": "volume_decrement"
+        }
+      ],
+      "to": [
+        {
+          "key_code": "left_option"
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "description": "",
       "conditions": [
         {
           "name": "NAV",
@@ -81,19 +95,18 @@
       "from": {
         "key_code": "w",
         "modifiers": {
-          "optional": [
-            "any"
-          ]
+          "optional": ["any"]
         }
       },
       "to": [
         {
           "key_code": "play_or_pause"
         }
-      ],
-      "type": "basic"
+      ]
     },
     {
+      "type": "basic",
+      "description": "",
       "conditions": [
         {
           "name": "NAV",
@@ -104,19 +117,18 @@
       "from": {
         "key_code": "q",
         "modifiers": {
-          "optional": [
-            "any"
-          ]
+          "optional": ["any"]
         }
       },
       "to": [
         {
           "key_code": "rewind"
         }
-      ],
-      "type": "basic"
+      ]
     },
     {
+      "type": "basic",
+      "description": "",
       "conditions": [
         {
           "name": "NAV",
@@ -127,19 +139,18 @@
       "from": {
         "key_code": "e",
         "modifiers": {
-          "optional": [
-            "any"
-          ]
+          "optional": ["any"]
         }
       },
       "to": [
         {
           "key_code": "fastforward"
         }
-      ],
-      "type": "basic"
+      ]
     },
     {
+      "type": "basic",
+      "description": "",
       "conditions": [
         {
           "name": "NAV",
@@ -150,19 +161,23 @@
       "from": {
         "key_code": "f",
         "modifiers": {
-          "optional": [
-            "any"
-          ]
+          "optional": ["any"]
         }
       },
-      "to": [
+      "to_if_alone": [
         {
           "key_code": "display_brightness_decrement"
         }
       ],
-      "type": "basic"
+      "to": [
+        {
+          "key_code": "left_shift"
+        }
+      ]
     },
     {
+      "type": "basic",
+      "description": "",
       "conditions": [
         {
           "name": "NAV",
@@ -173,17 +188,15 @@
       "from": {
         "key_code": "r",
         "modifiers": {
-          "optional": [
-            "any"
-          ]
+          "optional": ["any"]
         }
       },
       "to": [
         {
           "key_code": "display_brightness_increment"
         }
-      ],
-      "type": "basic"
+      ]
     }
   ]
 }
+

@@ -13,8 +13,6 @@ export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml
 export TMUX_CONFIG_DIR=$DOTFILES/tmux
 export TMUX_CONFIG_FILE=$DOTFILES/tmux/tmux.conf
 
-# export VIMINIT='source $VIM_CONFIG'
-# export VIM_CONFIG=$DOTFILES/vim/.vimrc
 
 export WEZTERM_CONFIG_DIR=$DOTFILES/wezterm
 export WEZTERM_CONFIG_FILE=$DOTFILES/wezterm/wezterm.lua
