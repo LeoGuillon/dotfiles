@@ -6,8 +6,8 @@ return {
 
     win = {
       title = false,
-    },
-
+    }
+    ,
     -- sorting is done by alphabetical order, to see available keys faster
     sort = {
       "alphanum",
@@ -30,7 +30,8 @@ return {
       { "z", desc = "folds etc." },
       { "[", desc = "previous" },
       { "]", desc = "next" },
-      { "<leader>", desc = "Leader key" },
+
+      { "<leader>", group = "Leader key" },
     },
   },
   keys = {

@@ -64,7 +64,7 @@ return {
           ellipsis_char = "…",
           menu = {
             buffer = "[Buffer]",
-            luasnip = "[LuaSnip]",
+            luasnip = "[Snippet]",
             nvim_lsp = "[LSP]",
             nvim_lua = "[Lua]",
             path = "[Path]",
