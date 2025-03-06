@@ -43,7 +43,7 @@ return {
           "lua_ls",
           -- "pyright",
           -- "r_language_server",
-          -- "taplo", -- toml
+          "taplo", -- toml
           "texlab", -- latex lsp
           -- "ts_ls",
           -- "yamlls",
@@ -56,9 +56,13 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require("lspconfig")
+
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
       -- then, each lsp can be configured as wanted
       -- for example configs : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
       lspconfig.lua_ls.setup({
+        capabilities = capabilities,
         settings = {
           Lua = {
             diagnostics = {
@@ -69,7 +73,12 @@ return {
           },
         },
       })
-      lspconfig.texlab.setup({})
+      lspconfig.taplo.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.texlab.setup({
+        capabilities = capabilities,
+      })
 
       -- keymaps setup
       local map = vim.keymap.set

@@ -4,7 +4,9 @@ return {
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-cmdline", -- source for vim command line
-    "hrsh7th/cmp-path", -- source for file system paths
+    "kdheepak/cmp-latex-symbols", -- source for latex symbols
+    "hrsh7th/cmp-nvim-lsp", -- source for lsp in buffer
+    "hrsh7th/cmp-nvim-lua",
     {
       "L3MON4D3/LuaSnip",
       -- follow latest release.
@@ -12,7 +14,8 @@ return {
       -- install jsregexp (optional!).
       build = "make install_jsregexp",
     },
-    "saadparwaiz1/cmp_luasnip", -- for autocompletion
+    "saadparwaiz1/cmp_luasnip", -- source for snippets
+    "hrsh7th/cmp-path", -- source for file system paths
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
   },
@@ -30,16 +33,26 @@ return {
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
-      snippet = { -- configure how nvim-cmp interacts with snippet engine
+
+      -- configure how nvim-cmp interacts with snippet engine
+      snippet = {
         expand = function(args)
-          luasnip.lsp_expand(args.body)
+          luasnip.lsp_expand(args.body) -- using LuaSnip as the snippet engine
         end,
       },
+
+      -- our window for autocompletion
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+
+      -- keymaps during autocompletion
       mapping = cmp.mapping.preset.insert({
         ["<Up>"] = cmp.mapping.select_prev_item(), -- previous suggestion
         ["<Down>"] = cmp.mapping.select_next_item(), -- next suggestion
-        ["<S-Up>"] = cmp.mapping.scroll_docs(-1),
-        ["<S-Down>"] = cmp.mapping.scroll_docs(1),
+        ["<S-Up>"] = cmp.mapping.scroll_docs(-6),
+        ["<S-Down>"] = cmp.mapping.scroll_docs(6),
         -- ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
         ["<Esc>"] = cmp.mapping.abort(), -- close completion window
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- accept current selection without explicitely selecting
@@ -48,9 +61,15 @@ return {
       -- sources for autocompletion
       sources = cmp.config.sources({
         { name = "buffer" }, -- text within current buffer
+        {
+          name = "latex_symbols",
+          option = {
+            strategy = 2, -- latex ; show and insert the command
+          },
+        },
         { name = "luasnip" }, -- snippets
+        { name = "nvim_lua" }, -- lua api
         { name = "nvim_lsp" }, -- lsp
-        { name = "nvim_lua" },
         { name = "path" }, -- file system paths
       }),
 
@@ -64,7 +83,8 @@ return {
           ellipsis_char = "…",
           menu = {
             buffer = "[Buffer]",
-            luasnip = "[Snippet]",
+            latex_symbols = "[LaTeX]",
+            luasnip = "[LuaSnip]",
             nvim_lsp = "[LSP]",
             nvim_lua = "[Lua]",
             path = "[Path]",

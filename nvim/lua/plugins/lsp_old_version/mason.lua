@@ -14,7 +14,6 @@ return {
     local lspconfig = require("lspconfig")
     local mason_tool_installer = require("mason-tool-installer")
 
-
     mason_lspconfig.setup({
       -- list of servers for mason to install
       -- list of available servers : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
@@ -48,8 +47,8 @@ return {
         -- "clang-format", -- c, c++
         -- "jupytext", -- python, julia, R, Rmd
         "prettier", -- html, css, scss, md, javascript, typescript, json, yaml, toml
-        "stylua",   -- lua
-        "tex-fmt",  -- latex
+        "stylua", -- lua
+        "tex-fmt", -- latex
       },
     })
   end,
