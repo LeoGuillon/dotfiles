@@ -4,4 +4,13 @@ return {
   main = "ibl",
   -- TODO: configure it
   opts = {},
+  config = function()
+    require("ibl").setup({
+      exclude = {
+        filetypes = {
+          "dashboard",
+        },
+      },
+    })
+  end,
 }
