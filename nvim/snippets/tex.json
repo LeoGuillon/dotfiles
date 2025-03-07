@@ -1,0 +1,1 @@
+{"table-input":{"body":["\\begin{table}","  \\centering","  \\input{$1}","  \\caption{$2}","  \\label{table:$3}","\\end{table}"],"prefix":"table-input"},"frame":{"body":["\\begin{frame}{$1}","  $2","\\end{frame}"],"prefix":"frame"}}

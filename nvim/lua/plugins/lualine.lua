@@ -14,6 +14,7 @@ return {
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
           "dashboard",
+          "query",
         },
         ignore_focus = {},
         always_divide_middle = true,
