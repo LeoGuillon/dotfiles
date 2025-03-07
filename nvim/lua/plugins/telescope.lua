@@ -4,8 +4,8 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- fzf implemented in C for moar speed
-    "nvim-telescope/telescope-ui-select.nvim",                      -- ui selection
-    "debugloop/telescope-undo.nvim",                                -- undo tree
+    "nvim-telescope/telescope-ui-select.nvim", -- ui selection
+    "debugloop/telescope-undo.nvim", -- undo tree
     "nvim-tree/nvim-web-devicons",
     "folke/todo-comments.nvim",
     "folke/which-key.nvim",
@@ -24,9 +24,9 @@ return {
       },
       extensions = {
         ["ui-select"] = {
-          require("telescope.themes").get_dropdown {}
-        }
-      }
+          require("telescope.themes").get_dropdown({}),
+        },
+      },
     })
 
     telescope.load_extension("fzf")

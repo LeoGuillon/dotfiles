@@ -15,6 +15,7 @@ return {
         disabled_filetypes = {
           "dashboard",
           "query",
+          "trouble",
         },
         ignore_focus = {},
         always_divide_middle = true,
