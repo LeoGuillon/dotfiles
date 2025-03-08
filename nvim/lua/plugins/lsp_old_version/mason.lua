@@ -33,13 +33,6 @@ return {
         -- "ts_ls",
         -- "yamlls",
       },
-
-      handlers = {
-        function(server_name)
-          -- each lsp is called with its default config
-          lspconfig[server_name].setup({})
-        end,
-      },
     })
 
     mason_tool_installer.setup({

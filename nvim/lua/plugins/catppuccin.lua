@@ -8,14 +8,17 @@ return {
       transparent_background = true,
       integrations = {
         -- bufferline = true, -- special assignment
+        cmp = true,
+        dashboard = true,
+        flash = true,
         gitsigns = true,
-        -- harpoon = true,
+        harpoon = true,
         indent_blankline = {
           enabled = true,
           scope_color = "",
           colored_indent_levels = false,
         },
-        leap = true,
+        -- leap = true,
         mason = true,
         native_lsp = {
           enabled = true,
@@ -46,6 +49,7 @@ return {
         --   indent_scope_color = "",
         -- }
         telescope = { enabled = true },
+        -- lsp_trouble = true,
         which_key = true,
       },
     })

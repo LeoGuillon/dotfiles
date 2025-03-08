@@ -7,7 +7,7 @@ local map = vim.keymap.set
 -- ——————————————————————————————————————————————————————————————————————————————
 -- credits : https://nanotipsforvim.prose.sh/esc-in-normal-mode
 
--- map("n", "<esc>", ":nohl<cr>:echo<cr>", { desc = "Escape and clear hlsearch" })
+map("n", "<esc>", "<cmd>nohl<cr>", { desc = "Escape and clear hlsearch" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (EDITION)
@@ -28,7 +28,7 @@ map("n", "dd", function()
   return "dd"
 end, { expr = true, desc = "Delete line" }) -- Add moves it to the black hole only if it's empty
 
-map("n", "Y", "y$", { desc = "Yank from cursor to the end of line" })
+map("n", "Y", "yg$", { desc = "Yank from cursor to the end of line" })
 map("n", "P", "mz$p`z", { desc = "Paste at the end of line" })
 
 map({ "n", "v" }, "U", "<C-r>", { desc = "Redo" })
@@ -88,8 +88,10 @@ map("n", ";", ",", { desc = "Go to previous occurence in line" })
 
 map("n", "<C-c>", "<C-i>", { desc = "Jump to previous location" }) -- so that they're next to each other
 
-map("n", "+", "<C-a>", { desc = "Increment" })
-map("n", "-", "<C-x>", { desc = "Decrement" })
+map({ "n", "v" }, "+", "<C-a>", { desc = "Increment" })
+map({ "n", "v" }, "-", "<C-x>", { desc = "Decrement" })
+map({ "n", "v" }, "g+", "<C-a>", { desc = "g-Increment" })
+map({ "n", "v" }, "g-", "<C-x>", { desc = "g-Decrement" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- PERSONAL IMPROVEMENTS
@@ -139,6 +141,10 @@ map("n", "<C-Down>", "<C-w>j", { desc = "Go to Lower Window", silent = true, rem
 map("n", "<C-Up>", "<C-w>k", { desc = "Go to Upper Window", silent = true, remap = true })
 map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window", silent = true, remap = true })
 
+-- next and previous occurences by maintaining the cursor centered
+map("n", "n", "nzzzv", { desc = "Next occurence of search" })
+map("n", "N", "Nzzzv", { desc = "Previous occurence of search" })
+
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (TEXT OBJECTS)
 -- ——————————————————————————————————————————————————————————————————————————————
@@ -147,36 +153,36 @@ map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window", silent = true, re
 -- credits : https://nanotipsforvim.prose.sh/remapping-all-your-textobjs-for-speed
 
 -- [c]urly brace
-map("o", "ic", "i}", { desc = "inner {}" })
-map("o", "ac", "a}", { desc = "outer {}" })
+map({ "v", "o" }, "ic", "i}", { desc = "inner {}" })
+map({ "v", "o" }, "ac", "a}", { desc = "outer {}" })
 
 -- [r]ectangular bracket
-map("o", "ir", "i]", { desc = "inner []" })
-map("o", "ar", "a]", { desc = "outer []" })
+map({ "v", "o" }, "ir", "i]", { desc = "inner []" })
+map({ "v", "o" }, "ar", "a]", { desc = "outer []" })
 
 -- che[v]rons
-map("o", "iv", "i>", { desc = "inner <>" })
-map("o", "av", "a>", { desc = "outer <>" })
+map({ "v", "o" }, "iv", "i>", { desc = "inner <>" })
+map({ "v", "o" }, "av", "a>", { desc = "outer <>" })
 
 -- [m]assive word
-map("o", "im", "iW", { desc = "inner WORD" })
-map("o", "am", "aW", { desc = "outer WORD" })
+map({ "v", "o" }, "im", "iW", { desc = "inner WORD" })
+map({ "v", "o" }, "am", "aW", { desc = "outer WORD" })
 
 -- [q]uoted text
-map("o", "iq", 'i"', { desc = 'inner "' })
-map("o", "aq", 'a"', { desc = 'outer "' })
+map({ "v", "o" }, "iq", 'i"', { desc = 'inner "' })
+map({ "v", "o" }, "aq", 'a"', { desc = 'outer "' })
 
 -- [a]postrothe quoted text
-map("o", "ia", "a'", { desc = "inner '" })
-map("o", "aa", "a'", { desc = "outer '" })
+map({ "v", "o" }, "ia", "a'", { desc = "inner '" })
+map({ "v", "o" }, "aa", "a'", { desc = "outer '" })
 
 -- [i]nline code
-map("o", "ii", "i`", { desc = "inner `" })
-map("o", "ai", "a`", { desc = "outer `" })
+map({ "v", "o" }, "ii", "i`", { desc = "inner `" })
+map({ "v", "o" }, "ai", "a`", { desc = "outer `" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (LEADER MAPPINGS)
 -- ——————————————————————————————————————————————————————————————————————————————
 
 -- Lazy UI opening
-map("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Open Lazy" })
+map("n", "<leader>ul", "<cmd>Lazy<cr>", { desc = "Open Lazy" })
