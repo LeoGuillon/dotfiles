@@ -36,21 +36,21 @@ return {
     local map = vim.keymap.set
 
     local builtin = require("telescope.builtin")
-    map("n", "<leader>fb", builtin.buffers, { desc = "Find files in buffers" })
-    map("n", "<leader>fc", builtin.commands, { desc = "Find commands" })
-    map("n", "<leader>ff", builtin.find_files, { desc = "Find files in cwd" })
+    map("n", "<leader>fb", builtin.buffers, { desc = "files in Buffers" })
+    map("n", "<leader>fc", builtin.commands, { desc = "Commands" })
+    map("n", "<leader>ff", builtin.find_files, { desc = "Files in cwd" })
     -- map("n", "<leader>fg", builtin.registers, { desc = "Find registers" }) -- not very useful thanks to which-key
-    map("n", "<leader>fh", builtin.help_tags, { desc = "Find help tags" })
-    map("n", "<leader>fk", builtin.keymaps, { desc = "Find keymaps" })
-    -- map("n", "<leader>fm", builtin.marks, { desc = "Find marks" }) -- same remark as for registers
-    map("n", "<leader>fm", builtin.man_pages, { desc = "Find man pages entries" })
-    map("n", "<leader>fo", builtin.vim_options, { desc = "Find vim options" })
-    map("n", "<leader>fp", builtin.planets, { desc = "Find planets <3" })
-    map("n", "<leader>fr", builtin.oldfiles, { desc = "Find recent files" })
-    map("n", "<leader>fs", builtin.live_grep, { desc = "Find string in cwd" })
-    map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos in cwd" })
-    map("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "Find undos" })
+    map("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
+    map("n", "<leader>fk", builtin.keymaps, { desc = "Keymaps" })
+    -- map("n", "<leader>fm", builtin.marks, { desc = "marks" }) -- same remark as for registers
+    map("n", "<leader>fm", builtin.man_pages, { desc = "Man pages entries" })
+    map("n", "<leader>fo", builtin.vim_options, { desc = "vim Options" })
+    map("n", "<leader>fp", builtin.planets, { desc = "Planets <3" })
+    map("n", "<leader>fr", builtin.oldfiles, { desc = "Recent files" })
+    map("n", "<leader>fs", builtin.live_grep, { desc = "String in cwd" })
+    map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Todos in cwd" })
+    map("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "Undos" })
 
-    require("which-key").add({ { "<leader>f", group = "Find…" } })
+    require("which-key").add({ { "<leader>f", group = "Find with telescope…" } })
   end,
 }

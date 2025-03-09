@@ -1,1 +1,1 @@
-{}
+{"stylua_ignore":{"body":["-- stylua: ignore start","$1","-- stylua: ignore end"],"prefix":"stylua_ignore"},"which-key_group":{"body":"require(\"which-key\").add({ { \"$1\", group = \"$2\", icon = \"$3\"}})","prefix":"which-key_group"}}

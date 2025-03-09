@@ -40,6 +40,7 @@ return {
     -- keymaps
     local map = vim.keymap.set
 
+    -- stylua : ignore
     map("n", "<leader>ha", function()
       harpoon:list():add()
     end, { desc = "Add current buffer to harpoon" })
@@ -62,6 +63,7 @@ return {
     map("n", "<leader>h4", function()
       harpoon:list():select(4)
     end, { desc = "Go to harpoon 4" })
-    require("which-key").add({ { "<leader>h", group = "Harpoon…" } })
+
+    require("which-key").add({ { "<leader>h", group = "Harpoon…", icon = "󰀱 " } })
   end,
 }

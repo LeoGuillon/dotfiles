@@ -49,3 +49,5 @@ opt.scrolloff = 999 -- makes the cursor always centered
 opt.wrap = false -- disable word wrap
 
 opt.spelllang = { "en", "fr" }
+
+opt.showmode = false

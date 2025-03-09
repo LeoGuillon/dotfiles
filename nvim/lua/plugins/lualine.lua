@@ -1,9 +1,25 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "letieu/harpoon-lualine",
+    {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+    },
+  },
   config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status") -- displays the number of lazy plugins updates
+
+    local function get_git_root_dir()
+      local root_path = vim.fs.root(0, ".git")
+      -- stylua: ignore 
+      if root_path == nil then return nil end
+
+      local root_name = vim.fn.fnamemodify(root_path, ":t")
+      return root_name
+    end
 
     -- configuration de lualine
     lualine.setup({
@@ -43,7 +59,12 @@ return {
           },
         },
         lualine_b = {
-          -- TODO: add the root dir (e.g. where the .git dir is located)
+          {
+            get_git_root_dir,
+            -- stylua: ignore
+            cond = function() return get_git_root_dir() ~= nil end, -- hides if no git dir
+            icon = "",
+          },
           {
             "branch",
             icon = "", -- same icon used as in my starship prompt
@@ -65,8 +86,8 @@ return {
             "filename",
             file_status = true,
             newfile_status = true,
-            -- TODO: replace by just the filename once the root dir has been implemented
-            path = 1,
+            path = 0, -- only the filename
+            -- path = 1, -- relative path to cwd
             symbols = {
               modified = "",
               readonly = "",
@@ -97,6 +118,29 @@ return {
               info = " ",
             },
           },
+          -- not 100% sure yet to include or not harpoon in the statusline
+          -- {
+          --   "%=",
+          --   separator = " ",
+          -- },
+          -- {
+          --   "harpoon2",
+          --   icon = "󰐃",
+          --   -- icon = "󰀱"
+          --   separator = " ",
+          --   indicators = {
+          --     "1",
+          --     "2",
+          --     "3",
+          --     "4",
+          --   },
+          --   active_indicators = {
+          --     "[1]",
+          --     "[2]",
+          --     "[3]",
+          --     "[4]",
+          --   },
+          -- },
         },
         lualine_x = {
           {

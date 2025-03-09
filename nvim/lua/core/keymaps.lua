@@ -19,6 +19,7 @@ map("n", "<esc>", "<cmd>nohl<cr>", { desc = "Escape and clear hlsearch" })
 -- deleting and changing to the black hole register
 -- credits : https://nanotipsforvim.prose.sh/keeping-your-register-clean-from-dd
 map({ "n", "v" }, "x", '"_x', { desc = "Delete under cursor" })
+map({ "n", "v" }, "X", '"_dd', { desc = "Delete entire line" })
 map({ "n", "v" }, "c", '"_c', { desc = "Change" })
 map({ "n", "v" }, "C", '"_C', { desc = "Change until the end of line" })
 map("n", "dd", function()
@@ -36,6 +37,7 @@ map({ "n", "v" }, "U", "<C-r>", { desc = "Redo" })
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (MOVING LINES)
 
+-- TODO: add shift + opt + up/down to move lines 6 times
 map("n", "<A-Down>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
 map("n", "<A-Up>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
 map("i", "<A-Down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
@@ -90,8 +92,8 @@ map("n", "<C-c>", "<C-i>", { desc = "Jump to previous location" }) -- so that th
 
 map({ "n", "v" }, "+", "<C-a>", { desc = "Increment" })
 map({ "n", "v" }, "-", "<C-x>", { desc = "Decrement" })
-map({ "n", "v" }, "g+", "<C-a>", { desc = "g-Increment" })
-map({ "n", "v" }, "g-", "<C-x>", { desc = "g-Decrement" })
+map({ "n", "v" }, "g+", "g<C-a>", { desc = "g-Increment" })
+map({ "n", "v" }, "g-", "g<C-x>", { desc = "g-Decrement" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- PERSONAL IMPROVEMENTS
