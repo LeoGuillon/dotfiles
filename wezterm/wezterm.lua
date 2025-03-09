@@ -4,13 +4,12 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
--- This is where you actually apply your config choices
-
-config.font = wezterm.font{
+-- font
+config.font = wezterm.font({
   family = "JetBrainsMono Nerd Font Mono",
-  weight = "Medium"
-}
-config.font_size = 12
+  weight = "Medium",
+})
+config.font_size = 13
 
 config.color_scheme = "Catppuccin Mocha"
 
