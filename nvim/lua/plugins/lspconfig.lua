@@ -3,7 +3,7 @@ return {
   {
     "williamboman/mason.nvim",
     keys = {
-      { "<leader>M", "<cmd>Mason<cr>", desc = "Open Mason" },
+      { "<leader>um", "<cmd>Mason<cr>", desc = "Open Mason" },
     },
     config = function()
       require("mason").setup({
@@ -27,7 +27,9 @@ return {
   -- MASON-LSPCONFIG
   {
     "williamboman/mason-lspconfig.nvim",
+    dependancies = { "neovim/lspconfig" },
     config = function()
+      -- local lspconfig = require("lspconfig")
       require("mason-lspconfig").setup({
         -- list of servers for mason to install
         -- list of available servers : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
@@ -48,6 +50,13 @@ return {
           -- "ts_ls",
           -- "yamlls",
         },
+
+        -- handlers = {
+        --   function(server_name)
+        --     -- each lsp is called with its default config
+        --     lspconfig[server_name].setup({})
+        --   end,
+        -- },
       })
     end,
   },
@@ -84,7 +93,7 @@ return {
       local map = vim.keymap.set
 
       map("n", "gh", vim.lsp.buf.hover, { desc = "Display hover" })
-      map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Display code actions" })
+      map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Display code actions" })
     end,
   },
 }

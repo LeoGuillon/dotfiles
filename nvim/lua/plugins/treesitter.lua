@@ -4,6 +4,7 @@ return {
   build = ":TSUpdate",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    "nvim-treesitter/nvim-treesitter-context",
     "folke/which-key.nvim",
   },
   config = function()
@@ -71,11 +72,20 @@ return {
       },
     })
 
+    local treesitter_context = require("treesitter-context")
+
+    treesitter_context.setup({
+      enable = true,
+    })
+
     -- keymaps
 
     local map = vim.keymap.set
-    map("n", "<leader>ti", "<cmd>InspectTree<cr>", { desc = "Displays TreeSitter" })
-
+    map("n", "<leader>ti", "<cmd>InspectTree<cr>", { desc = "Inspect TreeSitter" })
+    -- stylua: ignore start
+    map("n", "<leader>tc", function() treesitter_context.go_to_context(vim.v.count1)end, { desc = "go back to Context", silent = true })
+    map("n", "[c", function() treesitter_context.go_to_context(vim.v.count1)end, { desc = "go back to Context", silent = true })
+    -- stylua: ignore end
     require("which-key").add({ { "<leader>t", group = "TreeSitter…", icon = { icon = "󰔱", color = "green" } } })
   end,
 }

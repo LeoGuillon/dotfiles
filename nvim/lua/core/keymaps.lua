@@ -19,7 +19,6 @@ map("n", "<esc>", "<cmd>nohl<cr>", { desc = "Escape and clear hlsearch" })
 -- deleting and changing to the black hole register
 -- credits : https://nanotipsforvim.prose.sh/keeping-your-register-clean-from-dd
 map({ "n", "v" }, "x", '"_x', { desc = "Delete under cursor" })
-map({ "n", "v" }, "X", '"_dd', { desc = "Delete entire line" })
 map({ "n", "v" }, "c", '"_c', { desc = "Change" })
 map({ "n", "v" }, "C", '"_C', { desc = "Change until the end of line" })
 map("n", "dd", function()
@@ -44,6 +43,14 @@ map("i", "<A-Down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
 map("i", "<A-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 map("v", "<A-Down>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<A-Up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
+
+-- same but with shift for 6 lines up/down
+map("n", "<S-A-Down>", "<cmd>execute 'move .+' . (v:count1 + 5)<cr>==", { desc = "Move Down x6" }) -- don’t know why 5 to have 6 lines up, but it works
+map("n", "<S-A-Up>", "<cmd>execute 'move .-' . (v:count1 + 6)<cr>==", { desc = "Move Up x6" })
+map("i", "<S-A-Down>", "<esc><cmd>m .+6<cr>==gi", { desc = "Move Down x6" })
+map("i", "<S-A-Up>", "<esc><cmd>m .-7<cr>==gi", { desc = "Move Up x6" })
+map("v", "<S-A-Down>", ":<C-u>execute \"'<,'>move '>+\" . (v:count1 + 5)<cr>gv=gv", { desc = "Move Down x6" })
+map("v", "<S-A-Up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 6)<cr>gv=gv", { desc = "Move Up x6" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (CASING)
@@ -92,8 +99,8 @@ map("n", "<C-c>", "<C-i>", { desc = "Jump to previous location" }) -- so that th
 
 map({ "n", "v" }, "+", "<C-a>", { desc = "Increment" })
 map({ "n", "v" }, "-", "<C-x>", { desc = "Decrement" })
-map({ "n", "v" }, "g+", "g<C-a>", { desc = "g-Increment" })
-map({ "n", "v" }, "g-", "g<C-x>", { desc = "g-Decrement" })
+map({ "n", "v" }, "g+", "<C-a>", { desc = "g-Increment" })
+map({ "n", "v" }, "g-", "<C-x>", { desc = "g-Decrement" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- PERSONAL IMPROVEMENTS
@@ -136,6 +143,13 @@ map({ "n", "v" }, "<S-Left>", "^", { desc = "Go to first non-blank character", s
 map({ "n", "v" }, "<S-Down>", "6j", { desc = "Move down 6 lines", silent = true })
 map({ "n", "v" }, "<S-Up>", "6k", { desc = "Move up 6 lines", silent = true })
 map({ "n", "v" }, "<S-Right>", "$", { desc = "Go to end of line", silent = true })
+
+-- TODO: have a correct mark respect when moving line faster
+
+-- map("i", "<S-Left>", "<esc>^i", { desc = "Go to first non-blank character", silent = true })
+-- map("i", "<S-Down>", "<esc>6ji", { desc = "Move down 6 lines", silent = true })
+-- map("i", "<S-Up>", "<esc>6ki", { desc = "Move up 6 lines", silent = true })
+-- map("i", "<S-Right>", "<esc>$i", { desc = "Go to end of line", silent = true })
 
 -- Window navigation
 map("n", "<C-Left>", "<C-w>h", { desc = "Go to Left Window", silent = true, remap = true })

@@ -6,6 +6,7 @@ return {
     -- keymaps
     local map = vim.keymap.set
 
+    -- stylua: ignore
     -- todo: configure the differents increments functions
     -- map("n", "+", function()
     --   dial.manipulate("increment", "normal")

@@ -16,6 +16,7 @@ return {
     },
     "saadparwaiz1/cmp_luasnip", -- source for snippets
     "hrsh7th/cmp-path", -- source for file system paths
+    "R-nvim/cmp-r",
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
   },
@@ -71,6 +72,7 @@ return {
         { name = "nvim_lua" }, -- lua api
         { name = "nvim_lsp" }, -- lsp
         { name = "path" }, -- file system paths
+        { name = "cmp_r" }, -- R
       }),
 
       -- configure lspkind for vs-code like pictograms in completion menu
