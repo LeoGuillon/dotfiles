@@ -24,16 +24,17 @@ return {
       },
       config = {
         header = vim.split(logo, "\n"),
-        -- stylua: ignore
         center = {
-          { action = "ene | startinsert",                              desc = " New File",        icon = " ", key = "n" },
-          { action = 'Telescope find_files',                           desc = " Find File",       icon = " ", key = "f" },
-          { action = 'Telescope oldfiles',                 desc = " Recent Files",    icon = " ", key = "r" },
-          { action = 'Telescope live_grep',                desc = " Find Text",       icon = " ", key = "g" },
+          { action = "ene | startinsert", desc = " New File", icon = " ", key = "n" },
+          { action = "Telescope find_files", desc = " Find File", icon = " ", key = "f" },
+          { action = "Telescope oldfiles", desc = " Recent Files", icon = " ", key = "r" },
+          { action = "Telescope live_grep", desc = " Find Text", icon = " ", key = "g" },
           -- { action = 'Telescope find_files',              desc = " Config",          icon = " ", key = "c" },
-          { action = "Lazy",                                           desc = " Lazy",            icon = "󰒲 ", key = "l" },
-          { action = "Mason",                                           desc = " Mason",            icon = "󰟾 ", key = "m" },
-          { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit",            icon = " ", key = "q" },
+          { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
+          { action = "Mason", desc = " Mason", icon = "󰟾 ", key = "m" },
+          { action = "Yazi cwd", desc = " Yazi", icon = "󰇥 ", key = "y" },
+          -- stylua: ignore
+          { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit", icon = " ", key = "q", },
         },
         footer = function()
           local stats = require("lazy").stats()
