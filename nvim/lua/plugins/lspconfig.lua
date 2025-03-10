@@ -34,7 +34,7 @@ return {
         -- list of servers for mason to install
         -- list of available servers : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
         ensure_installed = {
-          -- "bashls",
+          "bashls",
           -- "clangd",
           -- "cssls",
           -- "css_variables",
@@ -70,7 +70,11 @@ return {
 
       -- then, each lsp can be configured as wanted
       -- for example configs : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+      lspconfig.bashls.setup({
+        capabilities = capabilities,
+      })
       lspconfig.lua_ls.setup({
+        -- TODO: setup the recommanded lua_ls config for just editing neovim config files
         capabilities = capabilities,
         settings = {
           Lua = {
@@ -92,6 +96,7 @@ return {
       -- keymaps setup
       local map = vim.keymap.set
 
+      -- TODO: add relevant keymaps, and on buffer attach
       map("n", "gh", vim.lsp.buf.hover, { desc = "Display hover" })
       map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Display code actions" })
     end,

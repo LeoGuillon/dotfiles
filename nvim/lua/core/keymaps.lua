@@ -200,5 +200,5 @@ map({ "v", "o" }, "ai", "a`", { desc = "outer `" })
 -- (LEADER MAPPINGS)
 -- ——————————————————————————————————————————————————————————————————————————————
 
--- Lazy UI opening
-map("n", "<leader>ul", "<cmd>Lazy<cr>", { desc = "Open Lazy" })
+map("n", "<leader>ul", "<cmd>Lazy<cr>", { desc = "open Lazy" })
+map("n", "<leader>uw", "<cmd>set wrap!<cr>", { desc = "toggle line Wrap" })

@@ -51,3 +51,26 @@ opt.wrap = false -- disable word wrap
 opt.spelllang = { "en", "fr" }
 
 opt.showmode = false
+
+-- filetype override for treesitter and LSPs
+
+-- make zsh files recognized as sh for bash-ls & treesitter
+vim.filetype.add({
+  extension = {
+    zsh = "sh",
+    sh = "sh", -- force sh-files with zsh-shebang to still get sh as filetype
+  },
+  filename = {
+    [".zshenv"] = "sh",
+    [".zprofile"] = "sh",
+    [".zshrc"] = "sh",
+  },
+})
+
+-- make Rmd files recognized as md files for treesitter & marksman
+vim.filetype.add({
+  extension = {
+    rmd = "markdown",
+    Rmd = "markdown",
+  },
+})

@@ -1,1 +1,1 @@
-{"table-input":{"body":["\\begin{table}","  \\centering","  \\input{$1}","  \\caption{$2}","  \\label{table:$3}","\\end{table}"],"prefix":"table-input"},"frame":{"body":["\\begin{frame}{$1}","  $2","\\end{frame}"],"prefix":"frame"}}
+{"frame":{"prefix":"frame","body":["\\begin{frame}{$1}","  $2","\\end{frame}"]},"em":{"body":"\\emph{$1}","prefix":"em"},"table-input":{"prefix":"table-input","body":["\\begin{table}","  \\centering","  \\input{$1}","  \\caption{$2}","  \\label{table:$3}","\\end{table}"]}}

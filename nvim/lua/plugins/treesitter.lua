@@ -13,6 +13,22 @@ return {
       highlight = { enable = true }, -- enable syntax highlighting
       indent = { enable = true }, -- enable indentation
 
+      -- TODO: complete this list just for safety
+      ensure_install = {
+        "css",
+        "html",
+        "javascript",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "r",
+        "tex",
+        "sty",
+        "typescript",
+        "vim",
+      },
+
       -- incremental selection : select current block
       incremental_selection = {
         enable = true,
@@ -82,6 +98,7 @@ return {
 
     local map = vim.keymap.set
     map("n", "<leader>ti", "<cmd>InspectTree<cr>", { desc = "Inspect TreeSitter" })
+    map("n", "<leader>ut", "<cmd>InspectTree<cr>", { desc = "open TreeSitter" })
     -- stylua: ignore start
     map("n", "<leader>tc", function() treesitter_context.go_to_context(vim.v.count1)end, { desc = "go back to Context", silent = true })
     map("n", "[c", function() treesitter_context.go_to_context(vim.v.count1)end, { desc = "go back to Context", silent = true })
