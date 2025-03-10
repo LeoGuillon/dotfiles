@@ -7,7 +7,7 @@ local map = vim.keymap.set
 -- ——————————————————————————————————————————————————————————————————————————————
 -- credits : https://nanotipsforvim.prose.sh/esc-in-normal-mode
 
-map("n", "<esc>", "<cmd>nohl<cr>", { desc = "Escape and clear hlsearch" })
+map("n", "<esc>", "<cmd>nohl<cr><cmd>echo<cr>", { desc = "Escape and clear hlsearch" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (EDITION)
@@ -19,6 +19,7 @@ map("n", "<esc>", "<cmd>nohl<cr>", { desc = "Escape and clear hlsearch" })
 -- deleting and changing to the black hole register
 -- credits : https://nanotipsforvim.prose.sh/keeping-your-register-clean-from-dd
 map({ "n", "v" }, "x", '"_x', { desc = "Delete under cursor" })
+map({ "n", "v" }, "X", '"_X', { desc = "Delete line" })
 map({ "n", "v" }, "c", '"_c', { desc = "Change" })
 map({ "n", "v" }, "C", '"_C', { desc = "Change until the end of line" })
 map("n", "dd", function()
@@ -160,6 +161,18 @@ map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window", silent = true, re
 -- next and previous occurences by maintaining the cursor centered
 map("n", "n", "nzzzv", { desc = "Next occurence of search" })
 map("n", "N", "Nzzzv", { desc = "Previous occurence of search" })
+
+-- pages up/down keeps the cursor centered
+-- good but conflicts with which-key
+-- TODO: conflict corrected
+
+-- map({ "n", "v" }, "<c-d>", "<c-d>zz", { desc = "half-page Down" })
+-- map({ "n", "v" }, "<c-u>", "<c-u>zz", { desc = "half-page Up" })
+-- map({ "n", "v" }, "<c-f>", "<c-f>zz", { desc = "page down (Forwards)" })
+-- map({ "n", "v" }, "<c-b>", "<c-b>zz", { desc = "page up (Backwards)" })
+
+-- [g]o to [m]atching parenthesis
+map({ "n", "v" }, "gm", "%", { desc = "Go to Matching bracket" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (TEXT OBJECTS)

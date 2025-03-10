@@ -8,6 +8,7 @@ return {
     preset = "modern",
 
     win = {
+      no_overlap = true, -- allows to overlap with the cursor
       title = false,
     },
     -- sorting is done by alphabetical order, to see available keys faster

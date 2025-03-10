@@ -40,29 +40,16 @@ return {
     -- keymaps
     local map = vim.keymap.set
 
-    -- stylua : ignore
-    map("n", "<leader>ha", function()
-      harpoon:list():add()
-    end, { desc = "Add current buffer to harpoon" })
-    map("n", "<leader>hl", function()
-      harpoon.ui:toggle_quick_menu(harpoon:list())
-    end, { desc = "Toggle harpoon menu" })
-    map("n", "<leader>hf", function()
-      toggle_telescope(harpoon:list())
-    end, { desc = "Toggle harpoon telescope search" })
+    -- stylua: ignore start
+    map("n", "<leader>ha", function() harpoon:list():add() end, { desc = "Add current buffer to harpoon" })
+    map("n", "<leader>hl", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Toggle harpoon menu" })
+    map("n", "<leader>hf", function() toggle_telescope(harpoon:list()) end, { desc = "Toggle harpoon telescope search" })
 
-    map("n", "<leader>h1", function()
-      harpoon:list():select(1)
-    end, { desc = "Go to harpoon 1" })
-    map("n", "<leader>h2", function()
-      harpoon:list():select(2)
-    end, { desc = "Go to harpoon 2" })
-    map("n", "<leader>h3", function()
-      harpoon:list():select(3)
-    end, { desc = "Go to harpoon 3" })
-    map("n", "<leader>h4", function()
-      harpoon:list():select(4)
-    end, { desc = "Go to harpoon 4" })
+    map("n", "<A-1>", function() harpoon:list():select(1) end, { desc = "Go to harpoon 1" })
+    map("n", "<A-2>", function() harpoon:list():select(2) end, { desc = "Go to harpoon 2" })
+    map("n", "<A-3>", function() harpoon:list():select(3) end, { desc = "Go to harpoon 3" })
+    map("n", "<A-4>", function() harpoon:list():select(4) end, { desc = "Go to harpoon 4" })
+    -- stylua: ignore end
 
     require("which-key").add({ { "<leader>h", group = "Harpoon…", icon = "󰀱 " } })
   end,
