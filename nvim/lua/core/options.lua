@@ -74,3 +74,11 @@ vim.filetype.add({
     Rmd = "markdown",
   },
 })
+
+-- make plaintex as tex for treesitter & texlab
+vim.filetype.add({
+  extension = {
+    plaintex = "tex",
+    sty = "tex",
+  },
+})

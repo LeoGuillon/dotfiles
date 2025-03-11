@@ -13,20 +13,32 @@ return {
       highlight = { enable = true }, -- enable syntax highlighting
       indent = { enable = true }, -- enable indentation
 
-      -- TODO: complete this list just for safety
       ensure_install = {
+        "bash",
+        "bibtex",
+        "c",
+        "cpp",
         "css",
+        "editorconfig",
+        "gitignore",
         "html",
         "javascript",
+        "json",
         "lua",
         "markdown",
         "markdown_inline",
         "python",
+        "query",
         "r",
+        "regex",
         "tex",
+        "tmux",
+        "toml",
         "sty",
         "typescript",
         "vim",
+        "vimdoc",
+        "yaml",
       },
 
       -- incremental selection : select current block

@@ -7,7 +7,7 @@ local map = vim.keymap.set
 -- ——————————————————————————————————————————————————————————————————————————————
 -- credits : https://nanotipsforvim.prose.sh/esc-in-normal-mode
 
-map("n", "<esc>", "<cmd>nohl<cr><cmd>echo<cr>", { desc = "Escape and clear hlsearch" })
+map("n", "<esc>", "<cmd>nohl<cr><cmd>echo<cr>", { desc = "Escape and clear hlsearch and command line" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (EDITION)
@@ -29,8 +29,10 @@ map("n", "dd", function()
   return "dd"
 end, { expr = true, desc = "Delete line" }) -- Add moves it to the black hole only if it's empty
 
-map("n", "Y", "yg$", { desc = "Yank from cursor to the end of line" })
+map("n", "Y", "yg$", { desc = "Yank from cursor to the end of line" }) -- to be more consistent with D and C
 map("n", "P", "mz$p`z", { desc = "Paste at the end of line" })
+
+map("v", "p", '"_dp"', { desc = "Paste" }) -- to avoid recording when yanking and pasting over a selection and keeps the yanked in register
 
 map({ "n", "v" }, "U", "<C-r>", { desc = "Redo" })
 
@@ -163,16 +165,19 @@ map("n", "n", "nzzzv", { desc = "Next occurence of search" })
 map("n", "N", "Nzzzv", { desc = "Previous occurence of search" })
 
 -- pages up/down keeps the cursor centered
--- good but conflicts with which-key
--- TODO: conflict corrected
-
--- map({ "n", "v" }, "<c-d>", "<c-d>zz", { desc = "half-page Down" })
--- map({ "n", "v" }, "<c-u>", "<c-u>zz", { desc = "half-page Up" })
--- map({ "n", "v" }, "<c-f>", "<c-f>zz", { desc = "page down (Forwards)" })
--- map({ "n", "v" }, "<c-b>", "<c-b>zz", { desc = "page up (Backwards)" })
+map({ "n", "v" }, "<PageDown>", "<c-d>zz", { desc = "half-page Down" })
+map({ "n", "v" }, "<PageUp>", "<c-u>zz", { desc = "half-page Up" })
+map({ "n", "v" }, "<S-PageDown>", "<c-f>zz", { desc = "page down (Forwards)" })
+map({ "n", "v" }, "<S-PageUp>", "<c-b>zz", { desc = "page up (Backwards)" })
 
 -- [g]o to [m]atching parenthesis
 map({ "n", "v" }, "gm", "%", { desc = "Go to Matching bracket" })
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (BUFFERS)
+
+map("n", "<Tab>", "<cmd>bnext<cr>", { desc = "go to next buffer" })
+map("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "go to previous buffer" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (TEXT OBJECTS)
