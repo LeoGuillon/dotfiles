@@ -5,6 +5,7 @@ return {
   },
   {
     "LudoPinelli/comment-box.nvim",
+    -- TODO: setup this plugin
   },
   {
     "folke/todo-comments.nvim",
