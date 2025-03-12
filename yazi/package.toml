@@ -8,6 +8,11 @@ use = "Rolv-Apneseth/starship"
 rev = "6c639b4"
 hash = "5614c46d5de76623c283d415bfac8025"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "92f78dc"
+hash = "7918aab6a71caf31b58411f789195677"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "302c0d5"

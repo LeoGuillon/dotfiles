@@ -14,7 +14,7 @@ return {
 
       ls.setup({
         enable_autosnippets = true,
-        store_selection_keys = "<tab>",
+        -- store_selection_keys = "<tab>",
       })
 
 

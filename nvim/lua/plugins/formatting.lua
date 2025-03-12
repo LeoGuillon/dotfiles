@@ -43,7 +43,7 @@ return {
           scss = { "prettier" },
           sty = { "tex-fmt" },
           tex = { "tex-fmt" },
-          toml = { "taplo" },
+          -- toml = { "taplo" }, -- waiting to configure taplo properly
           typescript = { "prettier" },
           yaml = { "" },
         },
