@@ -29,10 +29,13 @@ return {
           { action = "Telescope find_files", desc = " Find File", icon = " ", key = "f" },
           { action = "Telescope oldfiles", desc = " Recent Files", icon = " ", key = "r" },
           { action = "Telescope live_grep", desc = " Find Text", icon = " ", key = "g" },
-          -- { action = 'Telescope find_files',              desc = " Config",          icon = " ", key = "c" },
+          -- TODO: add config quick opener
+          -- { action = "Telescope find_files cwd=vim.fn.stdpath('config')", desc = " Config", icon = " ", key = "c" },
+          -- TODO: add restore session
           { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
           { action = "Mason", desc = " Mason", icon = "󰟾 ", key = "m" },
           { action = "Yazi cwd", desc = " Yazi", icon = "󰇥 ", key = "y" },
+
           -- stylua: ignore
           { action = function() vim.api.nvim_input("<cmd>qa<cr>") end, desc = " Quit", icon = " ", key = "q", },
         },

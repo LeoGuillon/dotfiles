@@ -39,11 +39,14 @@ return {
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
           "dashboard",
+          "lazygit",
           "query",
+          "TelescopePrompt",
+          "yazi",
         },
         ignore_focus = {},
         always_divide_middle = true,
-        globalstatus = false,
+        globalstatus = true, -- enables a single statusline for every window
         refresh = {
           statusline = 100,
           tabline = 100,
@@ -152,6 +155,7 @@ return {
           -- { "selectioncount" }, -- same comment as for search count
           -- { "encoding" },
           -- { "fileformat" },
+          { "filetype" },
         },
         lualine_y = { "progress" },
         lualine_z = { "location" },

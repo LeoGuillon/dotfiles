@@ -1,6 +1,14 @@
-vim.g.mapleader = " "
-
+-- TODO: define a custom map function to always define silent and noremap as true
 local map = vim.keymap.set
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (LEADER KEY)
+-- ——————————————————————————————————————————————————————————————————————————————
+
+map({ "n", "v" }, "<Space>", "<Nop>")
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (BETTER ESCAPE)
@@ -34,12 +42,11 @@ map("n", "P", "mz$p`z", { desc = "Paste at the end of line" })
 
 map("v", "p", '"_dp"', { desc = "Paste" }) -- to avoid recording when yanking and pasting over a selection and keeps the yanked in register
 
-map({ "n", "v" }, "U", "<C-r>", { desc = "Redo" })
+map({ "n", "v" }, "U", "<C-r>", { desc = "Redo" }) -- more consistent undo keymap
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (MOVING LINES)
 
--- TODO: add shift + opt + up/down to move lines 6 times
 map("n", "<A-Down>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
 map("n", "<A-Up>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
 map("i", "<A-Down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
@@ -218,5 +225,7 @@ map({ "v", "o" }, "ai", "a`", { desc = "outer `" })
 -- (LEADER MAPPINGS)
 -- ——————————————————————————————————————————————————————————————————————————————
 
+-- [U]I toggles
 map("n", "<leader>ul", "<cmd>Lazy<cr>", { desc = "open Lazy" })
+map("n", "<leader>un", "<cmd>set number!<cr><cmd>set relativenumber!<cr>", { desc = "toggle line Numbers" })
 map("n", "<leader>uw", "<cmd>set wrap!<cr>", { desc = "toggle line Wrap" })
