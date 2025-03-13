@@ -11,3 +11,11 @@ autocmd("TextYankPost", {
     (vim.hl or vim.highlight).on_yank()
   end,
 })
+
+-- set formatoptions
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lua",
+  callback = function()
+    vim.opt_local.formatoptions = "jcql"
+  end,
+})
