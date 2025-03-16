@@ -4,6 +4,8 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+config.default_cursor_style = "SteadyBar"
+
 -- font
 config.font = wezterm.font({
   family = "JetBrainsMono Nerd Font Mono",

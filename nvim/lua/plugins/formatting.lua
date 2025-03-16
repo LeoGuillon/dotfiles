@@ -11,7 +11,7 @@ return {
           "jupytext", -- julia, R, Rmd
           "prettier", -- html, css, scss, md, javascript, typescript, json
           "stylua", -- lua
-          "taplo", -- toml
+          -- "taplo", -- toml
           "tex-fmt", -- latex
           "yamlfix",
         },
@@ -43,7 +43,7 @@ return {
           scss = { "prettier" },
           sty = { "tex-fmt" },
           tex = { "tex-fmt" },
-          toml = { "taplo" },
+          -- toml = { "taplo" },
           typescript = { "prettier" },
           yaml = { "" },
         },

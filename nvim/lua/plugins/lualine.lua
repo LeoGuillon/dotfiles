@@ -40,10 +40,12 @@ return {
         disabled_filetypes = {
           "dashboard",
           "query",
+          "yazi",
+          "lazygit",
         },
         ignore_focus = {},
         always_divide_middle = true,
-        globalstatus = false,
+        globalstatus = true,
         refresh = {
           statusline = 100,
           tabline = 100,
@@ -56,6 +58,10 @@ return {
             "mode",
             icon = "", -- vim icon for goodness <3
             -- icon = "", -- nvim icon, the render is a bit less cleaner
+            separator = {
+              left = "",
+              right = "",
+            },
           },
         },
         lualine_b = {
@@ -154,7 +160,15 @@ return {
           -- { "fileformat" },
         },
         lualine_y = { "progress" },
-        lualine_z = { "location" },
+        lualine_z = {
+          {
+            "location",
+            separator = {
+              left = "",
+              right = "",
+            },
+          },
+        },
       },
       inactive_sections = {
         lualine_a = {},
