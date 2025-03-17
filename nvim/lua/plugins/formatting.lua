@@ -11,7 +11,7 @@ return {
           "jupytext", -- julia, R, Rmd
           "prettier", -- html, css, scss, md, javascript, typescript, json
           "stylua", -- lua
-          "taplo", -- toml
+          -- "taplo", -- toml
           "tex-fmt", -- latex
           "yamlfix",
         },

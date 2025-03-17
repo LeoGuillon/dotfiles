@@ -9,9 +9,19 @@ rev = "6c639b4"
 hash = "5614c46d5de76623c283d415bfac8025"
 
 [[plugin.deps]]
-use = "yazi-rs/plugins:smart-enter"
-rev = "92f78dc"
-hash = "7918aab6a71caf31b58411f789195677"
+use = "Ape/smart-enter"
+rev = "7b84c89"
+hash = "43eb1a1f2291795fb5b0b2ce1206ebee"
+
+[[plugin.deps]]
+use = "lpanebr/yazi-plugins:first-non-directory"
+rev = "ca18a2c"
+hash = "5c20ffa5171dab34042e03d273dddc5b"
+
+[[plugin.deps]]
+use = "KKV9/compress"
+rev = "60b24af"
+hash = "ee025be766240cc98e671754ac836da3"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"

@@ -8,6 +8,8 @@
 # (FILES AND FOLDERS NAVIGATION)
 # ---------------------------------------------------------------------------------
 
+eval "$(zoxide init zsh)"
+
 # uses zoxide as default cd
 alias cd="z"
 alias cdi="zi"

@@ -2,6 +2,8 @@ bindkey -v
 
 export DOTFILES=$HOME/dotfiles
 
+export BAT_THEME="Catppuccin Mocha"
+
 export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml
 
 export TMUX_CONFIG_DIR=$DOTFILES/tmux
@@ -19,6 +21,8 @@ export YAZI_CONFIG_HOME=$DOTFILES/yazi
 
 CONFIG_FILES=(
   aliases
+  catppuccin_mocha-zsh-syntax-highlighting
+  eza
   fzf
   git
   homebrew
@@ -34,3 +38,6 @@ done
 eval "$(starship init zsh)"
 eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
