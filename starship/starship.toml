@@ -14,7 +14,7 @@ palette = "catppuccin_mocha"
 # ---------------------------------------------------------------------------------
 
 format = """\
-$directory $git_branch$git_status $character
+$directory$git_branch$git_status $character
 """
 
 # right_format = """\
@@ -40,7 +40,7 @@ format = "[$path]($style)"
 [git_branch]
 symbol = ""
 style = "fg:bold mauve"
-format = "on [$symbol $branch]($style)"
+format = " on [$symbol $branch]($style)"
 
 [git_metrics]
 disabled = false
