@@ -45,10 +45,11 @@ return {
     map("n", "<leader>hl", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Toggle harpoon menu" })
     map("n", "<leader>hf", function() toggle_telescope(harpoon:list()) end, { desc = "Toggle harpoon telescope search" })
 
-    map("n", "<A-1>", function() harpoon:list():select(1) end, { desc = "Go to harpoon 1" })
-    map("n", "<A-2>", function() harpoon:list():select(2) end, { desc = "Go to harpoon 2" })
-    map("n", "<A-3>", function() harpoon:list():select(3) end, { desc = "Go to harpoon 3" })
-    map("n", "<A-4>", function() harpoon:list():select(4) end, { desc = "Go to harpoon 4" })
+    -- TODO: create the mappings with a for loop
+    map("n", "<leader>1", function() harpoon:list():select(1) end, { desc = "Go to harpoon 1" })
+    map("n", "<leader>2", function() harpoon:list():select(2) end, { desc = "Go to harpoon 2" })
+    map("n", "<leader>3", function() harpoon:list():select(3) end, { desc = "Go to harpoon 3" })
+    map("n", "<leader>4", function() harpoon:list():select(4) end, { desc = "Go to harpoon 4" })
     -- stylua: ignore end
 
     require("which-key").add({ { "<leader>h", group = "Harpoon…", icon = "󰀱 " } })

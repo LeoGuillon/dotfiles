@@ -22,8 +22,8 @@ return {
 
       -- stylua: ignore start
       vim.keymap.set({ "i" }, "<cr>", function() ls.expand() end, { silent = true })
-      vim.keymap.set({ "i", "s" }, "<tab>", function() ls.jump(1) end, { silent = true })
-      vim.keymap.set({ "i", "s" }, "<s-tab>", function() ls.jump(-1) end, { silent = true })
+      -- vim.keymap.set({ "i", "s" }, "<tab>", function() ls.jump(1) end, { silent = true })
+      -- vim.keymap.set({ "i", "s" }, "<s-tab>", function() ls.jump(-1) end, { silent = true })
       -- stylua: ignore end
 
       -- vim.keymap.set({ "i", "s" }, "<C-E>", function()
@@ -34,7 +34,7 @@ return {
 
       -- loads snippets from snippets folder
       require("luasnip.loaders.from_vscode").lazy_load({
-        paths = { "./snippets/vscode" },
+        paths = { "./snippets" },
       })
     end,
   },
@@ -45,7 +45,7 @@ return {
       "folke/which-key.nvim",
     },
     opts = {
-      snippetDir = "./snippets/vscode",
+      snippetDir = "./snippets",
     },
     config = function()
       -- keymaps
