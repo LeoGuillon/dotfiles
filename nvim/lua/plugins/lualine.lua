@@ -22,14 +22,9 @@ return {
       return root_name
     end
 
-    local mocha = require("catppuccin.palettes").get_palette("mocha")
-
-    -- TODO: customize catppuccin to have rounded borders on left and right side
-    local catppuccin_custom = require("lualine.themes.catppuccin")
-
     -- custom extensions
     local function custom_extension(filetypes, mode, icon)
-      M = {}
+      local M = {}
       M.filetypes = filetypes
       M.sections = {
         lualine_a = {
