@@ -52,6 +52,10 @@ opt.spelllang = { "en", "fr" }
 
 opt.showmode = false
 
+-- (INVISIBLE CHARS)
+
+opt.conceallevel = 2
+
 -- filetype override for treesitter and LSPs
 
 -- make zsh files recognized as sh for bash-ls & treesitter

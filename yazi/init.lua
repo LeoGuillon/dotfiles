@@ -1,5 +1,6 @@
 require("folder-rules"):setup()
 require("full-border"):setup()
+require("starship"):setup()
 
 -- show symlink in status bar
 -- credits : https://yazi-rs.github.io/docs/tips/

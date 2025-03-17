@@ -39,3 +39,11 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+# yazi package manager
+alias yp="ya pack"
+alias ypi="yp -a" # [i]nstall a plugin
+alias ypu="yp -d" # [u]ninstall a plugin
+alias ypl="yp -l" # [l]ist installed plugins
+alias ypI="yp -i" # [I]nstall all plugins listed in package.toml
+alias ypU="yp -u" # [U]pgrade all the plugins

@@ -27,9 +27,10 @@ map("n", "<esc>", "<cmd>nohl<cr><cmd>echo<cr>", { desc = "Escape and clear hlsea
 -- deleting and changing to the black hole register
 -- credits : https://nanotipsforvim.prose.sh/keeping-your-register-clean-from-dd
 map({ "n", "v" }, "x", '"_x', { desc = "Delete under cursor" })
-map({ "n", "v" }, "X", '"_X', { desc = "Delete line" })
 map({ "n", "v" }, "c", '"_c', { desc = "Change" })
 map({ "n", "v" }, "C", '"_C', { desc = "Change until the end of line" })
+map({ "n", "v" }, "s", '"_cl', { desc = "Substitute character" })
+map("n", "S", '"_cc', { desc = "Substitute line" })
 map("n", "dd", function()
   if vim.fn.getline(".") == "" then
     return '"_dd'
@@ -37,8 +38,33 @@ map("n", "dd", function()
   return "dd"
 end, { expr = true, desc = "Delete line" }) -- Add moves it to the black hole only if it's empty
 
-map("n", "Y", "yg$", { desc = "Yank from cursor to the end of line" }) -- to be more consistent with D and C
+-- yank by keeping the cursor at the same position
+-- credits : https://nanotipsforvim.prose.sh/sticky-yank
+do
+  local cursorPreYank
+  vim.keymap.set({ "n", "x" }, "y", function()
+    cursorPreYank = vim.api.nvim_win_get_cursor(0)
+    return "y"
+  end, { desc = "Yank", expr = true })
+  vim.keymap.set("n", "Y", function()
+    cursorPreYank = vim.api.nvim_win_get_cursor(0)
+    return "y$" -- TODO: transform to "yg$" ?
+  end, { desc = "Yank to the end of line", expr = true })
+  vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+      if vim.v.event.operator == "y" and cursorPreYank then
+        vim.api.nvim_win_set_cursor(0, cursorPreYank)
+      end
+    end,
+  })
+end
+
+-- Maj operators
 map("n", "P", "mz$p`z", { desc = "Paste at the end of line" })
+map("n", "X", function()
+  local updatedLine = vim.api.nvim_get_current_line():gsub("%S%s*$", "")
+  vim.api.nvim_set_current_line(updatedLine)
+end, { desc = "Delete char" })
 
 map("v", "p", '"_dp"', { desc = "Paste" }) -- to avoid recording when yanking and pasting over a selection and keeps the yanked in register
 
@@ -47,20 +73,20 @@ map({ "n", "v" }, "U", "<C-r>", { desc = "Redo" }) -- more consistent undo keyma
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (MOVING LINES)
 
-map("n", "<A-Down>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
-map("n", "<A-Up>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
-map("i", "<A-Down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
-map("i", "<A-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
-map("v", "<A-Down>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
-map("v", "<A-Up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
+map("n", "<A-Down>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "move line Down" })
+map("n", "<A-Up>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "move line Up" })
+map("i", "<A-Down>", "<esc><cmd>m .+1<cr>==gi", { desc = "move line Down" })
+map("i", "<A-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "move line Up" })
+map("v", "<A-Down>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "move lines Down" })
+map("v", "<A-Up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "move lines Up" })
 
 -- same but with shift for 6 lines up/down
-map("n", "<S-A-Down>", "<cmd>execute 'move .+' . (v:count1 + 5)<cr>==", { desc = "Move Down x6" }) -- don’t know why 5 to have 6 lines up, but it works
-map("n", "<S-A-Up>", "<cmd>execute 'move .-' . (v:count1 + 6)<cr>==", { desc = "Move Up x6" })
-map("i", "<S-A-Down>", "<esc><cmd>m .+6<cr>==gi", { desc = "Move Down x6" })
-map("i", "<S-A-Up>", "<esc><cmd>m .-7<cr>==gi", { desc = "Move Up x6" })
-map("v", "<S-A-Down>", ":<C-u>execute \"'<,'>move '>+\" . (v:count1 + 5)<cr>gv=gv", { desc = "Move Down x6" })
-map("v", "<S-A-Up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 6)<cr>gv=gv", { desc = "Move Up x6" })
+map("n", "<S-A-Down>", "<cmd>execute 'move .+' . (v:count1 + 5)<cr>==", { desc = "move line Down x6" }) -- don’t know why 5 to have 6 lines up, but it works
+map("n", "<S-A-Up>", "<cmd>execute 'move .-' . (v:count1 + 6)<cr>==", { desc = "move line Up x6" })
+map("i", "<S-A-Down>", "<esc><cmd>m .+6<cr>==gi", { desc = "move line Down x6" })
+map("i", "<S-A-Up>", "<esc><cmd>m .-7<cr>==gi", { desc = "move line Up x6" })
+map("v", "<S-A-Down>", ":<C-u>execute \"'<,'>move '>+\" . (v:count1 + 5)<cr>gv=gv", { desc = "move lines Down x6" })
+map("v", "<S-A-Up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 6)<cr>gv=gv", { desc = "move lines Up x6" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (CASING)
@@ -85,7 +111,7 @@ map("n", "gn", "mzo<esc>^D`z", { desc = "Add an empty line below" })
 map("n", "gN", "mzO<esc>^D`z", { desc = "Add an empty line above" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
--- (NEW LINES)
+-- (TRAILING CHARS)
 -- credits : https://github.com/chrisgrieser/.config/blob/9fb7bea009be951f9676ef52634a7d12d9717953/nvim/lua/config/leader-keybindings.lua
 
 local trail_chars = {
@@ -98,6 +124,15 @@ for _, key in pairs(trail_chars) do
 end
 
 -- ——————————————————————————————————————————————————————————————————————————————
+-- (INDENTATION)
+
+-- same command as in insert mode for more consistency
+map("n", "<Tab>", ">>", { desc = "󰉶 indent" })
+map("x", "<Tab>", ">gv", { desc = "󰉶 indent" })
+map("n", "<S-Tab>", "<<", { desc = "󰉵 outdent" })
+map("x", "<S-Tab>", "<gv", { desc = "󰉵 outdent" })
+
+-- ——————————————————————————————————————————————————————————————————————————————
 -- (ERGO-L LAYOUT SPECIFIC KEYMAPS)
 -- ——————————————————————————————————————————————————————————————————————————————
 -- credits : https://ergol.org/articles/vim_pour_les_ergonautes/
@@ -107,22 +142,26 @@ map("n", ";", ",", { desc = "Go to previous occurence in line" })
 
 map("n", "<C-c>", "<C-i>", { desc = "Jump to previous location" }) -- so that they're next to each other
 
+-- ——————————————————————————————————————————————————————————————————————————————
+-- PERSONAL IMPROVEMENTS
+
+-- +/- on increment/decrement
 map({ "n", "v" }, "+", "<C-a>", { desc = "Increment" })
 map({ "n", "v" }, "-", "<C-x>", { desc = "Decrement" })
 map({ "n", "v" }, "g+", "<C-a>", { desc = "g-Increment" })
 map({ "n", "v" }, "g-", "<C-x>", { desc = "g-Decrement" })
 
--- ——————————————————————————————————————————————————————————————————————————————
--- PERSONAL IMPROVEMENTS
-
 -- remapping of hjkl to other functions
 -- as regular arrow movements are mapped to the arrow keys, to another layer
 -- [j]oin lines
 map("n", "j", "J", { desc = "Join next line to the current" })
+map("n", "gj", "gJ", { desc = "Join next line to the current (without blank space)" })
 map("n", "J", "kJ", { desc = "Join current line to the previous" })
+map("n", "gJ", "kgJ", { desc = "Join current line to the previous (without blank space)" })
 
 -- [k]nit lines
 -- opposite functions to j/J
+-- TODO: use plugin revJ to better handle this operation
 map("n", "k", "i<CR><Esc>", { desc = "Unjoin to the next line" })
 
 map("n", "\\", "?", { desc = "Search backwards" }) -- due to the symmetry between \ and / on symbol layer
@@ -183,8 +222,8 @@ map({ "n", "v" }, "gm", "%", { desc = "Go to Matching bracket" })
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (BUFFERS)
 
-map("n", "<Tab>", "<cmd>bnext<cr>", { desc = "go to next buffer" })
-map("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "go to previous buffer" })
+map("n", "<C-Tab>", "<cmd>bnext<cr>", { desc = "go to next buffer" })
+map("n", "<C-S-Tab>", "<cmd>bprevious<cr>", { desc = "go to previous buffer" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (TEXT OBJECTS)
@@ -206,8 +245,9 @@ map({ "v", "o" }, "iv", "i>", { desc = "inner <>" })
 map({ "v", "o" }, "av", "a>", { desc = "outer <>" })
 
 -- [m]assive word
-map({ "v", "o" }, "im", "iW", { desc = "inner WORD" })
-map({ "v", "o" }, "am", "aW", { desc = "outer WORD" })
+-- removing this one for now, as it competes a bit too much with the W motion
+-- map({ "v", "o" }, "im", "iW", { desc = "inner WORD" })
+-- map({ "v", "o" }, "am", "aW", { desc = "outer WORD" })
 
 -- [q]uoted text
 map({ "v", "o" }, "iq", 'i"', { desc = 'inner "' })

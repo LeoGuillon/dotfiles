@@ -7,6 +7,7 @@ return {
       "ThePrimeagen/harpoon",
       branch = "harpoon2",
     },
+    "catppuccin/nvim",
   },
   config = function()
     local lualine = require("lualine")
@@ -21,28 +22,60 @@ return {
       return root_name
     end
 
+    local mocha = require("catppuccin.palettes").get_palette("mocha")
+
+    -- TODO: customize catppuccin to have rounded borders on left and right side
+    local catppuccin_custom = require("lualine.themes.catppuccin")
+
+    -- custom extensions
+    local function custom_extension(filetypes, mode, icon)
+      M = {}
+      M.filetypes = filetypes
+      M.sections = {
+        lualine_a = {
+          {
+            function()
+              return mode
+            end,
+            icon = icon,
+            separator = {
+              left = "",
+              right = "",
+            },
+          },
+        },
+      }
+
+      return M
+    end
+
+    local lazy_extension = custom_extension({ "lazy" }, "LAZY", "󰒲")
+    local lazygit_extension = custom_extension({ "lazygit" }, "GIT", "󰊢")
+    local mason_extension = custom_extension({ "mason" }, "MASON", "󰟾")
+    local telescope_extension = custom_extension({ "TelescopePrompt" }, "FIND", "")
+    local yazi_extension = custom_extension({ "yazi" }, "YAZI", "󰇥")
+
     -- configuration de lualine
     lualine.setup({
+      -- TODO: add a rounded left side to lazy and mason
       extensions = {
-        "lazy",
-        "mason",
-        "nvim-tree",
-        "man",
-        "trouble",
+        -- custom extensions
+        lazy_extension,
+        lazygit_extension,
+        mason_extension,
+        telescope_extension,
+        yazi_extension,
       },
       options = {
         icons_enabled = true,
         theme = "catppuccin",
-        -- component_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "|" },
         -- section_separators = { left = "", right = "" },
-        component_separators = { left = "", right = "" },
+        -- component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
           "dashboard",
-          "lazygit",
           "query",
-          "TelescopePrompt",
-          "yazi",
         },
         ignore_focus = {},
         always_divide_middle = true,
