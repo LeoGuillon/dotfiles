@@ -19,13 +19,3 @@ autocmd("FileType", {
     vim.opt_local.formatoptions = "jcql"
   end,
 })
-
--- enable wrap for specific filetypes
--- namely, tex and markdown
-autocmd("FileType", {
-  group = augroup("wrap"),
-  pattern = { "text", "tex", "markdown" },
-  callback = function()
-    vim.opt_local.wrap = true
-  end,
-})

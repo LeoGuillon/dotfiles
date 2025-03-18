@@ -2,7 +2,7 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   event = "UIEnter",
   main = "ibl",
-  -- TODO: configure it
+  -- TODO: sync it with catppuccin and rainbow-delimiters
   opts = {},
   config = function()
     require("ibl").setup({
