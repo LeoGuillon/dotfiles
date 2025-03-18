@@ -45,7 +45,7 @@ return {
           "lua_ls",
           -- "pyright",
           -- "r_language_server",
-          "taplo", -- toml
+          -- "taplo", -- toml
           "texlab", -- latex lsp
           -- "ts_ls",
           -- "yamlls",
@@ -119,9 +119,9 @@ return {
         },
       })
 
-      lspconfig.taplo.setup({
-        capabilities = capabilities,
-      })
+      -- lspconfig.taplo.setup({
+      --   capabilities = capabilities,
+      -- })
       lspconfig.texlab.setup({
         capabilities = capabilities,
       })

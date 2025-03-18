@@ -1,14 +1,12 @@
 matches:
-  # french guillemets correct spacing
-  - trigger: "« "
-    replace: "« "
 
-  - trigger: "«"
-    replace: "« "
-
-  - trigger: "» "
-    replace: "» "
-
-  - trigger: "»"
-    replace: "» "
-
+  # oe -> œ
+  - trigger: "oeuvre"
+    replace: "œuvre"
+    word: true
+    propagate_case: true
+    
+  - trigger: "oeil"
+    replace: "œil"
+    word: true
+    propagate_case: true

@@ -22,6 +22,17 @@ return {
       return root_name
     end
 
+    -- customize catppuccin theme
+    local custom_catppuccin = require("lualine.themes.catppuccin-mocha")
+    local C = require("catppuccin.palettes").get_palette("mocha")
+    custom_catppuccin.normal.b.bg = C.surface1
+    custom_catppuccin.normal.c.bg = C.surface0
+    custom_catppuccin.insert.b.bg = C.surface1
+    custom_catppuccin.terminal.b.bg = C.surface1
+    custom_catppuccin.command.b.bg = C.surface1
+    custom_catppuccin.visual.b.bg = C.surface1
+    custom_catppuccin.replace.b.bg = C.surface1
+
     -- custom extensions
     local function custom_extension(filetypes, mode, icon)
       local M = {}
@@ -44,6 +55,8 @@ return {
       return M
     end
 
+    local harpoon_extension = custom_extension({ "harpoon" }, "HARPOON", "󰐃")
+    -- local harpoon_extension = custom_extension({ "harpoon" }, "HARPOON", "󰀱")
     local lazy_extension = custom_extension({ "lazy" }, "LAZY", "󰒲")
     local lazygit_extension = custom_extension({ "lazygit" }, "GIT", "󰊢")
     local mason_extension = custom_extension({ "mason" }, "MASON", "󰟾")
@@ -55,6 +68,7 @@ return {
       -- TODO: add a rounded left side to lazy and mason
       extensions = {
         -- custom extensions
+        harpoon_extension,
         lazy_extension,
         lazygit_extension,
         mason_extension,
@@ -63,8 +77,8 @@ return {
       },
       options = {
         icons_enabled = true,
-        theme = "catppuccin",
-        component_separators = { left = "", right = "|" },
+        theme = custom_catppuccin,
+        component_separators = { left = "", right = "│" },
         -- section_separators = { left = "", right = "" },
         -- component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
@@ -107,6 +121,23 @@ return {
         },
         lualine_c = {
           {
+            "harpoon2",
+            icon = "󰐃",
+            -- icon = "󰀱"
+            indicators = {
+              "1",
+              "2",
+              "3",
+              "4",
+            },
+            active_indicators = {
+              "[1]",
+              "[2]",
+              "[3]",
+              "[4]",
+            },
+          },
+          {
             "filetype",
             icon_only = true,
             separator = "",
@@ -134,6 +165,13 @@ return {
               right = 1,
             },
           },
+        },
+        lualine_x = {
+          {
+            lazy_status.updates,
+            cond = lazy_status.has_updates,
+            color = { fg = "#ff9e64" },
+          },
           -- not 100% sure to have the diff section
           -- {
           --   "diff",
@@ -152,36 +190,6 @@ return {
               hint = " ",
               info = " ",
             },
-          },
-          -- not 100% sure yet to include or not harpoon in the statusline
-          -- {
-          --   "%=",
-          --   separator = " ",
-          -- },
-          -- {
-          --   "harpoon2",
-          --   icon = "󰐃",
-          --   -- icon = "󰀱"
-          --   separator = " ",
-          --   indicators = {
-          --     "1",
-          --     "2",
-          --     "3",
-          --     "4",
-          --   },
-          --   active_indicators = {
-          --     "[1]",
-          --     "[2]",
-          --     "[3]",
-          --     "[4]",
-          --   },
-          -- },
-        },
-        lualine_x = {
-          {
-            lazy_status.updates,
-            cond = lazy_status.has_updates,
-            color = { fg = "#ff9e64" },
           },
           -- { "searchcount" }, -- redundant while there's the usual commandline
           -- { "selectioncount" }, -- same comment as for search count

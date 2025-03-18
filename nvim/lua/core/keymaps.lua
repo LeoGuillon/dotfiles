@@ -66,7 +66,7 @@ map("n", "X", function()
   vim.api.nvim_set_current_line(updatedLine)
 end, { desc = "Delete char" })
 
-map("v", "p", '"_dp"', { desc = "Paste" }) -- to avoid recording when yanking and pasting over a selection and keeps the yanked in register
+map("v", "p", '"_dp', { desc = "Paste" }) -- to avoid recording when yanking and pasting over a selection and keeps the yanked in register
 
 map({ "n", "v" }, "U", "<C-r>", { desc = "Redo" }) -- more consistent undo keymap
 

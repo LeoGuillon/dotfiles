@@ -1,0 +1,1 @@
+{"trigger":{"body":["- trigger: \"$1\"","  replace: \"$2\""],"prefix":"trigger"},"trigger-word":{"body":["- trigger: \"$1\"","  replace: \"$2\"","  word: true","  propagate_case: true"],"prefix":"trigger-word"}}
