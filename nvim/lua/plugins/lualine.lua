@@ -122,19 +122,24 @@ return {
         lualine_c = {
           {
             "harpoon2",
-            icon = "󰐃",
+            icon = "",
+            -- icon = "󰐃",
             -- icon = "󰀱"
+            padding = {
+              left = 0,
+              right = 0,
+            },
             indicators = {
-              "1",
-              "2",
-              "3",
-              "4",
+              "1 ",
+              "2 ",
+              "3 ",
+              "4 ",
             },
             active_indicators = {
-              "[1]",
-              "[2]",
-              "[3]",
-              "[4]",
+              "1*",
+              "2*",
+              "3*",
+              "4*",
             },
           },
           {
