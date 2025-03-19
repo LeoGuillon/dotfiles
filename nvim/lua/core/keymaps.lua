@@ -11,6 +11,14 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- ——————————————————————————————————————————————————————————————————————————————
+-- (CMD SHORTCUTS)
+-- ——————————————————————————————————————————————————————————————————————————————
+
+-- let's put some common keyboard shortcuts to spare some command mode
+map({ "n" }, "<D-s>", "<cmd>w<cr>", { desc = "Save current buffer" })
+map({ "n" }, "<D-w>", "<cmd>wq<cr>", { desc = "Save and close current buffer" })
+
+-- ——————————————————————————————————————————————————————————————————————————————
 -- (BETTER ESCAPE)
 -- ——————————————————————————————————————————————————————————————————————————————
 -- credits : https://nanotipsforvim.prose.sh/esc-in-normal-mode
@@ -71,20 +79,23 @@ map("v", "p", '"_dp', { desc = "Paste" }) -- to avoid recording when yanking and
 map({ "n", "v" }, "U", "<C-r>", { desc = "Redo" }) -- more consistent undo keymap
 
 -- ——————————————————————————————————————————————————————————————————————————————
+-- (MOVING CHARACTERS)
+
+map("n", "<A-Left>", '"zdh"zph', { desc = "move character Left" })
+map("n", "<A-Right>", '"zx"zp', { desc = "move character Right" })
+-- TODO: add the same moves in visual mode
+
+-- ——————————————————————————————————————————————————————————————————————————————
 -- (MOVING LINES)
 
 map("n", "<A-Down>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "move line Down" })
 map("n", "<A-Up>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "move line Up" })
-map("i", "<A-Down>", "<esc><cmd>m .+1<cr>==gi", { desc = "move line Down" })
-map("i", "<A-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "move line Up" })
 map("v", "<A-Down>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "move lines Down" })
 map("v", "<A-Up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "move lines Up" })
 
 -- same but with shift for 6 lines up/down
 map("n", "<S-A-Down>", "<cmd>execute 'move .+' . (v:count1 + 5)<cr>==", { desc = "move line Down x6" }) -- don’t know why 5 to have 6 lines up, but it works
 map("n", "<S-A-Up>", "<cmd>execute 'move .-' . (v:count1 + 6)<cr>==", { desc = "move line Up x6" })
-map("i", "<S-A-Down>", "<esc><cmd>m .+6<cr>==gi", { desc = "move line Down x6" })
-map("i", "<S-A-Up>", "<esc><cmd>m .-7<cr>==gi", { desc = "move line Up x6" })
 map("v", "<S-A-Down>", ":<C-u>execute \"'<,'>move '>+\" . (v:count1 + 5)<cr>gv=gv", { desc = "move lines Down x6" })
 map("v", "<S-A-Up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 6)<cr>gv=gv", { desc = "move lines Up x6" })
 
@@ -177,6 +188,17 @@ map("v", "V", "j", { desc = "Select next line" })
 
 map("v", "<", "<gv", { desc = "Indent selection to the left" })
 map("v", ">", ">gv", { desc = "Indent selection to the right" })
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (INSERT MODE)
+-- ——————————————————————————————————————————————————————————————————————————————
+
+-- insert mode that respect indentation
+-- credits : https://github.com/chrisgrieser/.config/blob/main/nvim/lua/config/keybindings.lua
+map("n", "i", function()
+  local lineEmpty = vim.trim(vim.api.nvim_get_current_line()) == ""
+  return lineEmpty and [["_cc]] or "i"
+end, { expr = true, desc = "indented i on empty line" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (NAVIGATION)

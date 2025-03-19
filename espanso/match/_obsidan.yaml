@@ -14,9 +14,3 @@ matches:
 
   - trigger: ":tp"
     replace: "<% tp.$|$ %>"
-  
-  - trigger: ":h3"
-    replace: "###"
-  
-  - trigger: ":h4"
-    replace: "####"

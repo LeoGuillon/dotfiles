@@ -48,7 +48,7 @@ return {
           -- "taplo", -- toml
           "texlab", -- latex lsp
           -- "ts_ls",
-          -- "yamlls",
+          "yamlls",
         },
 
         -- handlers = {
@@ -125,7 +125,9 @@ return {
       lspconfig.texlab.setup({
         capabilities = capabilities,
       })
-
+      lspconfig.yamlls.setup({
+        capabilities = capabilities,
+      })
       -- keymaps setup
       local map = vim.keymap.set
 

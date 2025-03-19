@@ -1,21 +1,17 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
 # ───────────────────────────────────────────────────────────────────────────────
 
+# for quick chat messages
 matches:
-  # oe -> œ
-  - trigger: "boeuf"
-    replace: "bœuf"
-    word: true
-    propagate_case: true
 
-  - trigger: "oeuvre"
-    replace: "œuvre"
-    word: true
-    propagate_case: true
+  - trigger: ",pre"
+    replace: "pregame action"
 
-  - trigger: "oeil"
-    replace: "œil"
-    word: true
-    propagate_case: true
+  - trigger: ",su"
+    replace: "stop upkeep"
 
-  # ae -> æ
+  - trigger: ",sd"
+    replace: "stop after draw"  
+
+  - trigger: ",ba"
+    replace: "before attackers"

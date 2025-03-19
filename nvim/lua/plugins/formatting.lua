@@ -13,7 +13,6 @@ return {
           "stylua", -- lua
           -- "taplo", -- toml
           "tex-fmt", -- latex
-          "yamlfix",
         },
       })
     end,
@@ -45,7 +44,7 @@ return {
           tex = { "tex-fmt" },
           -- toml = { "taplo" }, -- waiting to configure taplo properly
           typescript = { "prettier" },
-          yaml = { "" },
+          yaml = { "prettier" },
         },
         formatters = {
           ["tex-fmt"] = {

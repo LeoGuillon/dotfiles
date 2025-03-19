@@ -4,6 +4,7 @@ brew:
   fzf
   git
   jupyterlab
+  just
   lazygit
   lua
   mas
