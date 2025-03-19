@@ -214,6 +214,12 @@ onoremap ak a]
 vnoremap ik i]
 vnoremap ak a]
 
+" che[v]rons
+onoremap iv i>
+onoremap av a>
+vnoremap iv i>
+vnoremap av a>
+
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (SURROUND)
@@ -226,7 +232,9 @@ exmap surround_rectangular_brackets surround [ ]
 exmap surround_quotes surround " "
 exmap surround_apostrophe_quotes surround ' '
 exmap surround_inline_code surround ` `
+exmap surround_guillemets surround « »
 exmap surround_wiki_link surround [[ ]]
+exmap surround_chevrons surround < >
 exmap surround_math surround $ $
 
 nunmap S
@@ -238,7 +246,9 @@ map Sr :surround_rectangular_brackets<CR>
 map Sq :surround_quotes<CR>
 map Sa :surround_apostrophe_quotes<CR>
 map Si :surround_inline_code<CR>
+map Sg :surround_guillemets<CR>
 map Sk :surround_wiki_link<CR>
+map Sv :surround_chevrons<CR>
 map Sm :surround_math<CR>
 
 
