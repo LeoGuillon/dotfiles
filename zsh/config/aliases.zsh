@@ -3,7 +3,8 @@
 # ---------------------------------------------------------------------------------
 
 alias c="clear"
-alias r='exec zsh'
-alias q="exit"
-
+alias j="just"
 alias n="nvim"
+alias q="exit"
+alias r='exec zsh' # reload
+

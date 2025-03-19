@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+#───────────────────────────────────────────────────────────────────────────────
+
+matches:
+  # arrows
+  - trigger: "->"
+    replace: "→"
+    word: true
+
+  - trigger: "=>"
+    replace: "⇒"
+    word: true
+
+  # emojis
+  - trigger: "<3"
+    replace: "❤️"
+
+  - trigger: ",shrug"
+    replace: "¯\\_(ツ)_/¯"
+
+  - triggers: [",flip", ",tableflip"]
+    replace: "(╯°□°）╯︵ ┻━┻"

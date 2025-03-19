@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+# ───────────────────────────────────────────────────────────────────────────────
+
+matches:
+  # french punctuation
+  - trigger: "..."
+    replace: "…"
+
+    # TODO: add correct insecable space for symbols such as ! ? «» : ;

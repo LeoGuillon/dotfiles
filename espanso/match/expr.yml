@@ -22,6 +22,11 @@ matches:
     word: true
     propagate_case: true
 
+  - triggers: ["pq", "pk"]
+    replace: "pourquoi"
+    word: true
+    propagate_case: true
+
   - trigger: "ssi"
     replace: "si et seulement si"
     word: true

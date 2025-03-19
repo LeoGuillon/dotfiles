@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+# ───────────────────────────────────────────────────────────────────────────────
+
+# TODO: to put in private
+matches:
+  - trigger: ":name"
+    replace: "Léo Guillon"
+
+  - trigger: ":homem"
+    replace: "901 Boulevard Saint-Joseph E, apt 1"
+
+  - trigger: ":homep1"
+    replace: "24, boulevard de Magenta"
+
+  - trigger: ":homel"
+    replace: "6, rue de la grève"
+
+  - trigger: ":tel"
+    replace: "06 63 83 63 19"

@@ -2,20 +2,5 @@
 # ───────────────────────────────────────────────────────────────────────────────
 
 matches:
-  # oe -> œ
-  - trigger: "boeuf"
-    replace: "bœuf"
-    word: true
-    propagate_case: true
-
-  - trigger: "oeuvre"
-    replace: "œuvre"
-    word: true
-    propagate_case: true
-
-  - trigger: "oeil"
-    replace: "œil"
-    word: true
-    propagate_case: true
-
-  # ae -> æ
+  - trigger: ",dispo"
+    replace: "Je reste à votre disposition pour toute information complémentaire"

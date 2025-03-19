@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+# ───────────────────────────────────────────────────────────────────────────────
+
+# credits : https://www.reddit.com/r/espanso/comments/1h7ajx8/use_espanso_for_mousefree_emojireacts_in_discord/
+# mainly for discord and mattermost
+
+matches:
+  # sends an eyes react
+  - trigger: "eee"
+    replace: "+:eyes:\n"
+
+  # sends a heart react
+  - trigger: "hhh"
+    replace: "+:heart:\n"
+
+  # sends a thumb up react
+  - trigger: "yyy"
+    replace: "+:+1:\n"
+
+  # sends a rocket
+  - trigger: "rrr"
+    replace: "+:rocket:\n"
+
+  # sends a this
+  - trigger: "ttt"
+    replace: "+:point_up:\n"

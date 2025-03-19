@@ -1,17 +1,12 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
 # ───────────────────────────────────────────────────────────────────────────────
 
-# for quick chat messages
 matches:
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
 
-  - trigger: ",pre"
-    replace: "pregame action"
-
-  - trigger: ",su"
-    replace: "stop upkeep"
-
-  - trigger: ",sd"
-    replace: "stop after draw"  
-
-  - trigger: ",ba"
-    replace: "before attackers"

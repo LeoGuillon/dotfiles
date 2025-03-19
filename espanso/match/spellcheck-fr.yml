@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+# ───────────────────────────────────────────────────────────────────────────────
+
+matches:
+  # oe -> œ
+  - trigger: "boeuf"
+    replace: "bœuf"
+    word: true
+    propagate_case: true
+
+  - trigger: "coeur"
+    replace: "cœur"
+    word: true
+    propagate_case: true
+
+  - trigger: "coeurs"
+    replace: "cœurs"
+    word: true
+    propagate_case: true
+
+  - trigger: "oeuvre"
+    replace: "œuvre"
+    word: true
+    propagate_case: true
+
+  - trigger: "oeuvres"
+    replace: "œuvres"
+    word: true
+    propagate_case: true
+
+  - trigger: "oeil"
+    replace: "œil"
+    word: true
+    propagate_case: true
+
+  # ae -> æ
+  - trigger: "aether"
+    replace: "æther"
+    word: true
+    propagate_case: true

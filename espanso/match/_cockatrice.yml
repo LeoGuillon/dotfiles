@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+# ───────────────────────────────────────────────────────────────────────────────
+
+# for quick chat messages
+matches:
+  - trigger: ",pre"
+    replace: "pregame action"
+
+  - trigger: ",su"
+    replace: "stop upkeep"
+
+  - triggers: [",sd", ",sa"]
+    replace: "stop after draw"
+
+  - trigger: ",ba"
+    replace: "before attackers"
+
+  - trigger: ",th"
+    replace: "thinking"
