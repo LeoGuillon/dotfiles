@@ -2,6 +2,36 @@
 # ───────────────────────────────────────────────────────────────────────────────
 
 matches:
+  # —————————————————————————————————————————————————————————————————————————————
+  # (ACCENTS)
+  # usually small words with several accents letters
+  # can be tedious to write with ergo-l layout
+
+  # e -> é
+
+  # a bit of self-promoting heh ?
+  - trigger: "ecole polytechnique"
+    replace: "École Polytechnique"
+
+  - trigger: "ete"
+    replace: "été"
+    word: true
+    propagate_case: true
+
+  - trigger: "realite"
+    replace: "réalité"
+    word: true
+    propagate_case: true
+
+  # e -> ê
+  - trigger: "etre"
+    replace: "être"
+    word: true
+    propagate_case: true
+
+  # —————————————————————————————————————————————————————————————————————————————
+  # (DIACRITICS)
+
   # oe -> œ
   - trigger: "boeuf"
     replace: "bœuf"

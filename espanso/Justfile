@@ -1,2 +1,5 @@
 docs:
   open "https://espanso.org/docs/matches/basics/"
+
+hub:
+  open "https://hub.espanso.org/"

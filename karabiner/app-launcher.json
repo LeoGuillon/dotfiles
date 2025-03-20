@@ -1,0 +1,133 @@
+{
+  "description": "app layer left side : launch apps",
+  "manipulators": [
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "f -> Finder",
+      "from": {
+        "key_code": "g",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "shell_command": "open -a 'Finder.app'" }],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "n -> web browser",
+      "from": {
+        "key_code": "f",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "shell_command": "open -a 'Firefox.app'" }],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "z -> Zotero",
+      "from": {
+        "key_code": "non_us_backslash",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "shell_command": "open -a 'Zotero.app'" }],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "v -> Visual Studio Code",
+      "from": {
+        "key_code": "c",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "shell_command": "open -a 'Visual Studio Code.app'" }],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "x -> Citrix Viewer",
+      "from": {
+        "key_code": "z",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "shell_command": "open -a 'Citrix Viewer.app'" }],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "o -> Obsidian",
+      "from": {
+        "key_code": "e",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "shell_command": "open -a 'Obsidian.app'" }],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "a -> Music",
+      "from": {
+        "key_code": "a",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "shell_command": "open -a 'Music.app'" }],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "e -> terminal",
+      "from": {
+        "key_code": "d",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "shell_command": "open -a 'iTerm.app'" }],
+      "type": "basic"
+    }
+  ]
+}

@@ -16,7 +16,6 @@ vim.g.maplocalleader = " "
 
 -- let's put some common keyboard shortcuts to spare some command mode
 map({ "n" }, "<D-s>", "<cmd>w<cr>", { desc = "Save current buffer" })
-map({ "n" }, "<D-w>", "<cmd>wq<cr>", { desc = "Save and close current buffer" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (BETTER ESCAPE)
@@ -177,7 +176,8 @@ map("n", "k", "i<CR><Esc>", { desc = "Unjoin to the next line" })
 
 map("n", "\\", "?", { desc = "Search backwards" }) -- due to the symmetry between \ and / on symbol layer
 
-map("n", "'", ":", { desc = "Command line" }) -- makes it a bit more accessible
+-- makes the command mode a bit more accessible
+map({ "n", "v" }, "'", ":", { desc = "Command line" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (VISUAL MODE)

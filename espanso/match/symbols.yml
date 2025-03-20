@@ -2,21 +2,64 @@
 #───────────────────────────────────────────────────────────────────────────────
 
 matches:
-  # arrows
+  # arrows (when not using any nerd font for ligatures)
   - trigger: "->"
     replace: "→"
     word: true
-
   - trigger: "=>"
     replace: "⇒"
     word: true
 
+  # mac symbols
+  - trigger: ":cmd"
+    replace: "⌘"
+  - trigger: ":shift"
+    replace: "⇧"
+  - trigger: ":ctrl"
+    replace: "⌃"
+  - trigger: ":alt"
+    replace: "⌥"
+  - trigger: ":opt"
+    replace: "⌥"
+  - trigger: ":left"
+    replace: "←"
+  - trigger: ":right"
+    replace: "→"
+  - trigger: ":up"
+    replace: "↑"
+  - trigger: ":down"
+    replace: "↓"
+  - trigger: ":caps_lock"
+    replace: "⇪"
+  - trigger: ":esc"
+    replace: "⎋"
+  - trigger: ":eject"
+    replace: "⏏"
+  - triggers: [":return", ":enter"]
+    replace: "↵"
+  - trigger: ":tab"
+    replace: "⇥"
+  - trigger: ":backtab"
+    replace: "⇤"
+  - trigger: ":pgup"
+    replace: "⇞"
+  - trigger: ":pgdown"
+    replace: "⇟"
+  - trigger: ":home"
+    replace: "↖"
+  - trigger: ":end"
+    replace: "↘"
+  - trigger: ":space"
+    replace: "␣"
+  - triggers: [":del", ":backspace"]
+    replace: "⌫"
+  - trigger: ":fdel"
+    replace: "⌦"
+
   # emojis
   - trigger: "<3"
     replace: "❤️"
-
   - trigger: ",shrug"
     replace: "¯\\_(ツ)_/¯"
-
   - triggers: [",flip", ",tableflip"]
     replace: "(╯°□°）╯︵ ┻━┻"

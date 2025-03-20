@@ -1,7 +1,8 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/config.schema.json
 #───────────────────────────────────────────────────────────────────────────────
 
-filter_title: Discord|Slack|MatterMost
+# TODO: test for mattermost
+filter_title: Discord|Slack|Mattermost
 
 extra_includes:
   - "../match/_emoji-reacts.yml"
