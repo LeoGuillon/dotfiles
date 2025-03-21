@@ -2,11 +2,17 @@
 # ───────────────────────────────────────────────────────────────────────────────
 
 matches:
-  - trigger: ":date"
-    replace: "{{mydate}}"
+  - trigger: ":ajd"
+    replace: "{{today}}"
     vars:
-      - name: mydate
+      - name: today
         type: date
         params:
-          format: "%Y-%m-%d"
+          format: "%d/%m/%Y"
+  - trigger: ":iso"
+    replace: "{{todayISO}}"
+    vars:
+      - name: todayISO
+        type: date
+        params: { format: "%Y-%m-%d" }
 

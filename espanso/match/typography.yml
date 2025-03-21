@@ -7,3 +7,23 @@ matches:
     replace: "…"
 
     # TODO: add correct insecable space for symbols such as ! ? «» : ;
+
+  - trigger: ":insec"
+    replace: "\u00a0"
+
+  - trigger: ":finsec"
+    replace: "\u202f"
+
+  # insecables fine
+  # ;
+  # ?
+  # !
+  # thousands
+  # pourcentages, monétaires
+
+  # ——————————————————————————————————————————————————————————————————————————
+  # insecables
+
+  # :
+
+  # «»

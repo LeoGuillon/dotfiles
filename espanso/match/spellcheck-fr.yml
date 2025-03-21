@@ -63,8 +63,18 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "oeuf"
+    replace: "œuf"
+    word: true
+    propagate_case: true
+
   # ae -> æ
   - trigger: "aether"
     replace: "æther"
+    word: true
+    propagate_case: true
+
+  - trigger: "caetera"
+    replace: "cætera"
     word: true
     propagate_case: true

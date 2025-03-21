@@ -1,13 +1,12 @@
 matches:
-  
   - trigger: ":data"
-    replace: "```dataview\n\n```"
-  
+    replace: "```dataview\n$|$\n```"
+
   - trigger: ":list"
     replace: "```dataview\nLIST\n```"
 
   - trigger: ":table"
-    replace: "```dataview\nTABLE WITHOUT ID\n```"
+    replace: "```dataview\nTABLE WITHOUT ID $|$\n```"
 
   - trigger: ":tasks"
     replace: "```tasks\n\n```"

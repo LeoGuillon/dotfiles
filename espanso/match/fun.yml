@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+# ──────────────────────────────────────────────────────────────────────────────
+
+matches:
+  # just for fun
+  - trigger: ":asmo"
+    replace: "Asmoranomardicadaistinaculdacar"
+
+  - trigger: ":ceci"
+    replace: "Nabuchodonosor, roi des babyloniens. Écrivez-moi ceci en quatre lettres."
+
+  - trigger: ":merov"
+    replace: "Nom de dieu de putain de bordel de merde de saloperie de connard d’enculé de ta mère."
