@@ -2,6 +2,18 @@
 # ───────────────────────────────────────────────────────────────────────────────
 
 matches:
+  # SOCIAL
+  - trigger: ":name"
+    replace: "Léo Guillon"
+
+  - trigger: ":mpro"
+    replace: "leo.guillon@icm-institute.org"
+
+  - trigger: ":github"
+    replace: "https://github.com/LeoGuillon"
+
+  # ————————————————————————————————————————————————————————————————————————————
+  # DATES
   - trigger: ":ajd"
     replace: "{{today}}"
     vars:
@@ -15,4 +27,3 @@ matches:
       - name: todayISO
         type: date
         params: { format: "%Y-%m-%d" }
-

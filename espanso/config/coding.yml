@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/ajmarkow/espanso-schema-json/master/schemas/Espanso_Config_File_Schema.json
+#───────────────────────────────────────────────────────────────────────────────
+
+filter_exec: WezTerm|iTerm|Visual Studio Code
+enable: false
+# TODO: probably better to enable, but disable some shortcut types
+# mostly no-prefix shortcuts, like spellcheck (which can be handled by LSPs already)
+# or symbols without prefix, notably the ligature emulation
+
+# extra_excludes:
+#   "../match/ligatures_emulation.yml"
+#   "../match/spellcheck-en.yml"
+#   "../match/spellcheck-fr.yml"
+#   "../match/typography.yml"

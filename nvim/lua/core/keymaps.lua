@@ -11,11 +11,15 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- ——————————————————————————————————————————————————————————————————————————————
--- (CMD SHORTCUTS)
+-- (COMMON SHORTCUTS)
 -- ——————————————————————————————————————————————————————————————————————————————
-
 -- let's put some common keyboard shortcuts to spare some command mode
-map({ "n" }, "<D-s>", "<cmd>w<cr>", { desc = "Save current buffer" })
+
+map("i", "<A-BS>", "<C-w>")
+
+-- TODO: figure out how to use cmd key in wezterm
+map("i", "<D-BS>", '<Esc>"_cc')
+-- map({ "n" }, "<D-s>", "<cmd>w<cr>", { desc = "Save current buffer" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (BETTER ESCAPE)

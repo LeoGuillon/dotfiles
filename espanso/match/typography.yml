@@ -6,8 +6,6 @@ matches:
   - trigger: "..."
     replace: "…"
 
-    # TODO: add correct insecable space for symbols such as ! ? «» : ;
-
   - trigger: ":insec"
     replace: "\u00a0"
 
@@ -16,8 +14,20 @@ matches:
 
   # insecables fine
   # ;
+  - regex: "\\s;"
+    replace: "\u202f;"
+    word: true
+
   # ?
+  - regex: "\\s\\?"
+    replace: "\u202f?"
+    word: true
+
   # !
+  - regex: "\\s!"
+    replace: "\u202f!"
+    word: true
+
   # thousands
   # pourcentages, monétaires
 
@@ -25,5 +35,11 @@ matches:
   # insecables
 
   # :
+  # TODO: correct with the newline for executing commands and stuff
 
+  # - regex: "\\s:"
+  #   replace: "\u00a0:"
+  #   word: true
+
+  # TODO: add sentence regex in guillemets
   # «»
