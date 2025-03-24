@@ -15,10 +15,10 @@ vim.g.maplocalleader = " "
 -- ——————————————————————————————————————————————————————————————————————————————
 -- let's put some common keyboard shortcuts to spare some command mode
 
-map("i", "<A-BS>", "<C-w>")
-
+map({ "i", "c" }, "<A-BS>", "<C-w>") -- map opt+backspace in insert and command modes
 -- TODO: figure out how to use cmd key in wezterm
-map("i", "<D-BS>", '<Esc>"_cc')
+-- map("i", "<D-BS>", '<Esc>"_cc')
+
 -- map({ "n" }, "<D-s>", "<cmd>w<cr>", { desc = "Save current buffer" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
@@ -77,10 +77,24 @@ map("n", "X", function()
   vim.api.nvim_set_current_line(updatedLine)
 end, { desc = "Delete char" })
 
-map("v", "p", '"_dp', { desc = "Paste" }) -- to avoid recording when yanking and pasting over a selection and keeps the yanked in register
+map("v", "p", "P", { desc = "Paste" }) -- to avoid recording when yanking and pasting over a selection and keeps the yanked in register
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (UNDO/REDO)
 
 map({ "n", "v" }, "U", "<C-r>", { desc = "Redo" }) -- more consistent undo keymap
 
+-- more molecular checkpoints during editing
+local undo_checkpoints_chars = {
+  ";",
+  ".",
+  "!",
+  "?",
+  ":",
+}
+for _, key in pairs(undo_checkpoints_chars) do
+  map("i", key, ("%s<c-g>u"):format(key))
+end
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (MOVING CHARACTERS)
 
@@ -203,6 +217,17 @@ map("n", "i", function()
   local lineEmpty = vim.trim(vim.api.nvim_get_current_line()) == ""
   return lineEmpty and [["_cc]] or "i"
 end, { expr = true, desc = "indented i on empty line" })
+
+-- navigation similar to macos usual settings
+-- opt + left/right = move backward/forward one word
+map("i", "<A-Left>", "<S-Left>")
+map("i", "<A-Right>", "<S-Right>")
+
+-- cmd
+map("i", "<D-Left>", "<Home>")
+map("i", "<D-Right>", "<End>")
+map("i", "<D-Up>", "<C-Home>")
+map("i", "<D-Down>", "<C-End>")
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (NAVIGATION)

@@ -6,14 +6,51 @@ return {
   {
     "LudoPinelli/comment-box.nvim",
     -- TODO: setup this plugin
+    config = function()
+      local comment_box = require("comment-box")
+
+      comment_box.setup({
+        doc_width = 80,
+        box_width = 60,
+        line_width = 80, -- changing this value to have full-width lines
+      })
+
+      local map = vim.keymap.set
+
+      -- we use the same command as Comment.nvim : gc + […]
+
+      -- comment [b]ox, angular corners
+      -- also in visual mode to allows to put the selection in a box
+      map({ "n", "v" }, "gcb", function()
+        comment_box.ccbox(2)
+      end, { desc = "draws a comment Box" })
+
+      -- [h]eader line, in rectangular brackets
+      -- TODO: create the function that match exactly my need :
+      -- a horizontal line, followed by a comment with just the title in brackets
+
+      -- map("n", "gct", function()
+      --   comment_box.llline(6)
+      -- end, { desc = "draws a comment Title" })
+
+      -- simple [l]ine
+      map("n", "gcl", function()
+        comment_box.cline(1)
+      end, { desc = "draws a comment Line" })
+
+      -- [d]elete the content of a box
+      map({ "n", "v" }, "gcd", "<cmd>CBd", { desc = "Delete the content of a comment box" })
+
+      -- [y]ank the content of a box
+      map({ "n", "v" }, "gcy", "<cmd>CBy", { desc = "Changes the content of a comment box" })
+
+      -- stylua: ignore end
+    end,
   },
   {
     "folke/todo-comments.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-      -- TODO: customize colors to fit catppuccin theme
-    },
     config = function()
       local todo_comments = require("todo-comments")
 

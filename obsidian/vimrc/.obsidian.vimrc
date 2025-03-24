@@ -1,6 +1,4 @@
 " ——————————————————————————————————————————————————————————————————————————————
-" (CONVENIANCE MAPPINGS)
-" ——————————————————————————————————————————————————————————————————————————————
 
 " Esc cleans the command line and highlights
 " source : https://nanotipsforvim.prose.sh/esc-in-normal-mode
@@ -35,18 +33,43 @@ nnoremap P mzg$p`z
 " register
 vnoremap p "_dp
 
-" redo on U instead of <C-r>
-nnoremap U <C-r>
 
 " togglecase command doesn't move forward a character
 nnoremap ~ v~
 
 " ——————————————————————————————————————————————————————————————————————————————
-" (LINES)
+" (UNDO/REDO)
+
+" redo on U instead of <C-r>
+nnoremap U <C-r>
+
+" " undo checkpoints during text writing
+" inoremap . .<C-g>u 
+" inoremap ! !<C-g>u 
+" inoremap ? ?<C-g>u 
+" inoremap ; ;<C-g>u 
+" inoremap : :<C-g>u 
+
+" ——————————————————————————————————————————————————————————————————————————————
+" (NEW LINES)
 
 " new line above or below without entering insert mode
 nnoremap gn mzo<Esc>`z
 nnoremap gN mzO<Esc>`z
+
+" ——————————————————————————————————————————————————————————————————————————————
+" (MOVING CHARACTERS)
+
+nnoremap <A-Left> xhhp
+nnoremap <A-Right> xp
+
+" ——————————————————————————————————————————————————————————————————————————————
+" (MOVING LINES)
+
+exmap lineUp obcommand editor:swap-line-up
+exmap lineDown obcommand editor:swap-line-down
+nnoremap <A-Down> :lineDown<CR>
+nnoremap <A-Up> :lineUp<CR>
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (ERGO-L LAYOUT SPECIFIC KEYMAPS)
@@ -152,11 +175,28 @@ nnoremap gT :previoustab<CR>
 
 " [g]o to wiki lin[k] under cursor
 " to match with usual shortcut, even though 'gf' still works
+" TODO: correct it to make the link open in a new tab 
 nnoremap gk gf
 
 " close tab
 exmap closetab obcommand workspace:close
 nnoremap ZZ :closetab<CR>
+
+" forward/backward in the history
+exmap goBack obcommand app:go-back
+exmap goForward obcommand app:go-forward
+noremap <BS> :goBack<CR>
+noremap <S-BS> :goForward<CR>
+
+" ───────────────────────────────────────────────────────────────────────────────
+" (FOLDS)
+" ───────────────────────────────────────────────────────────────────────────────
+
+" properties 
+exmap togglefoldproperties obcommand editor:toggle-fold-properties
+nnoremap zp :togglefoldproperties<CR>
+
+" folds headers
 
 " ───────────────────────────────────────────────────────────────────────────────
 " (TEXT OBJECTS)
@@ -171,12 +211,6 @@ nnoremap ZZ :closetab<CR>
 " [p]aragraph
 " [t]ag
 " [b]rackets
-
-" " [m]assive word
-" onoremap im iW
-" onoremap am aW
-" vnoremap im iW
-" vnoremap am aW
 
 " [q]uoted text
 onoremap iq i"
@@ -226,29 +260,39 @@ vnoremap av a>
 " ——————————————————————————————————————————————————————————————————————————————
 
 " source : https://github.com/esm7/obsidian-vimrc-support
-exmap surround_brackets surround ( )
-exmap surround_curly_brackets surround { }
-exmap surround_rectangular_brackets surround [ ]
-exmap surround_quotes surround " "
-exmap surround_apostrophe_quotes surround ' '
-exmap surround_inline_code surround ` `
-exmap surround_guillemets surround « »
-exmap surround_wiki_link surround [[ ]]
-exmap surround_chevrons surround < >
-exmap surround_math surround $ $
-
+" I do use the 's' keymap in vim, so better to map the surround to 'S'
+" morover, this is the same mapping in visual mode as nvim-surround
 nunmap S
 vunmap S
 
+exmap surround_brackets surround ( )
 map Sb :surround_brackets<CR>
+
+exmap surround_curly_brackets surround { }
 map Sc :surround_curly_brackets<CR>
+
+exmap surround_rectangular_brackets surround [ ]
 map Sr :surround_rectangular_brackets<CR>
+
+exmap surround_quotes surround " "
 map Sq :surround_quotes<CR>
+
+exmap surround_apostrophe_quotes surround ' '
 map Sa :surround_apostrophe_quotes<CR>
+
+exmap surround_inline_code surround ` `
 map Si :surround_inline_code<CR>
+
+exmap surround_guillemets surround « »
 map Sg :surround_guillemets<CR>
+
+exmap surround_wiki_link surround [[ ]]
 map Sk :surround_wiki_link<CR>
+
+exmap surround_chevrons surround < >
 map Sv :surround_chevrons<CR>
+
+exmap surround_math surround $ $
 map Sm :surround_math<CR>
 
 
@@ -261,7 +305,7 @@ unmap <Space>
 
 " adding a , ; or . at the end of line
 nnoremap <Space>, mzA,<Esc>`z
-nnoremap <Space>; mzA<Space>;<Esc>`z " we add a space here because we're not writing code but regular text
+nnoremap <Space>; mzA<Space>;<Esc>`z
 nnoremap <Space>. mzA.<Esc>`z
 
 " quick toggle casing ; credits : https://nanotipsforvim.prose.sh/quickly-toggle-casing
@@ -288,6 +332,7 @@ exmap newnotefromtemplate obcommand templater-obsidian:create-new-note-from-temp
 nnoremap <Space>nt :newnotefromtemplate<CR>
 
 " [w]ikipedia extraction
+
 " [y]outube video note
 
 " [z]otero reference
@@ -302,6 +347,9 @@ nnoremap <Space>nz :newzotero<CR>
 " [c]allout
 exmap insertcallout obcommand editor:insert-callout
 nnoremap <Space>ic :insertcallout<CR>i
+
+" [h]eader ?
+" TODO: do insert header on not ?
 
 " wiki lin[k]
 exmap insertwikilink obcommand editor:insert-wikilink
@@ -407,7 +455,9 @@ exmap openlocalgraph obcommand graph:open-local
 nnoremap <Space>ug :openlocalgraph<CR>
 
 " properties (sidebar)
-" properties (toggle fold)
+
+nnoremap <Space>up :togglefoldproperties<CR>
+
 " [s]tatus bar
 exmap togglestatusbar obcommand obsidian-hider:toggle-hider-status
 nnoremap <Space>us :togglestatusbar<CR>
