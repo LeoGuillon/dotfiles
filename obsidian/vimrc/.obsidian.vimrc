@@ -192,11 +192,26 @@ noremap <S-BS> :goForward<CR>
 " (FOLDS)
 " ───────────────────────────────────────────────────────────────────────────────
 
+" classic folds
+exmap togglefold obcommand editor:toggle-fold
+nnoremap zo :togglefold
+
+exmap foldreduce obcommand editor:fold-less
+nnoremap zr :foldreduce
+
+exmap unfoldall obcommand editor:unfold-all
+nnoremap zR :unfoldall
+
+exmap foldmore obcommand editor:fold-more
+nnoremap zm :foldmore
+
+exmap foldall obcommand editor:fold-all
+nnoremap zM :foldall
+
 " properties 
 exmap togglefoldproperties obcommand editor:toggle-fold-properties
 nnoremap zp :togglefoldproperties<CR>
 
-" folds headers
 
 " ───────────────────────────────────────────────────────────────────────────────
 " (TEXT OBJECTS)

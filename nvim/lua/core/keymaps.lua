@@ -295,22 +295,22 @@ map({ "v", "o" }, "ar", "a]", { desc = "outer []" })
 map({ "v", "o" }, "iv", "i>", { desc = "inner <>" })
 map({ "v", "o" }, "av", "a>", { desc = "outer <>" })
 
--- [m]assive word
--- removing this one for now, as it competes a bit too much with the W motion
--- map({ "v", "o" }, "im", "iW", { desc = "inner WORD" })
--- map({ "v", "o" }, "am", "aW", { desc = "outer WORD" })
-
 -- [q]uoted text
 map({ "v", "o" }, "iq", 'i"', { desc = 'inner "' })
 map({ "v", "o" }, "aq", 'a"', { desc = 'outer "' })
 
 -- [a]postrothe quoted text
-map({ "v", "o" }, "ia", "a'", { desc = "inner '" })
+map({ "v", "o" }, "ia", "i'", { desc = "inner '" })
 map({ "v", "o" }, "aa", "a'", { desc = "outer '" })
 
 -- [i]nline code
 map({ "v", "o" }, "ii", "i`", { desc = "inner `" })
 map({ "v", "o" }, "ai", "a`", { desc = "outer `" })
+
+-- [m]ath block
+-- TODO: to add to vimtex once the implementation is done
+map({ "v", "o" }, "im", "i$", { desc = "inner math block" })
+map({ "v", "o" }, "am", "a$", { desc = "outer math block" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (LEADER MAPPINGS)

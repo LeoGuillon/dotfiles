@@ -14,7 +14,7 @@ autocmd("TextYankPost", {
 
 -- set formatoptions
 autocmd("FileType", {
-  pattern = "lua",
+  pattern = "*",
   callback = function()
     vim.opt_local.formatoptions = "jcql"
   end,

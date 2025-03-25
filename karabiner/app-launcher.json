@@ -128,6 +128,22 @@
       },
       "to": [{ "shell_command": "open -a 'iTerm.app'" }],
       "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "w -> Word",
+      "from": {
+        "key_code": "t",
+        "modifiers": { "optional": ["any"] }
+      },
+      "to": [{ "shell_command": "open -a 'Microsoft Word.app'" }],
+      "type": "basic"
     }
   ]
 }

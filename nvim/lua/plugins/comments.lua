@@ -39,10 +39,10 @@ return {
       end, { desc = "draws a comment Line" })
 
       -- [d]elete the content of a box
-      map({ "n", "v" }, "gcd", "<cmd>CBd", { desc = "Delete the content of a comment box" })
+      map({ "n", "v" }, "gcd", "<cmd>CBd<cr>", { desc = "Delete the content of a comment box" })
 
       -- [y]ank the content of a box
-      map({ "n", "v" }, "gcy", "<cmd>CBy", { desc = "Changes the content of a comment box" })
+      map({ "n", "v" }, "gcy", "<cmd>CBy<cr>", { desc = "Changes the content of a comment box" })
 
       -- stylua: ignore end
     end,
