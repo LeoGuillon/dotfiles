@@ -216,7 +216,11 @@ map("v", ">", ">gv", { desc = "Indent selection to the right" })
 map("n", "i", function()
   local lineEmpty = vim.trim(vim.api.nvim_get_current_line()) == ""
   return lineEmpty and [["_cc]] or "i"
-end, { expr = true, desc = "indented i on empty line" })
+end, { expr = true, desc = "Insert mode" })
+map("n", "a", function()
+  local lineEmpty = vim.trim(vim.api.nvim_get_current_line()) == ""
+  return lineEmpty and [["_cc]] or "a"
+end, { expr = true, desc = "insert mode, Append" })
 
 -- navigation similar to macos usual settings
 -- opt + left/right = move backward/forward one word

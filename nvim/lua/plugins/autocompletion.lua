@@ -52,9 +52,6 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<Up>"] = cmp.mapping.select_prev_item(), -- previous suggestion
         ["<Down>"] = cmp.mapping.select_next_item(), -- next suggestion
-        ["<S-Up>"] = cmp.mapping.scroll_docs(-6),
-        ["<S-Down>"] = cmp.mapping.scroll_docs(6),
-        -- ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
         ["<Esc>"] = cmp.mapping.abort(), -- close completion window
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- accept current selection without explicitely selecting
       }),

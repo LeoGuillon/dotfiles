@@ -269,6 +269,13 @@ onoremap av a>
 vnoremap iv i>
 vnoremap av a>
 
+" [m]ath block
+onoremap im i$
+onoremap am a$
+vnoremap im i$
+vnoremap am a$
+
+
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (SURROUND)

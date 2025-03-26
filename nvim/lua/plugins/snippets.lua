@@ -17,20 +17,25 @@ return {
         -- store_selection_keys = "<tab>",
       })
 
-
       -- keymaps
+      local map = vim.keymap.set
 
       -- stylua: ignore start
-      vim.keymap.set({ "i" }, "<cr>", function() ls.expand() end, { silent = true })
-      -- vim.keymap.set({ "i", "s" }, "<tab>", function() ls.jump(1) end, { silent = true })
-      -- vim.keymap.set({ "i", "s" }, "<s-tab>", function() ls.jump(-1) end, { silent = true })
+      map({ "i" }, "<cr>", function() ls.expand() end, { silent = true })
       -- stylua: ignore end
 
-      -- vim.keymap.set({ "i", "s" }, "<C-E>", function()
-      --   if ls.choice_active() then
-      --     ls.change_choice(1)
-      --   end
-      -- end, { silent = true })
+      -- jumps between tabstops
+      map({ "i", "s" }, "<Tab>", function()
+        if ls.jumpable(1) then
+          ls.jump(1)
+        end
+      end, { silent = true })
+
+      map({ "i", "s" }, "<S-Tab>", function()
+        if ls.jumpable(-1) then
+          ls.jump(-1)
+        end
+      end, { silent = true })
 
       -- loads snippets from snippets folder
       require("luasnip.loaders.from_vscode").lazy_load({
