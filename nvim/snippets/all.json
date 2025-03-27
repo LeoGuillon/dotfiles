@@ -1,0 +1,26 @@
+{
+  "TODO": {
+    "body": "$LINE_COMMENT TODO: $1",
+    "prefix": ["todo"]
+  },
+  "QUES": {
+    "body": "$LINE_COMMENT QUES: $1",
+    "prefix": ["ques"]
+  },
+  "HACK": {
+    "body": "$LINE_COMMENT HACK: $1",
+    "prefix": ["hack"]
+  },
+  "WARN": {
+    "body": "$LINE_COMMENT WARN: $1",
+    "prefix": ["warn"]
+  },
+  "NOTE": {
+    "body": "$LINE_COMMENT NOTE: $1",
+    "prefix": ["note"]
+  },
+  "BUG": {
+    "body": "$LINE_COMMENT BUG: $1",
+    "prefix": ["bug", "fix"]
+  }
+}

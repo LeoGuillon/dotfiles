@@ -49,10 +49,12 @@ return {
       "nvim-telescope/telescope.nvim",
       "folke/which-key.nvim",
     },
-    opts = {
-      snippetDir = "./snippets",
-    },
     config = function()
+      local scissors = require("scissors")
+
+      scissors.setup({
+        jsonFormatter = "yq",
+      })
       -- keymaps
       local map = vim.keymap.set
 

@@ -54,7 +54,8 @@ opt.showmode = false
 
 -- (INVISIBLE CHARS)
 
-opt.conceallevel = 2
+-- TODO: activate only for markdown files
+-- opt.conceallevel = 2
 
 -- filetype override for treesitter and LSPs
 

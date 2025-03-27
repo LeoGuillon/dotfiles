@@ -243,17 +243,11 @@ map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = tru
 
 -- Faster navigation
 -- credits : https://nanotipsforvim.prose.sh/motion-setup--hjkl-as-amplified-hjkl
+-- TODO: correct with gj, gk etc for normal mode
 map({ "n", "v" }, "<S-Left>", "^", { desc = "Go to first non-blank character", silent = true })
 map({ "n", "v" }, "<S-Down>", "6j", { desc = "Move down 6 lines", silent = true })
 map({ "n", "v" }, "<S-Up>", "6k", { desc = "Move up 6 lines", silent = true })
 map({ "n", "v" }, "<S-Right>", "$", { desc = "Go to end of line", silent = true })
-
--- TODO: have a correct mark respect when moving line faster
-
--- map("i", "<S-Left>", "<esc>^i", { desc = "Go to first non-blank character", silent = true })
--- map("i", "<S-Down>", "<esc>6ji", { desc = "Move down 6 lines", silent = true })
--- map("i", "<S-Up>", "<esc>6ki", { desc = "Move up 6 lines", silent = true })
--- map("i", "<S-Right>", "<esc>$i", { desc = "Go to end of line", silent = true })
 
 -- Window navigation
 map("n", "<C-Left>", "<C-w>h", { desc = "Go to Left Window", silent = true, remap = true })

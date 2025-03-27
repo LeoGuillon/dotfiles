@@ -1,4 +1,4 @@
-return {
+eturn({
   {
     "numToStr/Comment.nvim",
     opts = {},
@@ -51,6 +51,16 @@ return {
     "folke/todo-comments.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      keywords = {
+        -- custom keywords
+        -- BUG: correct this
+        QUES = {
+          icon = " ",
+          color = "info",
+        },
+      },
+    },
     config = function()
       local todo_comments = require("todo-comments")
 
@@ -68,4 +78,4 @@ return {
       todo_comments.setup()
     end,
   },
-}
+})
