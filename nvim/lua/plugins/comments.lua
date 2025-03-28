@@ -1,4 +1,4 @@
-eturn({
+return {
   {
     "numToStr/Comment.nvim",
     opts = {},
@@ -78,4 +78,4 @@ eturn({
       todo_comments.setup()
     end,
   },
-})
+}

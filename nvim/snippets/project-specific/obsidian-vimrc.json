@@ -1,0 +1,10 @@
+{
+  "obcommand": {
+    "body": [
+      "exmap $1 obcommand $2",
+      "nnoremap <Space>$3 :$1<CR>",
+      "$0"
+    ],
+    "prefix": "obcommand"
+  }
+}

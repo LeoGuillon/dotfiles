@@ -9,39 +9,57 @@
         ]
       },
       {
-        "path": "./lua.json",
+        "path": "./general/json.json",
+        "language": [
+          "json"
+        ]
+      },
+      {
+        "path": "./general/lua.json",
         "language": [
           "lua"
         ]
       },
       {
-        "path": "./tex.json",
+        "path": "./general/tex.json",
         "language": [
           "tex",
           "plaintex"
         ]
       },
       {
-        "path": "./markdown.json",
+        "path": "./general/markdown.json",
         "language": [
           "markdown",
           "rmd"
         ]
       },
       {
-        "path": "./sh.json",
+        "path": "./general/sh.json",
         "language": [
           "sh"
         ]
       },
       {
-        "path": "./yaml.json",
+        "path": "./general/yaml.json",
         "language": [
           "yaml"
         ]
       },
       {
-        "path": "./vim.json",
+        "path": "./general/vim.json",
+        "language": [
+          "vim"
+        ]
+      },
+      {
+        "path": "./project-specific/espanso.json",
+        "language": [
+          "yaml"
+        ]
+      },
+      {
+        "path": "./project-specific/obsidian-vimrc.json",
         "language": [
           "vim"
         ]

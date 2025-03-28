@@ -1,0 +1,123 @@
+{
+  "acronym": {
+    "prefix": "acronym",
+    "body": [
+      "\\begin{acronym}",
+      "  $0",
+      "\\end{acronym}"
+    ]
+  },
+  "acro": {
+    "prefix": "acro",
+    "body": "\\acro{${1:acronym}}{${2:full name}}"
+  },
+  "ac": {
+    "prefix": "ac",
+    "body": "\\ac{$1}$0"
+  },
+  "frame": {
+    "prefix": "frame",
+    "body": [
+      "\\begin{frame}{${1:frametitle}}",
+      "  $0",
+      "\\end{frame}"
+    ]
+  },
+  "section*": {
+    "prefix": "section*",
+    "body": "\\section*{$1}"
+  },
+  "figure:tikz": {
+    "prefix": "figure:tikz",
+    "body": [
+      "\\begin{figure}",
+      "  \\centering",
+      "  \\input{src/tikz/$1}",
+      "  \\caption{$2}",
+      "  \\label{fig:$1}",
+      "\\end{figure}"
+    ]
+  },
+  "em": {
+    "prefix": "em",
+    "body": "\\emph{$1}"
+  },
+  "table-input": {
+    "prefix": "table",
+    "body": [
+      "\\begin{table}",
+      "  \\centering",
+      "  \\input{src/tables/$1}",
+      "  \\caption{$2}",
+      "  \\label{table:${1/(.+?)(tex)?/$1/}}",
+      "\\end{table}",
+      "$0"
+    ]
+  },
+  "section": {
+    "prefix": "section",
+    "body": "\\section{$1}\\label{section:${1/(.*)/${1:/downcase}/}}"
+  },
+  "node": {
+    "prefix": "node",
+    "body": "\\node ($1) [$2] {$3};"
+  },
+  "include": {
+    "prefix": "include",
+    "body": "\\include{$1}"
+  },
+  "columns-2": {
+    "prefix": "columns-2",
+    "body": [
+      "\\begin{columns}",
+      "  \\begin{column}{0.5\\textwidth}",
+      "    ",
+      "  \\end{column}",
+      "  \\begin{column}{0.5\\textwidth}",
+      "    ",
+      "  \\end{column}",
+      "\\end{columns}"
+    ]
+  },
+  "block": {
+    "prefix": "block",
+    "body": [
+      "\\begin{block}{$1}",
+      "  $0",
+      "\\end{block}"
+    ]
+  },
+  "abstract": {
+    "prefix": "abstract",
+    "body": [
+      "\\begin{abstract}",
+      "  $0",
+      "\\end{abstract}"
+    ]
+  },
+  "paragraph": {
+    "prefix": "paragraph",
+    "body": "\\paragraph{$1}"
+  },
+  "figure": {
+    "prefix": "figure",
+    "body": [
+      "\\begin{figure}",
+      "  \\centering",
+      "  \\includegraphics[width=$1\\textwidth]{$2}",
+      "  \\caption{$3}",
+      "  \\label{fig:$2}",
+      "\\end{figure}",
+      "$0"
+    ]
+  },
+  "usepackage": {
+    "prefix": [
+      "usepackage",
+      "\\usepackage",
+      "package",
+      "\\package"
+    ],
+    "body": "\\usepackage{$1}"
+  }
+}

@@ -53,14 +53,18 @@ return {
       local scissors = require("scissors")
 
       scissors.setup({
-        jsonFormatter = "yq",
+        jsonFormatter = "jq",
+        telescope = {
+          alsoSearchSnippetBody = true,
+        },
       })
+
       -- keymaps
       local map = vim.keymap.set
 
       -- stylua: ignore start
-      map("n", "<leader>se", function() require("scissors").editSnippet() end, { desc = "Snippet: Edit" })
-      map({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end, { desc = "Snippet: Add" })
+      map("n", "<leader>se", function() scissors.editSnippet() end, { desc = "Snippet: Edit" })
+      map({ "n", "x" }, "<leader>sa", function() scissors.addNewSnippet() end, { desc = "Snippet: Add" })
       -- stylua: ignore end
 
       require("which-key").add({ { "<leader>s", group = "Snippets…", icon = "" } })

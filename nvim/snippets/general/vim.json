@@ -1,0 +1,9 @@
+{
+  "nnoremap": {
+    "body": [
+      "nnoremap $1 $2",
+      "$0"
+    ],
+    "prefix": "nnoremap"
+  }
+}

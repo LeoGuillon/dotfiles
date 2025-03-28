@@ -31,7 +31,7 @@ return {
           cpp = { "clang-format" },
           css = { "prettier" },
           javascript = { "prettier" },
-          json = { "prettier" },
+          json = { "jq" },
           julia = { "jupytext" },
           html = { "prettier" },
           lua = { "stylua" },
