@@ -11,6 +11,10 @@
     "prefix": "acro",
     "body": "\\acro{${1:acronym}}{${2:full name}}"
   },
+  "acrodef": {
+    "prefix": "acrodef",
+    "body": "\\acrodef{${1:acronym}}{${2:full name}}"
+  },
   "ac": {
     "prefix": "ac",
     "body": "\\ac{$1}$0"
@@ -35,7 +39,8 @@
       "  \\input{src/tikz/$1}",
       "  \\caption{$2}",
       "  \\label{fig:$1}",
-      "\\end{figure}"
+      "\\end{figure}",
+      "$0"
     ]
   },
   "em": {

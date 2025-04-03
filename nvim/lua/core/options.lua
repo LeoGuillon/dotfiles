@@ -69,6 +69,7 @@ vim.filetype.add({
     [".zshenv"] = "sh",
     [".zprofile"] = "sh",
     [".zshrc"] = "sh",
+    ["sketchybarrc"] = "sh",
   },
 })
 

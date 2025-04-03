@@ -19,14 +19,7 @@ map("n", "<leader>?", "mzA\\,?<Esc>`z", { desc = "add ? to eol" })
 
 -- insecable
 map("n", "<leader>:", "mzA~:<Esc>`z", { desc = "add : to eol" })
-
--- -- abbreviations
--- vim.cmd([[
--- " TODO: check if doesn't break tikz commands
---   iabbrev <buffer> ; \,;
---   iabbrev <buffer> ! \,!
---   iabbrev <buffer> ? \,?
--- ]])
+map("n", "<leader>\\\\", "mzA \\\\<Esc>`z", { desc = "add line break to eol" })
 
 -- return {
 --   -- {

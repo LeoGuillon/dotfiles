@@ -15,6 +15,12 @@
         ]
       },
       {
+        "path": "./general/just.json",
+        "language": [
+          "just"
+        ]
+      },
+      {
         "path": "./general/lua.json",
         "language": [
           "lua"
@@ -62,6 +68,12 @@
         "path": "./project-specific/obsidian-vimrc.json",
         "language": [
           "vim"
+        ]
+      },
+      {
+        "path": "./project-specific/nvim-lua.json",
+        "language": [
+          "lua"
         ]
       }
     ]

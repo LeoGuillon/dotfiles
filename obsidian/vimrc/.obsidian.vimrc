@@ -44,11 +44,11 @@ nnoremap ~ v~
 nnoremap U <C-r>
 
 " " undo checkpoints during text writing
-" inoremap . .<C-g>u 
-" inoremap ! !<C-g>u 
-" inoremap ? ?<C-g>u 
-" inoremap ; ;<C-g>u 
-" inoremap : :<C-g>u 
+" inoremap . .<C-g>u
+" inoremap ! !<C-g>u
+" inoremap ? ?<C-g>u
+" inoremap ; ;<C-g>u
+" inoremap : :<C-g>u
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (NEW LINES)
@@ -173,14 +173,19 @@ exmap previoustab obcommand workspace:previous-tab
 nnoremap <C-Left> :previoustab<CR>
 nnoremap gT :previoustab<CR>
 
-" [g]o to wiki lin[k] under cursor
-" to match with usual shortcut, even though 'gf' still works
-" TODO: correct it to make the link open in a new tab 
-nnoremap gk gf
+" [g]o to [f]ile (in a new tab)
+exmap openlink obcommand editor:open-link-in-new-leaf
+nnoremap gf :openlink<CR>
 
 " close tab
 exmap closetab obcommand workspace:close
 nnoremap ZZ :closetab<CR>
+
+" close window
+exmap closewindow obcommand obsidian-git:backup-and-close
+nnoremap ZQ :closewindow<CR>
+
+
 
 " forward/backward in the history
 exmap goBack obcommand app:go-back
@@ -194,21 +199,21 @@ noremap <S-BS> :goForward<CR>
 
 " classic folds
 exmap togglefold obcommand editor:toggle-fold
-nnoremap zo :togglefold
+nnoremap zo :togglefold<CR>
 
 exmap foldreduce obcommand editor:fold-less
-nnoremap zr :foldreduce
+nnoremap zr :foldreduce<CR>
 
 exmap unfoldall obcommand editor:unfold-all
-nnoremap zR :unfoldall
+nnoremap zR :unfoldall<CR>
 
 exmap foldmore obcommand editor:fold-more
-nnoremap zm :foldmore
+nnoremap zm :foldmore<CR>
 
 exmap foldall obcommand editor:fold-all
-nnoremap zM :foldall
+nnoremap zM :foldall<CR>
 
-" properties 
+" properties
 exmap togglefoldproperties obcommand editor:toggle-fold-properties
 nnoremap zp :togglefoldproperties<CR>
 
@@ -339,6 +344,13 @@ nnoremap <Space>~ mzlblgueh~`z
 " [n]ew…
 
 " [b]ook
+exmap newbook obcommand obsidian-book-search-plugin:open-book-search-modal
+nnoremap <Space>nb :newbook<CR>
+
+" [c]anvas
+exmap newcanvas obcommand canvas:new-file
+nnoremap <Space>nc :newcanvas<CR>
+
 
 " [n]ote
 exmap newnote obcommand file-explorer:new-file
@@ -354,8 +366,14 @@ exmap newnotefromtemplate obcommand templater-obsidian:create-new-note-from-temp
 nnoremap <Space>nt :newnotefromtemplate<CR>
 
 " [w]ikipedia extraction
+exmap newwikipedia obcommand obsidian-wikipedia:wikipedia-get-search-term
+nnoremap <Space>nw :newwikipedia<CR>
+
 
 " [y]outube video note
+exmap newyoutube obcommand youtube-template:youtube-insert-template
+nnoremap <Space>ny :newyoutube<CR>
+
 
 " [z]otero reference
 " TODO: check if space isn't a problem
@@ -369,9 +387,6 @@ nnoremap <Space>nz :newzotero<CR>
 " [c]allout
 exmap insertcallout obcommand editor:insert-callout
 nnoremap <Space>ic :insertcallout<CR>i
-
-" [h]eader ?
-" TODO: do insert header on not ?
 
 " wiki lin[k]
 exmap insertwikilink obcommand editor:insert-wikilink
@@ -400,16 +415,49 @@ nnoremap <Space>iv :insertcodeblock<CR>i
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (EDITION)
-" [e]dit…
+" misc shortcuts, that (usually) don't interfer
+" with other leader-based shortcuts
 
-" replace [t]emplates
+" NOTE: each of these commands is matched with 3 different keyboard shortcuts:
+" 1. main key doubled, for a vim-like syntax but applied to the whole file
+" 2. key + n, for [n]ote
+" 3. key + f, for [f]ile
+" (mostly because right now, I don't know which option I'll prefer)
+
+" TODO: clean those shortcuts
+
+" [d]elete  file ([n]ote)
+exmap deletefile obcommand app:delete-file
+" nnoremap <Space>dd :deletefile<CR>
+" NOTE: this shortcut can lead to unwanted file deletion
+nnoremap <Space>dn :deletefile<CR>
+nnoremap <Space>df :deletefile<CR>
+
+" [l]int  file
+exmap lintfile obcommand obsidian-linter:lint-file
+nnoremap <Space>ll :lintfile<CR>
+nnoremap <Space>ln :lintfile<CR>
+nnoremap <Space>lf :lintfile<CR>
+
+" [m]ove file
+exmap movefile obcommand file-explorer:move-file
+nnoremap <Space>mm :movefile<CR>
+nnoremap <Space>mn :movefile<CR>
+nnoremap <Space>mf :movefile<CR>
+
+" [r]ename file
+exmap renamefile obcommand workspace:edit-file-title
+nnoremap <Space>rr :renamefile<CR>
+nnoremap <Space>rn :renamefile<CR>
+nnoremap <Space>rf :renamefile<CR>
+
+" [r]eplace [t]emplates
 exmap replacetemplates obcommand templater-obsidian:replace-in-file-templater
-nnoremap <Space>et :replacetemplates<CR>
+nnoremap <Space>rt :replacetemplates<CR>
 
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (REFACTOR)
-" [r]efactor…
 
 " TODO: add note refactor here
 
@@ -419,7 +467,7 @@ nnoremap <Space>et :replacetemplates<CR>
 
 " [c]ommand
 exmap findcommand obcommand command-palette:open
-nnoremap <Space>fc :findcommand<CR> 
+nnoremap <Space>fc :findcommand<CR>
 
 " [f]ile (e.g. a note)
 exmap findfile obcommand switcher:open
@@ -429,17 +477,27 @@ nnoremap <Space>ff :findfile<CR>
 exmap findglobal obcommand global-search:open
 nnoremap <Space>fg :findglobal<CR>
 
+" [h]otkeys for plugin…
+
 " [p]lugin
 exmap findplugin obcommand hotkey-helper:browse-plugins
-nnoremap <Space>fp :findplugin<CR> 
+nnoremap <Space>fp :findplugin<CR>
 
 " [q]uickAdd command
 exmap findquickadd obcommand quickadd:runQuickAdd
-nnoremap <Space>fq :findquickadd<CR> 
+nnoremap <Space>fq :findquickadd<CR>
 
 " [r]ecent note
 exmap findrecent obcommand switcher:open
 nnoremap <Space>fr :findrecent<CR>
+
+" [s]ettings for plugin…
+
+
+" [v]ault
+exmap findvault obcommand app:open-vault
+nnoremap <Space>fv :findvault<CR>
+
 
 " [w]orkspace
 exmap findworkspace obcommand workspaces:save-and-load
@@ -454,6 +512,11 @@ nnoremap <Space>fw :findworkspace<CR>
 exmap opencallouts obcommand callout-manager:manage-callouts
 nnoremap <Space>oc :opencallouts<CR>
 
+" [f]lashcards
+exmap openflashcards obcommand obsidian-spaced-repetition:srs-review-flashcards
+nnoremap <Space>of :openflashcards<CR>
+
+
 " [g]raph view (in a new tab)
 exmap opengraph obcommand graph:open
 nnoremap <Space>og :opengraph<CR>
@@ -466,19 +529,25 @@ nnoremap <Space>op :openprojects<CR>
 " ——————————————————————————————————————————————————————————————————————————————
 " (UI toggles)
 
-" refactor mode 
-" focus mode (tab bar)
 " file [e]xplorer
 exmap openfileexplorer obcommand file-explorer:open
 nnoremap <Space>ue :openfileexplorer<CR>
+
+" [f]ocus mode (tab bar)
+exmap togglefocusmode obcommand obsidian-hider:toggle-tab-containers
+nnoremap <Space>uf :togglefocusmode<CR>
+
 
 " local [g]raph
 exmap openlocalgraph obcommand graph:open-local
 nnoremap <Space>ug :openlocalgraph<CR>
 
-" properties (sidebar)
+" [o]utline
+exmap toggleoutline obcommand outline:open
+nnoremap <Space>uo :toggleoutline<CR>
 
-nnoremap <Space>up :togglefoldproperties<CR>
+
+" [p]roperties (sidebar)
 
 " [s]tatus bar
 exmap togglestatusbar obcommand obsidian-hider:toggle-hider-status

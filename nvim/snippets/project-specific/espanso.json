@@ -1,15 +1,24 @@
 {
   "espanso-schema": {
-    "prefix": "espanso-schema",
     "body": [
       "# yaml-language-server: \\$schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json",
       "# ───────────────────────────────────────────────────────────────────────────────"
-    ]
+    ],
+    "prefix": "espanso-schema"
+  },
+  "regex": {
+    "body": [
+      "- regex: \"${1:expression}\"",
+      "  replace: \"${2:replacement}\"",
+      "$0"
+    ],
+    "prefix": "regex"
   },
   "trigger": {
     "body": [
       "- trigger: \"$1\"",
-      "  replace: \"$2\""
+      "  replace: \"$2\"",
+      "$0"
     ],
     "prefix": "trigger"
   },
@@ -18,7 +27,8 @@
       "- trigger: \"$1\"",
       "  replace: \"$2\"",
       "  word: true",
-      "  propagate_case: true"
+      "  propagate_case: true",
+      "$0"
     ],
     "prefix": "trigger-word"
   }

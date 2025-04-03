@@ -1,0 +1,10 @@
+{
+  "map": {
+    "body": "map(\"${1:mode}\", \"${2:keymap}\", \"${3:action}\", { desc = \"${4}\" })",
+    "prefix": "map"
+  },
+  "map-leader": {
+    "body": "map(\"${1:mode}\", \"<leader>${2:keymap}\", \"${3:action}\", { desc = \"${4}\" })",
+    "prefix": "map-leader"
+  }
+}

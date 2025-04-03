@@ -1,0 +1,4 @@
+set quiet := true
+
+options:
+  open "https://neovim.io/doc/user/options.html"

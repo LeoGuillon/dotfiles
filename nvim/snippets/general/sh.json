@@ -1,1 +1,10 @@
-{"bash":{"prefix":"bash","body":"#!\/bin\/bash"}}
+{
+  "bash": {
+    "prefix": "bash",
+    "body": "#!/bin/bash"
+  },
+  "zsh": {
+    "prefix": "zsh",
+    "body": "#!/bin/zsh"
+  }
+}

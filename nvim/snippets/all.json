@@ -1,24 +1,58 @@
 {
-  "WARN": { "prefix": ["warn"], "body": "$LINE_COMMENT WARN: $1" },
-  "NOTE": { "prefix": ["note"], "body": "$LINE_COMMENT NOTE: $1" },
-  "HACK": { "prefix": ["hack"], "body": "$LINE_COMMENT HACK: $1" },
-  "TODO": { "prefix": ["todo"], "body": "$LINE_COMMENT TODO: $1" },
-  "QUES": { "prefix": ["ques"], "body": "$LINE_COMMENT QUES: $1" },
-  "BUG": { "prefix": ["bug", "fix"], "body": "$LINE_COMMENT BUG: $1" },
-  "comment_h1": {
-    "prefix": "comment_h1",
-    "body": [
-      "$LINE_COMMENT ────────────────────────────────────────────────────────────────────────────────",
-      "$LINE_COMMENT (${1/(.*)/${1:/upcase}/})",
-      "$LINE_COMMENT ────────────────────────────────────────────────────────────────────────────────"
+  "BUG": {
+    "body": "$LINE_COMMENT BUG: $1",
+    "prefix": [
+      "bug",
+      "fix"
     ]
   },
-  "comment_h2": {
-    "prefix": "comment_h2",
+  "HACK": {
+    "body": "$LINE_COMMENT HACK: $1",
+    "prefix": [
+      "hack"
+    ]
+  },
+  "NOTE": {
+    "body": "$LINE_COMMENT NOTE: $1",
+    "prefix": [
+      "note"
+    ]
+  },
+  "QUES": {
+    "body": "$LINE_COMMENT QUES: $1",
+    "prefix": [
+      "ques"
+    ]
+  },
+  "TODO": {
+    "body": "$LINE_COMMENT TODO: $1",
+    "prefix": [
+      "todo"
+    ]
+  },
+  "WARN": {
+    "body": "$LINE_COMMENT WARN: $1",
+    "prefix": [
+      "warn"
+    ]
+  },
+  "comment_h1": {
     "body": [
       "$LINE_COMMENT ────────────────────────────────────────────────────────────────────────────────",
-      "$LINE_COMMENT ($1)"
-    ]
+      "$LINE_COMMENT ($0)",
+      "$LINE_COMMENT ────────────────────────────────────────────────────────────────────────────────"
+    ],
+    "prefix": "comment_h1"
+  },
+  "comment_h2": {
+    "body": [
+      "$LINE_COMMENT ────────────────────────────────────────────────────────────────────────────────",
+      "$LINE_COMMENT ($0)"
+    ],
+    "prefix": "comment_h2"
+  },
+  "comment_line": {
+    "body": "$LINE_COMMENT ────────────────────────────────────────────────────────────────────────────────",
+    "prefix": "comment_line"
   }
 }
-

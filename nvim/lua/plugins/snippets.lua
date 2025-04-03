@@ -10,32 +10,22 @@ return {
     -- install jsregexp (optional!).
     build = "make install_jsregexp",
     config = function()
-      local ls = require("luasnip")
+      local luasnip = require("luasnip")
 
-      ls.setup({
+      luasnip.setup({
         enable_autosnippets = true,
-        -- store_selection_keys = "<tab>",
+        store_selection_keys = "<CR>",
+        -- <Tab> is used for indent/deindent, for more consistency with normal and insert mode
       })
 
       -- keymaps
       local map = vim.keymap.set
 
       -- stylua: ignore start
-      map({ "i" }, "<cr>", function() ls.expand() end, { silent = true })
+      map({ "i" }, "<CR>", function() luasnip.expand() end, { silent = true })
+      map({ "i", "s" }, "<Tab>", function() if luasnip.jumpable(1) then luasnip.jump(1) end end, { silent = true })
+      map({ "i", "s" }, "<S-Tab>", function() if luasnip.jumpable(-1) then luasnip.jump(-1) end end, { silent = true })
       -- stylua: ignore end
-
-      -- jumps between tabstops
-      map({ "i", "s" }, "<Tab>", function()
-        if ls.jumpable(1) then
-          ls.jump(1)
-        end
-      end, { silent = true })
-
-      map({ "i", "s" }, "<S-Tab>", function()
-        if ls.jumpable(-1) then
-          ls.jump(-1)
-        end
-      end, { silent = true })
 
       -- loads snippets from snippets folder
       require("luasnip.loaders.from_vscode").lazy_load({

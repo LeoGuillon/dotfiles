@@ -36,7 +36,7 @@ return {
         ensure_installed = {
           "bashls",
           -- "clangd",
-          -- "cssls",
+          "cssls",
           -- "css_variables",
           -- "html",
           -- "jsonls",
@@ -71,6 +71,10 @@ return {
       -- then, each lsp can be configured as wanted
       -- for example configs : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
       lspconfig.bashls.setup({
+        capabilities = capabilities,
+      })
+
+      lspconfig.cssls.setup({
         capabilities = capabilities,
       })
 

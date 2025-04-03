@@ -10,7 +10,35 @@
           ]
         }
       },
-      "to_if_held_down": {
+      "to": {
+        "set_variable": {
+          "name": "APP",
+          "value": 1
+        }
+      },
+      "to_after_key_up": {
+        "set_variable": {
+          "name": "APP",
+          "value": 0
+        }
+      },
+      "to_if_alone": [
+        {
+          "key_code": "tab"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "from": {
+        "key_code": "tab",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": {
         "set_variable": {
           "name": "APP",
           "value": 1

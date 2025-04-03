@@ -1,0 +1,121 @@
+#!/bin/zsh
+
+export CORE_DIR="$DOTFILES/sketchybar/core"
+export PLUGIN_DIR="$DOTFILES/sketchybar/plugins"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# (colors)
+# ────────────────────────────────────────────────────────────────────────────────
+
+# BUG: correct this, and put everything in a separate file
+# source "$SKETCHYBAR_CONFIG_DIR/theme.sh"
+source "$CORE_DIR/colors.sh"
+source "$CORE_DIR/icons.sh"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# (MOCHA)
+
+export THM_BG="0xff1e1e2e"
+export THM_FG="0xffcdd6f4"
+
+# COLORS
+export THM_ROSEWATER="0xfff5e0dc"
+export THM_FLAMINGO="0xfff2cdcd"
+export THM_ROSEWATER="0xfff5e0dc"
+export THM_PINK="0xfff5c2e7"
+export THM_MAUVE="0xffcba6f7"
+export THM_RED="0xfff38ba8"
+export THM_MAROON="0xffeba0ac"
+export THM_PEACH="0xfffab387"
+export THM_YELLOW="0xfff9e2af"
+export THM_GREEN="0xffa6e3a1"
+export THM_TEAL="0xff94e2d5"
+export THM_SKY="0xff89dceb"
+export THM_SAPPHIRE="0xff74c7ec"
+export THM_BLUE="0xff89b4fa"
+export THM_LAVENDER="0xffb4befe"
+
+# SURFACES AND OVERLAYS
+export THM_TEXT="0xffcdd6f4"
+export THM_SUBTEXT_1="0xffa6adc8"
+export THM_SUBTEXT_0="0xffbac2de"
+export THM_OVERLAY_2="0xff9399b2"
+export THM_OVERLAY_1="0xff7f849c"
+export THM_OVERLAY_0="0xff6c7086"
+export THM_SURFACE_2="0xff585b70"
+export THM_SURFACE_1="0xff45475a"
+export THM_SURFACE_0="0xff313244"
+export THM_MANTLE="0xff181825"
+export THM_CRUST="0xff11111b"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# (SKETCHYBAR DEFINITIONS)
+
+export BAR_COLOR="0x001e1e2e" # transparent bar
+export ITEM_ICON_COLOR="$THM_TEXT"
+export ITEM_LABEL_COLOR="$THM_TEXT"
+export ITEM_BG_COLOR="$THM_BG"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# (fonts)
+# ────────────────────────────────────────────────────────────────────────────────
+
+export NERD_FONT="BlexMono Nerd Font"
+export SYSTEM_FONT="IBM Plex Sans"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# (SKETCHYBAR CALL)
+# ────────────────────────────────────────────────────────────────────────────────
+
+sketchybar \
+  \
+  --bar \
+  position=top \
+  sticky=off \
+  height=36 \
+  padding_left=10 \
+  padding_right=10 \
+  color="$BAR_COLOR" \
+  \
+  --default \
+  padding_left=5 \
+  padding_right=5 \
+  background.color="$ITEM_BG_COLOR" \
+  background.corner_radius=5 \
+  background.height=26 \
+  icon.font="$NERD_FONT:Bold:17.0" \
+  icon.color="$ITEM_ICON_COLOR" \
+  icon.padding_left=4 \
+  icon.padding_right=4 \
+  label.font="$SYSTEM_FONT:Bold:14.0" \
+  label.color="$ITEM_LABEL_COLOR" \
+  label.padding_left=4 \
+  label.padding_right=4 \
+  \
+  --add item hour right \
+  --set hour \
+  icon="" \
+  label="$(date +'%H:%M')" \
+  \
+  --add item date right \
+  --set date \
+  icon="" \
+  label="$(date +'%A %d %B')" \
+  \
+  --hotload on \ # so that sketchybar reload on each save
+  --update
+
+echo "sketchybar configuration loaded!"
+
+
+
+##### Adding Left Items #####
+# We add some regular items to the left side of the bar, where
+# only the properties deviating from the current defaults need to be set
+
+# sketchybar --add item chevron left \
+#   --set chevron icon= label.drawing=off \
+#   --add item front_app left \
+#   --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+#   --subscribe front_app front_app_switched
+
