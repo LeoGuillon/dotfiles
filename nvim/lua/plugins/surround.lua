@@ -19,9 +19,11 @@ return {
         -- ["G"] = "«",
         ["v"] = ">", -- che[v]rons
         ["V"] = "<",
-        -- TODO: complete LaTeX surrounding support,
-        -- notably with vimtex package
-        ["m"] = "$", -- [m]ath block, for LaTeX
+        -- NOTE: vimtex memento
+        -- [e]nvironment
+        -- [l]atex command
+        -- [d]elimiters (works also with \left\right)
+        -- [m]ath block
       },
     })
   end,

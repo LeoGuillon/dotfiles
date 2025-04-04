@@ -8,7 +8,7 @@ local map = vim.keymap.set
 map({ "n", "v" }, "<Space>", "<Nop>")
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "_" -- not a high user of the og _ key
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (COMMON SHORTCUTS)
@@ -176,6 +176,7 @@ map("n", "<C-c>", "<C-i>", { desc = "Jump to previous location" }) -- so that th
 -- PERSONAL IMPROVEMENTS
 
 -- +/- on increment/decrement
+-- NOTE: this is handled by dial.nvim, so that's a backup
 map({ "n", "v" }, "+", "<C-a>", { desc = "Increment" })
 map({ "n", "v" }, "-", "<C-x>", { desc = "Decrement" })
 map({ "n", "v" }, "g+", "<C-a>", { desc = "g-Increment" })
@@ -288,6 +289,13 @@ map("n", "<C-S-Tab>", "<cmd>bprevious<cr>", { desc = "go to previous buffer" })
 
 -- remapped text objects
 -- credits : https://nanotipsforvim.prose.sh/remapping-all-your-textobjs-for-speed
+-- reminder : already existing text objects :
+-- [l]etter (e.g. character)
+-- [w]ord
+-- [s]entence
+-- [p]aragraph
+-- [t]ag
+-- [b]rackets
 
 -- [c]urly brace
 map({ "v", "o" }, "ic", "i}", { desc = "inner {}" })
@@ -313,10 +321,16 @@ map({ "v", "o" }, "aa", "a'", { desc = "outer '" })
 map({ "v", "o" }, "ii", "i`", { desc = "inner `" })
 map({ "v", "o" }, "ai", "a`", { desc = "outer `" })
 
+-- NOTE: treesitter’s text objects memo :
+-- all of them starts with [o]
+
+-- NOTE: vimtex's text objects memo :
+-- [l]aTeX command
+-- [d]elimiters
+-- [e]nvironnement
 -- [m]ath block
--- TODO: to add to vimtex once the implementation is done
-map({ "v", "o" }, "im", "i$", { desc = "inner math block" })
-map({ "v", "o" }, "am", "a$", { desc = "outer math block" })
+-- [s]ection
+--   (conflict with the base [s]entence textobject, but I don't use it very often anyways)
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (LEADER MAPPINGS)

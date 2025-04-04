@@ -157,11 +157,6 @@ nnoremap <PageUp> <c-u>zz
 nnoremap <S-PageDown> <c-f>zz
 nnoremap <S-PageUp> <c-b>zz
 
-" [g]o to [m]atching parenthesis
-nnoremap gm %
-vnoremap gm %
-onoremap gm %
-
 " ───────────────────────────────────────────────────────────────────────────────
 " (INTER-FILE NAVIGATION)
 
@@ -174,8 +169,10 @@ nnoremap <C-Left> :previoustab<CR>
 nnoremap gT :previoustab<CR>
 
 " [g]o to [f]ile (in a new tab)
+" [x] as well to mimic the gx command in Vim for links
 exmap openlink obcommand editor:open-link-in-new-leaf
 nnoremap gf :openlink<CR>
+nnoremap gx :openlink<CR>
 
 " close tab
 exmap closetab obcommand workspace:close
@@ -185,13 +182,12 @@ nnoremap ZZ :closetab<CR>
 exmap closewindow obcommand obsidian-git:backup-and-close
 nnoremap ZQ :closewindow<CR>
 
-
-
 " forward/backward in the history
 exmap goBack obcommand app:go-back
 exmap goForward obcommand app:go-forward
 noremap <BS> :goBack<CR>
 noremap <S-BS> :goForward<CR>
+
 
 " ───────────────────────────────────────────────────────────────────────────────
 " (FOLDS)

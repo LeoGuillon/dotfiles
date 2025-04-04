@@ -4,7 +4,11 @@
     "prefix": "map"
   },
   "map-leader": {
-    "body": "map(\"${1:mode}\", \"<leader>${2:keymap}\", \"${3:action}\", { desc = \"${4}\" })",
+    "body": "map(\"${1:mode}\", \"<leader>${2:keymap}\", \"${3:action}\", { desc = \"${4:desc}\" })",
     "prefix": "map-leader"
+  },
+  "map-localleader": {
+    "body": "map(\"${1:mode}\", \"<locallleader>${2:keymap}\", \"${3:action}\", { desc = \"${4:desc}\" })",
+    "prefix": "map-localleader"
   }
 }

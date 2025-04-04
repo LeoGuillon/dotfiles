@@ -34,6 +34,7 @@ return {
         -- list of servers for mason to install
         -- list of available servers : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
         ensure_installed = {
+          -- "air",
           "bashls",
           -- "clangd",
           "cssls",
@@ -70,6 +71,11 @@ return {
 
       -- then, each lsp can be configured as wanted
       -- for example configs : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+
+      lspconfig.air.setup({
+        capabilities = capabilities,
+      })
+
       lspconfig.bashls.setup({
         capabilities = capabilities,
       })

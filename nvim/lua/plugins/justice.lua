@@ -6,7 +6,7 @@ return {
     justice.setup({
       keymaps = {
         -- ergo-L layout adapted quick jumps
-        quickSelect = { "n", "e", "s", "a" },
+        quickSelect = { "j", "n", "e", "s", "a" },
       },
     })
 
