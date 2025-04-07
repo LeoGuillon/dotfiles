@@ -16,10 +16,11 @@ vim.g.maplocalleader = "_" -- not a high user of the og _ key
 -- let's put some common keyboard shortcuts to spare some command mode
 
 map({ "i", "c" }, "<A-BS>", "<C-w>") -- map opt+backspace in insert and command modes
+
 -- TODO: figure out how to use cmd key in wezterm
 -- map("i", "<D-BS>", '<Esc>"_cc')
-
--- map({ "n" }, "<D-s>", "<cmd>w<cr>", { desc = "Save current buffer" })
+-- map("n", "<D-s>", "<cmd>w<cr>", { desc = "Save current buffer" })
+-- map("i", "<D-s>", "<esc><cmd>w<cr>a", { desc = "Save current buffer" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (BETTER ESCAPE)
@@ -198,7 +199,10 @@ map("n", "k", "i<CR><Esc>", { desc = "Unjoin to the next line" })
 map("n", "\\", "?", { desc = "Search backwards" }) -- due to the symmetry between \ and / on symbol layer
 
 -- makes the command mode a bit more accessible
-map({ "n", "v" }, "'", ":", { desc = "Command line" })
+-- NOTE: disabled, to make more use of marks,
+-- and use more thoughtfully the command mode, notably by using more efficient
+-- keymaps for saving and quitting
+-- map({ "n", "v" }, "'", ":", { desc = "Command line" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (VISUAL MODE)

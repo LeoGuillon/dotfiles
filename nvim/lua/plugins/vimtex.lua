@@ -4,8 +4,6 @@ return {
   config = function()
     -- GENERAL SETTINGS
 
-    vim.g.vimtex_syntax_enabled = 0 -- already handled by treesitter
-
     -- mappings
     vim.g.vimtex_mappings_enabled = 0 -- disables all default mappings
     -- because I like tuning really precisely my config

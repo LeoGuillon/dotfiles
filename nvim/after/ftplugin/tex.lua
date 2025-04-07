@@ -133,11 +133,11 @@ map({ "x", "o" }, "as", "<plug>(vimtex-aP)", { desc = "outer Section" })
 
 require("which-key").add({ { "<localleader>l", group = "LaTeX…", icon = "" } })
 
-map("n", "<localleader>lb", "<plug>(vimtex-compile)", { desc = "Build project" })
-map("n", "<localleader>lc", "<plug>(vimtex-clean)", { desc = "Clean aux files" })
-map("n", "<localleader>lC", "<plug>(vimtex-clean-full)", { desc = "Clean aux and output files" })
-map("n", "<localleader>lt", "<plug>(vimtex-toc-toggle)", { desc = "toggle Table of contents" })
-map("n", "<localleader>lv", "<plug>(vimtex-view)", { desc = "View PDF" })
-map("n", "<localleader>lx", "<plug>(vimtex-errors)", { desc = "open errors" })
+map("n", "<localleader>b", "<plug>(vimtex-compile-ss)", { desc = "Build project" })
+map("n", "<localleader>c", "<plug>(vimtex-clean)", { desc = "Clean aux files" })
+map("n", "<localleader>C", "<plug>(vimtex-clean-full)", { desc = "Clean aux and output files" })
+map("n", "<localleader>t", "<plug>(vimtex-toc-toggle)", { desc = "toggle Table of contents" })
+map("n", "<localleader>v", "<plug>(vimtex-view)", { desc = "View PDF" })
+map("n", "<localleader>x", "<plug>(vimtex-errors)", { desc = "open errors" })
 
 -- TODO: add word count, in lualine maybe ?
