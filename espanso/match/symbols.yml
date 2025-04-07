@@ -48,10 +48,8 @@ matches:
   - trigger: ":fdel:"
     replace: "⌦"
 
-  # emojis
-  # - trigger: "<3"
-  #   replace: "❤️"
-  - trigger: ",shrug"
+    # emojis
+  - trigger: ":shrug"
     replace: "¯\\_(ツ)_/¯"
-  - triggers: [",flip", ",tableflip"]
+  - triggers: [":flip", ":tableflip"]
     replace: "(╯°□°）╯︵ ┻━┻"

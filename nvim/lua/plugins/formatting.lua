@@ -8,7 +8,7 @@ return {
         ensure_installed = {
           "black", -- python
           "clang-format", -- c, c++
-          "jupytext", -- julia, R, Rmd
+          -- "jupytext", -- julia, R, Rmd
           "prettier", -- html, css, scss, md, javascript, typescript, json
           "stylua", -- lua
           -- "taplo", -- toml
@@ -32,13 +32,13 @@ return {
           css = { "prettier" },
           javascript = { "prettier" },
           json = { "jq" },
-          julia = { "jupytext" },
+          -- julia = { "jupytext" },
           html = { "prettier" },
           lua = { "stylua" },
           markdown = { "prettier" },
-          python = { "jupytext" },
-          r = { "jupytext" },
-          rmd = { "jupytext" },
+          -- python = { "jupytext" },
+          -- r = { "jupytext" },
+          -- rmd = { "jupytext" },
           scss = { "prettier" },
           sty = { "tex-fmt" },
           tex = { "tex-fmt" },

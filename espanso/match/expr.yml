@@ -2,6 +2,9 @@
 #───────────────────────────────────────────────────────────────────────────────
 
 matches:
+  # ────────────────────────────────────────────────────────────────────────────────
+  # (EXPRESSIONS)
+
   - trigger: "ajd"
     replace: "aujourd’hui"
     word: true
@@ -27,7 +30,19 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "px"
+    replace: "par exemple"
+    word: true
+    propagate_case: true
+
   - trigger: "ssi"
     replace: "si et seulement si"
     word: true
     propagate_case: true
+
+  # ────────────────────────────────────────────────────────────────────────────────
+  # (ACRONYMS)
+
+  - trigger: "icm"
+    replace: "Institut du Cerveau"
+    word: true

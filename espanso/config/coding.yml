@@ -2,13 +2,10 @@
 #───────────────────────────────────────────────────────────────────────────────
 
 filter_exec: WezTerm|iTerm|Visual Studio Code
-enable: false
-# TODO: probably better to enable, but disable some shortcut types
-# mostly no-prefix shortcuts, like spellcheck (which can be handled by LSPs already)
-# or symbols without prefix, notably the ligature emulation
 
-# extra_excludes:
-#   "../match/ligatures_emulation.yml"
-#   "../match/spellcheck-en.yml"
-#   "../match/spellcheck-fr.yml"
-#   "../match/typography.yml"
+# we exclude all trigger not starting by ":", to avoid conflict with vim mappings
+extra_excludes:
+  - "../match/expr.yml"
+  - "../match/ligatures_emulation.yml"
+  - "../match/spellcheck-fr.yml"
+  - "../match/typography.yml"
