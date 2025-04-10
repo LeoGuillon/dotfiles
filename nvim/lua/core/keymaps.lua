@@ -41,7 +41,7 @@ map("n", "<esc>", "<cmd>nohl<cr><cmd>echo<cr>", { desc = "Escape and clear hlsea
 map({ "n", "v" }, "x", '"_x', { desc = "Delete under cursor" })
 map({ "n", "v" }, "c", '"_c', { desc = "Change" })
 map({ "n", "v" }, "C", '"_C', { desc = "Change until the end of line" })
-map({ "n", "v" }, "s", '"_cl', { desc = "Substitute character" })
+map("n", "s", '"_cl', { desc = "Substitute character" })
 map("n", "S", '"_cc', { desc = "Substitute line" })
 map("n", "dd", function()
   if vim.fn.getline(".") == "" then

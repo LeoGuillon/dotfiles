@@ -474,6 +474,8 @@ exmap findglobal obcommand global-search:open
 nnoremap <Space>fg :findglobal<CR>
 
 " [h]otkeys for plugin…
+exmap findpluginhotkeys obcommand hotkey-helper:open-hotkeys
+nnoremap <Space>fh :findpluginhotkeys<CR>
 
 " [p]lugin
 exmap findplugin obcommand hotkey-helper:browse-plugins
@@ -487,17 +489,22 @@ nnoremap <Space>fq :findquickadd<CR>
 exmap findrecent obcommand switcher:open
 nnoremap <Space>fr :findrecent<CR>
 
-" [s]ettings for plugin…
-
-
-" [v]ault
+" [v]ault / [o]bsidian vault
 exmap findvault obcommand app:open-vault
 nnoremap <Space>fv :findvault<CR>
+nnoremap <Space>fo :findvault<CR>
 
-
-" [w]orkspace
+" [w]orkspace / [l]ayout
+" the combination of followed f+w keystrokes is a SFU in the ergo-L layout
 exmap findworkspace obcommand workspaces:save-and-load
 nnoremap <Space>fw :findworkspace<CR>
+nnoremap <Space>fl :findworkspace<CR>
+
+" TODO: delete the SFUs shortcuts
+
+" [,] : settings for plugin…
+exmap findpluginsettings obcommand hotkey-helper:open-settings
+nnoremap <Space>f, :findpluginsettings<CR>
 
 
 " ——————————————————————————————————————————————————————————————————————————————

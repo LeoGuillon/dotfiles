@@ -13,15 +13,10 @@ return {
     -- compilation
     vim.g.vimtex_compiler_method = "latexmk"
     vim.g.vimtex_compiler_latexmk = {
-      engine = "lualatex",
-      -- TODO: customize precisely the compiler
-
-      -- out_dir = "outputs",
-      -- options = {
-      --   "-c",
-      -- },
+      options = {
+        "-pdflatex=lualatex",
+      },
     }
-
     -- pdf viewing
     vim.g.vimtex_view_method = "general"
     -- vim.g.vimtex_view_general_viewer = "mupdf-gl"

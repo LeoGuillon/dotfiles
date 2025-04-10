@@ -221,14 +221,13 @@ vnoremap am a$
 " ───────────────────────────────────────────────────────────────────────────────
 
 " Can’t set a leader key, so every occurence must be written by hand
-unmap <Space>
 
 " adding a , ; or . at the end of line
-nnoremap <Space>, mzA,<Esc>`z
-nnoremap <Space>; mzA<Space>;<Esc>`z
-nnoremap <Space>. mzA.<Esc>`z
+nnoremap <leader>, mzA,<Esc>`z
+nnoremap <leader>; mzA<Space>;<Esc>`z
+nnoremap <leader>. mzA.<Esc>`z
 
 " quick toggle casing ; credits : https://nanotipsforvim.prose.sh/quickly-toggle-casing
-nnoremap <Space>~ mzlblgueh~`z
+nnoremap <leader>~ mzlblgueh~`z
 
 

@@ -14,7 +14,7 @@ return {
 
       luasnip.setup({
         enable_autosnippets = true,
-        store_selection_keys = "<CR>",
+        store_selection_keys = "s",
         -- <Tab> is used for indent/deindent, for more consistency with normal and insert mode
       })
 

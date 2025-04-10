@@ -12,6 +12,8 @@ matches:
   # a bit of self-promoting heh ?
   - trigger: "ecole polytechnique"
     replace: "École Polytechnique"
+    word: true
+    propagate_case: true
 
   - trigger: "ete"
     replace: "été"

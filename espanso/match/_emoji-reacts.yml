@@ -2,33 +2,33 @@
 # ───────────────────────────────────────────────────────────────────────────────
 
 # credits : https://www.reddit.com/r/espanso/comments/1h7ajx8/use_espanso_for_mousefree_emojireacts_in_discord/
-# mainly for discord and mattermost
+# mainly for discord and mattermost, but should work on slack as well
 
 matches:
   # sends an eyes react
   - trigger: "eee"
-    replace: "+:eyes:\n"
+    replace: "+:eyes:"
 
   # sends a heart react
   - trigger: "hhh"
-    replace: "+:heart:\n"
+    replace: "+:heart:"
 
   # sends a yum
   - trigger: "mmm"
-    replace: "+:yum:\n"
+    replace: "+:yum:"
 
   # sends a ok_hand
   - trigger: "ooo"
-    replace: "+:ok_hand:\n"
+    replace: "+:ok_hand:"
 
   # sends a rocket
   - trigger: "rrr"
-    replace: "+:rocket:\n"
+    replace: "+:rocket:"
 
   # sends a this
   - trigger: "ttt"
-    replace: "+:point_up:\n"
+    replace: "+:point_up:"
 
   # sends a thumb up react
   - trigger: "yyy"
-    replace: "+:+1:\n"
+    replace: "+:+1:"

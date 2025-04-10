@@ -25,7 +25,7 @@ matches:
     word: true
     propagate_case: true
 
-  - triggers: ["pq", "pk"]
+  - trigger: "pk"
     replace: "pourquoi"
     word: true
     propagate_case: true
@@ -37,6 +37,11 @@ matches:
 
   - trigger: "ssi"
     replace: "si et seulement si"
+    word: true
+    propagate_case: true
+
+  - trigger: "wk"
+    replace: "week-end"
     word: true
     propagate_case: true
 

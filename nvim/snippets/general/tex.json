@@ -1,78 +1,48 @@
 {
+  "abstract": {
+    "body": [
+      "\\begin{abstract}",
+      "  $0",
+      "\\end{abstract}"
+    ],
+    "prefix": "abstract"
+  },
+  "ac": {
+    "body": "\\ac{$1}$0",
+    "prefix": "ac"
+  },
+  "acro": {
+    "body": "\\acro{${1:acronym}}{${2:full name}}",
+    "prefix": "acro"
+  },
+  "acrodef": {
+    "body": "\\acrodef{${1:acronym}}{${2:full name}}",
+    "prefix": "acrodef"
+  },
   "acronym": {
-    "prefix": "acronym",
     "body": [
       "\\begin{acronym}",
       "  $0",
       "\\end{acronym}"
+    ],
+    "prefix": "acronym"
+  },
+  "bf + bold": {
+    "body": "\\textbf{${1:${TM_SELECTED_TEXT}}}$0",
+    "prefix": [
+      "bf",
+      "bold"
     ]
   },
-  "acro": {
-    "prefix": "acro",
-    "body": "\\acro{${1:acronym}}{${2:full name}}"
-  },
-  "acrodef": {
-    "prefix": "acrodef",
-    "body": "\\acrodef{${1:acronym}}{${2:full name}}"
-  },
-  "ac": {
-    "prefix": "ac",
-    "body": "\\ac{$1}$0"
-  },
-  "frame": {
-    "prefix": "frame",
+  "block": {
     "body": [
-      "\\begin{frame}{${1:frametitle}}",
+      "\\begin{block}{$1}",
       "  $0",
-      "\\end{frame}"
-    ]
-  },
-  "section*": {
-    "prefix": "section*",
-    "body": "\\section*{$1}"
-  },
-  "figure:tikz": {
-    "prefix": "figure:tikz",
-    "body": [
-      "\\begin{figure}",
-      "  \\centering",
-      "  \\input{src/tikz/$1}",
-      "  \\caption{$2}",
-      "  \\label{fig:$1}",
-      "\\end{figure}",
-      "$0"
-    ]
-  },
-  "em": {
-    "prefix": "em",
-    "body": "\\emph{$1}"
-  },
-  "table-input": {
-    "prefix": "table",
-    "body": [
-      "\\begin{table}",
-      "  \\centering",
-      "  \\input{src/tables/$1}",
-      "  \\caption{$2}",
-      "  \\label{table:${1/(.+?)(tex)?/$1/}}",
-      "\\end{table}",
-      "$0"
-    ]
-  },
-  "section": {
-    "prefix": "section",
-    "body": "\\section{$1}\\label{section:${1/(.*)/${1:/downcase}/}}"
-  },
-  "node": {
-    "prefix": "node",
-    "body": "\\node ($1) [$2] {$3};"
-  },
-  "include": {
-    "prefix": "include",
-    "body": "\\include{$1}"
+      "\\end{block}"
+    ],
+    "prefix": "block"
   },
   "columns-2": {
-    "prefix": "columns-2",
     "body": [
       "\\begin{columns}",
       "  \\begin{column}{0.5\\textwidth}",
@@ -82,30 +52,17 @@
       "    ",
       "  \\end{column}",
       "\\end{columns}"
-    ]
+    ],
+    "prefix": "columns-2"
   },
-  "block": {
-    "prefix": "block",
-    "body": [
-      "\\begin{block}{$1}",
-      "  $0",
-      "\\end{block}"
+  "em": {
+    "body": "\\emph{${1:${TM_SELECTED_TEXT}}}$0",
+    "prefix": [
+      "em",
+      "emph"
     ]
-  },
-  "abstract": {
-    "prefix": "abstract",
-    "body": [
-      "\\begin{abstract}",
-      "  $0",
-      "\\end{abstract}"
-    ]
-  },
-  "paragraph": {
-    "prefix": "paragraph",
-    "body": "\\paragraph{$1}"
   },
   "figure": {
-    "prefix": "figure",
     "body": [
       "\\begin{figure}",
       "  \\centering",
@@ -114,15 +71,97 @@
       "  \\label{fig:$2}",
       "\\end{figure}",
       "$0"
+    ],
+    "prefix": "figure"
+  },
+  "figure:tikz": {
+    "body": [
+      "\\begin{figure}",
+      "  \\centering",
+      "  \\input{src/tikz/$1}",
+      "  \\caption{$2}",
+      "  \\label{fig:$1}",
+      "\\end{figure}",
+      "$0"
+    ],
+    "prefix": "figure:tikz"
+  },
+  "frame": {
+    "body": [
+      "\\begin{frame}{${1:frametitle}}",
+      "  $0",
+      "\\end{frame}"
+    ],
+    "prefix": "frame"
+  },
+  "include": {
+    "body": "\\include{$1}",
+    "prefix": "include"
+  },
+  "it + italic": {
+    "body": "\\textit{${1:${TM_SELECTED_TEXT}}}$0",
+    "prefix": [
+      "it",
+      "italic"
+    ]
+  },
+  "node": {
+    "body": "\\node ($1) [$2] {$3};",
+    "prefix": "node"
+  },
+  "paragraph": {
+    "body": "\\paragraph{$1}",
+    "prefix": "paragraph"
+  },
+  "pause": {
+    "body": [
+      "\\vfill",
+      "\\pause"
+    ],
+    "prefix": "pause"
+  },
+  "section": {
+    "body": "\\section{$1}\\label{section:${1/(.*)/${1:/downcase}/}}",
+    "prefix": "section"
+  },
+  "section*": {
+    "body": "\\section*{$1}",
+    "prefix": "section*"
+  },
+  "table-input": {
+    "body": [
+      "\\begin{table}",
+      "  \\centering",
+      "  \\input{src/tables/$1}",
+      "  \\caption{$2}",
+      "  \\label{table:${1/(.+?)(tex)?/$1/}}",
+      "\\end{table}",
+      "$0"
+    ],
+    "prefix": "table"
+  },
+  "tt": {
+    "body": "\\texttt{${1:${TM_SELECTED_TEXT}}}$0",
+    "prefix": [
+      "tt",
+      "typewriter"
     ]
   },
   "usepackage": {
+    "body": "\\usepackage{$1}",
     "prefix": [
       "usepackage",
       "\\usepackage",
       "package",
       "\\package"
+    ]
+  },
+  "verbatim": {
+    "body": [
+      "\\begin{verbatim}",
+      "  $0",
+      "\\end{verbatim}"
     ],
-    "body": "\\usepackage{$1}"
+    "prefix": "verbatim"
   }
 }
