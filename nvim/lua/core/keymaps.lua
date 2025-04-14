@@ -17,10 +17,10 @@ vim.g.maplocalleader = "_" -- not a high user of the og _ key
 
 map({ "i", "c" }, "<A-BS>", "<C-w>") -- map opt+backspace in insert and command modes
 
--- TODO: figure out how to use cmd key in wezterm
--- map("i", "<D-BS>", '<Esc>"_cc')
--- map("n", "<D-s>", "<cmd>w<cr>", { desc = "Save current buffer" })
--- map("i", "<D-s>", "<esc><cmd>w<cr>a", { desc = "Save current buffer" })
+-- cmd/ctrl+S = save file
+map("n", "<C-s>", "<cmd>w<cr>", { desc = "Save current buffer" })
+map("i", "<C-s>", "<esc><cmd>w<cr>a", { desc = "Save current buffer" })
+map("v", "<C-s>", "<esc><cmd>w<cr>gv", { desc = "Save current buffer" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (BETTER ESCAPE)
@@ -126,14 +126,6 @@ map("n", "~", "v~", { desc = "Togglecase a single character" }) -- without movin
 map("n", "<leader>~", "mzlblgueh~`z", { desc = "Smart word togglecasing" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
--- (COMMENTING)
-
--- handled in Comment.nvim plugin
--- map("n", "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add comment below" })
--- map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add comment above" })
--- map("n", "gca", "o<esc>Vcz<esc><cmd>normal gcc<cr>kJfza<bs>", { desc = "Add comment at the end of line" })
-
--- ——————————————————————————————————————————————————————————————————————————————
 -- (NEW LINES)
 
 map("n", "gn", "mzo<esc>^D`z", { desc = "Add an empty line below" })
@@ -198,12 +190,6 @@ map("n", "k", "i<CR><Esc>", { desc = "Unjoin to the next line" })
 
 map("n", "\\", "?", { desc = "Search backwards" }) -- due to the symmetry between \ and / on symbol layer
 
--- makes the command mode a bit more accessible
--- NOTE: disabled, to make more use of marks,
--- and use more thoughtfully the command mode, notably by using more efficient
--- keymaps for saving and quitting
--- map({ "n", "v" }, "'", ":", { desc = "Command line" })
-
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (VISUAL MODE)
 -- ——————————————————————————————————————————————————————————————————————————————
@@ -256,10 +242,11 @@ map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = tru
 
 -- Faster navigation
 -- credits : https://nanotipsforvim.prose.sh/motion-setup--hjkl-as-amplified-hjkl
--- TODO: correct with gj, gk etc for normal mode
 map({ "n", "v" }, "<S-Left>", "^", { desc = "Go to first non-blank character", silent = true })
-map({ "n", "v" }, "<S-Down>", "6j", { desc = "Move down 6 lines", silent = true })
-map({ "n", "v" }, "<S-Up>", "6k", { desc = "Move up 6 lines", silent = true })
+map("n", "<S-Down>", "6gj", { desc = "Move down 6 lines", silent = true })
+map("v", "<S-Down>", "6j", { desc = "Move down 6 lines", silent = true })
+map("n", "<S-Up>", "6gk", { desc = "Move down 6 lines", silent = true })
+map("v", "<S-Up>", "6j", { desc = "Move down 6 lines", silent = true })
 map({ "n", "v" }, "<S-Right>", "$", { desc = "Go to end of line", silent = true })
 
 -- Window navigation

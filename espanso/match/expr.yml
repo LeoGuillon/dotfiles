@@ -25,6 +25,11 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "msg"
+    replace: "message"
+    word: true
+    propagate_case: true
+
   - trigger: "pk"
     replace: "pourquoi"
     word: true
@@ -44,10 +49,3 @@ matches:
     replace: "week-end"
     word: true
     propagate_case: true
-
-  # ────────────────────────────────────────────────────────────────────────────────
-  # (ACRONYMS)
-
-  - trigger: "icm"
-    replace: "Institut du Cerveau"
-    word: true

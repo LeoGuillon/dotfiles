@@ -33,7 +33,7 @@
           "value": 1
         }
       ],
-      "description": "k -> restore",
+      "description": "k -> center",
       "from": {
         "key_code": "k",
         "modifiers": {
@@ -44,7 +44,7 @@
       },
       "to": [
         {
-          "shell_command": "open -g 'rectangle://execute-action?name=restore'"
+          "shell_command": "open -g 'rectangle://execute-action?name=center'"
         }
       ],
       "type": "basic"
@@ -105,7 +105,7 @@
           "value": 1
         }
       ],
-      "description": "<C-i> -> change display",
+      "description": "i -> change display",
       "from": {
         "key_code": "i",
         "modifiers": {
@@ -129,7 +129,7 @@
           "value": 1
         }
       ],
-      "description": "<C-o> -> change display",
+      "description": "o -> change display",
       "from": {
         "key_code": "o",
         "modifiers": {
@@ -141,6 +141,30 @@
       "to": [
         {
           "shell_command": "open -g 'rectangle://execute-action?name=next-display'"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "comma -> restore",
+      "from": {
+        "key_code": "comma",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "shell_command": "open -g 'rectangle://execute-action?name=restore'"
         }
       ],
       "type": "basic"
@@ -228,4 +252,3 @@
     }
   ]
 }
-

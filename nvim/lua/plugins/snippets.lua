@@ -43,9 +43,13 @@ return {
       local scissors = require("scissors")
 
       scissors.setup({
+        snippetDir = "./snippets",
         jsonFormatter = "jq",
-        telescope = {
-          alsoSearchSnippetBody = true,
+        snippetSelection = {
+          picker = "telescope",
+          telescope = {
+            alsoSearchSnippetBody = true,
+          },
         },
       })
 

@@ -53,6 +53,7 @@ return {
         ["<Down>"] = cmp.mapping.select_next_item(), -- next suggestion
         ["<Esc>"] = cmp.mapping.abort(), -- close completion window
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- accept current selection without explicitely selecting
+        ["<Tab>"] = cmp.mapping.confirm({ select = true }), -- accept current selection without explicitely selecting
       }),
 
       -- sources for autocompletion

@@ -19,11 +19,12 @@ return {
       "<cmd>Yazi cwd<cr>",
       desc = "open Yazi at cwd",
     },
-    {
-      "<leader>uy",
-      "<cmd>Yazi toggle<cr>",
-      desc = "toggle Yazi",
-    },
+    -- {
+    --   "<leader>uy",
+    --   "<cmd>Yazi toggle<cr>",
+    --   desc = "toggle Yazi",
+    -- },
+    -- because I didn’t use it that much
   },
   opts = {
     -- if you want to open yazi instead of netrw, see below for more info

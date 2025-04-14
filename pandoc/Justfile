@@ -1,0 +1,6 @@
+
+docs:
+  open "https://pandoc.org/MANUAL.html"
+
+chris:
+  open "https://github.com/chrisgrieser/.config/tree/main/pandoc"

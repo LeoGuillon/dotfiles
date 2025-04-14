@@ -1,7 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/config.schema.json
 #───────────────────────────────────────────────────────────────────────────────
 
-# TODO: test for mattermost
 filter_title: Discord|Slack|Mattermost
 
 extra_includes:

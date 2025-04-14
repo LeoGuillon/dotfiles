@@ -49,9 +49,6 @@ nnoremap - <C-x>
 " due to the symmetry between \ and / on symbol layer
 nnoremap \ ?
 
-" make the command mode a bit more accessible
-nnoremap ' :
-
 " ——————————————————————————————————————————————————————————————————————————————
 " (VISUAL MODE)
 
