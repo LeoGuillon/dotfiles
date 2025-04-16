@@ -12,9 +12,17 @@
       "description": "f -> Finder",
       "from": {
         "key_code": "g",
-        "modifiers": { "optional": ["any"] }
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
       },
-      "to": [{ "shell_command": "open -a 'Finder.app'" }],
+      "to": [
+        {
+          "shell_command": "open -a 'Finder.app'"
+        }
+      ],
       "type": "basic"
     },
     {
@@ -25,12 +33,20 @@
           "value": 1
         }
       ],
-      "description": "n -> web browser",
+      "description": "n -> navigateur: Firefox/Zen/Chrome",
       "from": {
         "key_code": "f",
-        "modifiers": { "optional": ["any"] }
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
       },
-      "to": [{ "shell_command": "open -a 'Firefox.app'" }],
+      "to": [
+        {
+          "shell_command": "open -a 'Firefox.app'"
+        }
+      ],
       "type": "basic"
     },
     {
@@ -44,9 +60,65 @@
       "description": "z -> Zotero",
       "from": {
         "key_code": "non_us_backslash",
-        "modifiers": { "optional": ["any"] }
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
       },
-      "to": [{ "shell_command": "open -a 'Zotero.app'" }],
+      "to": [
+        {
+          "shell_command": "open -a 'Zotero.app'"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "c -> courier: Outlook/Mail",
+      "from": {
+        "key_code": "w",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "shell_command": "open -a 'Microsoft Outlook.app'"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "s -> Slack-like: Mattermost/Discord",
+      "from": {
+        "key_code": "s",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "shell_command": "open -a 'Mattermost.app'"
+        }
+      ],
       "type": "basic"
     },
     {
@@ -60,9 +132,17 @@
       "description": "v -> Visual Studio Code",
       "from": {
         "key_code": "c",
-        "modifiers": { "optional": ["any"] }
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
       },
-      "to": [{ "shell_command": "open -a 'Visual Studio Code.app'" }],
+      "to": [
+        {
+          "shell_command": "open -a 'Visual Studio Code.app'"
+        }
+      ],
       "type": "basic"
     },
     {
@@ -76,9 +156,17 @@
       "description": "x -> Citrix Viewer",
       "from": {
         "key_code": "z",
-        "modifiers": { "optional": ["any"] }
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
       },
-      "to": [{ "shell_command": "open -a 'Citrix Viewer.app'" }],
+      "to": [
+        {
+          "shell_command": "open -a 'Citrix Viewer.app'"
+        }
+      ],
       "type": "basic"
     },
     {
@@ -92,9 +180,17 @@
       "description": "o -> Obsidian",
       "from": {
         "key_code": "e",
-        "modifiers": { "optional": ["any"] }
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
       },
-      "to": [{ "shell_command": "open -a 'Obsidian.app'" }],
+      "to": [
+        {
+          "shell_command": "open -a 'Obsidian.app'"
+        }
+      ],
       "type": "basic"
     },
     {
@@ -105,12 +201,20 @@
           "value": 1
         }
       ],
-      "description": "a -> Music",
+      "description": "a -> Apple Music",
       "from": {
         "key_code": "a",
-        "modifiers": { "optional": ["any"] }
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
       },
-      "to": [{ "shell_command": "open -a 'Music.app'" }],
+      "to": [
+        {
+          "shell_command": "open -a 'Music.app'"
+        }
+      ],
       "type": "basic"
     },
     {
@@ -124,9 +228,17 @@
       "description": "e -> terminal",
       "from": {
         "key_code": "d",
-        "modifiers": { "optional": ["any"] }
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
       },
-      "to": [{ "shell_command": "open -a 'iTerm.app'" }],
+      "to": [
+        {
+          "shell_command": "open -a 'iTerm.app'"
+        }
+      ],
       "type": "basic"
     },
     {
@@ -140,9 +252,17 @@
       "description": "w -> Word",
       "from": {
         "key_code": "t",
-        "modifiers": { "optional": ["any"] }
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
       },
-      "to": [{ "shell_command": "open -a 'Microsoft Word.app'" }],
+      "to": [
+        {
+          "shell_command": "open -a 'Microsoft Word.app'"
+        }
+      ],
       "type": "basic"
     }
   ]

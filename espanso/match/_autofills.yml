@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+# ───────────────────────────────────────────────────────────────────────────────
+
+# sources for autofills :
+# https://ergopti.fr/ergopti-plus
+# https://ergol.org/hypergol/
+matches:
+  # TODO: think about their integration with vim, and the conflict they implies
+  # TODO: resolve their interaction with espanso as well
+
+  # ────────────────────────────────────────────────────────────────────────────────
+  # (Q + voyelle → QU + voyelle)
+
+  - trigger: "qa"
+    replace: "qua"
+
+  - trigger: "qe"
+    replace: "que"
+
+  - trigger: "qé"
+    replace: "qué"
+
+  - trigger: "qê"
+    replace: "quê"
+
+  - trigger: "qi"
+    replace: "qui"
+
+  - trigger: "qo"
+    replace: "quo"
+
+  - trigger: "q'"
+    replace: "qu’"
+
+  # ────────────────────────────────────────────────────────────────────────────────
+  # (ù → où)
+
+  - trigger: "ù"
+    replace: "où"
+    word: true
+    propagate_case: true

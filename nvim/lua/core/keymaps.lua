@@ -240,9 +240,12 @@ map("n", "ZA", "<CMD>wqa<CR>", { desc = "save and quit all buffers" })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 
+map("n", "^", "0^", { desc = "Go to the first non-blank character" })
+-- so that it puts backs the visual at the gutter, in case you’re in a long line
+
 -- Faster navigation
 -- credits : https://nanotipsforvim.prose.sh/motion-setup--hjkl-as-amplified-hjkl
-map({ "n", "v" }, "<S-Left>", "^", { desc = "Go to first non-blank character", silent = true })
+map({ "n", "v" }, "<S-Left>", "0^", { desc = "Go to first non-blank character", silent = true })
 map("n", "<S-Down>", "6gj", { desc = "Move down 6 lines", silent = true })
 map("v", "<S-Down>", "6j", { desc = "Move down 6 lines", silent = true })
 map("n", "<S-Up>", "6gk", { desc = "Move down 6 lines", silent = true })

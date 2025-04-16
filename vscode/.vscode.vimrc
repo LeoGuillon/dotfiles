@@ -190,4 +190,4 @@ nnoremap <leader>. mzA.<Esc>`z
 
 " quick toggle casing
 " credits : https://nanotipsforvim.prose.sh/quickly-toggle-casing
-nnoremap <leader>u mzlblgueh~`z
+nnoremap <leader>~ mzlblgueh~`z

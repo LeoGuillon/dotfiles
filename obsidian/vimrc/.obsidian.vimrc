@@ -188,6 +188,28 @@ exmap goForward obcommand app:go-forward
 noremap <BS> :goBack<CR>
 noremap <S-BS> :goForward<CR>
 
+" ────────────────────────────────────────────────────────────────────────────────
+" (PANE MANIPULATION)
+
+" navigation
+exmap focusleft obcommand editor:focus-left
+nnoremap <C-Left> :focusleft<CR>
+
+exmap focusdown obcommand editor:focus-bottom
+nnoremap <C-Down> :focusdown<CR>
+
+exmap focusup obcommand editor:focus-top
+nnoremap <C-Up> :focusup<CR>
+
+exmap focusright obcommand editor:focus-right
+nnoremap <C-Right> :focusright<CR>
+
+" splitting
+exmap splithorizontal obcommand workspace:split-horizontal
+nnoremap <C-w>s :splithorizontal<CR>
+
+exmap splitvertical obcommand workspace:split-vertical
+nnoremap <C-w>v :splitvertical<CR>
 
 " ───────────────────────────────────────────────────────────────────────────────
 " (FOLDS)

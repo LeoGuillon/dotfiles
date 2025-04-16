@@ -17,6 +17,8 @@ matches:
     replace: "←"
   - trigger: ":right:"
     replace: "→"
+  - trigger: ":Right:"
+    replace: "⟹"
   - trigger: ":up:"
     replace: "↑"
   - trigger: ":down:"
@@ -43,9 +45,9 @@ matches:
     replace: "↘"
   - trigger: ":space:"
     replace: "␣"
-  - triggers: [":del:", ":backspace:"]
+  - triggers: [":delete:", ":backspace:"]
     replace: "⌫"
-  - trigger: ":fdel:"
+  - trigger: ":fdelete:"
     replace: "⌦"
 
     # emojis

@@ -8,7 +8,9 @@ brew:
   lazygit
   lua
   mas
+  mupdf
   neovim
+  npm
   pandoc
   pipx
   pyenv
@@ -38,7 +40,7 @@ cask:
   espanso
   flux
   firefox
-  font-jetbrains-mono-nerd-font 
+  font-jetbrains-mono-nerd-font
   font-symbols-only-nerd-font
   hiddenbar
   iterm2
@@ -58,6 +60,7 @@ cask:
   rectangle
   rstudio
   scroll-reverser
+  sioyek
   slimhud
   telegram
   tex-live-utility
