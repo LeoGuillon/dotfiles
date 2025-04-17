@@ -15,6 +15,11 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "deja"
+    replace: "déjà"
+    word: true
+    propagate_case: true
+
   - trigger: "ete"
     replace: "été"
     word: true

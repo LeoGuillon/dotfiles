@@ -35,6 +35,11 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "mrc"
+    replace: "merci"
+    word: true
+    propagate_case: true
+
   - trigger: "msg"
     replace: "message"
     word: true

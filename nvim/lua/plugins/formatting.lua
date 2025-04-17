@@ -37,7 +37,7 @@ return {
           lua = { "stylua" },
           markdown = { "prettier" },
           -- python = { "jupytext" },
-          -- r = { "jupytext" },
+          -- r = { "air" },
           -- rmd = { "jupytext" },
           scss = { "prettier" },
           sty = { "tex-fmt" },
