@@ -1,5 +1,12 @@
--- TODO: define a custom map function to always define silent and noremap as true
-local map = vim.keymap.set
+-- TODO: move this function to an utils file, so that it’s available everywhere
+function map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(mode, lhs, rhs, options)
+end
+-- local map = vim.keymap.set
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (LEADER KEY)
@@ -131,6 +138,11 @@ map("n", "<leader>~", "mzlblgueh~`z", { desc = "Smart word togglecasing" })
 map("n", "gn", "mzo<esc>^D`z", { desc = "Add an empty line below" })
 map("n", "gN", "mzO<esc>^D`z", { desc = "Add an empty line above" })
 
+map("n", "<CR>", "mzo<esc>^D`z", { desc = "Add an empty line below" })
+map("n", "<S-CR>", "mzO<esc>^D`z", { desc = "Add an empty line above" })
+-- NOTE: currently doesn’t work on iterm2
+-- TODO: test it on wezterm
+
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (TRAILING CHARS)
 -- credits : https://github.com/chrisgrieser/.config/blob/9fb7bea009be951f9676ef52634a7d12d9717953/nvim/lua/config/leader-keybindings.lua
@@ -237,26 +249,26 @@ map("n", "ZA", "<CMD>wqa<CR>", { desc = "save and quit all buffers" })
 -- ——————————————————————————————————————————————————————————————————————————————
 
 -- better up/down
-map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
-map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
+map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true })
+map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true })
 
 map("n", "^", "0^", { desc = "Go to the first non-blank character" })
 -- so that it puts backs the visual at the gutter, in case you’re in a long line
 
 -- Faster navigation
 -- credits : https://nanotipsforvim.prose.sh/motion-setup--hjkl-as-amplified-hjkl
-map({ "n", "v" }, "<S-Left>", "0^", { desc = "Go to first non-blank character", silent = true })
-map("n", "<S-Down>", "6gj", { desc = "Move down 6 lines", silent = true })
-map("v", "<S-Down>", "6j", { desc = "Move down 6 lines", silent = true })
-map("n", "<S-Up>", "6gk", { desc = "Move down 6 lines", silent = true })
-map("v", "<S-Up>", "6j", { desc = "Move down 6 lines", silent = true })
-map({ "n", "v" }, "<S-Right>", "$", { desc = "Go to end of line", silent = true })
+map({ "n", "v" }, "<S-Left>", "0^", { desc = "Go to first non-blank character" })
+map("n", "<S-Down>", "6gj", { desc = "Move down 6 lines" })
+map("v", "<S-Down>", "6j", { desc = "Move down 6 lines" })
+map("n", "<S-Up>", "6gk", { desc = "Move down 6 lines" })
+map("v", "<S-Up>", "6j", { desc = "Move down 6 lines" })
+map({ "n", "v" }, "<S-Right>", "$", { desc = "Go to end of line" })
 
 -- Window navigation
-map("n", "<C-Left>", "<C-w>h", { desc = "Go to Left Window", silent = true, remap = true })
-map("n", "<C-Down>", "<C-w>j", { desc = "Go to Lower Window", silent = true, remap = true })
-map("n", "<C-Up>", "<C-w>k", { desc = "Go to Upper Window", silent = true, remap = true })
-map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window", silent = true, remap = true })
+map("n", "<C-Left>", "<C-w>h", { desc = "Go to Left Window", remap = true })
+map("n", "<C-Down>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
+map("n", "<C-Up>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
+map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
 -- next and previous occurences by maintaining the cursor centered
 map("n", "n", "nzzzv", { desc = "Next occurence of search" })
@@ -274,8 +286,8 @@ map({ "n", "v" }, "gm", "%", { desc = "Go to Matching bracket" })
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (BUFFERS)
 
-map("n", "<C-Tab>", "<cmd>bnext<cr>", { desc = "go to next buffer" })
-map("n", "<C-S-Tab>", "<cmd>bprevious<cr>", { desc = "go to previous buffer" })
+map("n", "<C-TAB>", "<cmd>bnext<cr>", { desc = "go to next buffer" })
+map("n", "<C-S-TAB>", "<cmd>bprevious<cr>", { desc = "go to previous buffer" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (TEXT OBJECTS)
@@ -325,6 +337,16 @@ map({ "v", "o" }, "ai", "a`", { desc = "outer `" })
 -- [m]ath block
 -- [s]ection
 --   (conflict with the base [s]entence textobject, but I don't use it very often anyways)
+
+-- ────────────────────────────────────────────────────────────────────────────────
+-- (MACROS)
+-- ────────────────────────────────────────────────────────────────────────────────
+
+-- new behaviour for macros, as I usually use only one at the same time :
+-- press qq to record, q to stop recording, then Q to apply
+
+map("n", "Q", "@q", { desc = "Apply recorded macro" })
+map("v", "Q", "<cmd>norm @q<cr>", { desc = "Apply recorded macro to visual selection" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (LEADER MAPPINGS)

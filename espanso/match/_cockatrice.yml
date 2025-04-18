@@ -3,22 +3,32 @@
 
 # for quick chat messages
 matches:
-  - trigger: "pre"
-    replace: "pregame action"
-    word: true
-
-  - trigger: "su"
-    replace: "stop upkeep"
-    word: true
-
-  - triggers: ["sd", "sa"]
-    replace: "stop after draw"
-    word: true
-
-  - trigger: "ba"
+  - trigger: ",ba"
     replace: "before attackers"
-    word: true
 
-  - trigger: "th"
+  - trigger: ",bb"
+    replace: "before blocks"
+
+  - trigger: ",bd"
+    replace: "before damage"
+
+  - trigger: ",ge"
+    replace: "move to end step"
+
+  - trigger: ",gg"
+    replace: "gg tfg goodbye"
+
+  - trigger: ",gh"
+    replace: "go ahead"
+
+  - trigger: ",pre"
+    replace: "pregame action"
+
+  - trigger: ",su"
+    replace: "stop upkeep"
+
+  - trigger: ",sad"
+    replace: "stop after draw"
+
+  - trigger: ",th"
     replace: "thinking"
-    word: true

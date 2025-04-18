@@ -14,32 +14,34 @@ matches:
 
   # insecables fine
   # ;
-  - regex: "\\s;"
+  - trigger: " ;"
     replace: "\u202f;"
-    word: true
 
   # ?
-  - regex: "\\s\\?"
+  - trigger: " ?"
     replace: "\u202f?"
-    word: true
 
   # !
-  - regex: "\\s!"
+  - trigger: " !"
     replace: "\u202f!"
-    word: true
 
-  # thousands
-  # pourcentages, monétaires
+  # «»
+  # TODO: correct the french guillemets typo
+
+  # - trigger: "« "
+  #   replace: "«\u202f"
+  #
+  # - trigger: " »"
+  #   replace: "\u202f»"
 
   # ——————————————————————————————————————————————————————————————————————————
   # insecables
 
   # :
-  # TODO: correct with the newline for executing commands and stuff
+  - trigger: " : "
+    replace: "\u00a0: "
 
-  # - regex: "\\s:"
-  #   replace: "\u00a0:"
-  #   word: true
-
-  # TODO: add sentence regex in guillemets
-  # «»
+  # thousands
+  # pourcentages, monétaires
+  # TODO: setup some regexs to identify number and automatically typeset
+  # unbreakable spaces
