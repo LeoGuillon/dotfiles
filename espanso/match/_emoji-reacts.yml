@@ -13,13 +13,18 @@ matches:
   - trigger: "hhh"
     replace: "+:heart:"
 
+  # sends a 💯 react
+  # it is rare enough to want to write a complete 100, so let’s hope it nevers happens
+  - trigger: "100"
+    replace: "+:100:"
+
+    # sends a ok_hand
+  - trigger: "kkk"
+    replace: "+:ok_hand:"
+
   # sends a yum
   - trigger: "mmm"
     replace: "+:yum:"
-
-  # sends a ok_hand
-  - trigger: "ooo"
-    replace: "+:ok_hand:"
 
   # sends a rocket
   - trigger: "rrr"

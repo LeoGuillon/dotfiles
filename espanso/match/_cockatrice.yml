@@ -16,10 +16,13 @@ matches:
     replace: "move to end step"
 
   - trigger: ",gg"
-    replace: "gg tfg goodbye"
+    replace: "gg goodbye"
 
   - trigger: ",gh"
     replace: "go ahead"
+
+  - trigger: ",nb"
+    replace: "no blocks"
 
   - trigger: ",pre"
     replace: "pregame action"
@@ -29,6 +32,9 @@ matches:
 
   - trigger: ",sad"
     replace: "stop after draw"
+
+  - trigger: ",tos"
+    replace: "trigger on the stack"
 
   - trigger: ",th"
     replace: "thinking"
