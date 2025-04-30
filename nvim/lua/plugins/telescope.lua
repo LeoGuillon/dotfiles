@@ -19,7 +19,10 @@ return {
         path_display = { "smart" },
         file_ignore_patterns = { ".git/", "node_modules" },
         mappings = {
-          i = {},
+          i = {
+            ["<C-v>"] = actions.select_horizontal,
+            ["<C-h>"] = actions.select_vertical,
+          },
         },
       },
       extensions = {

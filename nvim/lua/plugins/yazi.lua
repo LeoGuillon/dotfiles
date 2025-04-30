@@ -19,18 +19,14 @@ return {
       "<cmd>Yazi cwd<cr>",
       desc = "open Yazi at cwd",
     },
-    -- {
-    --   "<leader>uy",
-    --   "<cmd>Yazi toggle<cr>",
-    --   desc = "toggle Yazi",
-    -- },
-    -- because I didn’t use it that much
   },
   opts = {
     -- if you want to open yazi instead of netrw, see below for more info
     open_for_directories = false,
     keymaps = {
-      show_help = "<f1>",
+      show_help = "?",
+      open_file_in_vertical_split = "<c-h>",
+      open_file_in_horizontal_split = "<c-v>",
     },
   },
   -- 👇 if you use `open_for_directories=true`, this is recommended

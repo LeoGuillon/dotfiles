@@ -44,7 +44,7 @@
       },
       "to": [
         {
-          "shell_command": "open -g 'rectangle://execute-action?name=center'"
+          "shell_command": "open -g 'rectangle://execute-action?name=center-half'"
         }
       ],
       "type": "basic"

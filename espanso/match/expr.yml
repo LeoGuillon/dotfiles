@@ -15,6 +15,21 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "b1"
+    replace: "bien"
+    word: true
+    propagate_case: true
+
+  # NOTE: no propagate_case, because it transforms "C" in "C’EST"
+  # (or C in C’Est if uppercase_style is set to "capitalize_words")
+  - trigger: "c"
+    replace: "c’est"
+    word: true
+
+  - trigger: "C"
+    replace: "C’est"
+    word: true
+
   - trigger: "cad"
     replace: "c’est à dire"
     word: true
@@ -81,10 +96,6 @@ matches:
   # latin abbreviations, commonly used in scientific writing
   - trigger: "eg"
     replace: "e.g."
-    word: true
-
-  - trigger: "et al"
-    replace: "et al."
     word: true
 
   - trigger: "ie"

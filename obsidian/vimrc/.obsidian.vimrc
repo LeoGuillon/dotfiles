@@ -129,11 +129,11 @@ nnoremap ~ v~
 " ───────────────────────────────────────────────────────────────────────────────
 " (IN-FILE NAVIGATION)
 
-" navigation and insertion on visual lines
+" navigation on visual lines
 nnoremap <Up> gk
 nnoremap <Down> gj
-nnoremap I g0i
-nnoremap A g$a
+" nnoremap I g0i
+" nnoremap A g$a
 
 " fast vertical navigation
 " credits : https://nanotipsforvim.prose.sh/vertical-navigation-%E2%80%93-without-relative-line-numbers
@@ -206,10 +206,10 @@ nnoremap <C-Right> :focusright<CR>
 
 " splitting
 exmap splithorizontal obcommand workspace:split-horizontal
-nnoremap <C-w>s :splithorizontal<CR>
+nnoremap <C-v> :splithorizontal<CR>
 
 exmap splitvertical obcommand workspace:split-vertical
-nnoremap <C-w>v :splitvertical<CR>
+nnoremap <C-h> :splitvertical<CR>
 
 " ───────────────────────────────────────────────────────────────────────────────
 " (FOLDS)

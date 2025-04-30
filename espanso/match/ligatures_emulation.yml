@@ -17,3 +17,11 @@ matches:
   - triggers: ["!=", "/="]
     replace: "≠"
     word: true
+
+  - trigger: "--"
+    replace: "–"
+    word: true
+
+  - trigger: "---"
+    replace: "—"
+    word: true

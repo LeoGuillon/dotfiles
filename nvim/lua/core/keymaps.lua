@@ -248,6 +248,9 @@ map("n", "ZA", "<CMD>wqa<CR>", { desc = "save and quit all buffers" })
 -- (NAVIGATION)
 -- ——————————————————————————————————————————————————————————————————————————————
 
+-- ────────────────────────────────────────────────────────────────────────────────
+-- (INTRA-PANE)
+
 -- better up/down
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true })
 map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true })
@@ -264,24 +267,28 @@ map("n", "<S-Up>", "6gk", { desc = "Move down 6 lines" })
 map("v", "<S-Up>", "6j", { desc = "Move down 6 lines" })
 map({ "n", "v" }, "<S-Right>", "$", { desc = "Go to end of line" })
 
--- Window navigation
-map("n", "<C-Left>", "<C-w>h", { desc = "Go to Left Window", remap = true })
-map("n", "<C-Down>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
-map("n", "<C-Up>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
-map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window", remap = true })
-
--- next and previous occurences by maintaining the cursor centered
-map("n", "n", "nzzzv", { desc = "Next occurence of search" })
-map("n", "N", "Nzzzv", { desc = "Previous occurence of search" })
-
 -- pages up/down keeps the cursor centered
 map({ "n", "v" }, "<PageDown>", "<c-d>zz", { desc = "half-page Down" })
 map({ "n", "v" }, "<PageUp>", "<c-u>zz", { desc = "half-page Up" })
 map({ "n", "v" }, "<S-PageDown>", "<c-f>zz", { desc = "page down (Forwards)" })
 map({ "n", "v" }, "<S-PageUp>", "<c-b>zz", { desc = "page up (Backwards)" })
 
--- [g]o to [m]atching parenthesis
-map({ "n", "v" }, "gm", "%", { desc = "Go to Matching bracket" })
+-- next and previous occurences by maintaining the cursor centered
+map("n", "n", "nzzzv", { desc = "Next occurence of search" })
+map("n", "N", "Nzzzv", { desc = "Previous occurence of search" })
+
+-- ────────────────────────────────────────────────────────────────────────────────
+-- (INTER-PANE)
+
+-- Pane creation
+map("n", "<C-h>", "<C-w>h", { desc = "Split horizontally" })
+map("n", "<C-v>", "<C-w>s", { desc = "Split vertically" })
+
+-- Pane navigation
+map("n", "<C-Left>", "<C-w>h", { desc = "Go to Left Window" })
+map("n", "<C-Down>", "<C-w>j", { desc = "Go to Lower Window" })
+map("n", "<C-Up>", "<C-w>k", { desc = "Go to Upper Window" })
+map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (BUFFERS)
