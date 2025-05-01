@@ -16,7 +16,7 @@ matches:
     replace: "move to end step"
 
   - trigger: ",gg"
-    replace: "gg tfg goodbye"
+    replace: "gg goodbye"
 
   - trigger: ",gh"
     replace: "go ahead"
