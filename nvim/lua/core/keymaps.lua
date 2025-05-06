@@ -1,10 +1,10 @@
 -- TODO: move this function to an utils file, so that it’s available everywhere
-function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.keymap.set(mode, lhs, rhs, options)
+local function map(mode, lhs, rhs, opts)
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.keymap.set(mode, lhs, rhs, options)
 end
 -- local map = vim.keymap.set
 
@@ -51,38 +51,38 @@ map({ "n", "v" }, "C", '"_C', { desc = "Change until the end of line" })
 map("n", "s", '"_cl', { desc = "Substitute character" })
 map("n", "S", '"_cc', { desc = "Substitute line" })
 map("n", "dd", function()
-  if vim.fn.getline(".") == "" then
-    return '"_dd'
-  end
-  return "dd"
+	if vim.fn.getline(".") == "" then
+		return '"_dd'
+	end
+	return "dd"
 end, { expr = true, desc = "Delete line" }) -- Add moves it to the black hole only if it's empty
 
 -- yank by keeping the cursor at the same position
 -- credits : https://nanotipsforvim.prose.sh/sticky-yank
 do
-  local cursorPreYank
-  vim.keymap.set({ "n", "x" }, "y", function()
-    cursorPreYank = vim.api.nvim_win_get_cursor(0)
-    return "y"
-  end, { desc = "Yank", expr = true })
-  vim.keymap.set("n", "Y", function()
-    cursorPreYank = vim.api.nvim_win_get_cursor(0)
-    return "y$" -- TODO: transform to "yg$" ?
-  end, { desc = "Yank to the end of line", expr = true })
-  vim.api.nvim_create_autocmd("TextYankPost", {
-    callback = function()
-      if vim.v.event.operator == "y" and cursorPreYank then
-        vim.api.nvim_win_set_cursor(0, cursorPreYank)
-      end
-    end,
-  })
+	local cursorPreYank
+	vim.keymap.set({ "n", "x" }, "y", function()
+		cursorPreYank = vim.api.nvim_win_get_cursor(0)
+		return "y"
+	end, { desc = "Yank", expr = true })
+	vim.keymap.set("n", "Y", function()
+		cursorPreYank = vim.api.nvim_win_get_cursor(0)
+		return "y$" -- TODO: transform to "yg$" ?
+	end, { desc = "Yank to the end of line", expr = true })
+	vim.api.nvim_create_autocmd("TextYankPost", {
+		callback = function()
+			if vim.v.event.operator == "y" and cursorPreYank then
+				vim.api.nvim_win_set_cursor(0, cursorPreYank)
+			end
+		end,
+	})
 end
 
 -- Maj operators
 map("n", "P", "mz$p`z", { desc = "Paste at the end of line" })
 map("n", "X", function()
-  local updatedLine = vim.api.nvim_get_current_line():gsub("%S%s*$", "")
-  vim.api.nvim_set_current_line(updatedLine)
+	local updatedLine = vim.api.nvim_get_current_line():gsub("%S%s*$", "")
+	vim.api.nvim_set_current_line(updatedLine)
 end, { desc = "Delete char" })
 
 map("v", "p", "P", { desc = "Paste" }) -- to avoid recording when yanking and pasting over a selection and keeps the yanked in register
@@ -94,14 +94,14 @@ map({ "n", "v" }, "U", "<C-r>", { desc = "Redo" }) -- more consistent undo keyma
 
 -- more molecular checkpoints during editing
 local undo_checkpoints_chars = {
-  ";",
-  ".",
-  "!",
-  "?",
-  ":",
+	";",
+	".",
+	"!",
+	"?",
+	":",
 }
 for _, key in pairs(undo_checkpoints_chars) do
-  map("i", key, ("%s<c-g>u"):format(key))
+	map("i", key, ("%s<c-g>u"):format(key))
 end
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (MOVING CHARACTERS)
@@ -148,12 +148,12 @@ map("n", "<S-CR>", "mzO<esc>^D`z", { desc = "Add an empty line above" })
 -- credits : https://github.com/chrisgrieser/.config/blob/9fb7bea009be951f9676ef52634a7d12d9717953/nvim/lua/config/leader-keybindings.lua
 
 local trail_chars = {
-  ",",
-  ";",
-  ".",
+	",",
+	";",
+	".",
 }
 for _, key in pairs(trail_chars) do
-  map("n", "<leader>" .. key, ("mzA%s<Esc>`z"):format(key), { desc = ("add %s to eol"):format(key) })
+	map("n", "<leader>" .. key, ("mzA%s<Esc>`z"):format(key), { desc = ("add %s to eol"):format(key) })
 end
 
 -- ——————————————————————————————————————————————————————————————————————————————
@@ -219,12 +219,12 @@ map("v", ">", ">gv", { desc = "Indent selection to the right" })
 -- insert mode that respect indentation
 -- credits : https://github.com/chrisgrieser/.config/blob/main/nvim/lua/config/keybindings.lua
 map("n", "i", function()
-  local lineEmpty = vim.trim(vim.api.nvim_get_current_line()) == ""
-  return lineEmpty and [["_cc]] or "i"
+	local lineEmpty = vim.trim(vim.api.nvim_get_current_line()) == ""
+	return lineEmpty and [["_cc]] or "i"
 end, { expr = true, desc = "Insert mode" })
 map("n", "a", function()
-  local lineEmpty = vim.trim(vim.api.nvim_get_current_line()) == ""
-  return lineEmpty and [["_cc]] or "a"
+	local lineEmpty = vim.trim(vim.api.nvim_get_current_line()) == ""
+	return lineEmpty and [["_cc]] or "a"
 end, { expr = true, desc = "insert mode, Append" })
 
 -- navigation similar to macos usual settings
