@@ -35,6 +35,11 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "cb"
+    replace: "combien"
+    word: true
+    propagate_case: true
+
   - trigger: "cdlt"
     replace: "cordialement"
     word: true
@@ -85,6 +90,16 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "qd"
+    replace: "quand"
+    word: true
+    propagate_case: true
+
+  - trigger: "qt"
+    replace: "quant"
+    word: true
+    propagate_case: true
+
   - trigger: "r1"
     replace: "rien"
     word: true
@@ -95,6 +110,18 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "tt"
+    replace: "tout"
+    word: true
+    propagate_case: true
+
+  - triggers: ["vmt", "vrmt"]
+    replace: "vraiment"
+    word: true
+    propagate_case: true
+
+  # NOTE: can’t be ”we” so that it’s usable in english as well
+  # the only conflict I can think of currently is the “White Knight” acronym lol
   - trigger: "wk"
     replace: "week-end"
     word: true

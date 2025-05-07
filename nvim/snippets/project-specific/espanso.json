@@ -17,8 +17,7 @@
   "trigger": {
     "body": [
       "- trigger: \"$1\"",
-      "  replace: \"$2\"",
-      "$0"
+      "  replace: \"$2\""
     ],
     "prefix": "trigger"
   },

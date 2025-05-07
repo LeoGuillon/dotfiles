@@ -2,6 +2,9 @@
 # ───────────────────────────────────────────────────────────────────────────────
 
 matches:
+  # ────────────────────────────────────────────────────────────────────────────────
+  # (ARROWS)
+
   - trigger: "->"
     replace: "→"
     word: true
@@ -14,9 +17,20 @@ matches:
     replace: "←"
     word: true
 
+  - trigger: "<->"
+    replace: "↔︎"
+    word: true
+
+  - trigger: "<=>"
+    replace: "⟺"
+    word: true
+
   - triggers: ["!=", "/="]
     replace: "≠"
     word: true
+
+    # ────────────────────────────────────────────────────────────────────────────────
+    # (DASHES)
 
   - trigger: "--"
     replace: "–"
@@ -24,4 +38,12 @@ matches:
 
   - trigger: "---"
     replace: "—"
+    word: true
+
+  - trigger: "<<"
+    replace: "«"
+    word: true
+
+  - trigger: ">>"
+    replace: "»"
     word: true

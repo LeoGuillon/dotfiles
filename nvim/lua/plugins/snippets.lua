@@ -43,7 +43,7 @@ return {
       local scissors = require("scissors")
 
       scissors.setup({
-        snippetDir = "./snippets",
+        snippetDir = vim.fn.stdpath("config") .. "/snippets",
         jsonFormatter = "jq",
         snippetSelection = {
           picker = "telescope",

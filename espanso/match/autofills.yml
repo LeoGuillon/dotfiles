@@ -1,41 +1,42 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
 # ───────────────────────────────────────────────────────────────────────────────
 
-# sources for autofills :
+# inspirations for autofills :
 # https://ergopti.fr/ergopti-plus
 # https://ergol.org/hypergol/
 matches:
-  # TODO: think about their integration with vim, and the conflict they implies
-  # TODO: resolve their interaction with espanso as well
-
   # ────────────────────────────────────────────────────────────────────────────────
   # (Q + voyelle → QU + voyelle)
+  # the only “common” word with q followed by another voyel than u is “Qatar” and
+  # related words
 
-  - trigger: "qa"
-    replace: "qua"
+  # NOTE: this one is disabled because with the ergo-l layout, it creates a SFB
+  # - trigger: "qa"
+  #   replace: "qua"
 
   - trigger: "qe"
     replace: "que"
-
-  - trigger: "qé"
-    replace: "qué"
-
-  - trigger: "qê"
-    replace: "quê"
+    propagate_case: true
 
   - trigger: "qi"
     replace: "qui"
+    propagate_case: true
 
   - trigger: "qo"
     replace: "quo"
+    propagate_case: true
 
-  - trigger: "q'"
-    replace: "qu’"
+  # TODO: add support for french accents
+  # qué : mostly with « Québec » and « quémander »
+  # quê : only in words with the root « quête »
 
   # ────────────────────────────────────────────────────────────────────────────────
   # (ù → où)
 
-  - trigger: "ù"
-    replace: "où"
-    word: true
-    propagate_case: true
+  # TODO: figure out why this trigger doesn’t work
+  # (probably due to ergo-l layout dead key)
+
+  # - trigger: "ù"
+  #   replace: "où"
+  #   word: true
+  #   propagate_case: true

@@ -5,16 +5,11 @@ return {
     config = function()
       local justice = require("justice")
 
-      justice.setup({
-        keymaps = {
-          -- ergo-L layout adapted quick jumps
-          quickSelect = { "j", "n", "e", "s", "a" },
-        },
-      })
+      justice.setup({})
 
       -- keymap
       local map = vim.keymap.set
-      map("n", "<leader>j", "<Cmd>Justice<CR>", { desc = "open Justice" })
+      map("n", "<leader>j", "<cmd>Justice<cr>", { desc = "open Justice" })
     end,
   },
   -- Make
