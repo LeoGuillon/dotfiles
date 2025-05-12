@@ -50,6 +50,11 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "g"
+    replace: "j’ai"
+    word: true
+    propagate_case: true
+
   - trigger: "gt"
     replace: "j’étais"
     word: true
@@ -60,7 +65,7 @@ matches:
     word: true
     propagate_case: true
 
-  - trigger: "mtn"
+  - triggers: ["mnt", "mtn", "mtnt"]
     replace: "maintenant"
     word: true
     propagate_case: true
@@ -100,6 +105,11 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "qlq"
+    replace: "quelque"
+    word: true
+    propagate_case: true
+
   - trigger: "r1"
     replace: "rien"
     word: true
@@ -124,6 +134,14 @@ matches:
   # the only conflict I can think of currently is the “White Knight” acronym lol
   - trigger: "wk"
     replace: "week-end"
+    word: true
+    propagate_case: true
+
+  # ────────────────────────────────────────────────────────────────────────────────
+  # (ANGLICISMES)
+
+  - trigger: "ost"
+    replace: "bande-son"
     word: true
     propagate_case: true
 

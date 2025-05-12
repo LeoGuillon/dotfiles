@@ -6,11 +6,12 @@
 # https://ergol.org/hypergol/
 matches:
   # ────────────────────────────────────────────────────────────────────────────────
-  # (Q + voyelle → QU + voyelle)
+  # (Q + voyel → QU + voyel)
   # the only “common” word with q followed by another voyel than u is “Qatar” and
   # related words
 
   # NOTE: this one is disabled because with the ergo-l layout, it creates a SFB
+  # and also prevents writing qatar properly, if that’s something that matters to you
   # - trigger: "qa"
   #   replace: "qua"
 
@@ -27,8 +28,8 @@ matches:
     propagate_case: true
 
   # TODO: add support for french accents
-  # qué : mostly with « Québec » and « quémander »
-  # quê : only in words with the root « quête »
+  # because with ergo-l layout, accents are produced with dead key, those interact
+  # quite poorly with espanso ; need to find a way to fix this
 
   # ────────────────────────────────────────────────────────────────────────────────
   # (ù → où)
