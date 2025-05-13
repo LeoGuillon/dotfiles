@@ -1,0 +1,45 @@
+{
+  "description": "press both shift keys to toggle caps lock",
+  "manipulators": [
+    {
+      "type": "basic",
+      "description": "both shifts → caps_lock",
+      "from": {
+        "key_code": "left_shift",
+        "modifiers": {
+          "mandatory": [
+            "right_shift"
+          ],
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "key_code": "caps_lock"
+        }
+      ]
+    },
+    {
+      "type": "basic",
+      "description": "both shifts → caps_lock",
+      "from": {
+        "key_code": "right_shift",
+        "modifiers": {
+          "mandatory": [
+            "left_shift"
+          ],
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "key_code": "caps_lock"
+        }
+      ]
+    }
+  ]
+}

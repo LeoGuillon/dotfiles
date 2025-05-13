@@ -25,6 +25,9 @@ return {
       map({ "i" }, "<CR>", function() luasnip.expand() end, { silent = true })
       map({ "i", "s" }, "<Tab>", function() if luasnip.jumpable(1) then luasnip.jump(1) end end, { silent = true })
       map({ "i", "s" }, "<S-Tab>", function() if luasnip.jumpable(-1) then luasnip.jump(-1) end end, { silent = true })
+      -- Control-based keymap, to match with my Obsidian keymaps
+      map({ "i", "s" }, "<C-n>", function() if luasnip.jumpable(1) then luasnip.jump(1) end end, { silent = true })
+      map({ "i", "s" }, "<C-p>", function() if luasnip.jumpable(-1) then luasnip.jump(-1) end end, { silent = true })
       -- stylua: ignore end
 
       -- loads snippets from snippets folder

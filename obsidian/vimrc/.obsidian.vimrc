@@ -29,9 +29,8 @@ nnoremap Y y$
 " instead of behind the cursor, for more coherence with other commands
 nnoremap P mzg$p`z
 
-" in visual mode, paste over selection and selection goes to the black hole
-" register
-vnoremap p "_dp
+" in visual mode, paste over selection uses the custom ex command pasteinto
+vnoremap p :pasteinto<CR>
 
 
 " togglecase command doesn't move forward a character
@@ -161,11 +160,9 @@ nnoremap <S-PageUp> <c-b>zz
 " (INTER-FILE NAVIGATION)
 
 exmap nexttab obcommand workspace:next-tab
-nnoremap <C-Right> :nexttab<CR>
 nnoremap gt :nexttab<CR>
 
 exmap previoustab obcommand workspace:previous-tab
-nnoremap <C-Left> :previoustab<CR>
 nnoremap gT :previoustab<CR>
 
 " [g]o to [f]ile (in a new tab)
@@ -442,6 +439,13 @@ nnoremap <Space>iv :insertcodeblock<CR>i
 " 3. key + f, for [f]ile
 " (mostly because right now, I don't know which option I'll prefer)
 
+" NOTE: currently, I almost never use the third option, mostly because
+" on the ergo-l layout, the n key is on the left index base position,
+" while the f is on the left index right position (g key in qwerty layout)
+" so it’s way more convenient to press n ; however, f is used in <leader>ff
+" to be coherent with my nvim’s keymaps, so maybe there’s a change here to be
+" done
+
 " TODO: clean those shortcuts
 
 " [d]elete  file ([n]ote)
@@ -462,6 +466,15 @@ exmap movefile obcommand file-explorer:move-file
 nnoremap <Space>mm :movefile<CR>
 nnoremap <Space>mn :movefile<CR>
 nnoremap <Space>mf :movefile<CR>
+
+" [p]in file
+" NOTE: this one is kinda annoying with the ergo-l layout,
+" as it creates a SFB on the left index in any case,
+" but no real alternative that could be easy to remember and map
+exmap pinfile obcommand workspace:toggle-pin
+nnoremap <Space>pp :pinfile<CR>
+nnoremap <Space>pn :pinfile<CR>
+nnoremap <Space>pf :pinfile<CR>
 
 " [r]ename file
 exmap renamefile obcommand workspace:edit-file-title
@@ -553,26 +566,23 @@ nnoremap <Space>op :openprojects<CR>
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (UI toggles)
+" [u]i…
 
 " file [e]xplorer
-exmap openfileexplorer obcommand file-explorer:open
+exmap openfileexplorer obcommand app:toggle-left-sidebar
 nnoremap <Space>ue :openfileexplorer<CR>
 
 " [f]ocus mode (tab bar)
 exmap togglefocusmode obcommand obsidian-hider:toggle-tab-containers
 nnoremap <Space>uf :togglefocusmode<CR>
 
-
 " local [g]raph
-exmap openlocalgraph obcommand graph:open-local
-nnoremap <Space>ug :openlocalgraph<CR>
 
 " [o]utline
-exmap toggleoutline obcommand outline:open
-nnoremap <Space>uo :toggleoutline<CR>
 
-
-" [p]roperties (sidebar)
+" [r]ight sidebar
+exmap togglerightsidebar obcommand app:toggle-right-sidebar
+nnoremap <Space>ur :togglerightsidebar<CR>
 
 " [s]tatus bar
 exmap togglestatusbar obcommand obsidian-hider:toggle-hider-status
