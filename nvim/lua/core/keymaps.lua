@@ -362,6 +362,6 @@ map("v", "Q", "<cmd>norm @q<cr>", { desc = "Apply recorded macro to visual selec
 -- ——————————————————————————————————————————————————————————————————————————————
 
 -- [U]I toggles
-map("n", "<leader>ul", "<cmd>Lazy<cr>", { desc = "open Lazy" })
-map("n", "<leader>un", "<cmd>set number!<cr><cmd>set relativenumber!<cr>", { desc = "toggle line Numbers" })
-map("n", "<leader>uw", "<cmd>set wrap!<cr>", { desc = "toggle line Wrap" })
+map("n", "<leader>ol", "<cmd>Lazy<cr>", { desc = "Lazy" })
+map("n", "<leader>tn", "<cmd>set number!<cr><cmd>set relativenumber!<cr>", { desc = "toggle line Numbers" })
+map("n", "<leader>tw", "<cmd>set wrap!<cr>", { desc = "toggle line Wrap" })

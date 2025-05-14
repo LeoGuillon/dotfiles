@@ -384,11 +384,9 @@ nnoremap <Space>nt :newnotefromtemplate<CR>
 exmap newwikipedia obcommand obsidian-wikipedia:wikipedia-get-search-term
 nnoremap <Space>nw :newwikipedia<CR>
 
-
 " [y]outube video note
 exmap newyoutube obcommand youtube-template:youtube-insert-template
 nnoremap <Space>ny :newyoutube<CR>
-
 
 " [z]otero reference
 " TODO: check if space isn't a problem
@@ -398,6 +396,12 @@ nnoremap <Space>nz :newzotero<CR>
 " ——————————————————————————————————————————————————————————————————————————————
 " (INSERTION)
 " [i]nsert…
+
+" NOTE: we add “i” at the end of each command to be in insert mode right away
+
+" ta[b]le
+exmap inserttable obcommand editor:insert-table
+nnoremap <Space>ib :inserttable<CR>i
 
 " [c]allout
 exmap insertcallout obcommand editor:insert-callout
@@ -410,10 +414,6 @@ nnoremap <Space>ik :insertwikilink<CR>i
 " [m]ath block
 exmap insertmathblock obcommand editor:insert-mathblock
 nnoremap <Space>im :insertmathblock<CR>i
-
-" " [t]able
-" exmap inserttable obcommand editor:insert-table
-" nnoremap <Space>it :inserttable<CR>i
 
 " [t]emplate
 exmap inserttemplate obcommand templater-obsidian:insert-templater
@@ -433,54 +433,32 @@ nnoremap <Space>iv :insertcodeblock<CR>i
 " misc shortcuts, that (usually) don't interfer
 " with other leader-based shortcuts
 
-" NOTE: each of these commands is matched with 3 different keyboard shortcuts:
-" 1. main key doubled, for a vim-like syntax but applied to the whole file
-" 2. key + n, for [n]ote
-" 3. key + f, for [f]ile
-" (mostly because right now, I don't know which option I'll prefer)
+" [d]elete [n]ote
+exmap deletenote obcommand app:delete-file
+nnoremap <Space>dn :deletenote<CR>
 
-" NOTE: currently, I almost never use the third option, mostly because
-" on the ergo-l layout, the n key is on the left index base position,
-" while the f is on the left index right position (g key in qwerty layout)
-" so it’s way more convenient to press n ; however, f is used in <leader>ff
-" to be coherent with my nvim’s keymaps, so maybe there’s a change here to be
-" done
+" [l]int  [n]ote
+exmap lintnote obcommand obsidian-linter:lint-file
+nnoremap <Space>ln :lintnote<CR>
+nnoremap <Space>ll :lintnote<CR>
 
-" TODO: clean those shortcuts
+" [m]ove [n]ote
+exmap movenote obcommand file-explorer:move-file
+nnoremap <Space>mn :movenote<CR>
+nnoremap <Space>mm :movenote<CR>
 
-" [d]elete  file ([n]ote)
-exmap deletefile obcommand app:delete-file
-" nnoremap <Space>dd :deletefile<CR>
-" NOTE: this shortcut can lead to unwanted file deletion
-nnoremap <Space>dn :deletefile<CR>
-nnoremap <Space>df :deletefile<CR>
-
-" [l]int  file
-exmap lintfile obcommand obsidian-linter:lint-file
-nnoremap <Space>ll :lintfile<CR>
-nnoremap <Space>ln :lintfile<CR>
-nnoremap <Space>lf :lintfile<CR>
-
-" [m]ove file
-exmap movefile obcommand file-explorer:move-file
-nnoremap <Space>mm :movefile<CR>
-nnoremap <Space>mn :movefile<CR>
-nnoremap <Space>mf :movefile<CR>
-
-" [p]in file
+" [p]in [n]ote
 " NOTE: this one is kinda annoying with the ergo-l layout,
-" as it creates a SFB on the left index in any case,
 " but no real alternative that could be easy to remember and map
-exmap pinfile obcommand workspace:toggle-pin
-nnoremap <Space>pp :pinfile<CR>
-nnoremap <Space>pn :pinfile<CR>
-nnoremap <Space>pf :pinfile<CR>
+" as it creates a SFB on the left index in any case,
+exmap pinnote obcommand workspace:toggle-pin
+nnoremap <Space>pn :pinnote<CR>
+nnoremap <Space>pp :pinnote<CR>
 
-" [r]ename file
-exmap renamefile obcommand workspace:edit-file-title
-nnoremap <Space>rr :renamefile<CR>
-nnoremap <Space>rn :renamefile<CR>
-nnoremap <Space>rf :renamefile<CR>
+" [r]ename [n]ote
+exmap renamenote obcommand workspace:edit-file-title
+nnoremap <Space>rn :renamenote<CR>
+nnoremap <Space>rr :renamenote<CR>
 
 " [r]eplace [t]emplates
 exmap replacetemplates obcommand templater-obsidian:replace-in-file-templater
@@ -494,52 +472,59 @@ nnoremap <Space>rt :replacetemplates<CR>
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (SEARCH)
-" [f]ind…
+" [s]earch…
 
 " [c]ommand
-exmap findcommand obcommand command-palette:open
-nnoremap <Space>fc :findcommand<CR>
+exmap searchcommand obcommand command-palette:open
+nnoremap <Space>sc :searchcommand<CR>
 
-" [f]ile (e.g. a note)
-exmap findfile obcommand switcher:open
-nnoremap <Space>ff :findfile<CR>
+" [f]ile
+exmap searchfile obcommand switcher:open
+nnoremap <Space>sf :searchfile<CR>
 
 " [g]lobal
-exmap findglobal obcommand global-search:open
-nnoremap <Space>fg :findglobal<CR>
+exmap searchglobal obcommand global-search:open
+nnoremap <Space>sg :searchglobal<CR>
 
 " [h]otkeys for plugin…
-exmap findpluginhotkeys obcommand hotkey-helper:open-hotkeys
-nnoremap <Space>fh :findpluginhotkeys<CR>
+exmap searchpluginhotkeys obcommand hotkey-helper:open-hotkeys
+nnoremap <Space>sh :searchpluginhotkeys<CR>
+
+" [n]ote
+exmap searchnote obcommand switcher:open
+nnoremap <Space>sn :searchnote<CR>
 
 " [p]lugin
-exmap findplugin obcommand hotkey-helper:browse-plugins
-nnoremap <Space>fp :findplugin<CR>
+exmap searchplugin obcommand hotkey-helper:browse-plugins
+nnoremap <Space>sp :searchplugin<CR>
 
 " [q]uickAdd command
-exmap findquickadd obcommand quickadd:runQuickAdd
-nnoremap <Space>fq :findquickadd<CR>
+exmap searchquickadd obcommand quickadd:runQuickAdd
+nnoremap <Space>sq :searchquickadd<CR>
 
 " [r]ecent note
-exmap findrecent obcommand switcher:open
-nnoremap <Space>fr :findrecent<CR>
+exmap searchrecent obcommand switcher:open
+nnoremap <Space>sr :searchrecent<CR>
 
-" [v]ault / [o]bsidian vault
-exmap findvault obcommand app:open-vault
-nnoremap <Space>fv :findvault<CR>
-nnoremap <Space>fo :findvault<CR>
+" NOTE: sf, sn and sr all does the same thing ;
+" mainly to have sort of consistency across Obsidian and nvim (with telescope)
+" but tbh, I mostly use sn or sr
+
+" [v]ault
+exmap searchvault obcommand app:open-vault
+nnoremap <Space>sv :searchvault<CR>
 
 " [w]orkspace / [l]ayout
-" the combination of followed f+w keystrokes is a SFU in the ergo-L layout
-exmap findworkspace obcommand workspaces:save-and-load
-nnoremap <Space>fw :findworkspace<CR>
-nnoremap <Space>fl :findworkspace<CR>
+exmap searchworkspace obcommand workspaces:save-and-load
+nnoremap <Space>sw :searchworkspace<CR>
+nnoremap <Space>sl :searchworkspace<CR>
 
-" TODO: delete the SFUs shortcuts
+" TODO: choose between options for vault/layout searching
 
 " [,] : settings for plugin…
-exmap findpluginsettings obcommand hotkey-helper:open-settings
-nnoremap <Space>f, :findpluginsettings<CR>
+" the , symbol is inspired by the macos common shortcut ⌘, for settings
+exmap searchpluginsettings obcommand hotkey-helper:open-settings
+nnoremap <Space>s, :searchpluginsettings<CR>
 
 
 " ——————————————————————————————————————————————————————————————————————————————
@@ -554,8 +539,7 @@ nnoremap <Space>oc :opencallouts<CR>
 exmap openflashcards obcommand obsidian-spaced-repetition:srs-review-flashcards
 nnoremap <Space>of :openflashcards<CR>
 
-
-" [g]raph view (in a new tab)
+" [g]raph view
 exmap opengraph obcommand graph:open
 nnoremap <Space>og :opengraph<CR>
 
@@ -566,24 +550,21 @@ nnoremap <Space>op :openprojects<CR>
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (UI toggles)
-" [u]i…
+" [t]oggle…
 
 " file [e]xplorer
-exmap openfileexplorer obcommand app:toggle-left-sidebar
-nnoremap <Space>ue :openfileexplorer<CR>
+exmap togglefileexplorer obcommand app:toggle-left-sidebar
+nnoremap <Space>te :togglefileexplorer<CR>
 
-" [f]ocus mode (tab bar)
+" [f]ocus mode / [t]ab bar
 exmap togglefocusmode obcommand obsidian-hider:toggle-tab-containers
-nnoremap <Space>uf :togglefocusmode<CR>
-
-" local [g]raph
-
-" [o]utline
+nnoremap <Space>tf :togglefocusmode<CR>
+nnoremap <Space>tt :togglefocusmode<CR>
 
 " [r]ight sidebar
 exmap togglerightsidebar obcommand app:toggle-right-sidebar
-nnoremap <Space>ur :togglerightsidebar<CR>
+nnoremap <Space>tr :togglerightsidebar<CR>
 
 " [s]tatus bar
 exmap togglestatusbar obcommand obsidian-hider:toggle-hider-status
-nnoremap <Space>us :togglestatusbar<CR>
+nnoremap <Space>ts :togglestatusbar<CR>

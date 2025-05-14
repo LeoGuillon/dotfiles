@@ -1,4 +1,3 @@
----@diagnostic disable: unused-local
 return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
@@ -42,8 +41,9 @@ return {
 
     -- stylua: ignore start
     map("n", "<leader>ha", function() harpoon:list():add() end, { desc = "Add current buffer to harpoon" })
-    map("n", "<leader>hl", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Toggle harpoon menu" })
-    map("n", "<leader>hf", function() toggle_telescope(harpoon:list()) end, { desc = "Toggle harpoon telescope search" })
+    map("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Open Harpoon List" })
+    map("n", "<leader>oh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon" })
+    map("n", "<leader>hs", function() toggle_telescope(harpoon:list()) end, { desc = "Toggle harpoon telescope search" })
 
     -- TODO: create the mappings with a for loop
     map("n", "<leader>1", function() harpoon:list():select(1) end, { desc = "Go to harpoon 1" })
