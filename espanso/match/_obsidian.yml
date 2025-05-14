@@ -1,15 +1,36 @@
 matches:
   - trigger: ":data"
-    replace: "```dataview\n$|$\n```"
+    replace: |
+      ```dataview
+      $|$
+      ```
 
   - trigger: ":list"
-    replace: "```dataview\nLIST\n```"
+    replace: |
+      ```dataview
+      list
+      from $|$
+      ```
 
   - trigger: ":table"
-    replace: "```dataview\nTABLE WITHOUT ID $|$\n```"
+    replace: |
+      ```dataview
+      table without id $|$
+      from
+      ```
+
+  - trigger: ":toc"
+    replace: |
+      ```table-of-contents
+      title: ## Sommaire
+      minLevel: 2
+      ```
 
   - trigger: ":tasks"
-    replace: "```tasks\n\n```"
+    replace: |
+      ```tasks
+      $|$
+      ```
 
   - trigger: ":tp"
     replace: "<% tp.$|$ %>"

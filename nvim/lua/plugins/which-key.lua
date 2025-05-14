@@ -39,7 +39,8 @@ return {
       -- leader groups and subgroups
       { "<leader>", group = "Leader key" },
       { "<leader>c", group = "Code actions…" },
-      { "<leader>u", group = "Toggle UI…" },
+      { "<leader>o", group = "Open…" },
+      { "<leader>t", group = "Toggle UI…" },
     },
   },
   plugins = {

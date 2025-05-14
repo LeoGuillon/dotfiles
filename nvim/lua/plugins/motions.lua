@@ -45,7 +45,7 @@ return {
       -- stylua: ignore start
       map({ "n", "x", "o" }, "h", function() flash.jump() end, { desc = "Hop (flash)" } )
       map({ "n", "x", "o" }, "H", function() flash.treesitter() end, { desc = "Hop treesitter nodes" } )
-      map({ "n", "x", "o" }, "<leader>th", function() flash.treesitter() end, { desc = "Hop treesitter nodes" } )
+      -- map({ "n", "x", "o" }, "<leader>Th", function() flash.treesitter() end, { desc = "Hop treesitter nodes" } )
       -- a more accurate mapping with treesitter leader
 
       -- stylua: ignore end

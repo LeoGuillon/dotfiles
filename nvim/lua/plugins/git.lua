@@ -71,7 +71,7 @@ return {
     keys = {
       -- two different keymaps for the same function : either git group or UI group
       { "<leader>gl", "<cmd>LazyGit<cr>", desc = "open LazyGit" },
-      { "<leader>ug", "<cmd>LazyGit<cr>", desc = "open LazyGit" },
+      { "<leader>og", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     },
   },
 }

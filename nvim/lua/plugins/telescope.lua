@@ -39,21 +39,21 @@ return {
     local map = vim.keymap.set
 
     local builtin = require("telescope.builtin")
-    map("n", "<leader>fb", builtin.buffers, { desc = "files in Buffers" })
-    map("n", "<leader>fc", builtin.commands, { desc = "Commands" })
-    map("n", "<leader>ff", builtin.find_files, { desc = "Files in cwd" })
-    -- map("n", "<leader>fg", builtin.registers, { desc = "Find registers" }) -- not very useful thanks to which-key
-    map("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
-    map("n", "<leader>fk", builtin.keymaps, { desc = "Keymaps" })
-    -- map("n", "<leader>fm", builtin.marks, { desc = "marks" }) -- same remark as for registers
-    map("n", "<leader>fm", builtin.man_pages, { desc = "Man pages entries" })
-    map("n", "<leader>fo", builtin.vim_options, { desc = "vim Options" })
-    map("n", "<leader>fp", builtin.planets, { desc = "Planets <3" })
-    map("n", "<leader>fr", builtin.oldfiles, { desc = "Recent files" })
-    map("n", "<leader>fs", builtin.live_grep, { desc = "String in cwd" })
-    map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Todos in cwd" })
-    map("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "Undos" })
+    map("n", "<leader>sb", builtin.buffers, { desc = "files in Buffers" })
+    map("n", "<leader>sc", builtin.commands, { desc = "Commands" })
+    map("n", "<leader>sf", builtin.find_files, { desc = "Files in cwd" })
+    map("n", "<leader>sg", builtin.registers, { desc = "Find registers" }) -- not very useful thanks to which-key
+    map("n", "<leader>sh", builtin.help_tags, { desc = "Help tags" })
+    map("n", "<leader>sk", builtin.keymaps, { desc = "Keymaps" })
+    map("n", "<leader>sm", builtin.marks, { desc = "marks" }) -- same remark as for registers
+    map("n", "<leader>sm", builtin.man_pages, { desc = "Man pages entries" })
+    map("n", "<leader>so", builtin.vim_options, { desc = "vim Options" })
+    map("n", "<leader>sp", builtin.planets, { desc = "Planets <3" })
+    map("n", "<leader>sr", builtin.oldfiles, { desc = "Recent files" })
+    map("n", "<leader>ss", builtin.live_grep, { desc = "String in cwd" })
+    map("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Todos in cwd" })
+    map("n", "<leader>su", "<cmd>Telescope undo<cr>", { desc = "Undos" })
 
-    require("which-key").add({ { "<leader>f", group = "Find with telescope…" } })
+    require("which-key").add({ { "<leader>s", group = "Search with telescope…" } })
   end,
 }

@@ -46,10 +46,10 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<leader>tv",
-          node_incremental = "<leader>tn",
-          scope_incremental = "<leader>ts",
-          node_decremental = "<leader>td",
+          init_selection = "<leader>Tv",
+          node_incremental = "<leader>Tn",
+          scope_incremental = "<leader>Ts",
+          node_decremental = "<leader>Td",
         },
       },
 
@@ -111,12 +111,11 @@ return {
     -- keymaps
 
     local map = vim.keymap.set
-    map("n", "<leader>ti", "<cmd>InspectTree<cr>", { desc = "Inspect TreeSitter" })
-    map("n", "<leader>ut", "<cmd>InspectTree<cr>", { desc = "open TreeSitter" })
+    map("n", "<leader>ot", "<cmd>InspectTree<cr>", { desc = "TreeSitter" })
     -- stylua: ignore start
-    map("n", "<leader>tc", function() treesitter_context.go_to_context(vim.v.count1)end, { desc = "go back to Context", silent = true })
+    -- map("n", "<leader>tc", function() treesitter_context.go_to_context(vim.v.count1)end, { desc = "go back to Context", silent = true })
     map("n", "[c", function() treesitter_context.go_to_context(vim.v.count1)end, { desc = "go back to Context", silent = true })
     -- stylua: ignore end
-    require("which-key").add({ { "<leader>t", group = "TreeSitter…", icon = { icon = "󰔱", color = "green" } } })
+    require("which-key").add({ { "<leader>T", group = "TreeSitter…", icon = { icon = "󰔱", color = "green" } } })
   end,
 }
