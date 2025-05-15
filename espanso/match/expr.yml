@@ -61,6 +61,11 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "dc"
+    replace: "du coup"
+    word: true
+    propagate_case: true
+
   # NOTE: conflict with G into a leader key command
   # - trigger: "g"
   #   replace: "j’ai"
@@ -92,10 +97,12 @@ matches:
     word: true
     propagate_case: true
 
-  - trigger: "pe"
-    replace: "peut-être"
-    word: true
-    propagate_case: true
+  # NOTE: this trigger caused some unwanted expansions,
+  # so it is disabled for now
+  # - trigger: "pe"
+  #   replace: "peut-être"
+  #   word: true
+  #   propagate_case: true
 
   - trigger: "pk"
     replace: "pourquoi"
@@ -112,13 +119,28 @@ matches:
     word: true
     propagate_case: true
 
-  - trigger: "qt"
-    replace: "quant"
+  - triggers: ["qq", "qlq"]
+    replace: "quelque"
     word: true
     propagate_case: true
 
-  - trigger: "qlq"
-    replace: "quelque"
+  - trigger: "qqs"
+    replace: "quelques"
+    word: true
+    propagate_case: true
+
+  - trigger: "qqch"
+    replace: "quelque chose"
+    word: true
+    propagate_case: true
+
+  - trigger: "qqun"
+    replace: "quelqu’un"
+    word: true
+    propagate_case: true
+
+  - trigger: "qt"
+    replace: "quant"
     word: true
     propagate_case: true
 
@@ -146,6 +168,7 @@ matches:
   # the only conflict I can think of currently is the “White Knight” acronym lol
   - trigger: "wk"
     replace: "week-end"
+    # replace: "fin de semaine" # pour être en bon québecois lâ
     word: true
     propagate_case: true
 
