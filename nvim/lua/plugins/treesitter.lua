@@ -32,6 +32,7 @@ return {
         "query",
         "r",
         "regex",
+        "rnoweb",
         "tex",
         "tmux",
         "toml",

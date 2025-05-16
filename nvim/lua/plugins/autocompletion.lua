@@ -14,6 +14,7 @@ return {
       -- install jsregexp (optional!).
       build = "make install_jsregexp",
     },
+    "R-nvim/cmp-r", -- source for R autocompletion
     "saadparwaiz1/cmp_luasnip", -- source for snippets
     "chrisgrieser/cmp-nerdfont", -- source for nerdfont icons
     "hrsh7th/cmp-path", -- source for file system paths
@@ -25,6 +26,7 @@ return {
 
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
+    local cmp_r = require("cmp_r")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
@@ -70,6 +72,7 @@ return {
         { name = "nvim_lsp" }, -- lsp
         { name = "nerdfont" }, -- nerd font icons
         { name = "path" }, -- file system paths
+        { name = "cmp_r" }, -- R language
       }),
 
       -- configure lspkind for vs-code like pictograms in completion menu
@@ -88,6 +91,7 @@ return {
             nvim_lua = "[Lua]",
             nerdfont = "[NerdFont]",
             path = "[Path]",
+            cmp_r = "[R]",
           },
         }),
       },
@@ -116,5 +120,8 @@ return {
         },
       },
     })
+
+    -- R completion setup
+    cmp_r.setup({})
   end,
 }

@@ -44,8 +44,7 @@ return {
           -- "julials",
           -- "ltex-ls" -- grammar and spell checker for latex and md
           "lua_ls",
-          -- "pyright",
-          -- "r_language_server",
+          -- "r-languageserver",
           -- "taplo", -- toml
           "texlab", -- latex lsp
           -- "ts_ls",
