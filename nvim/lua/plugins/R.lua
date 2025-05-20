@@ -1,4 +1,4 @@
--- return {
---   "R-nvim/R.nvim",
---   lazy = false,
--- }
+return {
+  -- "R-nvim/R.nvim",
+  -- lazy = false,
+}

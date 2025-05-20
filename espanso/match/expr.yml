@@ -154,11 +154,6 @@ matches:
     word: true
     propagate_case: true
 
-  - trigger: "tt"
-    replace: "tout"
-    word: true
-    propagate_case: true
-
   - triggers: ["vmt", "vrmt"]
     replace: "vraiment"
     word: true

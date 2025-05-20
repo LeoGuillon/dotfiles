@@ -35,5 +35,5 @@ matches:
     replace: "+:point_up:"
 
   # sends a thumb up react
-  - trigger: "yyy"
+  - triggers: ["yyy", "+++"]
     replace: "+:+1:"

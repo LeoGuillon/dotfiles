@@ -1,6 +1,7 @@
 eval "$(fzf --zsh)"
 
 alias f="fzf"
+# BUG: script not working, to fix at some point
 alias nf="$DOTFILES/zsh/scripts/fzf_listoldfiles.zsh"
 alias ncd="$DOTFILES/zsh/scripts/zoxide_openfiles_nvim.zsh"
 
