@@ -266,7 +266,7 @@ map({ "n", "v" }, "<S-Left>", "0^", { desc = "Go to first non-blank character" }
 map("n", "<S-Down>", "6gj", { desc = "Move down 6 lines" })
 map("v", "<S-Down>", "6j", { desc = "Move down 6 lines" })
 map("n", "<S-Up>", "6gk", { desc = "Move down 6 lines" })
-map("v", "<S-Up>", "6j", { desc = "Move down 6 lines" })
+map("v", "<S-Up>", "6k", { desc = "Move down 6 lines" })
 map({ "n", "v" }, "<S-Right>", "$", { desc = "Go to end of line" })
 
 -- pages up/down keeps the cursor centered

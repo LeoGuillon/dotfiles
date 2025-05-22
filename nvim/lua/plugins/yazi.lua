@@ -19,6 +19,19 @@ return {
       "<cmd>Yazi cwd<cr>",
       desc = "open Yazi at cwd",
     },
+    {
+      "<leader>oy",
+      mode = { "n", "v" },
+      "<cmd>Yazi<cr>",
+      desc = "Yazi at current file",
+    },
+    {
+      -- Open in the current working directory
+      "<leader>oY",
+      mode = { "n", "v" },
+      "<cmd>Yazi cwd<cr>",
+      desc = "Yazi at cwd",
+    },
   },
   opts = {
     -- if you want to open yazi instead of netrw, see below for more info

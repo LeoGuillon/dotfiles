@@ -475,8 +475,14 @@ nnoremap <Space>rt :replacetemplates<CR>
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (REFACTOR)
+" [r]efactor…
 
-" TODO: add note refactor here
+" TODO: check why the f… visual mode commandes don’t work
+exmap refactorfirstline obcommand note-refactor-obsidian:app:extract-selection-first-line
+vnoremap <Space>rf :refactorfirstline<CR>
+
+exmap refactorcontent obcommand note-refactor-obsidian:app:extract-content-only
+vnoremap <Space>rc :refactorcontent<CR>
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (SEARCH)
@@ -522,10 +528,9 @@ nnoremap <Space>sr :searchrecent<CR>
 exmap searchvault obcommand app:open-vault
 nnoremap <Space>sv :searchvault<CR>
 
-" [w]orkspace / [l]ayout
-exmap searchworkspace obcommand workspaces:save-and-load
-nnoremap <Space>sw :searchworkspace<CR>
-nnoremap <Space>sl :searchworkspace<CR>
+" workspace [l]ayout
+exmap searchworkspacelayout obcommand workspaces:save-and-load
+nnoremap <Space>sl :searchworkspacelayout<CR>
 
 " TODO: choose between options for vault/layout searching
 
@@ -555,10 +560,19 @@ nnoremap <Space>og :opengraph<CR>
 exmap openprojects obcommand obsidian-projects:show-projects
 nnoremap <Space>op :openprojects<CR>
 
+" [,] settings
+exmap opensettings obcommand app:open-settings
+nnoremap <Space>o, :opensettings<CR>
+
 
 " ——————————————————————————————————————————————————————————————————————————————
-" (UI toggles)
+" (UI/text toggles)
 " [t]oggle…
+
+" [b]old
+exmap togglebold obcommand editor:toggle-bold
+nnoremap <Space>tb :togglebold<CR>
+vnoremap <Space>tb :togglebold<CR>
 
 " file [e]xplorer
 exmap togglefileexplorer obcommand app:toggle-left-sidebar
@@ -568,6 +582,12 @@ nnoremap <Space>te :togglefileexplorer<CR>
 exmap togglefocusmode obcommand obsidian-hider:toggle-tab-containers
 nnoremap <Space>tf :togglefocusmode<CR>
 nnoremap <Space>tt :togglefocusmode<CR>
+
+" [i]talics
+exmap toggleitalics obcommand editor:toggle-italics
+nnoremap <Space>ti :toggleitalics<CR>
+vnoremap <Space>ti :toggleitalics<CR>
+
 
 " [r]ight sidebar
 exmap togglerightsidebar obcommand app:toggle-right-sidebar
