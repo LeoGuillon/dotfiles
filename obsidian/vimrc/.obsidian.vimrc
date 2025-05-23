@@ -574,9 +574,10 @@ exmap togglebold obcommand editor:toggle-bold
 nnoremap <Space>tb :togglebold<CR>
 vnoremap <Space>tb :togglebold<CR>
 
-" file [e]xplorer
+" file [e]xplorer / [l]eft sidebar
 exmap togglefileexplorer obcommand app:toggle-left-sidebar
 nnoremap <Space>te :togglefileexplorer<CR>
+nnoremap <Space>tl :togglefileexplorer<CR>
 
 " [f]ocus mode / [t]ab bar
 exmap togglefocusmode obcommand obsidian-hider:toggle-tab-containers
@@ -588,6 +589,9 @@ exmap toggleitalics obcommand editor:toggle-italics
 nnoremap <Space>ti :toggleitalics<CR>
 vnoremap <Space>ti :toggleitalics<CR>
 
+" editing [m]ode (source / live preview)
+exmap togglemode obcommand editor:toggle-source
+nnoremap <Space>tm :togglemode<CR>
 
 " [r]ight sidebar
 exmap togglerightsidebar obcommand app:toggle-right-sidebar

@@ -44,6 +44,7 @@ return {
     map("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Open Harpoon List" })
     map("n", "<leader>oh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon" })
     map("n", "<leader>hs", function() toggle_telescope(harpoon:list()) end, { desc = "Toggle harpoon telescope search" })
+    map("n", "<leader>sh", function() toggle_telescope(harpoon:list()) end, { desc = "Harpoon" })
 
     -- TODO: create the mappings with a for loop
     map("n", "<leader>1", function() harpoon:list():select(1) end, { desc = "Go to harpoon 1" })

@@ -43,7 +43,7 @@ return {
     map("n", "<leader>sc", builtin.commands, { desc = "Commands" })
     map("n", "<leader>sf", builtin.find_files, { desc = "Files in cwd" })
     map("n", "<leader>sg", builtin.registers, { desc = "Find registers" }) -- not very useful thanks to which-key
-    map("n", "<leader>sh", builtin.help_tags, { desc = "Help tags" })
+    map("n", "<leader>s?", builtin.help_tags, { desc = "Help tags" })
     map("n", "<leader>sk", builtin.keymaps, { desc = "Keymaps" })
     map("n", "<leader>sm", builtin.marks, { desc = "marks" }) -- same remark as for registers
     map("n", "<leader>sm", builtin.man_pages, { desc = "Man pages entries" })
