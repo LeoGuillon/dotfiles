@@ -4,6 +4,11 @@
 " source : https://nanotipsforvim.prose.sh/esc-in-normal-mode
 nnoremap <Esc> :nohl<CR>
 
+" macros are bit sketchy in obsidian, so full disabling to prevent conflict
+" with espanso
+nunmap q
+vunmap q
+
 " ——————————————————————————————————————————————————————————————————————————————
 " (EDITION)
 " ——————————————————————————————————————————————————————————————————————————————

@@ -2,7 +2,15 @@ local M = {}
 
 -- ────────────────────────────────────────────────────────────────────────────────
 
--- TODO: custom mapping function, with silent and non-recursive by default
+-- function for keymaps
+-- make sure have `local map = require("utils").map` at the beginning of a config file
+function M.map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(mode, lhs, rhs, options)
+end
 
 -- neovim’s text expanders
 ---@param text string

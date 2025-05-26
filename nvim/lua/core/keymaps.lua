@@ -1,12 +1,4 @@
--- TODO: move this function to an utils file, so that it’s available everywhere
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.keymap.set(mode, lhs, rhs, options)
-end
--- local map = vim.keymap.set
+local map = require("core.utils").map
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (LEADER KEY)
@@ -61,11 +53,11 @@ end, { expr = true, desc = "Delete line" }) -- Add moves it to the black hole on
 -- credits : https://nanotipsforvim.prose.sh/sticky-yank
 do
   local cursorPreYank
-  vim.keymap.set({ "n", "x" }, "y", function()
+  map({ "n", "x" }, "y", function()
     cursorPreYank = vim.api.nvim_win_get_cursor(0)
     return "y"
   end, { desc = "Yank", expr = true })
-  vim.keymap.set("n", "Y", function()
+  map("n", "Y", function()
     cursorPreYank = vim.api.nvim_win_get_cursor(0)
     return "y$" -- TODO: transform to "yg$" ?
   end, { desc = "Yank to the end of line", expr = true })
