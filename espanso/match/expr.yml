@@ -97,6 +97,11 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "pdv"
+    replace: "point de vue"
+    word: true
+    propagate_case: true
+
   # NOTE: this trigger caused some unwanted expansions,
   # so it is disabled for now
   # - trigger: "pe"

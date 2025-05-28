@@ -598,6 +598,12 @@ vnoremap <Space>ti :toggleitalics<CR>
 exmap togglemode obcommand editor:toggle-source
 nnoremap <Space>tm :togglemode<CR>
 
+" [q]uote block
+exmap togglequote obcommand editor:toggle-blockquote
+nnoremap <Space>tq :togglequote<CR>
+vnoremap <Space>tq :togglequote<CR>
+
+
 " [r]ight sidebar
 exmap togglerightsidebar obcommand app:toggle-right-sidebar
 nnoremap <Space>tr :togglerightsidebar<CR>
