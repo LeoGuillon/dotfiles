@@ -12,6 +12,7 @@ matches:
 
   # NOTE: this one is disabled because with the ergo-l layout, it creates a SFB
   # and also prevents writing qatar properly, if that’s something that matters to you
+  # and also koyaanisqatsi, which is somehow relevant for me lol
   # - trigger: "qa"
   #   replace: "qua"
 

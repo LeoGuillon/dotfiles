@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+# ───────────────────────────────────────────────────────────────────────────────
+
+matches:
+  - trigger: ":salutes"
+    replace: "Je vous prie d’agréer, Madame, Monsieur, l’expression de mes salutations les plus distinguées"
