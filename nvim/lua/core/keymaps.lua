@@ -231,6 +231,15 @@ map("i", "<D-Up>", "<C-Home>")
 map("i", "<D-Down>", "<C-End>")
 
 -- ────────────────────────────────────────────────────────────────────────────────
+-- (AUTOFILLS)
+
+-- similar espanso autofills, to avoid colliding with normal mode commands
+
+map("i", "qe", "que", { desc = "qe autofill" })
+map("i", "qi", "qui", { desc = "qi autofill" })
+map("i", "qo", "quo", { desc = "qo autofill" })
+
+-- ────────────────────────────────────────────────────────────────────────────────
 -- (COMMAND MODE)
 -- ────────────────────────────────────────────────────────────────────────────────
 
