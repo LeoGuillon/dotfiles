@@ -21,6 +21,9 @@ matches:
   - trigger: ",gh"
     replace: "go ahead"
 
+  - trigger: ",mtc"
+    replace: "move to combat"
+
   - trigger: ",nb"
     replace: "no blocks"
 
