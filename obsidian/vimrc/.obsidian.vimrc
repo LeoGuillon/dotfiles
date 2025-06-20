@@ -145,8 +145,8 @@ nnoremap ~ v~
 " navigation on visual lines
 nnoremap <Up> gk
 nnoremap <Down> gj
-" nnoremap I g0i
-" nnoremap A g$a
+vnoremap <Up> gk
+vnoremap <Down> gj
 
 " fast vertical navigation
 " credits : https://nanotipsforvim.prose.sh/vertical-navigation-%E2%80%93-without-relative-line-numbers
@@ -608,6 +608,10 @@ nnoremap <Space>tt :togglefocusmode<CR>
 exmap toggleitalics obcommand editor:toggle-italics
 nnoremap <Space>ti :toggleitalics<CR>
 vnoremap <Space>ti :toggleitalics<CR>
+
+" stac[k]ed tabs
+exmap togglestackedtabs obcommand workspace:toggle-stacked-tabs
+nnoremap <Space>tk :togglestackedtabs<CR>
 
 " editing [m]ode (source / live preview)
 exmap togglemode obcommand editor:toggle-source
