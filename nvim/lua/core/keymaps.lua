@@ -337,6 +337,9 @@ map({ "v", "o" }, "aa", "a'", { desc = "outer '" })
 map({ "v", "o" }, "ii", "i`", { desc = "inner `" })
 map({ "v", "o" }, "ai", "a`", { desc = "outer `" })
 
+-- TODO: add [l]ine text object ?
+-- see if relevant, and compare to latex command textobject
+
 -- NOTE: treesitter’s text objects memo :
 -- all of them starts with [o]
 
@@ -347,6 +350,7 @@ map({ "v", "o" }, "ai", "a`", { desc = "outer `" })
 -- [m]ath block
 -- [s]ection
 --   (conflict with the base [s]entence textobject, but I don't use it very often anyways)
+-- TODO: adapt the [s]ection text object to avoid conflict with the [s]entence text object
 
 -- ────────────────────────────────────────────────────────────────────────────────
 -- (MACROS)

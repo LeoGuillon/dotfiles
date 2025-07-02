@@ -6,10 +6,10 @@ return {
     config = function()
       require("mason-tool-installer").setup({
         ensure_installed = {
-          "black", -- python
           "clang-format", -- c, c++
           -- "jupytext", -- julia, R, Rmd
           "prettier", -- html, css, scss, md, javascript, typescript, json
+          "ruff", -- python
           "stylua", -- lua
           -- "taplo", -- toml
           "tex-fmt", -- latex
@@ -36,7 +36,7 @@ return {
           html = { "prettier" },
           lua = { "stylua" },
           markdown = { "prettier" },
-          -- python = { "jupytext" },
+          python = { "ruff" },
           -- r = { "air" },
           -- rmd = { "jupytext" },
           scss = { "prettier" },

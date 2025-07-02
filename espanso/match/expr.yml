@@ -92,8 +92,18 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "pb"
+    replace: "problème"
+    word: true
+    propagate_case: true
+
   - trigger: "pcq"
     replace: "parce que"
+    word: true
+    propagate_case: true
+
+  - trigger: "pbs"
+    replace: "problèmes"
     word: true
     propagate_case: true
 

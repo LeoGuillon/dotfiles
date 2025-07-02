@@ -27,6 +27,7 @@ CONFIG_FILES=(
   git
   homebrew
   matrix
+  python
   navigation
   tmux
 )

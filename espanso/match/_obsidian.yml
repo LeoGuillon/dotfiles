@@ -1,4 +1,7 @@
 matches:
+  # - trigger: ":chess"
+  #   replace: "```chesser\npgn: |\n\t1. $|$```"
+
   - trigger: ":data"
     replace: |
       ```dataview
