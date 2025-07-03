@@ -1,8 +1,4 @@
 {
-  "which-key_group": {
-    "body": "require(\"which-key\").add({ { \"$1\", group = \"$2\", icon = \"$3\"}})",
-    "prefix": "which-key_group"
-  },
   "stylua_ignore": {
     "body": [
       "-- stylua: ignore start",
@@ -12,4 +8,3 @@
     "prefix": "stylua_ignore"
   }
 }
-

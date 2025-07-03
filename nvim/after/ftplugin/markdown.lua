@@ -3,5 +3,3 @@ vim.o.linebreak = true -- wrap on words instead of characters
 
 vim.o.number = false
 vim.o.relativenumber = false
-
-vim.o.conceallevel = 2
