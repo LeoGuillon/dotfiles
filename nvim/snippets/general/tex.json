@@ -105,6 +105,14 @@
       "italic"
     ]
   },
+  "newcommand": {
+    "body": "\\newcommand\\\\$1[${2:parameters_number}]{${3:command}}",
+    "prefix": "newcommand-parameters"
+  },
+  "newcommand-bis": {
+    "body": "\\newcommand\\\\$1{${2:command}}",
+    "prefix": "newcommand"
+  },
   "node": {
     "body": "\\node ($1) [$2] {$3};",
     "prefix": "node"
