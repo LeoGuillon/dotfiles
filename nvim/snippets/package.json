@@ -34,6 +34,20 @@
         ]
       },
       {
+        "path": "./general/tex/math.json",
+        "language": [
+          "tex",
+          "plaintex"
+        ]
+      },
+      {
+        "path": "./general/tex/beamer.json",
+        "language": [
+          "tex",
+          "plaintex"
+        ]
+      },
+      {
         "path": "./general/markdown.json",
         "language": [
           "markdown",

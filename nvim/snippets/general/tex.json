@@ -55,6 +55,13 @@
     ],
     "prefix": "columns-2"
   },
+  "declaremathoperator + mathoperator": {
+    "body": "\\DeclareMathOperator{$1}{$2}",
+    "prefix": [
+      "declaremathoperator",
+      "mathoperator"
+    ]
+  },
   "em": {
     "body": "\\emph{${1:${TM_SELECTED_TEXT}}}$0",
     "prefix": [

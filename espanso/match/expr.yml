@@ -193,3 +193,16 @@ matches:
   - trigger: "ie"
     replace: "i.e."
     word: true
+
+  # ────────────────────────────────────────────────────────────────────────────────
+  # (MATHS)
+
+  - trigger: "thm"
+    replace: "théorème"
+    word: true
+    propagate_case: true
+
+  - trigger: "thms"
+    replace: "théorèmes"
+    word: true
+    propagate_case: true
