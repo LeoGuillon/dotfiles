@@ -1,0 +1,489 @@
+{
+  "vaults": [
+    "AtomykVerse"
+  ],
+  "template_1753170889560d18b9ep2o": {
+    "id": "1753170889560d18b9ep2o",
+    "name": "Article Medium",
+    "behavior": "create",
+    "noteNameFormat": "{{author}} - {{title}}",
+    "path": "Atlas/Sources/Articles",
+    "noteContentFormat": "\n`=elink(this.source, \"Lire sur le site d'origine\")`\n\n# Résumé\n\nresume::\n\n# Notes\n\n<% tp.file.cursor() %>",
+    "properties": [
+      {
+        "id": "1750314198208moxx80a1z",
+        "name": "up",
+        "value": "[[<% tp.file.cursor() %>]]",
+        "type": "multitext"
+      },
+      {
+        "id": "1750314245291sifafutre",
+        "name": "creation",
+        "value": "<% tp.file.creation_date(\\\"YYYY-MM-DD\\\") %>",
+        "type": "date"
+      },
+      {
+        "id": "17503142600597aei78ift",
+        "name": "tags",
+        "value": "source/article, note/develop, clip/obsidian",
+        "type": "multitext"
+      },
+      {
+        "id": "1750314248242r0wimqlc4",
+        "name": "aliases",
+        "value": "",
+        "type": "aliases"
+      },
+      {
+        "id": "1750314255409ini7ds6et",
+        "name": "icon",
+        "value": "LiNewspaper",
+        "type": "text"
+      },
+      {
+        "id": "1750314329926rvbz0ac38",
+        "name": "type",
+        "value": "Article",
+        "type": "text"
+      },
+      {
+        "id": "1750314308059eebruqumv",
+        "name": "author",
+        "value": "[[{{author}}]]",
+        "type": "text"
+      },
+      {
+        "id": "1750314352226hfiirwxzu",
+        "name": "site",
+        "value": "[[Medium]]",
+        "type": "text"
+      },
+      {
+        "id": "17503143173766dmc9svnv",
+        "name": "title",
+        "value": "{{title}}",
+        "type": "text"
+      },
+      {
+        "id": "1750314295776b0x365ge8",
+        "name": "date",
+        "value": "{{date}}",
+        "type": "date"
+      },
+      {
+        "id": "1750314364996rgmb0hbc4",
+        "name": "source",
+        "value": "{{url}}",
+        "type": "text"
+      }
+    ],
+    "triggers": [
+      "https://medium.com"
+    ],
+    "context": "",
+    "vault": "AtomykVerse"
+  },
+  "highlighter_settings": {
+    "highlighterEnabled": true,
+    "alwaysShowHighlights": true,
+    "highlightBehavior": "replace-content"
+  },
+  "migrationVersion": 1,
+  "template_1731615448103eft9b35ve": {
+    "id": "1731615448103eft9b35ve",
+    "name": "Vidéo YouTube",
+    "behavior": "create",
+    "noteNameFormat": "{{schema:author}} - {{schema:name}}",
+    "path": "Atlas/Sources/Videos",
+    "noteContentFormat": "\n> [!Video]+ Vidéo\n> ![]({{url}})\n\n\n```meta-bind-button\nlabel: Prendre des notes\nicon: \"\"\nhidden: false\nclass: \"\"\ntooltip: Split horizontal + Focus mode\nid: \"\"\nstyle: default\nactions:\n  - type: command\n    command: workspace:split-horizontal\n  - type: command\n    command: obsidian-minimal-settings:toggle-minimal-focus-mode\n\n```\n\n# Résumé\n\nresume::\n\n\n# Notes",
+    "properties": [
+      {
+        "id": "173162123404125epzg5ni",
+        "name": "up",
+        "value": "[[<% tp.file.cursor() %>]]",
+        "type": "multitext"
+      },
+      {
+        "id": "1731613506457mdujg5anq",
+        "name": "creation",
+        "value": "<% tp.file.creation_date(\\\"YYYY-MM-DD\\\") %>",
+        "type": "date"
+      },
+      {
+        "id": "17316135064573odgw7vw0",
+        "name": "tags",
+        "value": "source/video, note/boat, note/develop, clip/obsidian",
+        "type": "multitext"
+      },
+      {
+        "id": "1731621257358vx6bltauh",
+        "name": "aliases",
+        "value": "",
+        "type": "aliases"
+      },
+      {
+        "id": "1731621287808tvknp6o52",
+        "name": "icon",
+        "value": "LiYoutube",
+        "type": "text"
+      },
+      {
+        "id": "1731621663609ocxdpxnc8",
+        "name": "type",
+        "value": "Vidéo",
+        "type": "text"
+      },
+      {
+        "id": "1731613506457rc9blz1n8",
+        "name": "title",
+        "value": "{{schema:name}}",
+        "type": "text"
+      },
+      {
+        "id": "17316135064579o3ad4vmh",
+        "name": "author",
+        "value": "[[{{schema:author}}]]",
+        "type": "text"
+      },
+      {
+        "id": "1731621627308l2o67f0ks",
+        "name": "date",
+        "value": "{{schema:uploadDate|date:YYYY-MM-DD}}",
+        "type": "date"
+      },
+      {
+        "id": "1731613506457hsqehwvnb",
+        "name": "source",
+        "value": "{{url}}",
+        "type": "text"
+      }
+    ],
+    "triggers": [
+      "https://www.youtube.com/watch?v="
+    ],
+    "context": "",
+    "vault": "AtomykVerse"
+  },
+  "template_17316135064574eoqbsgk7": {
+    "id": "17316135064574eoqbsgk7",
+    "name": "Recette",
+    "behavior": "create",
+    "noteNameFormat": "{{title}}",
+    "path": "Atlas/Sources/Recettes",
+    "noteContentFormat": "\n```meta-bind-button\nlabel: Préparation\nicon: \"\"\nhidden: false\nclass: \"\"\ntooltip: \"\"\nid: \"\"\nstyle: default\nactions:\n  - type: command\n    command: recipe-view:toggle-recipe-view\n\n```\n\n`=elink(this.source, \"Lire la recette en ligne\")`\n\n# Recette\n\n## Temps\n\nPréparation : {{schema:prepTime)}}\nCuisson : {{schema:cookTime}}\nTotal : {{schema:totalTime}}\n\n## Ingrédients\n\n{{schema:recipeIngredient|list}}\n\n## Préparation\n\n{{schema:recipeInstructions[*].text|list:numbered}}\n\n## Nutrition\n\n{{schema:@Recipe:nutrition|uncamel|capitalize|table|replace:(\"@type\":\"Nutrient\",\"Nutrition information\":\"Quantity\")}}\n\n# Notes",
+    "context": "",
+    "properties": [
+      {
+        "id": "1732805999954g0pf9ot",
+        "name": "up",
+        "value": "",
+        "type": "multitext"
+      },
+      {
+        "id": "1732805999954hxhj8cx",
+        "name": "creation",
+        "value": "{{date}}",
+        "type": "date"
+      },
+      {
+        "id": "17328059999542lrfodt",
+        "name": "tags",
+        "value": "source/recette, note/boat, clip/obsidian",
+        "type": "multitext"
+      },
+      {
+        "id": "17328066257571vkq87kio",
+        "name": "aliases",
+        "value": "",
+        "type": "aliases"
+      },
+      {
+        "id": "1732806634473wroz4z3tm",
+        "name": "icon",
+        "value": "LiChefHat",
+        "type": "text"
+      },
+      {
+        "id": "1732806616342ddh88kmr4",
+        "name": "type",
+        "value": "Recette",
+        "type": "text"
+      },
+      {
+        "id": "1732805999954eed2mln",
+        "name": "source",
+        "value": "{{url}}",
+        "type": "text"
+      },
+      {
+        "id": "1732807278452wwgnzq2pn",
+        "name": "cover",
+        "value": "{{image}}",
+        "type": "text"
+      }
+    ],
+    "triggers": [
+      "schema:@Recipe"
+    ],
+    "vault": "AtomykVerse"
+  },
+  "template_1750314048490o16mbokcw": {
+    "id": "1750314048490o16mbokcw",
+    "name": "Article",
+    "behavior": "create",
+    "noteNameFormat": "{{author}} - {{title}}",
+    "path": "Atlas/Sources/Articles",
+    "noteContentFormat": "\n`=elink(this.source, \"Lire sur le site d'origine\")`\n\n# Résumé\n\nresume::\n\n# Notes\n\n<% tp.file.cursor() %>",
+    "properties": [
+      {
+        "id": "1750314198208moxx80a1z",
+        "name": "up",
+        "value": "[[<% tp.file.cursor() %>]]",
+        "type": "multitext"
+      },
+      {
+        "id": "1750314245291sifafutre",
+        "name": "creation",
+        "value": "<% tp.file.creation_date(\\\"YYYY-MM-DD\\\") %>",
+        "type": "date"
+      },
+      {
+        "id": "17503142600597aei78ift",
+        "name": "tags",
+        "value": "source/article, note/develop, clip/obsidian",
+        "type": "multitext"
+      },
+      {
+        "id": "1750314248242r0wimqlc4",
+        "name": "aliases",
+        "value": "",
+        "type": "aliases"
+      },
+      {
+        "id": "1750314255409ini7ds6et",
+        "name": "icon",
+        "value": "LiNewspaper",
+        "type": "text"
+      },
+      {
+        "id": "1750314329926rvbz0ac38",
+        "name": "type",
+        "value": "Article",
+        "type": "text"
+      },
+      {
+        "id": "1750314308059eebruqumv",
+        "name": "author",
+        "value": "[[{{author}}]]",
+        "type": "text"
+      },
+      {
+        "id": "1750314352226hfiirwxzu",
+        "name": "site",
+        "value": "[[{{site}}]]",
+        "type": "text"
+      },
+      {
+        "id": "17503143173766dmc9svnv",
+        "name": "title",
+        "value": "{{title}}",
+        "type": "text"
+      },
+      {
+        "id": "1750314295776b0x365ge8",
+        "name": "date",
+        "value": "{{date}}",
+        "type": "date"
+      },
+      {
+        "id": "1750314364996rgmb0hbc4",
+        "name": "source",
+        "value": "{{url}}",
+        "type": "text"
+      }
+    ],
+    "triggers": [],
+    "context": "",
+    "vault": "AtomykVerse"
+  },
+  "property_types": [
+    {
+      "name": "title",
+      "type": "text"
+    },
+    {
+      "name": "source",
+      "type": "text"
+    },
+    {
+      "name": "author",
+      "type": "text"
+    },
+    {
+      "name": "tags",
+      "type": "multitext"
+    },
+    {
+      "name": "aliases",
+      "type": "aliases"
+    },
+    {
+      "name": "up",
+      "type": "multitext"
+    },
+    {
+      "name": "creation",
+      "type": "date"
+    },
+    {
+      "name": "icon",
+      "type": "text"
+    },
+    {
+      "name": "type",
+      "type": "text"
+    },
+    {
+      "name": "date",
+      "type": "date"
+    },
+    {
+      "name": "cover",
+      "type": "text"
+    },
+    {
+      "name": "site",
+      "type": "text"
+    }
+  ],
+  "template_1732045647423nxcaq05o3": [
+    "ᯡࡅ䁬⁼ၦǸڀঠؠ堪总̨抲Čِࢀᇭᘣ沱-҃ᐫ〴挨d尡䵈˘øØ墠ɒ瀡㓀܆འ৷岺坪ढ़ⶫ樈δ猀َ凷㟐〩〲拘̘彨澻怸♌ȁ猦ဣ䰡仲䍝⿝᢯⼹㍶奪愍撑ҩᯔ䍞ᗪ╩ʙ嘈Ṽ㔧ᝄ㨠්ҥ牂兑㤘䉄ศ䈬)愵ᇥ⋭㰮➝࠲劬≃捯婛Გ⻬ۈⱓ㴻ޠ≂怡ⷨ¾ࠠឱ扭ౝ昇߰䓵搳⦹峨໡癌嵿Ϗ憰孖垄䁀∠᫡`㴄⍠愺惂Ҿ❳⑏⳶昢ᇨ媠ȗќ¤䴠Ⱐ´䧤Ď〸ᘠ֨のῗ偢澺擰ͺᶧ⪖㣘樺䀠煳ᒋ丁炨㈠屏ᆐ偶ശ秹ጉⰫ៫泿厲殍浂᰿შ栤ణᄽ拭᭫叫⤉崿ᡠ㛍㇁妒笀⮪କ⩹唇ɻ〨᫅判แ兿㝋䂀籊ಙ戂׷窍崝⤤䌔栴ɢ䆁棘✋iᐨ仺窈ŀ䑆Ⳙ}⬢⍱䃁⡢凊檕䮨  "
+  ],
+  "reader_settings": {
+    "fontSize": 1.5,
+    "lineHeight": 1.6,
+    "maxWidth": 38,
+    "theme": "default",
+    "themeMode": "auto"
+  },
+  "template_17328128612370cfbrcoqm": {
+    "id": "17328128612370cfbrcoqm",
+    "name": "Default",
+    "behavior": "create",
+    "noteNameFormat": "{{title}}",
+    "path": "+",
+    "noteContentFormat": "{{content}}",
+    "properties": [
+      {
+        "id": "1732812891474sxsm6w18j",
+        "name": "up",
+        "value": "[[<% tp.file.cursor() %>]]",
+        "type": "multitext"
+      },
+      {
+        "id": "1732812895037r4sltj7ut",
+        "name": "creation",
+        "value": "<% tp.file.creation_date(\\\"YYYY-MM-DD\\\") %>",
+        "type": "date"
+      },
+      {
+        "id": "1732812912954fxl5hnt5j",
+        "name": "tags",
+        "value": "clip/obsidian",
+        "type": "multitext"
+      },
+      {
+        "id": "1732812926224yid5ealhz",
+        "name": "aliases",
+        "value": "",
+        "type": "aliases"
+      },
+      {
+        "id": "1732812933157p3fdqzpa1",
+        "name": "icon",
+        "value": "",
+        "type": "text"
+      }
+    ],
+    "triggers": [],
+    "context": "",
+    "vault": "AtomykVerse"
+  },
+  "interpreter_settings": {
+    "interpreterModel": "gpt-4o-mini",
+    "models": [
+      {
+        "baseUrl": "https://api.openai.com/v1/chat/completions",
+        "enabled": true,
+        "id": "gpt-4o-mini",
+        "name": "GPT-4o Mini",
+        "provider": "OpenAI",
+        "providerId": "gpt-4o-mini"
+      },
+      {
+        "baseUrl": "https://api.openai.com/v1/chat/completions",
+        "enabled": true,
+        "id": "gpt-4o",
+        "name": "GPT-4o",
+        "provider": "OpenAI",
+        "providerId": "gpt-4o"
+      },
+      {
+        "baseUrl": "https://api.openai.com/v1/chat/completions",
+        "enabled": true,
+        "id": "gpt-o1-mini",
+        "name": "GPT-o1 Mini",
+        "provider": "OpenAI",
+        "providerId": "gpt-o1-mini"
+      },
+      {
+        "baseUrl": "https://api.anthropic.com/v1/messages",
+        "enabled": true,
+        "id": "claude-3-5-sonnet-20240620",
+        "name": "Claude 3.5 Sonnet",
+        "provider": "Anthropic",
+        "providerId": "claude-3-5-sonnet-20240620"
+      },
+      {
+        "baseUrl": "https://api.anthropic.com/v1/messages",
+        "enabled": true,
+        "id": "claude-3-haiku-20240307",
+        "name": "Claude 3 Haiku",
+        "provider": "Anthropic",
+        "providerId": "claude-3-haiku-20240307"
+      },
+      {
+        "baseUrl": "https://api.anthropic.com/v1/messages",
+        "enabled": true,
+        "id": "claude-3-opus-20240229",
+        "name": "Claude 3 Opus",
+        "provider": "Anthropic",
+        "providerId": "claude-3-opus-20240229"
+      }
+    ],
+    "providers": [],
+    "interpreterEnabled": false,
+    "interpreterAutoRun": false,
+    "defaultPromptContext": "{{fullHtml|strip_tags:(\"script,h1,h2,h3,h4,h5,h6,meta,a,ol,ul,li,p,em,strong,i,b,img,video,audio,math,tablecite,strong,td,th,tr,caption,u\")|strip_attr:(\"alt,src,href,id,content,property,name,datetime,title\")}}"
+  },
+  "general_settings": {
+    "showMoreActionsButton": false,
+    "betaFeatures": false,
+    "legacyMode": false,
+    "silentOpen": false,
+    "saveBehavior": "addToObsidian"
+  },
+  "template_list": [
+    "1753170889560d18b9ep2o",
+    "1750314048490o16mbokcw",
+    "17328128612370cfbrcoqm",
+    "17316135064574eoqbsgk7",
+    "1731615448103eft9b35ve"
+  ],
+  "stats": {
+    "addToObsidian": 49,
+    "copyToClipboard": 0,
+    "saveFile": 0,
+    "share": 0
+  }
+}
