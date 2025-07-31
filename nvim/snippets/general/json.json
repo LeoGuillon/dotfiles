@@ -1,0 +1,11 @@
+{
+  "completr-latex-snippet": {
+    "body": [
+      "{",
+      "  \"displayName\": \"\\\\\\\\$1\",",
+      "  \"replacement\": \"\\\\\\\\$1\"",
+      "},"
+    ],
+    "prefix": "completr-latex-snippet"
+  }
+}

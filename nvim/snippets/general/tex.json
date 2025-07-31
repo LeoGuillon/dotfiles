@@ -56,7 +56,7 @@
     "prefix": "columns-2"
   },
   "declaremathoperator + mathoperator": {
-    "body": "\\DeclareMathOperator{$1}{$2}",
+    "body": "\\DeclareMathOperator{${1:operator}}{${2:writing}} % ${3:comment}",
     "prefix": [
       "declaremathoperator",
       "mathoperator"
@@ -112,6 +112,14 @@
       "italic"
     ]
   },
+  "metadata": {
+    "body": [
+      "\\title{${1:title}}",
+      "\\author{Léo Guillon}",
+      "\\date{}"
+    ],
+    "prefix": "metadata"
+  },
   "newcommand": {
     "body": "\\newcommand\\\\$1[${2:parameters_number}]{${3:command}}",
     "prefix": "newcommand-parameters"
@@ -123,6 +131,10 @@
   "node": {
     "body": "\\node ($1) [$2] {$3};",
     "prefix": "node"
+  },
+  "notation-line": {
+    "body": "\\texttt{${1:command}} & \\$\\\\${1}\\$ & ${2:meaning}\\\\\\\\",
+    "prefix": "notation-line"
   },
   "paragraph": {
     "body": [
@@ -144,6 +156,10 @@
       "\\pause"
     ],
     "prefix": "pause"
+  },
+  "providetheorem": {
+    "body": "\\newtheorem{$1}{$2}",
+    "prefix": "newtheorem"
   },
   "section": {
     "body": [
@@ -176,6 +192,13 @@
       "$0"
     ],
     "prefix": "table"
+  },
+  "title + maketitle": {
+    "body": "\\maketitle",
+    "prefix": [
+      "title",
+      "maketitle"
+    ]
   },
   "tt": {
     "body": "\\texttt{${1:${TM_SELECTED_TEXT}}}$0",

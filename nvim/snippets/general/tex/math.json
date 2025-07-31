@@ -1,1 +1,112 @@
-{}
+{
+  "$ + math": {
+    "body": "\\$$1\\$",
+    "prefix": [
+      "$",
+      "inline-math",
+      "math-inline"
+    ]
+  },
+  "Primes": {
+    "body": "\\Primes",
+    "prefix": "Primes"
+  },
+  "Zmod + ZnZ": {
+    "body": "\\Zmod{$1}",
+    "prefix": [
+      "Zmod",
+      "ZnZ"
+    ]
+  },
+  "card + cardinal": {
+    "body": "\\card{${1:set}}",
+    "prefix": [
+      "card",
+      "cardinal"
+    ]
+  },
+  "comp + complementary": {
+    "body": "\\comp{${1:set}}",
+    "prefix": [
+      "comp",
+      "complementary"
+    ]
+  },
+  "divides + divise": {
+    "body": "\\divides",
+    "prefix": [
+      "divides",
+      "divise"
+    ]
+  },
+  "e + exp": {
+    "body": "\\e",
+    "prefix": [
+      "e",
+      "exp"
+    ]
+  },
+  "function + fonction": {
+    "body": "\\function{${1:name}}{${2:start set}}{${3:arrival set}}{${4:variable}}{${5:definition}}",
+    "prefix": [
+      "function",
+      "fonction"
+    ]
+  },
+  "golden + or + nombre d’or": {
+    "body": "\\gold",
+    "prefix": [
+      "golden",
+      "or",
+      "nombre d’or"
+    ]
+  },
+  "i": {
+    "body": "\\i",
+    "prefix": "i"
+  },
+  "in": {
+    "body": "\\in",
+    "prefix": "in"
+  },
+  "longmapsto + |->": {
+    "body": "\\longmapsto",
+    "prefix": [
+      "longmapsto",
+      "|->"
+    ]
+  },
+  "longto + -->": {
+    "body": "\\longto",
+    "prefix": [
+      "longto",
+      "-->"
+    ]
+  },
+  "mapsto + |>": {
+    "body": "\\mapsto",
+    "prefix": [
+      "mapsto",
+      "|>"
+    ]
+  },
+  "parts": {
+    "body": "\\parts{${1:set}}",
+    "prefix": "parts"
+  },
+  "pgcd": {
+    "body": "\\pgcd{$1}{$2}",
+    "prefix": "pgcd"
+  },
+  "ppcm": {
+    "body": "\\ppcm{$1}{$2}",
+    "prefix": "ppcm"
+  },
+  "to + ->": {
+    "body": "\\to",
+    "prefix": [
+      "to",
+      "->"
+    ]
+  }
+}

@@ -77,6 +77,11 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "mm"
+    replace: "même"
+    word: true
+    propagate_case: true
+
   - trigger: "mrc"
     replace: "merci"
     word: true

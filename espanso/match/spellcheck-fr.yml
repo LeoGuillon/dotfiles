@@ -99,3 +99,10 @@ matches:
     replace: "cætera"
     word: true
     propagate_case: true
+
+  # ────────────────────────────────────────────────────────────────────────────────
+  # (AUTRES)
+
+  - trigger: "latex"
+    replace: "LaTeX"
+    word: true

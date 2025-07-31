@@ -4,6 +4,7 @@ return {
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
+      "lervag/vimtex",
     },
     -- follow latest release.
     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
@@ -11,6 +12,10 @@ return {
     run = "make install_jsregexp",
     config = function()
       local luasnip = require("luasnip")
+
+      local function in_mathenv()
+        return vim.fn["vimtex#syntax%in_mathzone"]() == 1
+      end
 
       luasnip.setup({
         enable_autosnippets = true,

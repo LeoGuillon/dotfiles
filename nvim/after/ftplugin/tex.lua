@@ -105,24 +105,24 @@ map({ "n", "x", "o" }, "[F", "<plug>(vimtex-[R)", { desc = "Previous Frame end" 
 -- ────────────────────────────────────────────────────────────────────────────────
 
 -- [l]aTeX command
-map({ "x", "o" }, "il", "<plug>(vimtex-ic)", { desc = "inner LaTeX Command" })
-map({ "x", "o" }, "al", "<plug>(vimtex-ac)", { desc = "outer LaTeX Command" })
+map({ "x", "o", "v" }, "il", "<plug>(vimtex-ic)", { desc = "inner LaTeX Command" })
+map({ "x", "o", "v" }, "al", "<plug>(vimtex-ac)", { desc = "outer LaTeX Command" })
 
 -- [d]elimiters (also covers \left\right, which is nice)
-map({ "x", "o" }, "id", "<plug>(vimtex-id)", { desc = "inner Delimiters" })
-map({ "x", "o" }, "ad", "<plug>(vimtex-ad)", { desc = "outer Delimiters" })
+map({ "x", "o", "v" }, "id", "<plug>(vimtex-id)", { desc = "inner Delimiters" })
+map({ "x", "o", "v" }, "ad", "<plug>(vimtex-ad)", { desc = "outer Delimiters" })
 
 -- [e]nvironment
-map({ "x", "o" }, "ie", "<plug>(vimtex-ie)", { desc = "inner Environment" })
-map({ "x", "o" }, "ae", "<plug>(vimtex-ae)", { desc = "inner Environment" })
+map({ "x", "o", "v" }, "ie", "<plug>(vimtex-ie)", { desc = "inner Environment" })
+map({ "x", "o", "v" }, "ae", "<plug>(vimtex-ae)", { desc = "inner Environment" })
 
 -- [m]ath block
-map({ "x", "o" }, "im", "<plug>(vimtex-i$)", { desc = "inner Math block" })
-map({ "x", "o" }, "am", "<plug>(vimtex-a$)", { desc = "outer Math block" })
+map({ "x", "o", "v" }, "im", "<plug>(vimtex-i$)", { desc = "inner Math block" })
+map({ "x", "o", "v" }, "am", "<plug>(vimtex-a$)", { desc = "outer Math block" })
 
 -- [s]ection
-map({ "x", "o" }, "is", "<plug>(vimtex-iP)", { desc = "inner Section" })
-map({ "x", "o" }, "as", "<plug>(vimtex-aP)", { desc = "outer Section" })
+map({ "x", "o", "v" }, "is", "<plug>(vimtex-iP)", { desc = "inner Section" })
+map({ "x", "o", "v" }, "as", "<plug>(vimtex-aP)", { desc = "outer Section" })
 
 -- itemize/enumerate item
 -- TODO: find a mapping for this one
