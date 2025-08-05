@@ -1,7 +1,7 @@
 return {
   -- MASON
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     keys = {
       { "<leader>om", "<cmd>Mason<cr>", desc = "Mason" },
     },
@@ -26,7 +26,7 @@ return {
   },
   -- MASON-LSPCONFIG
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     dependancies = { "neovim/lspconfig" },
     config = function()
       -- local lspconfig = require("lspconfig")
@@ -50,6 +50,7 @@ return {
           -- "ts_ls",
           "yamlls",
         },
+        automatic_enable = true,
 
         -- handlers = {
         --   function(server_name)
@@ -63,86 +64,91 @@ return {
   -- LSPCONFIG
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    dependancies = {
+      "hrsh7th/cmp-nvim-lsp", -- allows putting the LSP in autocompletion
+      { "antosha417/nvim-lsp-file-operations", config = true }, -- adds code actions (intelligent renaming, refactoring, etc.)
+      { "folke/lazydev.nvim", opts = {} }, -- useful for neovim config files
+    },
     config = function()
       local lspconfig = require("lspconfig")
 
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      -- then, each lsp can be configured as wanted
-      -- for example configs : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+      -- ────────────────────────────────────────────────────────────────────────────────
+      -- (KEYMAPS SETUP)
 
-      -- lspconfig.air.setup({
-      --   capabilities = capabilities,
-      -- })
+      local map = vim.keymap.set
+
+      -- TODO: add relevant keymaps, and on buffer attach
+      map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Display code actions" })
+      map("n", "<leader>sd", "<cmd>Telescope lsp_definitions<CR>", { desc = "LSP Definitions" })
+      map("n", "<leader>si", "<cmd>Telescope lsp_implementations<CR>", { desc = "LSP Implementations" })
+      map("n", "<leader>sx", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "diagnostiX in buffer" })
+      map("n", "[d", function()
+        vim.diagnostic.jump({ count = -1, float = true })
+      end, { desc = "Diagnostic" })
+      map("n", "]d", function()
+        vim.diagnostic.jump({ count = 1, float = true })
+      end, { desc = "Diagnostic" })
+
+      -- ────────────────────────────────────────────────────────────────────────────────
+      -- (ERROR SIGNS SETUP)
+
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "󰌵",
+          },
+        },
+      })
+
+      -- ────────────────────────────────────────────────────────────────────────────────
+      -- (LSPs SETUP)
+      -- ────────────────────────────────────────────────────────────────────────────────
+
+      -- ────────────────────────────────────────────────────────────────────────────────
+      -- (BASH)
+
+      -- NOTE: configured to work also for zsh scripts
 
       lspconfig.bashls.setup({
         capabilities = capabilities,
       })
 
+      -- ────────────────────────────────────────────────────────────────────────────────
+      -- (CSS)
+
       lspconfig.cssls.setup({
         capabilities = capabilities,
       })
 
+      -- ────────────────────────────────────────────────────────────────────────────────
+      -- (LUA)
+
+      -- no need to setup, already done by the lazydev package
       lspconfig.lua_ls.setup({
-        on_init = function(client)
-          if client.workspace_folders then
-            local path = client.workspace_folders[1].name
-            if
-              path ~= vim.fn.stdpath("config")
-              and (vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc"))
-            then
-              return
-            end
-          end
-
-          client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-            runtime = {
-              -- Tell the language server which version of Lua you're using
-              -- (most likely LuaJIT in the case of Neovim)
-              version = "LuaJIT",
-            },
-            -- Make the server aware of Neovim runtime files
-            workspace = {
-              checkThirdParty = false,
-              library = {
-                vim.env.VIMRUNTIME,
-                -- Depending on the usage, you might want to add additional paths here.
-                -- "${3rd}/luv/library"
-                -- "${3rd}/busted/library",
-              },
-              -- or pull in all of 'runtimepath'. NOTE: this is a lot slower and will cause issues when working on your own configuration (see https://github.com/neovim/nvim-lspconfig/issues/3189)
-              -- library = vim.api.nvim_get_runtime_file("", true)
-            },
-          })
-        end,
-        settings = {
-          capabilities = capabilities,
-
-          Lua = {
-            diagnostics = {
-              -- forces the lsp to recognize the `vim` global
-              -- credits : https://vincent.jousse.org/blog/fr/tech/configurer-neovim-comme-ide-a-partir-de-zero-tutoriel-guide/#mise-en-place-de-lautocompletion-avec-nvim-cmp
-              globals = { "vim" },
-            },
-          },
-        },
+        capabilities = capabilities,
       })
 
-      -- lspconfig.taplo.setup({
-      --   capabilities = capabilities,
-      -- })
+      -- ────────────────────────────────────────────────────────────────────────────────
+      -- (TEXLAB)
+
+      -- latex lsp ; source : https://github.com/latex-lsp/texlab
+
       lspconfig.texlab.setup({
         capabilities = capabilities,
       })
+
+      -- ────────────────────────────────────────────────────────────────────────────────
+      -- (YAML)
+
       lspconfig.yamlls.setup({
         capabilities = capabilities,
       })
-      -- keymaps setup
-      local map = vim.keymap.set
-
-      -- TODO: add relevant keymaps, and on buffer attach
-      map("n", "gh", vim.lsp.buf.hover, { desc = "Display hover" })
-      map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Display code actions" })
     end,
   },
 }

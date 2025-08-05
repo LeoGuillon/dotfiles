@@ -3,7 +3,6 @@ return {
     "L3mon4d3/LuaSnip",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets",
       "lervag/vimtex",
     },
     -- follow latest release.
@@ -13,6 +12,7 @@ return {
     config = function()
       local luasnip = require("luasnip")
 
+      -- TODO: allows latex math snippets only in math mode
       local function in_mathenv()
         return vim.fn["vimtex#syntax%in_mathzone"]() == 1
       end

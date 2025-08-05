@@ -1,127 +1,100 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
-    "hrsh7th/cmp-buffer", -- source for text in buffer
-    "hrsh7th/cmp-cmdline", -- source for vim command line
-    "kdheepak/cmp-latex-symbols", -- source for latex symbols
-    "hrsh7th/cmp-nvim-lsp", -- source for lsp in buffer
-    "hrsh7th/cmp-nvim-lua",
-    {
+    -- UTILITIES
+    { -- needed for snippets
       "L3MON4D3/LuaSnip",
       -- follow latest release.
       version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
       -- install jsregexp (optional!).
       build = "make install_jsregexp",
     },
-    "R-nvim/cmp-r", -- source for R autocompletion
-    "saadparwaiz1/cmp_luasnip", -- source for snippets
-    "chrisgrieser/cmp-nerdfont", -- source for nerdfont icons
-    "hrsh7th/cmp-path", -- source for file system paths
-    "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
+    -- SOURCES
+    -- TODO: sources to add :
+    -- R, lua, css, fonts, colors, emoji, greek, latex symbols
+    "hrsh7th/cmp-buffer", -- buffer
+    "hrsh7th/cmp-cmdline", -- command line commands
+    "hrsh7th/cmp-nvim-lsp", -- lsp
+    "chrisgrieser/cmp-nerdfont", -- nerdfont icons
+    "hrsh7th/cmp-path", -- path for files
+    "saadparwaiz1/cmp_luasnip", -- snippets
+    "micangl/cmp-vimtex", -- vimtex support
   },
   config = function()
     local cmp = require("cmp")
 
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
-    local cmp_r = require("cmp_r")
 
-    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
+    -- loads vscode style snippets
     require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
-
-      -- configure how nvim-cmp interacts with snippet engine
-      snippet = {
+      snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
           luasnip.lsp_expand(args.body) -- using LuaSnip as the snippet engine
         end,
       },
-
-      -- our window for autocompletion
-      window = {
+      window = { -- our window for autocompletion
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
-
-      -- keymaps during autocompletion
-      mapping = cmp.mapping.preset.insert({
+      mapping = cmp.mapping.preset.insert({ -- keymaps during autocompletion
         ["<Up>"] = cmp.mapping.select_prev_item(), -- previous suggestion
         ["<Down>"] = cmp.mapping.select_next_item(), -- next suggestion
         ["<Esc>"] = cmp.mapping.abort(), -- close completion window
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- accept current selection without explicitely selecting
         ["<Tab>"] = cmp.mapping.confirm({ select = true }), -- accept current selection without explicitely selecting
+        ["<C-Space>"] = cmp.mapping.complete(), -- popout the completion window
       }),
-
-      -- sources for autocompletion
-      sources = cmp.config.sources({
-        { name = "buffer" }, -- text within current buffer
-        {
-          name = "latex_symbols",
-          option = {
-            strategy = 2, -- latex ; show and insert the command
-          },
-        },
-        { name = "luasnip" }, -- snippets
-        { name = "nvim_lua" }, -- lua api
+      sources = cmp.config.sources({ -- sources for autocompletion
+        { name = "buffer" }, -- text in buffer
         { name = "nvim_lsp" }, -- lsp
-        { name = "nerdfont" }, -- nerd font icons
-        { name = "path" }, -- file system paths
-        { name = "cmp_r" }, -- R language
+        { name = "nerdfont" }, -- nerdfont icons
+        { name = "path" }, -- path
+        { name = "luasnip" }, -- snippets
+        { name = "vimtex" }, -- vimtex support
       }),
-
-      -- configure lspkind for vs-code like pictograms in completion menu
-      formatting = {
+      formatting = { -- configure lspkind for vs-code like pictograms in completion menu
         expandable_indicator = true, -- default behaviour
         fields = { "abbr", "kind", "menu" }, -- default displayed fields
         format = lspkind.cmp_format({
           mode = "symbol_text",
-          maxwidth = 50,
           ellipsis_char = "…",
           menu = {
             buffer = "[Buffer]",
-            latex_symbols = "[LaTeX]",
-            luasnip = "[LuaSnip]",
+            cmdline = "[CmdLine]",
             nvim_lsp = "[LSP]",
-            nvim_lua = "[Lua]",
             nerdfont = "[NerdFont]",
             path = "[Path]",
-            cmp_r = "[R]",
+            luasnip = "[LuaSnip]",
+            vimtex = "[Vimtex]",
           },
         }),
       },
     })
 
-    -- search forward and backwards completion
-    cmp.setup.cmdline({ "/", "?" }, {
+    -- setup for search forward (`/`)
+    cmp.setup.cmdline("/", {
       mapping = cmp.mapping.preset.cmdline(),
       sources = {
         { name = "buffer" },
       },
     })
 
-    -- vim commandline completion
+    -- setup for command line
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
-      sources = {
+      sources = cmp.config.sources({
         { name = "path" },
-      },
-      {
-        {
-          name = "cmdline",
-          option = {
-            ignore_cmds = { "Man", "!" },
-          },
-        },
-      },
+        { name = "cmdline", option = {
+          ignore_cmds = { "Man", "!" },
+        } },
+      }),
     })
-
-    -- R completion setup
-    cmp_r.setup({})
   end,
 }
