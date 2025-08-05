@@ -64,40 +64,42 @@ return {
 
             -- [gc]omments
             -- same syntax as Comment.nvim
-            ["agc"] = { query = "@comment.outer", desc = "outer part of an Comment" },
-            ["igc"] = { query = "@comment.inner", desc = "inner part of an Comment" },
+            ["agc"] = { query = "@comment.outer", desc = "Comment" },
+            ["igc"] = { query = "@comment.inner", desc = "Comment" },
+
+            -- TODO: mettre aussi sur l’enchaînement aoc/aogc ?
 
             -- coding text [o]bjects
 
             -- [a]ssignment
-            ["aoa"] = { query = "@assignment.outer", desc = "outer part of an Assignment" },
-            ["ioa"] = { query = "@assignment.inner", desc = "inner part of an Assignment" },
-            ["loa"] = { query = "@assignment.lhs", desc = "left hand side of an Assignment" },
-            ["roa"] = { query = "@assignment.rhs", desc = "right hand side of an Assignment" },
+            -- ["aoa"] = { query = "@assignment.outer", desc = "outer part of an Assignment" },
+            -- ["ioa"] = { query = "@assignment.inner", desc = "inner part of an Assignment" },
+            -- ["loa"] = { query = "@assignment.lhs", desc = "left hand side of an Assignment" },
+            -- ["roa"] = { query = "@assignment.rhs", desc = "right hand side of an Assignment" },
 
             -- function/method [d]efinition
-            ["aod"] = { query = "@function.outer", desc = "outer part of a function Definition" },
-            ["iod"] = { query = "@function.inner", desc = "inner part of a function Definition" },
+            ["aod"] = { query = "@function.outer", desc = "function Definition" },
+            ["iod"] = { query = "@function.inner", desc = "function Definition" },
 
             -- [f]unction call
-            ["aof"] = { query = "@call.outer", desc = "outer part of a Function call" },
-            ["iof"] = { query = "@call.inner", desc = "inner part of a Function call" },
+            ["aof"] = { query = "@call.outer", desc = "Function call" },
+            ["iof"] = { query = "@call.inner", desc = "Function call" },
 
             -- [i]f else
-            ["aoi"] = { query = "@conditional.outer", desc = "outer part of a conditional" },
-            ["ioi"] = { query = "@conditional.inner", desc = "inner part of a conditional" },
+            ["aoi"] = { query = "@conditional.outer", desc = "conditional If/else" },
+            ["ioi"] = { query = "@conditional.inner", desc = "conditional If/else" },
 
             -- [l]oop
-            ["aol"] = { query = "@loop.outer", desc = "outer part of a Loop" },
-            ["iol"] = { query = "@loop.inner", desc = "inner part of a Loop" },
+            ["aol"] = { query = "@loop.outer", desc = "Loop" },
+            ["iol"] = { query = "@loop.inner", desc = "Loop" },
 
             -- function [p]arameter
-            ["aop"] = { query = "@parameter.outer", desc = "outer part of a function Parameter" },
-            ["iop"] = { query = "@parameter.inner", desc = "inner part of a function Parameter" },
+            ["aop"] = { query = "@parameter.outer", desc = "function Parameter" },
+            ["iop"] = { query = "@parameter.inner", desc = "function Parameter" },
 
             -- function [r]eturn
-            ["aor"] = { query = "@return.outer", desc = "outer part of a function Return" },
-            ["ior"] = { query = "@return.inner", desc = "inner part of a function Return" },
+            ["aor"] = { query = "@return.outer", desc = "function Return" },
+            ["ior"] = { query = "@return.inner", desc = "function Return" },
           },
         },
       },
@@ -118,5 +120,11 @@ return {
     map("n", "[c", function() treesitter_context.go_to_context(vim.v.count1)end, { desc = "go back to Context", silent = true })
     -- stylua: ignore end
     require("which-key").add({ { "<leader>T", group = "TreeSitter…", icon = { icon = "󰔱", color = "green" } } })
+    require("which-key").add({
+      { "io", group = "treesitter text Object…", mode = { "x", "o" }, icon = "󰔱", color = "green" },
+    })
+    require("which-key").add({
+      { "ao", group = "treesitter text Object…", mode = { "x", "o" }, icon = "󰔱", color = "green" },
+    })
   end,
 }

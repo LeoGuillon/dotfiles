@@ -5,7 +5,7 @@ vim.o.linebreak = true -- wrap on words instead of characters
 vim.o.relativenumber = false
 vim.o.number = false
 
-local map = vim.keymap.set
+local map = require("core.utils").map
 
 -- ────────────────────────────────────────────────────────────────────────────────
 -- typographic commodities
@@ -19,7 +19,7 @@ map("n", "<leader>?", "mzA\\,?<Esc>`z", { desc = "add ? to eol" })
 
 -- insecable
 map("n", "<leader>:", "mzA~:<Esc>`z", { desc = "add : to eol" })
-map("n", "<leader>\\\\", "mzA \\\\<Esc>`z", { desc = "add line break to eol" })
+map("n", "<leader>\\", "mzA \\\\<Esc>`z", { desc = "add line break to eol" })
 
 -- ────────────────────────────────────────────────────────────────────────────────
 -- (ENVIRONNEMENTS)
@@ -67,15 +67,17 @@ map("n", "tsm", "<plug>(vimtex-env-toggle-math)", { desc = "Toggle Surrounding M
 -- toggle between fraction modes : tsf
 map("n", "tsf", "<plug>(vimtex-env-toggle-frac)", { desc = "Toggle Surrounding Fraction" })
 
+-- TODO: implement a custom command that toggles between {…} and \{…\}
+
 -- ────────────────────────────────────────────────────────────────────────────────
 -- (NAVIGATION)
 -- ────────────────────────────────────────────────────────────────────────────────
 
--- between beginning/end of sections, subsections or subsubsections : [[ / ]], or with s/S
-map({ "n", "x", "o" }, "]s", "<plug>(vimtex-]])", { desc = "Next Section beginning" })
-map({ "n", "x", "o" }, "[s", "<plug>(vimtex-[[)", { desc = "Previous Section beginning" })
-map({ "n", "x", "o" }, "]S", "<plug>(vimtex-][)", { desc = "Next Section end" })
-map({ "n", "x", "o" }, "[S", "<plug>(vimtex-[])", { desc = "Previous Section end" })
+-- between beginning/end of sections, subsections or subsubsections : [[ / ]], same logic than with markdown
+map({ "n", "x", "o" }, "]]", "<plug>(vimtex-]])", { desc = "Next Section beginning" })
+map({ "n", "x", "o" }, "[[", "<plug>(vimtex-[[)", { desc = "Previous Section beginning" })
+map({ "n", "x", "o" }, "][", "<plug>(vimtex-][)", { desc = "Next Section end" })
+map({ "n", "x", "o" }, "[]", "<plug>(vimtex-[])", { desc = "Previous Section end" })
 
 -- between beginning/end of environnements :
 map({ "n", "x", "o" }, "]e", "<plug>(vimtex-]m)", { desc = "Next Env. \\begin{}" })
@@ -104,25 +106,29 @@ map({ "n", "x", "o" }, "[F", "<plug>(vimtex-[R)", { desc = "Previous Frame end" 
 -- (TEXT OBJECTS)
 -- ────────────────────────────────────────────────────────────────────────────────
 
--- [l]aTeX command
-map({ "x", "o", "v" }, "il", "<plug>(vimtex-ic)", { desc = "inner LaTeX Command" })
-map({ "x", "o", "v" }, "al", "<plug>(vimtex-ac)", { desc = "outer LaTeX Command" })
-
 -- [d]elimiters (also covers \left\right, which is nice)
-map({ "x", "o", "v" }, "id", "<plug>(vimtex-id)", { desc = "inner Delimiters" })
-map({ "x", "o", "v" }, "ad", "<plug>(vimtex-ad)", { desc = "outer Delimiters" })
-
--- [e]nvironment
-map({ "x", "o", "v" }, "ie", "<plug>(vimtex-ie)", { desc = "inner Environment" })
-map({ "x", "o", "v" }, "ae", "<plug>(vimtex-ae)", { desc = "inner Environment" })
+map({ "x", "o" }, "id", "<plug>(vimtex-id)", { desc = "Delimiters" })
+map({ "x", "o" }, "ad", "<plug>(vimtex-ad)", { desc = "Delimiters" })
 
 -- [m]ath block
-map({ "x", "o", "v" }, "im", "<plug>(vimtex-i$)", { desc = "inner Math block" })
-map({ "x", "o", "v" }, "am", "<plug>(vimtex-a$)", { desc = "outer Math block" })
+map({ "x", "o" }, "im", "<plug>(vimtex-i$)", { desc = "Math block" })
+map({ "x", "o" }, "am", "<plug>(vimtex-a$)", { desc = "Math block" })
 
--- [s]ection
-map({ "x", "o", "v" }, "is", "<plug>(vimtex-iP)", { desc = "inner Section" })
-map({ "x", "o", "v" }, "as", "<plug>(vimtex-aP)", { desc = "outer Section" })
+-- [l]aTeX text object…
+require("which-key").add({ { "il", group = "LaTeX…", mode = { "x", "o" }, icon = "" } })
+require("which-key").add({ { "al", group = "LaTeX…", mode = { "x", "o" }, icon = "" } })
+
+-- [c]ommand
+map({ "x", "o" }, "ilc", "<plug>(vimtex-ic)", { desc = "Command" })
+map({ "x", "o" }, "alc", "<plug>(vimtex-ac)", { desc = "Command" })
+
+-- [e]nvironment
+map({ "x", "o" }, "ile", "<plug>(vimtex-ie)", { desc = "Environment" })
+map({ "x", "o" }, "ale", "<plug>(vimtex-ae)", { desc = "Environment" })
+
+-- [S]ection
+map({ "x", "o" }, "ils", "<plug>(vimtex-iP)", { desc = "Section" })
+map({ "x", "o" }, "als", "<plug>(vimtex-aP)", { desc = "Section" })
 
 -- itemize/enumerate item
 -- TODO: find a mapping for this one
@@ -133,10 +139,12 @@ map({ "x", "o", "v" }, "as", "<plug>(vimtex-aP)", { desc = "outer Section" })
 
 require("which-key").add({ { "<localleader>l", group = "LaTeX…", icon = "" } })
 
-map("n", "<localleader>b", "<plug>(vimtex-compile-ss)", { desc = "Build project" })
+map("n", "<localleader>b", "<cmd>wa<cr><cmd>VimtexCompileSS<cr>", { desc = "Build project (single-shot)" })
+-- NOTE: this ensures the entire project gets saved before compiling
+map("n", "<localleader>B", "<plug>(vimtex-compile)", { desc = "Build project (continuous)" })
 map("n", "<localleader>c", "<plug>(vimtex-clean)", { desc = "Clean aux files" })
 map("n", "<localleader>C", "<plug>(vimtex-clean-full)", { desc = "Clean aux and output files" })
-map("n", "<localleader>t", "<plug>(vimtex-toc-toggle)", { desc = "toggle Table of contents" })
+map("n", "<localleader>s", "<plug>(vimtex-toc-toggle)", { desc = "toggle table of contents (Sommaire)" })
 map("n", "<localleader>v", "<plug>(vimtex-view)", { desc = "View PDF" })
 map("n", "<localleader>x", "<plug>(vimtex-errors)", { desc = "open errors" })
 

@@ -28,6 +28,7 @@ return {
         formatters_by_ft = {
           bib = { "tex-fmt" },
           c = { "clang-format" },
+          cls = { "tex-fmt" },
           cpp = { "clang-format" },
           css = { "prettier" },
           javascript = { "prettier" },
@@ -55,7 +56,7 @@ return {
         format_on_save = {
           lsp_fallback = true,
           async = false,
-          timeout_ms = 1000,
+          timeout_ms = 3000,
         },
       })
 
