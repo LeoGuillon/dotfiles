@@ -1,0 +1,18 @@
+{
+  "agreg-dev": {
+    "body": [
+      "\\subsection{${1:name}}\\label{dev:${2:label}}",
+      "",
+      "Leçons correspondantes : ${3:lessons}",
+      "",
+      "\\begin{${4:env}*}",
+      "  ${5:question}",
+      "\\end{${4:env}}",
+      "",
+      "\\begin{proof}",
+      "  ${6:proof}",
+      "\\end{proof}"
+    ],
+    "prefix": "agreg-dev"
+  }
+}

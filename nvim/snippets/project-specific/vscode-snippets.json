@@ -1,0 +1,19 @@
+{
+  "snippet + vscode-snippet": {
+    "body": [
+      "\"${1:name}\": {",
+      "  \"body\": [",
+      "    \"${2:content}\"",
+      "  ],",
+      "  \"prefix\": [",
+      "    \"${3:prefix}\",",
+      "  ],",
+      "  \"description\": \"${4:description}\"",
+      "},"
+    ],
+    "prefix": [
+      "snippet",
+      "vscode-snippet"
+    ]
+  }
+}

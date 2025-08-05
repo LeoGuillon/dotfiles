@@ -9,6 +9,12 @@
         ]
       },
       {
+        "path": "./general/css.json",
+        "language": [
+          "css"
+        ]
+      },
+      {
         "path": "./general/json.json",
         "language": [
           "json"
@@ -41,7 +47,14 @@
         ]
       },
       {
-        "path": "./general/tex/beamer.json",
+        "path": "./general/tex/env.json",
+        "language": [
+          "tex",
+          "plaintex"
+        ]
+      },
+      {
+        "path": "./project-specific/agreg.json",
         "language": [
           "tex",
           "plaintex"
@@ -88,6 +101,12 @@
         "path": "./project-specific/nvim-lua.json",
         "language": [
           "lua"
+        ]
+      },
+      {
+        "path": "./project-specific/vscode-snippets.json",
+        "language": [
+          "json"
         ]
       }
     ]
