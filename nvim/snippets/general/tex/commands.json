@@ -1,0 +1,123 @@
+{
+  "RequirePackage": {
+    "body": "\\RequirePackage{${1:package}}",
+    "prefix": "RequirePackage"
+  },
+  "WarningFilter": {
+    "body": "\\WarningFilter{${1:package}}{${2:command}}",
+    "prefix": "WarningFilter"
+  },
+  "ac": {
+    "body": "\\ac{$1}$0",
+    "prefix": "ac"
+  },
+  "acro": {
+    "body": "\\acro{${1:acronym}}{${2:full name}}",
+    "prefix": "acro"
+  },
+  "acrodef": {
+    "body": "\\acrodef{${1:acronym}}{${2:full name}}",
+    "prefix": "acrodef"
+  },
+  "acronym": {
+    "body": [
+      "\\begin{acronym}",
+      "  $0",
+      "\\end{acronym}"
+    ],
+    "prefix": "acronym"
+  },
+  "bf + bold": {
+    "body": "\\textbf{${1:${TM_SELECTED_TEXT}}}$0",
+    "prefix": [
+      "bf",
+      "bold"
+    ]
+  },
+  "cref": {
+    "body": "\\cref{$1}",
+    "prefix": "cref"
+  },
+  "crefname": {
+    "body": "\\crefname{${1:environment}}{${2:cref}}{${3:plural cref}}",
+    "prefix": "crefname"
+  },
+  "declaremathoperator + mathoperator": {
+    "body": "\\DeclareMathOperator{${1:operator}}{${2:writing}} % ${3:comment}",
+    "prefix": [
+      "declaremathoperator",
+      "mathoperator"
+    ]
+  },
+  "definecolor_RGB": {
+    "body": "\\definecolor{${1:name}}{RGB}{${2:R},${3:G},${4:B}}",
+    "prefix": "definecolor_RGB"
+  },
+  "em": {
+    "body": "\\emph{${1:${TM_SELECTED_TEXT}}}$0",
+    "prefix": [
+      "em",
+      "emph"
+    ]
+  },
+  "href": {
+    "body": "\\href{${1:url}}{${2:displayed text}}",
+    "prefix": "href"
+  },
+  "include": {
+    "body": "\\include{$1}",
+    "prefix": "include"
+  },
+  "it + italic": {
+    "body": "\\textit{${1:${TM_SELECTED_TEXT}}} $0",
+    "prefix": [
+      "it",
+      "italic"
+    ]
+  },
+  "newcommand": {
+    "body": "\\newcommand\\\\$1[${2:parameters_number}]{${3:command}} % ${4:description}",
+    "prefix": "newcommand-parameters"
+  },
+  "newcommand-parameters": {
+    "body": "\\newcommand\\\\$1{${2:command}} % ${3:description}",
+    "prefix": "newcommand"
+  },
+  "ref": {
+    "body": "\\ref{$1}",
+    "prefix": "ref"
+  },
+  "renewcommand": {
+    "body": "\\renewcommand${1:original command}{${2:new command}}",
+    "prefix": "renewcommand"
+  },
+  "strong": {
+    "body": "\\strong{$1}",
+    "prefix": "strong"
+  },
+  "title + maketitle": {
+    "body": "\\maketitle",
+    "prefix": [
+      "title",
+      "maketitle"
+    ]
+  },
+  "tt": {
+    "body": "\\texttt{${1:${TM_SELECTED_TEXT}}}$0",
+    "prefix": [
+      "tt",
+      "typewriter"
+    ]
+  },
+  "usepackage": {
+    "body": "\\usepackage{$1}",
+    "prefix": [
+      "usepackage",
+      "package"
+    ]
+  },
+  "usepackage-parameters": {
+    "body": "\\usepackage[${1:parameters}]{${2:package}}",
+    "prefix": "usepackage-parameters"
+  }
+}

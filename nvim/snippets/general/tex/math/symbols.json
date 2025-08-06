@@ -1,0 +1,65 @@
+{
+  "dots + . + …": {
+    "body": "\\dots",
+    "prefix": [
+      "dots",
+      ".",
+      "…"
+    ]
+  },
+  "exists": {
+    "body": "\\exists",
+    "prefix": "exists"
+  },
+  "forall": {
+    "body": "\\forall",
+    "prefix": "forall"
+  },
+  "in": {
+    "body": "\\in",
+    "prefix": "in"
+  },
+  "longmapsto + |->": {
+    "body": "\\longmapsto",
+    "prefix": [
+      "longmapsto",
+      "|->"
+    ]
+  },
+  "longto + -->": {
+    "body": "\\longto",
+    "prefix": [
+      "longto",
+      "-->"
+    ]
+  },
+  "mapsto + |>": {
+    "body": "\\mapsto",
+    "prefix": [
+      "mapsto",
+      "|>"
+    ]
+  },
+  "overrightarrow": {
+    "body": "\\overrightarrow{$1}",
+    "prefix": "overrightarrow"
+  },
+  "subset": {
+    "body": "\\subset",
+    "prefix": "subset"
+  },
+  "times + ×": {
+    "body": "\\times",
+    "prefix": [
+      "times",
+      "×"
+    ]
+  },
+  "to + ->": {
+    "body": "\\to",
+    "prefix": [
+      "to",
+      "->"
+    ]
+  }
+}

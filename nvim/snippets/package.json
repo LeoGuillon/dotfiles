@@ -33,14 +33,7 @@
         ]
       },
       {
-        "path": "./general/tex.json",
-        "language": [
-          "tex",
-          "plaintex"
-        ]
-      },
-      {
-        "path": "./general/tex/math.json",
+        "path": "./general/tex/commands.json",
         "language": [
           "tex",
           "plaintex"
@@ -48,6 +41,54 @@
       },
       {
         "path": "./general/tex/env.json",
+        "language": [
+          "tex",
+          "plaintex"
+        ]
+      },
+      {
+        "path": "./general/tex/misc.json",
+        "language": [
+          "language"
+        ]
+      },
+      {
+        "path": "./general/tex/math/commands.json",
+        "language": [
+          "tex",
+          "plaintex"
+        ]
+      },
+      {
+        "path": "./general/tex/math/greek.json",
+        "language": [
+          "tex",
+          "plaintex"
+        ]
+      },
+      {
+        "path": "./general/tex/math/maquereaux.json",
+        "language": [
+          "tex",
+          "plaintex"
+        ]
+      },
+      {
+        "path": "./general/tex/math/misc.json",
+        "language": [
+          "tex",
+          "plaintex"
+        ]
+      },
+      {
+        "path": "./general/tex/math/symbols.json",
+        "language": [
+          "tex",
+          "plaintex"
+        ]
+      },
+      {
+        "path": "./general/tex/tikz/commands.json",
         "language": [
           "tex",
           "plaintex"

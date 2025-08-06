@@ -1,0 +1,39 @@
+{
+  "$ + math": {
+    "body": "\\\\(${1:${TM_SELECTED_TEXT}}\\\\)",
+    "description": "Insert inline math environment",
+    "prefix": [
+      "inline-math",
+      "math-inline"
+    ]
+  },
+  "frac": {
+    "body": "\\frac{${1:numerator}}{${2:denominator}}",
+    "prefix": "frac"
+  },
+  "indice": {
+    "body": "_{$1}",
+    "prefix": "indice"
+  },
+  "mathbb + bb": {
+    "body": "\\mathbb{$1}",
+    "prefix": [
+      "mathbb",
+      "bb"
+    ]
+  },
+  "mathrm + rm": {
+    "body": "\\mathrm{$1}",
+    "prefix": [
+      "mathrm",
+      "rm"
+    ]
+  },
+  "power + exponent": {
+    "body": "^{$1}",
+    "prefix": [
+      "power",
+      "exponent"
+    ]
+  }
+}

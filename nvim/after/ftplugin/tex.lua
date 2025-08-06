@@ -118,6 +118,9 @@ map({ "x", "o" }, "am", "<plug>(vimtex-a$)", { desc = "Math block" })
 require("which-key").add({ { "il", group = "LaTeX…", mode = { "x", "o" }, icon = "" } })
 require("which-key").add({ { "al", group = "LaTeX…", mode = { "x", "o" }, icon = "" } })
 
+-- NOTE: this extra step is made to avoid conflict with already defined text objects :
+-- [c]urly braces, [s]entence
+
 -- [c]ommand
 map({ "x", "o" }, "ilc", "<plug>(vimtex-ic)", { desc = "Command" })
 map({ "x", "o" }, "alc", "<plug>(vimtex-ac)", { desc = "Command" })
@@ -126,7 +129,7 @@ map({ "x", "o" }, "alc", "<plug>(vimtex-ac)", { desc = "Command" })
 map({ "x", "o" }, "ile", "<plug>(vimtex-ie)", { desc = "Environment" })
 map({ "x", "o" }, "ale", "<plug>(vimtex-ae)", { desc = "Environment" })
 
--- [S]ection
+-- [s]ection
 map({ "x", "o" }, "ils", "<plug>(vimtex-iP)", { desc = "Section" })
 map({ "x", "o" }, "als", "<plug>(vimtex-aP)", { desc = "Section" })
 

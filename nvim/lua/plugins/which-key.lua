@@ -6,7 +6,6 @@ return {
   },
   opts = {
     preset = "modern",
-
     win = {
       no_overlap = true, -- allows to overlap with the cursor
       title = false,

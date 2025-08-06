@@ -1,12 +1,4 @@
 {
-  "$ + math": {
-    "body": "\\\\(${1:${TM_SELECTED_TEXT}}\\\\)",
-    "prefix": [
-      "(",
-      "inline-math",
-      "math-inline"
-    ]
-  },
   "C": {
     "body": "C",
     "prefix": "C"
@@ -15,15 +7,9 @@
     "body": "\\Esp{${1:random variable}}",
     "prefix": "Esp"
   },
-  "H + quaternions": {
-    "body": "H",
-    "prefix": [
-      "H",
-      "quaternions"
-    ]
-  },
   "N": {
-    "body": "N",
+    "body": "\\N",
+    "description": "Ensemble des nombres naturels",
     "prefix": "N"
   },
   "Primes": {
@@ -38,9 +24,20 @@
     "body": "Q",
     "prefix": "Q"
   },
+  "Quaternions": {
+    "body": "\\H",
+    "description": "Ensemble des quaternions",
+    "prefix": [
+      "H",
+      "quaternions"
+    ]
+  },
   "R": {
-    "body": "R",
-    "prefix": "R"
+    "body": "\\R",
+    "prefix": [
+      "R",
+      "réels"
+    ]
   },
   "Var": {
     "body": "\\Var{${1:random variable}}",
@@ -51,7 +48,8 @@
     "prefix": "Z"
   },
   "Zmod + ZnZ": {
-    "body": "\\Zmod{$1}",
+    "body": "\\Zmod{${1:n}}",
+    "description": "Classe d’équivalence modulo n",
     "prefix": [
       "Zmod",
       "ZnZ"
@@ -82,28 +80,12 @@
       "divise"
     ]
   },
-  "dots + . + …": {
-    "body": "\\dots",
-    "prefix": [
-      "dots",
-      ".",
-      "…"
-    ]
-  },
   "e + exp": {
     "body": "\\e",
     "prefix": [
       "e",
       "exp"
     ]
-  },
-  "forall": {
-    "body": "\\forall",
-    "prefix": "forall"
-  },
-  "frac": {
-    "body": "\\frac{${1:numerator}}{${2:denominator}}",
-    "prefix": "frac"
   },
   "function + fonction": {
     "body": "\\function{${1:name}}{${2:start set}}{${3:arrival set}}{${4:variable}}{${5:definition}}",
@@ -131,56 +113,9 @@
       "image"
     ]
   },
-  "in": {
-    "body": "\\in",
-    "prefix": "in"
-  },
-  "indice": {
-    "body": "_{$1}",
-    "prefix": "indice"
-  },
   "ker": {
     "body": "\\ker",
     "prefix": "ker"
-  },
-  "longmapsto + |->": {
-    "body": "\\longmapsto",
-    "prefix": [
-      "longmapsto",
-      "|->"
-    ]
-  },
-  "longto + -->": {
-    "body": "\\longto",
-    "prefix": [
-      "longto",
-      "-->"
-    ]
-  },
-  "mapsto + |>": {
-    "body": "\\mapsto",
-    "prefix": [
-      "mapsto",
-      "|>"
-    ]
-  },
-  "mathbb + bb": {
-    "body": "\\mathbb{$1}",
-    "prefix": [
-      "mathbb",
-      "bb"
-    ]
-  },
-  "mathrm + rm": {
-    "body": "\\mathrm{$1}",
-    "prefix": [
-      "mathrm",
-      "rm"
-    ]
-  },
-  "overrightarrow": {
-    "body": "\\overrightarrow{$1}",
-    "prefix": "overrightarrow"
   },
   "parts": {
     "body": "\\parts{${1:set}}",
@@ -189,13 +124,6 @@
   "pgcd": {
     "body": "\\pgcd{$1}{$2}",
     "prefix": "pgcd"
-  },
-  "power + exponent": {
-    "body": "^{$1}",
-    "prefix": [
-      "power",
-      "exponent"
-    ]
   },
   "ppcm": {
     "body": "\\ppcm{$1}{$2}",
@@ -218,20 +146,6 @@
   "subgroup": {
     "body": "\\subgroup",
     "prefix": "subgroup"
-  },
-  "times + ×": {
-    "body": "\\times",
-    "prefix": [
-      "times",
-      "×"
-    ]
-  },
-  "to + ->": {
-    "body": "\\to",
-    "prefix": [
-      "to",
-      "->"
-    ]
   },
   "tr + trace": {
     "body": "\\tr",

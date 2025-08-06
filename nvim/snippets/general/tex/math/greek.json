@@ -1,0 +1,202 @@
+{
+  "alpha": {
+    "prefix": "alpha",
+    "body": "\\alpha",
+    "description": "Greek letter alpha"
+  },
+  "beta": {
+    "prefix": "beta",
+    "body": "\\beta",
+    "description": "Greek letter beta"
+  },
+  "gamma": {
+    "prefix": "gamma",
+    "body": "\\gamma",
+    "description": "Greek letter gamma"
+  },
+  "delta": {
+    "prefix": "delta",
+    "body": "\\delta",
+    "description": "Greek letter delta"
+  },
+  "epsilon": {
+    "prefix": "epsilon",
+    "body": "\\epsilon",
+    "description": "Greek letter epsilon"
+  },
+  "varepsilon": {
+    "prefix": "varepsilon",
+    "body": "\\varepsilon",
+    "description": "Greek letter varepsilon"
+  },
+  "zeta": {
+    "prefix": "zeta",
+    "body": "\\zeta",
+    "description": "Greek letter zeta"
+  },
+  "eta": {
+    "prefix": "eta",
+    "body": "\\eta",
+    "description": "Greek letter eta"
+  },
+  "theta": {
+    "prefix": "theta",
+    "body": "\\theta",
+    "description": "Greek letter theta"
+  },
+  "vartheta": {
+    "prefix": "vartheta",
+    "body": "\\vartheta",
+    "description": "Greek letter vartheta"
+  },
+  "iota": {
+    "prefix": "iota",
+    "body": "\\iota",
+    "description": "Greek letter iota"
+  },
+  "kappa": {
+    "prefix": "kappa",
+    "body": "\\kappa",
+    "description": "Greek letter kappa"
+  },
+  "lambda": {
+    "prefix": "lambda",
+    "body": "\\lambda",
+    "description": "Greek letter lambda"
+  },
+  "mu": {
+    "prefix": "mu",
+    "body": "\\mu",
+    "description": "Greek letter mu"
+  },
+  "nu": {
+    "prefix": "nu",
+    "body": "\\nu",
+    "description": "Greek letter nu"
+  },
+  "xi": {
+    "prefix": "xi",
+    "body": "\\xi",
+    "description": "Greek letter xi"
+  },
+  "pi": {
+    "prefix": "pi",
+    "body": "\\pi",
+    "description": "Greek letter pi"
+  },
+  "varpi": {
+    "prefix": "varpi",
+    "body": "\\varpi",
+    "description": "Greek letter varpi"
+  },
+  "rho": {
+    "prefix": "rho",
+    "body": "\\rho",
+    "description": "Greek letter rho"
+  },
+  "varrho": {
+    "prefix": "varrho",
+    "body": "\\varrho",
+    "description": "Greek letter varrho"
+  },
+  "sigma": {
+    "prefix": "sigma",
+    "body": "\\sigma",
+    "description": "Greek letter sigma"
+  },
+  "varsigma": {
+    "prefix": "varsigma",
+    "body": "\\varsigma",
+    "description": "Greek letter varsigma"
+  },
+  "tau": {
+    "prefix": "tau",
+    "body": "\\tau",
+    "description": "Greek letter tau"
+  },
+  "upsilon": {
+    "prefix": "upsilon",
+    "body": "\\upsilon",
+    "description": "Greek letter upsilon"
+  },
+  "phi": {
+    "prefix": "phi",
+    "body": "\\phi",
+    "description": "Greek letter phi"
+  },
+  "varphi": {
+    "prefix": "varphi",
+    "body": "\\varphi",
+    "description": "Greek letter varphi"
+  },
+  "chi": {
+    "prefix": "chi",
+    "body": "\\chi",
+    "description": "Greek letter chi"
+  },
+  "psi": {
+    "prefix": "psi",
+    "body": "\\psi",
+    "description": "Greek letter psi"
+  },
+  "omega": {
+    "prefix": "omega",
+    "body": "\\omega",
+    "description": "Greek letter omega"
+  },
+  "Gamma": {
+    "prefix": "Gamma",
+    "body": "\\Gamma",
+    "description": "Greek capital letter Gamma"
+  },
+  "Delta": {
+    "prefix": "Delta",
+    "body": "\\Delta",
+    "description": "Greek capital letter Delta"
+  },
+  "Theta": {
+    "prefix": "Theta",
+    "body": "\\Theta",
+    "description": "Greek capital letter Theta"
+  },
+  "Lambda": {
+    "prefix": "Lambda",
+    "body": "\\Lambda",
+    "description": "Greek capital letter Lambda"
+  },
+  "Xi": {
+    "prefix": "Xi",
+    "body": "\\Xi",
+    "description": "Greek capital letter Xi"
+  },
+  "Pi": {
+    "prefix": "Pi",
+    "body": "\\Pi",
+    "description": "Greek capital letter Pi"
+  },
+  "Sigma": {
+    "prefix": "Sigma",
+    "body": "\\Sigma",
+    "description": "Greek capital letter Sigma"
+  },
+  "Upsilon": {
+    "prefix": "Upsilon",
+    "body": "\\Upsilon",
+    "description": "Greek capital letter Upsilon"
+  },
+  "Phi": {
+    "prefix": "Phi",
+    "body": "\\Phi",
+    "description": "Greek capital letter Phi"
+  },
+  "Psi": {
+    "prefix": "Psi",
+    "body": "\\Psi",
+    "description": "Greek capital letter Psi"
+  },
+  "Omega": {
+    "prefix": "Omega",
+    "body": "\\Omega",
+    "description": "Greek capital letter Omega"
+  }
+}

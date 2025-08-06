@@ -15,5 +15,16 @@
       "snippet",
       "vscode-snippet"
     ]
+  },
+  "snippets-file": {
+    "body": [
+      "{",
+      "  \"path\": \"./${1:path}\",",
+      "  \"language\": [",
+      "    \"${2:language}\"",
+      "  ]",
+      "},"
+    ],
+    "prefix": "snippets-file"
   }
 }

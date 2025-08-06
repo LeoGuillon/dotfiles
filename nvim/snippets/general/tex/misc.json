@@ -1,0 +1,71 @@
+{
+  "frame": {
+    "body": [
+      "\\begin{frame}{${1:frametitle}}",
+      "  $0",
+      "\\end{frame}"
+    ],
+    "prefix": "frame"
+  },
+  "item": {
+    "body": "\\item $0",
+    "prefix": "item"
+  },
+  "item-description": {
+    "body": "\\item[$1] $2",
+    "prefix": "item-description"
+  },
+  "latex": {
+    "body": "\\LaTeX",
+    "prefix": "latex"
+  },
+  "metadata": {
+    "body": [
+      "\\title{${1:title}}",
+      "\\author{Léo Guillon}",
+      "\\date{}"
+    ],
+    "prefix": "metadata"
+  },
+  "paragraph": {
+    "body": [
+      "\\paragraph{$1}\\label{par:$2}",
+      "$0"
+    ],
+    "prefix": [
+      "paragraph",
+      "par"
+    ]
+  },
+  "paragraph:ref": {
+    "body": "Paragraph~\\ref{par:$1}$0",
+    "prefix": "paragraph:ref"
+  },
+  "pause": {
+    "body": [
+      "\\vfill",
+      "\\pause"
+    ],
+    "prefix": "pause"
+  },
+  "section": {
+    "body": [
+      "\\section{$1}\\label{sec:$2}",
+      "",
+      "$0"
+    ],
+    "prefix": "section"
+  },
+  "section*": {
+    "body": "\\section*{$1}",
+    "prefix": "section*"
+  },
+  "subsection": {
+    "body": [
+      "\\subsection{$1}\\label{sec:$2}",
+      "",
+      "$0"
+    ],
+    "prefix": "subsection"
+  }
+}

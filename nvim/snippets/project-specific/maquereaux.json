@@ -1,0 +1,6 @@
+{
+  "notation-line": {
+    "body": "\\texttt{${1:command}} & \\\\(\\\\${1}\\\\) & ${2:meaning}\\\\\\\\",
+    "prefix": "notation-line"
+  }
+}

@@ -51,13 +51,13 @@ return {
         ["<Tab>"] = cmp.mapping.confirm({ select = true }), -- accept current selection without explicitely selecting
         ["<C-Space>"] = cmp.mapping.complete(), -- popout the completion window
       }),
-      sources = cmp.config.sources({ -- sources for autocompletion
-        { name = "buffer" }, -- text in buffer
-        { name = "nvim_lsp" }, -- lsp
-        { name = "nerdfont" }, -- nerdfont icons
-        { name = "path" }, -- path
+      sources = cmp.config.sources({ -- sources for autocompletion, sorted by decreasing priority
         { name = "luasnip" }, -- snippets
+        { name = "path" }, -- path
+        { name = "nvim_lsp" }, -- lsp
         { name = "vimtex" }, -- vimtex support
+        { name = "nerdfont" }, -- nerdfont icons
+        { name = "buffer" }, -- text in buffer
       }),
       formatting = { -- configure lspkind for vs-code like pictograms in completion menu
         expandable_indicator = true, -- default behaviour

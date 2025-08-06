@@ -6,10 +6,21 @@ return {
 
     -- syntax
     vim.g.vimtex_syntax_enabled = 0 -- we use treesitter’s syntax instead
-    -- vim.g.vimtex_syntax_conceal_disable = 1 -- no need to conceal, I prefer to have the raw code at all time
+    vim.g.vimtex_syntax_conceal_disable = 1 -- no need to conceal, I prefer to have the raw code at all time
 
+    -- BUG: make these custom syntax commands work
     vim.g.vimtex_syntax_custom_cmds = {
-      { name = "strong", argstyle = "bold" },
+      {
+        name = "strong",
+        opt = false,
+        argstyle = "bold",
+      },
+      {
+        name = "mathbb",
+        opt = false,
+        mathmode = 1,
+        argstyle = "bold",
+      },
     }
 
     -- mappings
@@ -27,10 +38,13 @@ return {
     -- compilation
     vim.g.vimtex_compiler_method = "latexmk"
     vim.g.vimtex_compiler_latexmk = {
+      -- TODO: setup synctex
+      -- TODO: setup “outputs” directory
+      -- TODO: setup different options depending on the classes
+      aux_dir = "aux",
+      out_dir = "outputs",
       options = {
         "-pdflatex=lualatex",
-        -- TODO: setup synctex
-        -- TODO: setup “outputs” directory
       },
     }
 
@@ -48,5 +62,6 @@ return {
     vim.g.vimtex_view_method = "general"
     -- TODO: setup sioyek viewing
     -- vim.g.vimtex_view_general_viewer = 'sioyek'
+    -- vim.g.vimtex_view_sioyek_options = …
   end,
 }
