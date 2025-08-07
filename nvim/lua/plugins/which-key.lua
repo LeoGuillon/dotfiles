@@ -40,6 +40,7 @@ return {
       { "<leader>c", group = "Code actions…" },
       { "<leader>o", group = "Open…" },
       { "<leader>t", group = "Toggle UI…" },
+      { "<localleader>", group = "Local Leader key…" },
     },
   },
   plugins = {

@@ -97,9 +97,12 @@
       {
         "path": "./project-specific/agreg.json",
         "language": [
-          "tex",
-          "plaintex"
+          "tex"
         ]
+      },
+      {
+        "path": "./project-specific/maquereaux.json",
+        "language": "tex"
       },
       {
         "path": "./general/markdown.json",

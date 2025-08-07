@@ -132,7 +132,6 @@ map("n", "gN", "mzO<esc>^D`z", { desc = "Add an empty line above" })
 
 map("n", "<CR>", "mzo<esc>^D`z", { desc = "Add an empty line below" })
 map("n", "<S-CR>", "mzO<esc>^D`z", { desc = "Add an empty line above" })
--- NOTE: currently doesn’t work on iterm2
 -- TODO: test it on wezterm
 
 -- ——————————————————————————————————————————————————————————————————————————————
@@ -181,6 +180,9 @@ map({ "n", "v" }, "g-", "<C-x>", { desc = "g-Decrement" })
 
 -- remapping of hjkl to other functions
 -- as regular arrow movements are mapped to the arrow keys, to another layer
+
+-- [h]op : see flash plugin
+
 -- [j]oin lines
 map("n", "j", "J", { desc = "Join next line to the current" })
 map("n", "gj", "gJ", { desc = "Join next line to the current (without blank space)" })
@@ -191,6 +193,11 @@ map("n", "gJ", "kgJ", { desc = "Join current line to the previous (without blank
 -- opposite functions to j/J
 -- TODO: use plugin revJ to better handle this operation
 map("n", "k", "i<CR><Esc>", { desc = "Unjoin to the next line" })
+
+-- [l]ean back : just a shortcut for ge/gE
+-- map({ "n", "x", "o" }, "l", "ge", { desc = "go to previous end (Lean back)" })
+-- map({ "n", "x", "o" }, "L", "gE", { desc = "go to previous END (Lean back)" })
+-- NOTE: better version with nvim-spider
 
 map("n", "\\", "?", { desc = "Search backwards" }) -- due to the symmetry between \ and / on symbol layer
 
@@ -306,51 +313,45 @@ map("n", "<C-S-TAB>", "<cmd>bprevious<cr>", { desc = "go to previous buffer" })
 -- remapped text objects
 -- credits : https://nanotipsforvim.prose.sh/remapping-all-your-textobjs-for-speed
 -- reminder : already existing text objects :
--- [l]etter (e.g. character)
--- [w]ord
+-- [w]ord / [W]ord
 -- [s]entence
 -- [p]aragraph
 -- [t]ag
 -- [b]rackets
 
 -- [c]urly brace
-map({ "v", "o" }, "ic", "i}", { desc = "inner {}" })
-map({ "v", "o" }, "ac", "a}", { desc = "outer {}" })
+map({ "x", "o" }, "ic", "i}", { desc = "{} (Curly braces)" })
+map({ "x", "o" }, "ac", "a}", { desc = "{} (Curly braces)" })
 
 -- [r]ectangular bracket
-map({ "v", "o" }, "ir", "i]", { desc = "inner []" })
-map({ "v", "o" }, "ar", "a]", { desc = "outer []" })
+map({ "x", "o" }, "ir", "i]", { desc = "[] (Rectangular brackets)" })
+map({ "x", "o" }, "ar", "a]", { desc = "[] (Rectangular brackets)" })
 
 -- che[v]rons
-map({ "v", "o" }, "iv", "i>", { desc = "inner <>" })
-map({ "v", "o" }, "av", "a>", { desc = "outer <>" })
+map({ "x", "o" }, "iv", "i>", { desc = "<> (cheVrons)" })
+map({ "x", "o" }, "av", "a>", { desc = "<> (cheVrons)" })
 
 -- [q]uoted text
-map({ "v", "o" }, "iq", 'i"', { desc = 'inner "' })
-map({ "v", "o" }, "aq", 'a"', { desc = 'outer "' })
+map({ "x", "o" }, "iq", 'i"', { desc = '" (Quoted text)' })
+map({ "x", "o" }, "aq", 'a"', { desc = '" (Quoted text)' })
 
 -- [a]postrothe quoted text
-map({ "v", "o" }, "ia", "i'", { desc = "inner '" })
-map({ "v", "o" }, "aa", "a'", { desc = "outer '" })
+map({ "x", "o" }, "ia", "i'", { desc = "' (Apostrophe)" })
+map({ "x", "o" }, "aa", "a'", { desc = "' (Apostrophe)" })
 
 -- [i]nline code
-map({ "v", "o" }, "ii", "i`", { desc = "inner `" })
-map({ "v", "o" }, "ai", "a`", { desc = "outer `" })
-
--- TODO: add [l]ine text object ?
--- see if relevant, and compare to latex command textobject
+map({ "x", "o" }, "ii", "i`", { desc = "` (Inline code)" })
+map({ "x", "o" }, "ai", "a`", { desc = "` (Inline code)" })
 
 -- NOTE: treesitter’s text objects memo :
 -- all of them starts with [o]
 
 -- NOTE: vimtex's text objects memo :
--- [l]aTeX command
 -- [d]elimiters
 -- [e]nvironnement
+-- [l]aTeX command
 -- [m]ath block
--- [s]ection
---   (conflict with the base [s]entence textobject, but I don't use it very often anyways)
--- TODO: adapt the [s]ection text object to avoid conflict with the [s]entence text object
+-- se[x]ion
 
 -- ────────────────────────────────────────────────────────────────────────────────
 -- (MACROS)

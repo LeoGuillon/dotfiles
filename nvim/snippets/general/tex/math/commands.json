@@ -7,6 +7,21 @@
       "math-inline"
     ]
   },
+  "bi + bold-italic + mathbi": {
+    "body": "\\mathbi{${1:${TM_SELECTED_TEXT}}}",
+    "prefix": [
+      "bi",
+      "bold-italic",
+      "mathbi"
+    ]
+  },
+  "cal + mathcal": {
+    "body": "\\mathcal{$1}",
+    "prefix": [
+      "cal",
+      "mathcal"
+    ]
+  },
   "frac": {
     "body": "\\frac{${1:numerator}}{${2:denominator}}",
     "prefix": "frac"

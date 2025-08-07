@@ -19,55 +19,69 @@ map("n", "<leader>?", "mzA\\,?<Esc>`z", { desc = "add ? to eol" })
 
 -- insecable
 map("n", "<leader>:", "mzA~:<Esc>`z", { desc = "add : to eol" })
-map("n", "<leader>\\", "mzA \\\\<Esc>`z", { desc = "add line break to eol" })
+map("n", "<leader>\\", "<plug>vimtex-cmd-toggle-break", { desc = "add line break to eol" })
 
 -- ────────────────────────────────────────────────────────────────────────────────
--- (ENVIRONNEMENTS)
+-- (TEXT OBJECTS)
+-- ────────────────────────────────────────────────────────────────────────────────
+
+-- [d]elimiters (also covers \left\right, which is nice)
+map({ "x", "o" }, "id", "<plug>(vimtex-id)", { desc = "Delimiters" })
+map({ "x", "o" }, "ad", "<plug>(vimtex-ad)", { desc = "Delimiters" })
+
+-- [e]nvironment
+map({ "x", "o" }, "ie", "<plug>(vimtex-ie)", { desc = "Environment" })
+map({ "x", "o" }, "ae", "<plug>(vimtex-ae)", { desc = "Environment" })
+
+-- [l]aTeX command
+map({ "x", "o" }, "il", "<plug>(vimtex-ic)", { desc = "LaTeX command" })
+map({ "x", "o" }, "al", "<plug>(vimtex-ac)", { desc = "LaTeX command" })
+
+-- [m]ath block
+map({ "x", "o" }, "im", "<plug>(vimtex-i$)", { desc = "Math block" })
+map({ "x", "o" }, "am", "<plug>(vimtex-a$)", { desc = "Math block" })
+
+-- se[x]ion
+map({ "x", "o" }, "ix", "<plug>(vimtex-iP)", { desc = "sect(X)ion" })
+map({ "x", "o" }, "ax", "<plug>(vimtex-aP)", { desc = "sect(X)ion" })
+
+-- itemize/enumerate item
+-- TODO: find a mapping for this one
+-- [i]tem would be the most logical, but already taken by [i]nline code
+-- so maybe relevant to remap [i]nline code to something else ?
+
+-- ────────────────────────────────────────────────────────────────────────────────
+-- (SURROUND COMMANDS)
 -- ────────────────────────────────────────────────────────────────────────────────
 -- just to make sure all the commands don't interfer with the rest of nvim's commands
 -- because all default mappings are disabled, have to write them entirely,
 -- to make sure there’s no unwanted overlaps
 
--- ────────────────────────────────────────────────────────────────────────────────
--- (DELETE AND CHANGE)
+-- [d]elimiters
+map("n", "dsd", "<plug>(vimtex-delim-delete)", { desc = "Delete Surrounding Delimiters" })
+map("n", "csd", "<plug>(vimtex-delim-change)", { desc = "Change Surrounding Delimiters" })
+map("n", "tsd", "<plug>(vimtex-delim-toggle-modifier)", { desc = "Toggle Surrounding \\l/r Delimiters" })
+map("n", "tsr", "<plug>(vimtex-env-toggle)", { desc = "Toggle Related environnements" })
 
 -- [e]nvironment
 map("n", "dse", "<plug>(vimtex-env-delete)", { desc = "Delete Surrounding Environment" })
 map("n", "cse", "<plug>(vimtex-env-change)", { desc = "Change Surrounding Environment" })
+map("n", "ysse", "<plug>(vimtex-env-surround-line)", { desc = "Surround line with Environment" })
+map("x", "Se", "<plug>(vimtex-env-surround-visual)", { desc = "Surround selection with Environment" })
+map("n", "tse", "<plug>(vimtex-env-toggle-star)", { desc = "Toggle Starred Environment" })
 
 -- [l]aTeX command
 map("n", "dsl", "<plug>(vimtex-cmd-delete)", { desc = "Delete Surrounding LaTeX command" })
 map("n", "csl", "<plug>(vimtex-cmd-change)", { desc = "Change Surrounding LaTeX command" })
-
--- [d]elimiters
-map("n", "dsd", "<plug>(vimtex-delim-delete)", { desc = "Delete Surrounding Delimiters" })
-map("n", "csd", "<plug>(vimtex-delim-change)", { desc = "Change Surrounding Delimiters" })
+map("n", "tsl", "<plug>(vimtex-cmd-toggle-star)", { desc = "Toggle Starred LaTeX command" })
+map("n", "ysl", "<plug>(vimtex-cmd-create)", { desc = "Surround current word with LaTeX command" })
+map("x", "Sl", "<plug>(vimtex-cmd-create)", { desc = "Surround selection with LaTeX command" })
 
 -- [m]ath block
 map("n", "dsm", "<plug>(vimtex-env-delete-math)", { desc = "Delete Surrounding Math environnement" })
 map("n", "csm", "<plug>(vimtex-env-change-math)", { desc = "Change Surrounding Math environnement" })
-
--- ────────────────────────────────────────────────────────────────────────────────
--- (TOGGLES)
--- TODO: ts + … interfers with the usual t{char} command, if we ever want to move towards an s letter
--- it could be interesting to map those commands to another letter,
--- or use a localleader mapping
-
--- toggle delimiters with \left\right : tsd
-map("n", "tsd", "<plug>(vimtex-delim-toggle-modifier)", { desc = "Toggle Surrounding \\l/r Delimiters" })
-
-map("n", "tse", "<plug>(vimtex-env-toggle-star)", { desc = "Toggle Starred Environment" })
-map("n", "tsl", "<plug>(vimtex-cmd-toggle-star)", { desc = "Toggle Starred LaTeX command" })
-map("n", "tsr", "<plug>(vimtex-env-toggle)", { desc = "Toggle Related environnements" })
--- TODO: implement more related-environments
-
--- toggle between inline and display math
 map("n", "tsm", "<plug>(vimtex-env-toggle-math)", { desc = "Toggle Surrounding Math environnement" })
-
--- toggle between fraction modes : tsf
-map("n", "tsf", "<plug>(vimtex-env-toggle-frac)", { desc = "Toggle Surrounding Fraction" })
-
--- TODO: implement a custom command that toggles between {…} and \{…\}
+-- TODO: commands to add math mode in normal and visual mode
 
 -- ────────────────────────────────────────────────────────────────────────────────
 -- (NAVIGATION)
@@ -96,59 +110,22 @@ map({ "n", "x", "o" }, "]f", "<plug>(vimtex-]r)", { desc = "Next Frame" })
 map({ "n", "x", "o" }, "[f", "<plug>(vimtex-[r)", { desc = "Previous Frame" })
 map({ "n", "x", "o" }, "]F", "<plug>(vimtex-]R)", { desc = "Next Frame end" })
 map({ "n", "x", "o" }, "[F", "<plug>(vimtex-[R)", { desc = "Previous Frame end" })
--- NOTE: probably interfers with next/previous function,
--- but usually in beamer code, there’s no function
 
--- previous/next start/end of LaTeX comment : [/] + //%
--- TODO: not sure to add this one, but I mean we never know
+-- go to matching pair, adapted to LaTeX delimiters
+map({ "n", "v" }, "%", "<plug>(vimtex-%)", { desc = "Go to matching pair" })
 
 -- ────────────────────────────────────────────────────────────────────────────────
--- (TEXT OBJECTS)
+-- (LOCALLEADER COMMANDS)
 -- ────────────────────────────────────────────────────────────────────────────────
-
--- [d]elimiters (also covers \left\right, which is nice)
-map({ "x", "o" }, "id", "<plug>(vimtex-id)", { desc = "Delimiters" })
-map({ "x", "o" }, "ad", "<plug>(vimtex-ad)", { desc = "Delimiters" })
-
--- [m]ath block
-map({ "x", "o" }, "im", "<plug>(vimtex-i$)", { desc = "Math block" })
-map({ "x", "o" }, "am", "<plug>(vimtex-a$)", { desc = "Math block" })
-
--- [l]aTeX text object…
-require("which-key").add({ { "il", group = "LaTeX…", mode = { "x", "o" }, icon = "" } })
-require("which-key").add({ { "al", group = "LaTeX…", mode = { "x", "o" }, icon = "" } })
-
--- NOTE: this extra step is made to avoid conflict with already defined text objects :
--- [c]urly braces, [s]entence
-
--- [c]ommand
-map({ "x", "o" }, "ilc", "<plug>(vimtex-ic)", { desc = "Command" })
-map({ "x", "o" }, "alc", "<plug>(vimtex-ac)", { desc = "Command" })
-
--- [e]nvironment
-map({ "x", "o" }, "ile", "<plug>(vimtex-ie)", { desc = "Environment" })
-map({ "x", "o" }, "ale", "<plug>(vimtex-ae)", { desc = "Environment" })
-
--- [s]ection
-map({ "x", "o" }, "ils", "<plug>(vimtex-iP)", { desc = "Section" })
-map({ "x", "o" }, "als", "<plug>(vimtex-aP)", { desc = "Section" })
-
--- itemize/enumerate item
--- TODO: find a mapping for this one
-
--- ────────────────────────────────────────────────────────────────────────────────
--- (COMMANDS)
--- ────────────────────────────────────────────────────────────────────────────────
-
-require("which-key").add({ { "<localleader>l", group = "LaTeX…", icon = "" } })
 
 map("n", "<localleader>b", "<cmd>wa<cr><cmd>VimtexCompileSS<cr>", { desc = "Build project (single-shot)" })
--- NOTE: this ensures the entire project gets saved before compiling
 map("n", "<localleader>B", "<plug>(vimtex-compile)", { desc = "Build project (continuous)" })
 map("n", "<localleader>c", "<plug>(vimtex-clean)", { desc = "Clean aux files" })
 map("n", "<localleader>C", "<plug>(vimtex-clean-full)", { desc = "Clean aux and output files" })
 map("n", "<localleader>s", "<plug>(vimtex-toc-toggle)", { desc = "toggle table of contents (Sommaire)" })
 map("n", "<localleader>v", "<plug>(vimtex-view)", { desc = "View PDF" })
 map("n", "<localleader>x", "<plug>(vimtex-errors)", { desc = "open errors" })
-
--- TODO: add word count, in lualine maybe ?
+map("n", "<locallleader>l", "<cmd>VimtexCountLetters<cr>", { desc = "count Letters in project" })
+map("n", "<locallleader>L", "<cmd>VimtexCountLetters!<cr>", { desc = "count Letters for each file" })
+map("n", "<locallleader>w", "<cmd>VimtexCountWords<cr>", { desc = "count Words in project" })
+map("n", "<locallleader>W", "<cmd>VimtexCountWords!<cr>", { desc = "count Words for each file" })

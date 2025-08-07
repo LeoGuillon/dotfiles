@@ -5,10 +5,7 @@ return {
     -- GENERAL SETTINGS
 
     -- syntax
-    vim.g.vimtex_syntax_enabled = 0 -- we use treesitter’s syntax instead
     vim.g.vimtex_syntax_conceal_disable = 1 -- no need to conceal, I prefer to have the raw code at all time
-
-    -- BUG: make these custom syntax commands work
     vim.g.vimtex_syntax_custom_cmds = {
       {
         name = "strong",
@@ -21,11 +18,39 @@ return {
         mathmode = 1,
         argstyle = "bold",
       },
+      {
+        name = "mathcal",
+        opt = false,
+        mathmode = 1,
+        argstyle = "ital",
+      },
+      {
+        name = "mathbi",
+        opt = false,
+        mathmode = 1,
+        argstyle = "boldital",
+      },
+      {
+        name = "mathens",
+        opt = false,
+        mathmode = 1,
+        argstyle = "bold",
+      },
     }
 
     -- mappings
     vim.g.vimtex_mappings_enabled = 0 -- because I like tuning really precisely my config
     vim.g.vimtex_imaps_enabled = 0 -- because we use snippets to handle this better
+
+    -- TODO: setup toggle env commands properly
+    -- matrix -> pmatrix -> bmatrix -> Bmatrix -> vmatrix -> Vmatrix ?
+    vim.g.vimtex_env_toggle_math_map = {
+      ["$"] = "\\(",
+      ["$$"] = "\\[",
+      ["\\("] = "\\[",
+      ["\\["] = "equation",
+      ["equation"] = "\\(",
+    }
 
     -- table of contents
     vim.g.vimtex_toc_config = {

@@ -6,5 +6,16 @@
   "Rn": {
     "body": "\\R^{${1:n}}",
     "prefix": "Rn"
+  },
+  "displaymath + mathblock": {
+    "body": [
+      "\\[",
+      "  ${0:${TM_SELECTED_TEXT}}",
+      "\\]"
+    ],
+    "prefix": [
+      "displaymath",
+      "mathblock"
+    ]
   }
 }

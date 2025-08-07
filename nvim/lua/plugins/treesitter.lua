@@ -10,7 +10,10 @@ return {
   config = function()
     require("nvim-treesitter.configs").setup({
       auto_install = true,
-      highlight = { enable = true }, -- enable syntax highlighting
+      highlight = {
+        enable = true, -- enable syntax highlighting
+        disable = { "latex" }, -- but disable for tex files, as we use vimtex’s syntax highlighting
+      },
       indent = { enable = true }, -- enable indentation
 
       ensure_install = {

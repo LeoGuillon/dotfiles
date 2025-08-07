@@ -115,6 +115,14 @@ nnoremap gj gJ
 nnoremap J kJ
 nnoremap gJ kgJ
 
+" [k]nit lines (opposite of joining)
+nnoremap k i<CR><Esc>
+
+" [l]ean back (shortcut for ge)
+nnoremap l ge
+nnoremap L gE
+
+
 " ——————————————————————————————————————————————————————————————————————————————
 " (VISUAL MODE)
 " ——————————————————————————————————————————————————————————————————————————————
@@ -169,6 +177,11 @@ nnoremap <PageDown> <c-d>zz
 nnoremap <PageUp> <c-u>zz
 nnoremap <S-PageDown> <c-f>zz
 nnoremap <S-PageUp> <c-b>zz
+
+" go to previous/next link in file
+" using [/] instead of g, to be more coherent with the usual syntax of [/]+character
+nnoremap [l gL
+nnoremap ]l gl
 
 " ───────────────────────────────────────────────────────────────────────────────
 " (INTER-FILE NAVIGATION)

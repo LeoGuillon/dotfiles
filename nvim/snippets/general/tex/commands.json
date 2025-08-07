@@ -92,7 +92,7 @@
     "prefix": "renewcommand"
   },
   "strong": {
-    "body": "\\strong{$1}",
+    "body": "\\strong{${1:${TM_SELECTED_TEXT}}}",
     "prefix": "strong"
   },
   "title + maketitle": {
