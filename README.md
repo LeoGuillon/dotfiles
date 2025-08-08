@@ -1,9 +1,5 @@
 # LeoGuillon’s dotfiles
 
-<a href="https://dotfyle.com/LeoGuillon/dotfiles-nvim"><img src="https://dotfyle.com/LeoGuillon/dotfiles-nvim/badges/plugins?style=flat" /></a>
-<a href="https://dotfyle.com/LeoGuillon/dotfiles-nvim"><img src="https://dotfyle.com/LeoGuillon/dotfiles-nvim/badges/leaderkey?style=flat" /></a>
-<a href="https://dotfyle.com/LeoGuillon/dotfiles-nvim"><img src="https://dotfyle.com/LeoGuillon/dotfiles-nvim/badges/plugin-manager?style=flat" /></a>
-
 <!-- TODO: add pictures of my tools, notably nvim/tmux config, starship prompt-->
 <!-- TODO: switch to GNU Stow-->
 
