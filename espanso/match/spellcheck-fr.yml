@@ -25,16 +25,6 @@ matches:
     word: true
     propagate_case: true
 
-  - trigger: "interet"
-    replace: "intérêt"
-    word: true
-    propagate_case: true
-
-  - trigger: "realite"
-    replace: "réalité"
-    word: true
-    propagate_case: true
-
   # e -> ê
   - trigger: "etre"
     replace: "être"

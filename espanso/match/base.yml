@@ -26,4 +26,5 @@ matches:
     vars:
       - name: todayISO
         type: date
-        params: { format: "%Y-%m-%d" }
+        params:
+          format: "%Y-%m-%d"

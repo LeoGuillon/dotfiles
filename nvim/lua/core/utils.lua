@@ -20,8 +20,29 @@ function M.buffer_abbrev(text, replace)
 end
 
 -- ────────────────────────────────────────────────────────────────────────────────
+
+function M.generate_plugins_list()
+  local plugins = require("lazy").plugins()
+  local file_path = vim.fn.stdpath("config") .. "/plugins-list.md"
+  local file = io.open(file_path, "w")
+
+  file:write("# Neovim plugins list\n")
+
+  for _, plugin in ipairs(plugins) do
+    local name = plugin.name or plugin[1]
+    local url = plugin.url or ("https://github.com/" .. plugin[1])
+
+    file:write(string.format("- [%s](%s)\n", name, url))
+  end
+
+  file.close()
+  print("Generated file: " .. file_path)
+end
+
+-- ────────────────────────────────────────────────────────────────────────────────
 -- (CUSTOM ICONS)
 
+-- TODO: setup unified icons
 local icons = {
   diagnostics = {},
   git = {},

@@ -19,3 +19,5 @@
 ## Plugins used
 
 ## Inspiration
+
+The first stones for this config were done thanks to the nice tutoriel made by

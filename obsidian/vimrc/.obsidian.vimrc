@@ -120,7 +120,12 @@ nnoremap k i<CR><Esc>
 
 " [l]ean back (shortcut for ge)
 nnoremap l ge
+vnoremap l ge
+onoremap l ge
+
 nnoremap L gE
+vnoremap L gE
+onoremap L gE
 
 
 " ——————————————————————————————————————————————————————————————————————————————
@@ -564,8 +569,6 @@ nnoremap <Space>sv :searchvault<CR>
 " workspace [l]ayout
 exmap searchworkspacelayout obcommand workspaces:save-and-load
 nnoremap <Space>sl :searchworkspacelayout<CR>
-
-" TODO: choose between options for vault/layout searching
 
 " [,] : settings for plugin…
 " the , symbol is inspired by the macos common shortcut ⌘, for settings
