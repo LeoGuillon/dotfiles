@@ -1,5 +1,5 @@
 {
-  "name": "my-snippets",
+  "name": "atomkysnippets",
   "contributes": {
     "snippets": [
       {
@@ -27,9 +27,21 @@
         ]
       },
       {
-        "path": "./general/lua.json",
+        "path": "./general/lua/lua.json",
         "language": [
           "lua"
+        ]
+      },
+      {
+        "path": "./general/lua/luadoc.json",
+        "language": [
+          "lua"
+        ]
+      },
+      {
+        "path": "./general/markdown.json",
+        "language": [
+          "markdown"
         ]
       },
       {
@@ -95,31 +107,9 @@
         ]
       },
       {
-        "path": "./project-specific/agreg.json",
-        "language": [
-          "tex"
-        ]
-      },
-      {
-        "path": "./project-specific/maquereaux.json",
-        "language": "tex"
-      },
-      {
-        "path": "./general/markdown.json",
-        "language": [
-          "markdown"
-        ]
-      },
-      {
         "path": "./general/sh.json",
         "language": [
           "sh"
-        ]
-      },
-      {
-        "path": "./general/yaml.json",
-        "language": [
-          "yaml"
         ]
       },
       {
@@ -129,10 +119,26 @@
         ]
       },
       {
+        "path": "./general/yaml.json",
+        "language": [
+          "yaml"
+        ]
+      },
+      {
+        "path": "./project-specific/agreg.json",
+        "language": [
+          "tex"
+        ]
+      },
+      {
         "path": "./project-specific/espanso.json",
         "language": [
           "yaml"
         ]
+      },
+      {
+        "path": "./project-specific/maquereaux.json",
+        "language": "tex"
       },
       {
         "path": "./project-specific/obsidian-vimrc.json",

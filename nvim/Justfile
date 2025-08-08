@@ -1,4 +1,8 @@
 set quiet := true
 
+
+friendly-snippets:
+  open "https://github.com/rafamadriz/friendly-snippets"
+
 options:
   open "https://neovim.io/doc/user/options.html"

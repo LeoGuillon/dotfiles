@@ -1,13 +1,4 @@
 {
-  "Insert rcodeblock": {
-    "body": [
-      "```{r $1}",
-      "$2",
-      "```"
-    ],
-    "prefix": "rcodeblock"
-    "description": "Insert R code block"
-  },
   "Insert link": {
     "body": "[${1:alias}](${2:url})",
     "prefix": [
@@ -20,7 +11,9 @@
   "header 1": {
     "prefix": "h1",
     "body": [
-      "# ${0}"
+      "# ${1}",
+      " ",
+      "$0"
     ],
     "description": "Add header level 1"
   },

@@ -13,8 +13,19 @@ return {
       local luasnip = require("luasnip")
 
       -- TODO: allows latex math snippets only in math mode
+      -- TODO: and same for tikz or beamer commands
       local function in_mathenv()
-        return vim.fn["vimtex#syntax%in_mathzone"]() == 1
+        return vim.fn["vimtex#syntax#in_mathzone"]() == 1
+      end
+
+      local function in_beamer()
+        local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+        for _, line in ipairs(lines) do
+          if line:match("\\documentclass{beamer}") then
+            return true
+          end
+        end
+        return false
       end
 
       luasnip.setup({
