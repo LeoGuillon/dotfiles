@@ -1,0 +1,21 @@
+/*
+# Custom Beeper.app style
+This file will be injected as a <style> tag
+After making your changes, type "Reload custom CSS" in the command bar
+To open dev tools, open the command bar and type "open console"
+*/
+
+:root {
+  --font-family: "IBM Plex Sans", sans-serif;
+  --font-family-mono: "IBM Plex Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #89b4fa;
+    --color-surface: #1e1e2e;
+    --color-primary-container: #181825;
+    --color-secondary-container: #181825;
+    --color-tertiary-container: #181825;
+  }
+}
