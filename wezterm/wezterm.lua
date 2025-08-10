@@ -24,8 +24,7 @@ config.window_padding = {
 	bottom = 2,
 }
 
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 90
+config.window_background_opacity = 1
 
 -- and finally, return the configuration to wezterm
 return config
