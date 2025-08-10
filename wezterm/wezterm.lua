@@ -24,7 +24,9 @@ config.window_padding = {
 	bottom = 2,
 }
 
-config.window_background_opacity = 1
+-- NOTE: for an unknown reason, setting the opacity at 1
+-- makes the macOS window control super laggy
+config.window_background_opacity = 0.99
 
 -- and finally, return the configuration to wezterm
 return config

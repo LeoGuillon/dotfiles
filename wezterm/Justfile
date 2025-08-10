@@ -1,0 +1,4 @@
+set quiet := true
+
+docs:
+  open 'https://wezterm.org/config/files.html'
