@@ -31,7 +31,7 @@ return {
         argstyle = "boldital",
       },
       {
-        name = "mathens",
+        name = "mathset",
         opt = false,
         mathmode = 1,
         argstyle = "bold",

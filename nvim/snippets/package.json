@@ -141,7 +141,19 @@
         "language": "tex"
       },
       {
-        "path": "./project-specific/obsidian-vimrc.json",
+        "path": "./project-specific/obsidian/obsidian-css.json",
+        "language": [
+          "css"
+        ]
+      },
+      {
+        "path": "./project-specific/obsidian/obsidian-json.json",
+        "language": [
+          "json"
+        ]
+      },
+      {
+        "path": "./project-specific/obsidian/obsidian-vimrc.json",
         "language": [
           "vim"
         ]

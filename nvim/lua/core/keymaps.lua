@@ -127,12 +127,13 @@ map("n", "<leader>~", "mzlblgueh~`z", { desc = "Smart word togglecasing" })
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (NEW LINES)
 
-map("n", "gn", "mzo<esc>^D`z", { desc = "Add an empty line below" })
-map("n", "gN", "mzO<esc>^D`z", { desc = "Add an empty line above" })
+-- -- NOTE: to avoid conflict with `gn` in obsidian, which does the `gf`/`gx` action
+-- map("n", "gn", "mzo<esc>^D`z", { desc = "Add an empty line below" })
+-- map("n", "gN", "mzO<esc>^D`z", { desc = "Add an empty line above" })
 
 map("n", "<CR>", "mzo<esc>^D`z", { desc = "Add an empty line below" })
 map("n", "<S-CR>", "mzO<esc>^D`z", { desc = "Add an empty line above" })
--- TODO: test it on wezterm
+-- TODO: test the <S-CR> combo on wezterm
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (TRAILING CHARS)

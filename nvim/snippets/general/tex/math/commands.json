@@ -7,6 +7,13 @@
       "math-inline"
     ]
   },
+  "T + transpose": {
+    "body": "\\T{$1}",
+    "prefix": [
+      "T",
+      "transpose"
+    ]
+  },
   "bi + bold-italic + mathbi": {
     "body": "\\mathbi{${1:${TM_SELECTED_TEXT}}}",
     "prefix": [

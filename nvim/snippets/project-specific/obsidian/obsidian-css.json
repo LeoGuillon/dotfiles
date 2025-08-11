@@ -1,0 +1,13 @@
+{
+  "obsidian-callout": {
+    "body": [
+      "/* $1 */",
+      "",
+      ".callout[data-callout=\"$2\"] {",
+      "  --callout-color: $3, $4, $5;",
+      "  --callout-icon: $6;",
+      "}"
+    ],
+    "prefix": "obsidian-callout"
+  }
+}

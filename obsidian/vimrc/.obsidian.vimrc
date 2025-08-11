@@ -55,13 +55,6 @@ nnoremap U <C-r>
 " inoremap : :<C-g>u
 
 " ——————————————————————————————————————————————————————————————————————————————
-" (NEW LINES)
-
-" new line above or below without entering insert mode
-nnoremap gn mzo<Esc>`z
-nnoremap gN mzO<Esc>`z
-
-" ——————————————————————————————————————————————————————————————————————————————
 " (MOVING CHARACTERS)
 
 nnoremap <A-Left> xhhp
@@ -183,7 +176,7 @@ nnoremap <PageUp> <c-u>zz
 nnoremap <S-PageDown> <c-f>zz
 nnoremap <S-PageUp> <c-b>zz
 
-" go to previous/next link in file
+" [g]o to previous/next [l]ink in file
 " using [/] instead of g, to be more coherent with the usual syntax of [/]+character
 nnoremap [l gL
 nnoremap ]l gl
@@ -197,10 +190,11 @@ nnoremap gt :nexttab<CR>
 exmap previoustab obcommand workspace:previous-tab
 nnoremap gT :previoustab<CR>
 
-" [g]o to [f]ile (in a new tab)
+" [g]o to [f]ile / [n]ote (in a new tab)
 " [x] as well to mimic the gx command in Vim for links
 exmap openlink obcommand editor:open-link-in-new-leaf
 nnoremap gf :openlink<CR>
+nnoremap gn :openlink<CR>
 nnoremap gx :openlink<CR>
 
 " close tab
@@ -391,6 +385,9 @@ inoremap Qo Quo
 " Can’t set a leader key, so every occurence must be written by hand
 unmap <Space>
 
+" new line above or below without entering insert mode
+nnoremap <CR> mzo<Esc>`z
+
 " adding a , ; or . at the end of line
 nnoremap <Space>, mzA,<Esc>`z
 nnoremap <Space>; mzA<Space>;<Esc>`z
@@ -570,6 +567,8 @@ nnoremap <Space>sv :searchvault<CR>
 exmap searchworkspacelayout obcommand workspaces:save-and-load
 nnoremap <Space>sl :searchworkspacelayout<CR>
 
+" TODO: choose between options for vault/layout searching
+
 " [,] : settings for plugin…
 " the , symbol is inspired by the macos common shortcut ⌘, for settings
 exmap searchpluginsettings obcommand hotkey-helper:open-settings
@@ -605,8 +604,11 @@ nnoremap <Space>o, :opensettings<CR>
 " (UI/text toggles)
 " [t]oggle…
 
+" TODO: add https://github.com/artemDvoryadkin/obsidian-vim-marker-sharpener
+" plugin to add visual toggle commands
+
 " [b]old
-exmap togglebold obcommand editor:toggle-bold
+  exmap togglebold obcommand editor:toggle-bold
 nnoremap <Space>tb :togglebold<CR>
 vnoremap <Space>tb :togglebold<CR>
 
