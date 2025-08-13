@@ -65,20 +65,19 @@ return {
 
           keymaps = {
 
-            -- [gc]omments
-            -- same syntax as Comment.nvim
-            ["agc"] = { query = "@comment.outer", desc = "Comment" },
-            ["igc"] = { query = "@comment.inner", desc = "Comment" },
-
             -- TODO: mettre aussi sur l’enchaînement aoc/aogc ?
 
             -- coding text [o]bjects
 
             -- [a]ssignment
-            -- ["aoa"] = { query = "@assignment.outer", desc = "outer part of an Assignment" },
-            -- ["ioa"] = { query = "@assignment.inner", desc = "inner part of an Assignment" },
+            ["aoa"] = { query = "@assignment.outer", desc = "Assignment" },
+            ["ioa"] = { query = "@assignment.inner", desc = "Assignment" },
             -- ["loa"] = { query = "@assignment.lhs", desc = "left hand side of an Assignment" },
             -- ["roa"] = { query = "@assignment.rhs", desc = "right hand side of an Assignment" },
+
+            -- [c]omment
+            ["aoc"] = { query = "@comment.outer", desc = "Comment" },
+            ["ioc"] = { query = "@comment.inner", desc = "Comment" },
 
             -- function/method [d]efinition
             ["aod"] = { query = "@function.outer", desc = "function Definition" },

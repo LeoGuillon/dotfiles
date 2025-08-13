@@ -2,10 +2,12 @@ return {
   {
     "chrisgrieser/nvim-spider",
     keys = {
-      { "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n", "o", "x" } },
-      { "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n", "o", "x" } },
-      { "b", "<cmd>lua require('spider').motion('b')<CR>", mode = { "n", "o", "x" } },
-      { "l", "<cmd>lua require('spider').motion('ge')<CR>", mode = { "n", "o", "x" } },
+      -- stylua: ignore start
+      { "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n", "o", "x" }, desc = "next Word" },
+      { "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n", "o", "x" }, desc = "next End of word" },
+      { "b", "<cmd>lua require('spider').motion('b')<CR>", mode = { "n", "o", "x" }, desc = "previous word (Backwards)" },
+      { "l", "<cmd>lua require('spider').motion('ge')<CR>", mode = { "n", "o", "x" }, desc = "previous end of word (Lean back)" },
+      -- stylua: ignore end
     },
   },
   {

@@ -27,12 +27,21 @@ return {
   -- MASON-LSPCONFIG
   {
     "mason-org/mason-lspconfig.nvim",
-    dependancies = { "neovim/lspconfig" },
+    dependancies = {
+      "neovim/lspconfig",
+      "hrsh7th/cmp-nvim-lsp", -- allows putting the LSP in autocompletion
+    },
     config = function()
-      -- local lspconfig = require("lspconfig")
+      local lspconfig = require("lspconfig")
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
       require("mason-lspconfig").setup({
         -- list of servers for mason to install
         -- list of available servers : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+        -- TODO: setup LSPs for :
+        -- R
+        -- C/C++
+        -- Web dev : HTML/CSS/SASS
         ensure_installed = {
           -- "air", -- not sure to use this one
           "bashls",
@@ -52,12 +61,16 @@ return {
         },
         automatic_enable = true,
 
-        -- handlers = {
-        --   function(server_name)
-        --     -- each lsp is called with its default config
-        --     lspconfig[server_name].setup({})
-        --   end,
-        -- },
+        -- LSPs setup
+        handlers = {
+          function(server_name)
+            -- each lsp is called with its default config,
+            -- with capabilities for autocompletion
+            lspconfig[server_name].setup({
+              capabilities = capabilities,
+            })
+          end,
+        },
       })
     end,
   },
@@ -66,15 +79,10 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependancies = {
-      "hrsh7th/cmp-nvim-lsp", -- allows putting the LSP in autocompletion
       { "antosha417/nvim-lsp-file-operations", config = true }, -- adds code actions (intelligent renaming, refactoring, etc.)
       { "folke/lazydev.nvim", opts = {} }, -- useful for neovim config files
     },
     config = function()
-      local lspconfig = require("lspconfig")
-
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
       -- ────────────────────────────────────────────────────────────────────────────────
       -- (KEYMAPS SETUP)
 
@@ -133,52 +141,6 @@ return {
             [vim.diagnostic.severity.HINT] = "󰌵",
           },
         },
-      })
-
-      -- ────────────────────────────────────────────────────────────────────────────────
-      -- (LSPs SETUP)
-      -- ────────────────────────────────────────────────────────────────────────────────
-
-      -- TODO: setup properly each lsp within separated files,
-      -- with a detailed setup for each languageserver adapted to my own use
-
-      -- ────────────────────────────────────────────────────────────────────────────────
-      -- (BASH)
-
-      -- configured to work also for zsh scripts
-      lspconfig.bashls.setup({
-        capabilities = capabilities,
-      })
-
-      -- ────────────────────────────────────────────────────────────────────────────────
-      -- (CSS)
-
-      lspconfig.cssls.setup({
-        capabilities = capabilities,
-      })
-
-      -- ────────────────────────────────────────────────────────────────────────────────
-      -- (LUA)
-
-      -- no need to setup, already done by the lazydev package
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-      })
-
-      -- ────────────────────────────────────────────────────────────────────────────────
-      -- (TEXLAB)
-
-      -- latex lsp ; source : https://github.com/latex-lsp/texlab
-
-      lspconfig.texlab.setup({
-        capabilities = capabilities,
-      })
-
-      -- ────────────────────────────────────────────────────────────────────────────────
-      -- (YAML)
-
-      lspconfig.yamlls.setup({
-        capabilities = capabilities,
       })
     end,
   },
