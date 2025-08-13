@@ -10,12 +10,14 @@ To open dev tools, open the command bar and type "open console"
   --font-family-mono: "IBM Plex Mono", monospace;
 }
 
+/* using Catppuccin Mocha */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-primary: #89b4fa;
-    --color-surface: #1e1e2e;
-    --color-primary-container: #181825;
-    --color-secondary-container: #181825;
-    --color-tertiary-container: #181825;
+    --color-primary: #89b4fa; /* blue -> bulle de message */
+    --color-surface: #1e1e2e; /* surface0 -> base des messages */
+    --color-primary-container: #313244; /* surface0 */
+    --color-secondary-container: #45475a; /* bulle des messages reçus -> surface1 */
+    --color-tertiary-container: #585b70; /* surface2 */
+    --color-text-neutrals: #cdd6f4; /* text */
   }
 }
