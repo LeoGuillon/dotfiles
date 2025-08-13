@@ -368,7 +368,16 @@ map("v", "Q", "<cmd>norm @q<cr>", { desc = "Apply recorded macro to visual selec
 -- (LEADER MAPPINGS)
 -- ——————————————————————————————————————————————————————————————————————————————
 
--- [U]I toggles
+-- common file actions
+map("n", "<leader>w", "<cmd>w<cr>", { desc = "save (Write) current buffer" })
+map("n", "<leader>W", "<cmd>wa<cr>", { desc = "save (Write) all buffers" })
+map("n", "<leader>q", "<cmd>wq<cr>", { desc = "save and Quit current buffer" })
+map("n", "<leader>Q", "<cmd>wqa<cr>", { desc = "save and Quit all buffers" })
+
+-- [o]pen …
 map("n", "<leader>ol", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
+-- UI [t]oggles
+-- TODO: add a command to toggle the colorcolumn at 80
 map("n", "<leader>tn", "<cmd>set number!<cr><cmd>set relativenumber!<cr>", { desc = "toggle line Numbers" })
 map("n", "<leader>tw", "<cmd>set wrap!<cr>", { desc = "toggle line Wrap" })

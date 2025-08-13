@@ -80,7 +80,13 @@ return {
 
       local map = require("core.utils").map
 
-      -- TODO: add relevant keymaps, and on buffer attach
+      map("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
+      map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
+      map("n", "gI", vim.lsp.buf.implementation, { desc = "Go to Implementations" })
+      map("n", "gh", vim.lsp.buf.hover, { desc = "Hover documentation under cursor" })
+
+      -- TODO: finish configure LSP keymaps
+
       map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Display code actions" })
 
       -- Telescope + LSP = <3
@@ -91,16 +97,14 @@ return {
       map("n", "<leader>slt", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Type definitions" })
 
       -- Diagnostics
-      map("n", "<leader>sx", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "diagnostiX in buffer" })
-      map("n", "<leader>xx", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
+      -- TODO: configure properly diagnostics shortcuts between lspconfig and trouble.nvim
+      -- map("n", "<leader>sx", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "diagnostiX in buffer" })
+      -- map("n", "<leader>xx", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
+
       -- stylua: ignore start
       map("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Diagnostic" })
       map("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Diagnostic" })
       -- stylua: ignore end
-
-      -- Documentation
-      map("n", "K", vim.lsp.buf.hover, { desc = "show doKumentation for what is under cursor" })
-      -- TODO: find a better mapping ? since I already use lowercase k for “unjoining lines”
 
       -- General LSP management
       require("which-key").add({ { "<leader>l", group = "LSP…", icon = "" } })
@@ -109,9 +113,18 @@ return {
       map("n", "<leader>ls", "<cmd>LspStop<cr>", { desc = "Stop" })
 
       -- ────────────────────────────────────────────────────────────────────────────────
-      -- (ERROR SIGNS SETUP)
+      -- (DIAGNOSTICS SETUP)
 
+      -- for more infos : vim.diagnostic.Opts
       vim.diagnostic.config({
+        underline = true,
+        update_in_insert = false,
+        virtual_text = {
+          spacing = 4,
+          source = "if_many",
+          prefix = "●",
+        },
+        severity_sor = true,
         signs = {
           text = {
             [vim.diagnostic.severity.ERROR] = "",

@@ -15,7 +15,7 @@ return {
 
     local function get_git_root_dir()
       local root_path = vim.fs.root(0, ".git")
-      -- stylua: ignore 
+      -- stylua: ignore
       if root_path == nil then return nil end
 
       local root_name = vim.fn.fnamemodify(root_path, ":t")
@@ -65,7 +65,6 @@ return {
 
     -- configuration de lualine
     lualine.setup({
-      -- TODO: add a rounded left side to lazy and mason
       extensions = {
         -- custom extensions
         harpoon_extension,
@@ -117,6 +116,8 @@ return {
           {
             "branch",
             icon = "", -- same icon used as in my starship prompt
+            -- TODO: add icons to have git status,
+            -- same icons used as in my starship prompt
           },
         },
         lualine_c = {
@@ -157,8 +158,8 @@ return {
             "filename",
             file_status = true,
             newfile_status = true,
-            path = 0, -- only the filename
-            -- path = 1, -- relative path to cwd
+            -- path = 0, -- only the filename
+            path = 1, -- relative path to cwd
             symbols = {
               modified = "",
               readonly = "",
@@ -177,6 +178,7 @@ return {
             cond = lazy_status.has_updates,
             color = { fg = "#ff9e64" },
           },
+          -- TODO: add mason available updates to this section
           -- not 100% sure to have the diff section
           -- {
           --   "diff",
@@ -189,6 +191,11 @@ return {
           -- },
           {
             "diagnostics",
+            sources = {
+              "nvim_lsp",
+              "nvim_diagnostic",
+              "coc",
+            },
             symbols = {
               error = " ",
               warn = " ",
@@ -197,17 +204,20 @@ return {
             },
           },
           -- { "searchcount" }, -- redundant while there's the usual commandline
-          -- { "selectioncount" }, -- same comment as for search count
-          -- { "encoding" },
-          -- { "fileformat" },
-          { "filetype" },
+          -- { "selectioncount" }, -- not that useful to me tbh, but we never say never I guess
+          -- { "encoding" }, -- quite useless as well tbh, everything is utf-8 right. Right?
         },
-        lualine_y = { "progress" },
+        lualine_y = {
+          { "filetype" },
+          -- { "lsp_status" },
+        },
         lualine_z = {
+          {
+            "progress",
+          },
           {
             "location",
             separator = {
-              left = "",
               right = "",
             },
           },

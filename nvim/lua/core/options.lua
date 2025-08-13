@@ -5,8 +5,15 @@ vim.g.loaded_netrwPlugin = 1
 local opt = vim.opt
 
 -- line numbers
-opt.relativenumber = true
-opt.number = true
+-- opt.relativenumber = true
+-- opt.number = true
+opt.relativenumber = false
+opt.number = false
+-- why ? mostly because I realized I mostly use shift + up/down
+-- to move faster, and don’t rely that much on number before moves
+-- or operations, so better to tidy up the interface
+-- I can still rely on it in the bottom right corner,
+-- or can toggle them back with <leader>tn
 
 -- tabs and indentation
 opt.tabstop = 2
