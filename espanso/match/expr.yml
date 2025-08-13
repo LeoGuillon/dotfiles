@@ -190,14 +190,28 @@ matches:
   # ────────────────────────────────────────────────────────────────────────────────
   # (ENGLISH)
 
-  # latin abbreviations, commonly used in scientific writing
+  - trigger: "bc"
+    replace: "because"
+    word: true
+    propagate_case: true
+
   - trigger: "eg"
     replace: "e.g."
     word: true
 
+  - trigger: "fex"
+    replace: "for example"
+    word: true
+    propagate_case: true
+
   - trigger: "ie"
     replace: "i.e."
     word: true
+
+  - trigger: "otw"
+    replace: "otherwise"
+    word: true
+    propagate_case: true
 
   # ────────────────────────────────────────────────────────────────────────────────
   # (MATHS)
