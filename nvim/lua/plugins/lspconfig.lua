@@ -78,19 +78,35 @@ return {
       -- ────────────────────────────────────────────────────────────────────────────────
       -- (KEYMAPS SETUP)
 
-      local map = vim.keymap.set
+      local map = require("core.utils").map
 
       -- TODO: add relevant keymaps, and on buffer attach
       map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Display code actions" })
-      map("n", "<leader>sd", "<cmd>Telescope lsp_definitions<CR>", { desc = "LSP Definitions" })
-      map("n", "<leader>si", "<cmd>Telescope lsp_implementations<CR>", { desc = "LSP Implementations" })
+
+      -- Telescope + LSP = <3
+      require("which-key").add({ { "<leader>sl", group = "LSP…", icon = "" } })
+      map("n", "<leader>sld", "<cmd>Telescope lsp_definitions<CR>", { desc = "Definitions" })
+      map("n", "<leader>sli", "<cmd>Telescope lsp_implementations<CR>", { desc = "Implementations" })
+      map("n", "<leader>slr", "<cmd>Telescope lsp_references<CR>", { desc = "References" })
+      map("n", "<leader>slt", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Type definitions" })
+
+      -- Diagnostics
       map("n", "<leader>sx", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "diagnostiX in buffer" })
-      map("n", "[d", function()
-        vim.diagnostic.jump({ count = -1, float = true })
-      end, { desc = "Diagnostic" })
-      map("n", "]d", function()
-        vim.diagnostic.jump({ count = 1, float = true })
-      end, { desc = "Diagnostic" })
+      map("n", "<leader>xx", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
+      -- stylua: ignore start
+      map("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Diagnostic" })
+      map("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Diagnostic" })
+      -- stylua: ignore end
+
+      -- Documentation
+      map("n", "K", vim.lsp.buf.hover, { desc = "show doKumentation for what is under cursor" })
+      -- TODO: find a better mapping ? since I already use lowercase k for “unjoining lines”
+
+      -- General LSP management
+      require("which-key").add({ { "<leader>l", group = "LSP…", icon = "" } })
+      map("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "Info" })
+      map("n", "<leader>lr", "<cmd>LspRestart<cr>", { desc = "Restart" })
+      map("n", "<leader>ls", "<cmd>LspStop<cr>", { desc = "Stop" })
 
       -- ────────────────────────────────────────────────────────────────────────────────
       -- (ERROR SIGNS SETUP)
@@ -110,11 +126,13 @@ return {
       -- (LSPs SETUP)
       -- ────────────────────────────────────────────────────────────────────────────────
 
+      -- TODO: setup properly each lsp within separated files,
+      -- with a detailed setup for each languageserver adapted to my own use
+
       -- ────────────────────────────────────────────────────────────────────────────────
       -- (BASH)
 
-      -- NOTE: configured to work also for zsh scripts
-
+      -- configured to work also for zsh scripts
       lspconfig.bashls.setup({
         capabilities = capabilities,
       })
