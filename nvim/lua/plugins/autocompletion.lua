@@ -12,12 +12,16 @@ return {
     "onsails/lspkind.nvim", -- vs-code like pictograms
     -- SOURCES
     -- TODO: sources to add :
-    -- R, lua, css, fonts, colors, emoji, greek, latex symbols
+    -- R,
+    -- css, fonts, colors,
+    -- greek, latex symbols
     "hrsh7th/cmp-buffer", -- buffer
     "hrsh7th/cmp-cmdline", -- command line commands
     "hrsh7th/cmp-nvim-lsp", -- lsp
+    "hrsh7th/cmp-nvim-lua", -- lua API
     "chrisgrieser/cmp-nerdfont", -- nerdfont icons
     "hrsh7th/cmp-path", -- path for files
+    "R-nvim/cmp-r", -- R from R.nvim
     "saadparwaiz1/cmp_luasnip", -- snippets
     "micangl/cmp-vimtex", -- vimtex support
   },
@@ -26,6 +30,7 @@ return {
 
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
+    local cmp_r = require("cmp_r")
 
     -- loads vscode style snippets
     require("luasnip.loaders.from_vscode").lazy_load()
@@ -54,8 +59,11 @@ return {
       sources = cmp.config.sources({ -- sources for autocompletion, sorted by decreasing priority
         { name = "luasnip" }, -- snippets
         { name = "path" }, -- path
+        { name = "nvim_lua" }, -- lua API
+        { name = "cmp_r" }, -- R
         { name = "nvim_lsp" }, -- lsp
         { name = "vimtex" }, -- vimtex support
+        { name = "lazydev", group_index = 0 }, -- lazydev
         { name = "nerdfont" }, -- nerdfont icons
         { name = "buffer" }, -- text in buffer
       }),
@@ -68,7 +76,9 @@ return {
           menu = {
             buffer = "[Buffer]",
             cmdline = "[CmdLine]",
+            lazydev = "[LazyDev]",
             nvim_lsp = "[LSP]",
+            nvim_lua = "[Lua]",
             nerdfont = "[NerdFont]",
             path = "[Path]",
             luasnip = "[LuaSnip]",
@@ -95,6 +105,10 @@ return {
           ignore_cmds = { "Man", "!" },
         } },
       }),
+    })
+
+    cmp_r.setup({
+      filetypes = { "r", "rmd" },
     })
   end,
 }

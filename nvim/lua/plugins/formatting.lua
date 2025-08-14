@@ -1,22 +1,4 @@
 return {
-  -- mason-tool-installer
-  -- for formatters and linters
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    config = function()
-      require("mason-tool-installer").setup({
-        ensure_installed = {
-          "clang-format", -- c, c++
-          -- "jupytext", -- julia, R, Rmd
-          "prettier", -- html, css, scss, md, javascript, typescript, json
-          "ruff", -- python
-          "stylua", -- lua
-          -- "taplo", -- toml
-          "tex-fmt", -- latex
-        },
-      })
-    end,
-  },
   {
     "stevearc/conform.nvim",
     opts = {},
@@ -60,13 +42,17 @@ return {
         },
       })
 
-      vim.keymap.set({ "n", "v" }, "<leader>cf", function()
+      local map = require("core.utils").map
+
+      map({ "n", "v" }, "<leader>ff", function()
         conform.format({
           lsp_format = "fallback",
           async = false,
           timeout_ms = 1000,
         })
       end, { desc = "Format file or range (in visual mode)" })
+      map("n", "<leader>fi", "<cmd>ConformInfo<cr>", { desc = "Infos on current active formatters" })
+      map("n", "<leader>oc", "<cmd>ConformInfo<cr>", { desc = "Conform" })
     end,
   },
 }

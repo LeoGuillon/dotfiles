@@ -1,79 +1,4 @@
 return {
-  -- MASON
-  {
-    "mason-org/mason.nvim",
-    keys = {
-      { "<leader>om", "<cmd>Mason<cr>", desc = "Mason" },
-    },
-    config = function()
-      require("mason").setup({
-        ui = {
-          icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-          },
-          border = "rounded",
-          width = 0.8,
-          height = 0.9,
-          keymaps = {
-            toggle_package_expand = "o",
-            toggle_help = "?",
-          },
-        },
-      })
-    end,
-  },
-  -- MASON-LSPCONFIG
-  {
-    "mason-org/mason-lspconfig.nvim",
-    dependancies = {
-      "neovim/lspconfig",
-      "hrsh7th/cmp-nvim-lsp", -- allows putting the LSP in autocompletion
-    },
-    config = function()
-      local lspconfig = require("lspconfig")
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-      require("mason-lspconfig").setup({
-        -- list of servers for mason to install
-        -- list of available servers : https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
-        -- TODO: setup LSPs for :
-        -- R
-        -- C/C++
-        -- Web dev : HTML/CSS/SASS
-        ensure_installed = {
-          -- "air", -- not sure to use this one
-          "bashls",
-          -- "clangd",
-          "cssls",
-          -- "css_variables",
-          -- "html",
-          -- "jsonls",
-          -- "julials",
-          -- "ltex-ls" -- grammar and spell checker for latex and md
-          "lua_ls",
-          -- "r-languageserver",
-          -- "taplo", -- toml
-          "texlab", -- latex lsp
-          -- "ts_ls",
-          "yamlls",
-        },
-        automatic_enable = true,
-
-        -- LSPs setup
-        handlers = {
-          function(server_name)
-            -- each lsp is called with its default config,
-            -- with capabilities for autocompletion
-            lspconfig[server_name].setup({
-              capabilities = capabilities,
-            })
-          end,
-        },
-      })
-    end,
-  },
   -- LSPCONFIG
   {
     "neovim/nvim-lspconfig",
@@ -85,8 +10,12 @@ return {
     config = function()
       -- ────────────────────────────────────────────────────────────────────────────────
       -- (KEYMAPS SETUP)
+      -- ────────────────────────────────────────────────────────────────────────────────
 
       local map = require("core.utils").map
+
+      -- ────────────────────────────────────────────────────────────────────────────────
+      -- (GO TO…)
 
       map("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
       map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
@@ -104,7 +33,8 @@ return {
       map("n", "<leader>slr", "<cmd>Telescope lsp_references<CR>", { desc = "References" })
       map("n", "<leader>slt", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Type definitions" })
 
-      -- Diagnostics
+      -- ────────────────────────────────────────────────────────────────────────────────
+      -- (DIAGNOSTICS)
       -- TODO: configure properly diagnostics shortcuts between lspconfig and trouble.nvim
       -- map("n", "<leader>sx", "<cmd>Telescope diagnostics bufnr=0<CR>", { desc = "diagnostiX in buffer" })
       -- map("n", "<leader>xx", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
@@ -114,24 +44,28 @@ return {
       map("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Diagnostic" })
       -- stylua: ignore end
 
+      -- ────────────────────────────────────────────────────────────────────────────────
       -- General LSP management
-      require("which-key").add({ { "<leader>l", group = "LSP…", icon = "" } })
+
+      require("which-key").add({ { "<leader>l", group = "LSP…", icon = "" } })
       map("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "Info" })
       map("n", "<leader>lr", "<cmd>LspRestart<cr>", { desc = "Restart" })
       map("n", "<leader>ls", "<cmd>LspStop<cr>", { desc = "Stop" })
 
       -- ────────────────────────────────────────────────────────────────────────────────
       -- (DIAGNOSTICS SETUP)
+      -- ────────────────────────────────────────────────────────────────────────────────
 
       -- for more infos : vim.diagnostic.Opts
       vim.diagnostic.config({
         underline = true,
         update_in_insert = false,
-        virtual_text = {
+        virtual_text = { -- creates virtual text at the end of lines with diagnostics
           spacing = 4,
           source = "if_many",
           prefix = "●",
         },
+        virtual_lines = false, -- creates virtual lines under diagnostics
         severity_sor = true,
         signs = {
           text = {
@@ -142,6 +76,45 @@ return {
           },
         },
       })
+
+      -- ────────────────────────────────────────────────────────────────────────────────
+      -- (LSPs SETUP)
+      -- ────────────────────────────────────────────────────────────────────────────────
+
+      -- ────────────────────────────────────────────────────────────────────────────────
+      -- (JSON)
+
+      vim.lsp.config("jsonls", {
+        settings = {
+          json = {
+            validate = { enable = true },
+          },
+        },
+      })
+
+      -- ────────────────────────────────────────────────────────────────────────────────
+      -- (R)
+
+      vim.lsp.config("r_language_server", {
+        cmd = { "R", "--slave", "-e", "languageserver::run()" },
+        settings = {
+          r = {
+            lsp = {
+              diagnostics = false,
+              rich_documentation = true,
+            },
+          },
+        },
+      })
     end,
+  },
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
   },
 }

@@ -55,8 +55,9 @@ return {
       return M
     end
 
-    local harpoon_extension = custom_extension({ "harpoon" }, "HARPOON", "󰐃")
-    -- local harpoon_extension = custom_extension({ "harpoon" }, "HARPOON", "󰀱")
+    -- TODO: setup custom extension for conform window
+    -- local conform_extension = custom_extension({""})
+    local harpoon_extension = custom_extension({ "harpoon" }, "HARPOON", "󰀱")
     local lazy_extension = custom_extension({ "lazy" }, "LAZY", "󰒲")
     local lazygit_extension = custom_extension({ "lazygit" }, "GIT", "󰊢")
     local mason_extension = custom_extension({ "mason" }, "MASON", "󰟾")
@@ -209,7 +210,10 @@ return {
         },
         lualine_y = {
           { "filetype" },
-          -- { "lsp_status" },
+          {
+            "lsp_status",
+            icon = "",
+          },
         },
         lualine_z = {
           {

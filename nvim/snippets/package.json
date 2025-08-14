@@ -45,6 +45,12 @@
         ]
       },
       {
+        "path": "./general/r.json",
+        "language": [
+          "r"
+        ]
+      },
+      {
         "path": "./general/tex/commands.json",
         "language": [
           "tex",

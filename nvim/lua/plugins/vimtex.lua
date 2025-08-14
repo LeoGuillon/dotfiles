@@ -1,6 +1,6 @@
 return {
   "lervag/vimtex",
-  lazy = false,
+  ft = "tex", -- lazy-load only when entering tex files
   init = function()
     -- GENERAL SETTINGS
 

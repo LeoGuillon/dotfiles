@@ -354,16 +354,6 @@ map({ "x", "o" }, "ai", "a`", { desc = "` (Inline code)" })
 -- [m]ath block
 -- se[x]ion
 
--- ────────────────────────────────────────────────────────────────────────────────
--- (MACROS)
--- ────────────────────────────────────────────────────────────────────────────────
-
--- new behaviour for macros, as I usually use only one at the same time :
--- press qq to record, q to stop recording, then Q to apply
-
-map("n", "Q", "@q", { desc = "Apply recorded macro" })
-map("v", "Q", "<cmd>norm @q<cr>", { desc = "Apply recorded macro to visual selection" })
-
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (LEADER MAPPINGS)
 -- ——————————————————————————————————————————————————————————————————————————————

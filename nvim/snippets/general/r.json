@@ -1,0 +1,113 @@
+{
+  "apply": {
+    "body": "apply(${1:array}, ${2:margin}, ${3:...})",
+    "prefix": "apply"
+  },
+  "else": {
+    "body": [
+      "else {",
+      "    ${0}",
+      "}\n"
+    ],
+    "prefix": "el"
+  },
+  "else if": {
+    "body": [
+      "else if (${1:condition}) {",
+      "    $22",
+      "}$0"
+    ],
+    "prefix": [
+      "else if",
+      "elif"
+    ]
+  },
+  "for": {
+    "body": [
+      "for (${1:variable} in ${2:vector}) {",
+      "    ${0}",
+      "}\n"
+    ],
+    "prefix": "for"
+  },
+  "function": {
+    "body": [
+      "${1:name} <- function(${2:variables}) {",
+      "    ${0}",
+      "}\n"
+    ],
+    "prefix": "fun"
+  },
+  "if": {
+    "body": [
+      "if (${1:condition}) {",
+      "    ${0}",
+      "}\n"
+    ],
+    "prefix": "if"
+  },
+  "in": {
+    "body": "%in%",
+    "prefix": "in"
+  },
+  "lapply": {
+    "body": "lapply(${1:list}, ${2:function})",
+    "prefix": "lapply"
+  },
+  "library": {
+    "body": [
+      "library(${1:package})"
+    ],
+    "prefix": "lib"
+  },
+  "mapply": {
+    "body": "mapply(${1:function}, ${2:...})",
+    "prefix": "mapply"
+  },
+  "matrix": {
+    "body": "matrix(${1:data}, nrow = ${2:rows}, ncol = ${3:cols})",
+    "prefix": "mat"
+  },
+  "rapply": {
+    "body": "rapply(${1:list}, ${2:function})",
+    "prefix": "rapply"
+  },
+  "return": {
+    "body": "return(${1:code})",
+    "prefix": "ret"
+  },
+  "sapply": {
+    "body": "sapply(${1:list}, ${2:function})",
+    "prefix": "sapply"
+  },
+  "source": {
+    "body": [
+      "source(\"${1:file.R}\")"
+    ],
+    "prefix": "src"
+  },
+  "switch": {
+    "body": [
+      "switch (${1:object},",
+      "    ${2:case} = ${3:action}",
+      ")\n"
+    ],
+    "prefix": "switch"
+  },
+  "tapply": {
+    "body": "tapply(${1:vector}, ${2:index}, ${3:function})",
+    "prefix": "tapply"
+  },
+  "vapply": {
+    "body": "vapply(${1:list}, ${2:function}, FUN.VALUE = ${3:type}, ${4:...})",
+    "prefix": "vapply"
+  },
+  "while": {
+    "body": [
+      "while (${1:condition}) {",
+      "    ${0}",
+      "}\n"
+    ],
+    "prefix": "while"
+  }
+}
