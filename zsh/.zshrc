@@ -2,8 +2,6 @@ bindkey -v
 
 export DOTFILES=$HOME/dotfiles
 
-export BAT_THEME="Catppuccin Mocha"
-
 export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml
 
 export TMUX_CONFIG_DIR=$DOTFILES/tmux
