@@ -68,13 +68,6 @@ exmap lineDown obcommand editor:swap-line-down
 nnoremap <A-Down> :lineDown<CR>
 nnoremap <A-Up> :lineUp<CR>
 
-" ────────────────────────────────────────────────────────────────────────────────
-" (COMMENTS)
-
-exmap togglecomment obcommand editor:
-" nnoremap gcc :togglecomment<CR>
-vnoremap gc :togglecomment<CR>
-
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (ERGO-L LAYOUT SPECIFIC KEYMAPS)
@@ -608,7 +601,7 @@ nnoremap <Space>o, :opensettings<CR>
 " plugin to add visual toggle commands
 
 " [b]old
-  exmap togglebold obcommand editor:toggle-bold
+exmap togglebold obcommand editor:toggle-bold
 nnoremap <Space>tb :togglebold<CR>
 vnoremap <Space>tb :togglebold<CR>
 

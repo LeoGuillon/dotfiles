@@ -30,6 +30,9 @@ $directory$git_branch$git_status $character
 # path
 
 [directory]
+# TODO: set custom directories name once JDS is set up
+# technically, no more than 5 levels, right ?
+# system -> area -> category -> ID -> element, which should be a git folder
 truncation_length = 3
 truncate_to_repo = true
 style = "bold fg:lavender"
