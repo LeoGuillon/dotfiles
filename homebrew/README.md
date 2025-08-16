@@ -22,7 +22,7 @@
 - starship
 - stow
 - thefuck
-- tldr
+- tealdeer
 - tmux
 - tree
 - tree-sitter
