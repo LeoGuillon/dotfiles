@@ -2,7 +2,7 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
-[manager]
+[mgr]
 
 keymap = [
   { on = "<Esc>", run = "escape", desc = "Exit visual mode, clear selected, or cancel search" },
@@ -37,8 +37,8 @@ keymap = [
   { on = [ "g", "g", ], run = "arrow top", desc = "Move cursor to the top" },
   { on = "G", run = "arrow bot", desc = "Move cursor to the bottom" },
 
-	{ on = "<Left>",  run = "leave", desc = "Go back to the parent directory" },
-	{ on = "<Right>", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+  { on = "<Left>", run = "leave", desc = "Go back to the parent directory" },
+  { on = "<Right>", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
 
   # { on = "H", run = "back",    desc = "Go back to the previous directory" },
   # { on = "L", run = "forward", desc = "Go forward to the next directory" },
@@ -131,16 +131,16 @@ keymap = [
   { on = [ ",", "s", ], run = [ "sort size --reverse=no", "linemode size", ], desc = "Sort by size" },
   { on = [ ",", "S", ], run = [ "sort size --reverse", "linemode size", ], desc = "Sort by size (reverse)" },
   { on = [ ",", "r", ], run = "sort random --reverse=no", desc = "Sort randomly" },
-
   # Goto
-  { on = [ "g", "h", ], run = "cd ~", desc = "Home" },
+  { on = [ "g", "a", ], run = "cd ~/A18", desc = "A18" },
   { on = [ "g", "c", ], run = "cd ~/.config", desc = ".config" },
-  { on = [ "g", "v", ], run = "cd ~/dev", desc = "dev" },
   { on = [ "g", "d", ], run = "cd ~/Documents", desc = "Documents" },
-  { on = [ "g", ".", ], run = "cd ~/dotfiles", desc = "dotfiles" },
-  { on = [ "g", "l", ], run = "cd ~/Downloads", desc = "Downloads" },
+  { on = [ "g", "h", ], run = "cd ~", desc = "Home" },
   { on = [ "g", "i", ], run = "cd ~/Pictures", desc = "Pictures" },
+  { on = [ "g", "l", ], run = "cd ~/Downloads", desc = "Downloads" },
   { on = [ "g", "r", ], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = "Git root" },
+  { on = [ "g", "v", ], run = "cd ~/dev", desc = "dev" },
+  { on = [ "g", ".", ], run = "cd ~/dotfiles", desc = "dotfiles" },
   { on = [ "g", "<Space>", ], run = "cd --interactive", desc = "Jump interactively" },
 
   # Tabs
