@@ -26,6 +26,6 @@
 
 - color : I use [Catppuccin](https://catppuccin.com/) in its Mocha variant nearly everywhere, to have a dark and unified theme across all my tools
 - font : [IBM Plex](https://www.ibm.com/plex/) in its variant everywhere I can, notably :
-  - Mono in coding
+  - Mono in coding, using the nerd font awesome variant [Lilex](https://github.com/mishamyrt/Lilex)
   - Sans in note-taking
   - Serif in writing long-form documents
