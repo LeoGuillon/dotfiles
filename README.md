@@ -20,6 +20,7 @@
   - window manager : [Rectangle](https://rectangleapp.com/)
   - keyboard hacking : [Karabiner Elements](https://karabiner-elements.pqrs.org/)
   - text expander : [Espanso](https://espanso.org/), check my matches [here](espanso/README.md)
+  - custom task bar : [Sketchybar](https://github.com/FelixKratz/SketchyBar), still WIP
 
 ## Theme
 
