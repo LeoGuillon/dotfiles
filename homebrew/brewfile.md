@@ -44,7 +44,9 @@
 - espanso
 - flux
 - firefox
-- font-blex-mono-nerd-font
+- font-ibm-plex
+- font-lilex-nerd-font
+- font-symbols-only-nerd-font
 - hiddenbar
 - iterm2
 - julia
@@ -65,8 +67,10 @@
 - scroll-reverser
 - sioyek
 - slimhud
+- stretchly
 - telegram
 - tex-live-utility
+- thunderbird
 - vlc
 - wezterm
 - zen-browser

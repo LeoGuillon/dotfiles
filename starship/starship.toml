@@ -35,6 +35,7 @@ format = "[$path]($style)"
 [directory.substitutions]
 '~/Dropbox' = ''
 '~/ownCloud' = ''
+'/Volumes/KOBOeReader' = ''
 
 # ────────────────────────────────────────────────────────────────────────────────
 # (GIT)
