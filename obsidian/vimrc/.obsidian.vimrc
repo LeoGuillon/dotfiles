@@ -61,15 +61,6 @@ nnoremap <A-Left> xhhp
 nnoremap <A-Right> xp
 
 " ——————————————————————————————————————————————————————————————————————————————
-" (MOVING LINES)
-
-exmap lineUp obcommand editor:swap-line-up
-exmap lineDown obcommand editor:swap-line-down
-nnoremap <A-Down> :lineDown<CR>
-nnoremap <A-Up> :lineUp<CR>
-
-
-" ——————————————————————————————————————————————————————————————————————————————
 " (ERGO-L LAYOUT SPECIFIC KEYMAPS)
 " ——————————————————————————————————————————————————————————————————————————————
 " credits : https://ergol.org/articles/vim_pour_les_ergonautes/
@@ -112,6 +103,10 @@ onoremap l ge
 nnoremap L gE
 vnoremap L gE
 onoremap L gE
+
+" new lines on =/≠
+nnoremap = mzo<Esc>`z
+nnoremap ≠ mzO<Esc>`z
 
 
 " ——————————————————————————————————————————————————————————————————————————————
@@ -194,9 +189,14 @@ nnoremap gx :openlink<CR>
 exmap closetab obcommand workspace:close
 nnoremap ZZ :closetab<CR>
 
-" close window
-exmap closewindow obcommand obsidian-git:backup-and-close
+" close window (without git backup)
+exmap closewindow obcommand workspace:close-window
 nnoremap ZQ :closewindow<CR>
+
+" close vault (with git backup)
+exmap quitvault obcommand obsidian-git:backup-and-close
+nnoremap ZA :quitvault<CR>
+
 
 " forward/backward in the history
 exmap goBack obcommand app:go-back
@@ -378,9 +378,6 @@ inoremap Qo Quo
 " Can’t set a leader key, so every occurence must be written by hand
 unmap <Space>
 
-" new line above or below without entering insert mode
-nnoremap <CR> mzo<Esc>`z
-
 " adding a , ; or . at the end of line
 nnoremap <Space>, mzA,<Esc>`z
 nnoremap <Space>; mzA<Space>;<Esc>`z
@@ -389,6 +386,13 @@ nnoremap <Space>. mzA.<Esc>`z
 " quick toggle casing ; credits : https://nanotipsforvim.prose.sh/quickly-toggle-casing
 nnoremap <Space>~ mzlblgueh~`z
 
+" ────────────────────────────────────────────────────────────────────────────────
+" (NAVIGATION)
+
+" analog to cmd/ctrl+(shift+)w, or cmd/ctrl+q
+nnoremap <Space>w :closetab<CR>
+nnoremap <Space>W :closewindow<CR>
+nnoremap <Space>q :quitvault<CR>
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (NOTE CREATION)
