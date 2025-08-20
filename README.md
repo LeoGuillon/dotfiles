@@ -20,11 +20,12 @@
   - window manager : [Rectangle](https://rectangleapp.com/)
   - keyboard hacking : [Karabiner Elements](https://karabiner-elements.pqrs.org/)
   - text expander : [Espanso](https://espanso.org/), check my matches [here](espanso/README.md)
+  - custom task bar : [Sketchybar](https://github.com/FelixKratz/SketchyBar), still WIP
 
 ## Theme
 
 - color : I use [Catppuccin](https://catppuccin.com/) in its Mocha variant nearly everywhere, to have a dark and unified theme across all my tools
 - font : [IBM Plex](https://www.ibm.com/plex/) in its variant everywhere I can, notably :
-  - Mono in coding
+  - Mono in coding, using the nerd font awesome variant [Lilex](https://github.com/mishamyrt/Lilex)
   - Sans in note-taking
   - Serif in writing long-form documents
