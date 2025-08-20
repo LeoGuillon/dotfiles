@@ -71,7 +71,11 @@ do
 end
 
 -- Maj operators
-map("n", "P", "mz$p`z", { desc = "Paste at the end of line" })
+map("n", "P", function()
+  local current_line = vim.api.nvim_get_current_line():gsub("%s*$", "")
+  local reg = vim.trim(vim.fn.getreg("+"))
+  vim.api.nvim_set_current_line(current_line .. " " .. reg)
+end, { desc = "Paste at the end of line" })
 map("n", "X", function()
   local updatedLine = vim.api.nvim_get_current_line():gsub("%S%s*$", "")
   vim.api.nvim_set_current_line(updatedLine)
@@ -127,13 +131,13 @@ map("n", "<leader>~", "mzlblgueh~`z", { desc = "Smart word togglecasing" })
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (NEW LINES)
 
--- -- NOTE: to avoid conflict with `gn` in obsidian, which does the `gf`/`gx` action
--- map("n", "gn", "mzo<esc>^D`z", { desc = "Add an empty line below" })
--- map("n", "gN", "mzO<esc>^D`z", { desc = "Add an empty line above" })
+map("n", "<CR>", "]<Space>", { desc = "Add an empty line below", remap = true })
+-- map("n", "<S-CR>", "[<Space>", { desc = "Add an empty line above", remap = true })
+-- BUG: make the combo <S-CR> work on iTerm and WezTerm
 
-map("n", "<CR>", "mzo<esc>^D`z", { desc = "Add an empty line below" })
-map("n", "<S-CR>", "mzO<esc>^D`z", { desc = "Add an empty line above" })
--- TODO: test the <S-CR> combo on wezterm
+-- I don’t use that much the `=` comamnd anyway
+map("n", "=", "]<Space>", { desc = "Add an empty line below", remap = true })
+map("n", "≠", "[<Space>", { desc = "Add an empty line above", remap = true }) -- shifted = in ergo-l layout
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (TRAILING CHARS)
@@ -143,9 +147,13 @@ local trail_chars = {
   ",",
   ";",
   ".",
+  "{",
 }
-for _, key in pairs(trail_chars) do
-  map("n", "<leader>" .. key, ("mzA%s<Esc>`z"):format(key), { desc = ("add %s to eol"):format(key) })
+for _, char in pairs(trail_chars) do
+  map("n", "<leader>" .. char, function()
+    local updated_line = vim.api.nvim_get_current_line() .. char
+    vim.api.nvim_set_current_line(updated_line)
+  end, { desc = ("add %s to eol"):format(char) })
 end
 
 -- ——————————————————————————————————————————————————————————————————————————————
@@ -156,8 +164,6 @@ map("n", "<Tab>", ">>", { desc = "󰉶 indent" })
 map("x", "<Tab>", ">gv", { desc = "󰉶 indent" })
 map("n", "<S-Tab>", "<<", { desc = "󰉵 outdent" })
 map("x", "<S-Tab>", "<gv", { desc = "󰉵 outdent" })
-
-map("n", "=", "mzgg=G`z", { desc = "correct the indent for whole buffer" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (ERGO-L LAYOUT SPECIFIC KEYMAPS)
@@ -192,7 +198,6 @@ map("n", "gJ", "kgJ", { desc = "Join current line to the previous (without blank
 
 -- [k]nit lines
 -- opposite functions to j/J
--- TODO: use plugin revJ to better handle this operation
 map("n", "k", "i<CR><Esc>", { desc = "Unjoin to the next line" })
 
 -- [l]ean back : just a shortcut for ge/gE
@@ -299,7 +304,10 @@ map("n", "<C-v>", "<C-w>s", { desc = "Split vertically" })
 map("n", "<C-Left>", "<C-w>h", { desc = "Go to Left Window" })
 map("n", "<C-Down>", "<C-w>j", { desc = "Go to Lower Window" })
 map("n", "<C-Up>", "<C-w>k", { desc = "Go to Upper Window" })
-map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window" })
+map("n", " <C-Right>", "<C-w>l", { desc = "Go to Right Window" })
+
+-- Pane resizing
+-- TODO: find how to map shift + control + arrows
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (BUFFERS)
@@ -320,29 +328,20 @@ map("n", "<C-S-TAB>", "<cmd>bprevious<cr>", { desc = "go to previous buffer" })
 -- [t]ag
 -- [b]rackets
 
--- [c]urly brace
-map({ "x", "o" }, "ic", "i}", { desc = "{} (Curly braces)" })
-map({ "x", "o" }, "ac", "a}", { desc = "{} (Curly braces)" })
+local custom_text_objects = {
+  { "c", "}", "󰅩", "Curly braces" },
+  { "r", "]", "󰅪", "Rectangular brackets" },
+  { "v", ">", "󰅴", "cheVrons" },
+  { "q", '"', '"', "Quote" },
+  { "a", "'", "'", "Apostrophe" },
+  { "i", "`", "`", "Inline code" },
+}
 
--- [r]ectangular bracket
-map({ "x", "o" }, "ir", "i]", { desc = "[] (Rectangular brackets)" })
-map({ "x", "o" }, "ar", "a]", { desc = "[] (Rectangular brackets)" })
-
--- che[v]rons
-map({ "x", "o" }, "iv", "i>", { desc = "<> (cheVrons)" })
-map({ "x", "o" }, "av", "a>", { desc = "<> (cheVrons)" })
-
--- [q]uoted text
-map({ "x", "o" }, "iq", 'i"', { desc = '" (Quoted text)' })
-map({ "x", "o" }, "aq", 'a"', { desc = '" (Quoted text)' })
-
--- [a]postrothe quoted text
-map({ "x", "o" }, "ia", "i'", { desc = "' (Apostrophe)" })
-map({ "x", "o" }, "aa", "a'", { desc = "' (Apostrophe)" })
-
--- [i]nline code
-map({ "x", "o" }, "ii", "i`", { desc = "` (Inline code)" })
-map({ "x", "o" }, "ai", "a`", { desc = "` (Inline code)" })
+for _, value in ipairs(custom_text_objects) do
+  local remap, original, icon, label = unpack(value)
+  map({ "x", "o" }, "i" .. remap, "i" .. original, { desc = icon .. " (" .. label .. ")" })
+  map({ "x", "o" }, "a" .. remap, "a" .. original, { desc = icon .. " (" .. label .. ")" })
+end
 
 -- NOTE: treesitter’s text objects memo :
 -- all of them starts with [o]
@@ -369,5 +368,10 @@ map("n", "<leader>ol", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- UI [t]oggles
 -- TODO: add a command to toggle the colorcolumn at 80
-map("n", "<leader>tn", "<cmd>set number!<cr><cmd>set relativenumber!<cr>", { desc = "toggle line Numbers" })
-map("n", "<leader>tw", "<cmd>set wrap!<cr>", { desc = "toggle line Wrap" })
+-- map("n", "<leader>tc", function () vim.opt.colorcolumn = vim.opt.colorcolumn == {} and {80} or {} end, { desc = "Color Column" })
+
+-- stylua: ignore start
+map("n", "<leader>tl", function() vim.wo.conceallevel = vim.wo.conceallevel == 0 and 2 or 0 end, { desc = "conceaL Level" })
+-- stylua: ignore end
+map("n", "<leader>tn", "<cmd>set number!<cr><cmd>set relativenumber!<cr>", { desc = "line Numbers" })
+map("n", "<leader>tw", "<cmd>set wrap!<cr>", { desc = "line Wrap" })

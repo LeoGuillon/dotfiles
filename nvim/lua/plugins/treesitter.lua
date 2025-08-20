@@ -8,6 +8,7 @@ return {
     "folke/which-key.nvim",
   },
   config = function()
+    ---@diagnostic disable-next-line: missing-fields
     require("nvim-treesitter.configs").setup({
       auto_install = true,
       highlight = {
@@ -16,7 +17,7 @@ return {
       },
       indent = { enable = true }, -- enable indentation
 
-      ensure_install = {
+      ensure_installed = {
         "bash",
         "bibtex",
         "c",
@@ -36,10 +37,8 @@ return {
         "r",
         "regex",
         "rnoweb",
-        "tex",
         "tmux",
         "toml",
-        "sty",
         "typescript",
         "vim",
         "vimdoc",
@@ -115,18 +114,17 @@ return {
 
     -- keymaps
 
-    local map = vim.keymap.set
+    local map = require("core.utils").map
+    local wk = require("which-key")
+    local treesitter_icon = require("core.utils").icons.ui.treesitter
+
     map("n", "<leader>ot", "<cmd>InspectTree<cr>", { desc = "TreeSitter" })
     -- stylua: ignore start
     -- map("n", "<leader>tc", function() treesitter_context.go_to_context(vim.v.count1)end, { desc = "go back to Context", silent = true })
     map("n", "[c", function() treesitter_context.go_to_context(vim.v.count1)end, { desc = "go back to Context", silent = true })
+    wk.add({ { "<leader>T", group = "TreeSitter…", icon = { icon = treesitter_icon } }, })
+    wk.add({ { "io", group = "treesitter text Object…", mode = { "x", "o" }, icon = treesitter_icon }, })
+    wk.add({ { "ao", group = "treesitter text Object…", mode = { "x", "o" }, icon = treesitter_icon }, })
     -- stylua: ignore end
-    require("which-key").add({ { "<leader>T", group = "TreeSitter…", icon = { icon = "󰔱", color = "green" } } })
-    require("which-key").add({
-      { "io", group = "treesitter text Object…", mode = { "x", "o" }, icon = "󰔱", color = "green" },
-    })
-    require("which-key").add({
-      { "ao", group = "treesitter text Object…", mode = { "x", "o" }, icon = "󰔱", color = "green" },
-    })
   end,
 }

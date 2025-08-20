@@ -1,102 +1,83 @@
 {
-  "require": {
-    "prefix": "req",
+  "anonymous-function": {
     "body": [
-      "require(${1:module})"
+      "function($1)",
+      "\t${0}",
+      "end"
     ],
-    "description": "Require module"
-  },
-  "return": {
-    "prefix": "rt",
-    "body": [
-      "return $0"
-    ],
-    "description": "Return value"
+    "description": "Create an anonymous function",
+    "prefix": "f)"
   },
   "assigment": {
-    "prefix": "ll",
     "body": [
       "local ${1:varName} = ${0:value}"
     ],
-    "description": "Define a variable"
+    "description": "Define a variable",
+    "prefix": "ll"
   },
-  "local": {
-    "prefix": "l",
+  "assign-function": {
     "body": [
-      "local ${0}"
+      "${1:name} = function($2)",
+      "\t${0}",
+      "end"
     ],
-    "description": "Declare a variable"
-  },
-  "locreq": {
-    "prefix": "lreq",
-    "body": [
-      "local ${1:module} = require(\"${2:$1}\")$0"
-    ],
-    "description": "Require module as a variable"
+    "description": "Assign a function to a variable",
+    "prefix": "f="
   },
   "class": {
-    "prefix": "cl",
     "body": [
       "${1:M} = {}\n",
       "$1.${2:new} = function($3)",
       "\t${6}",
       "end"
     ],
-    "description": "Create a class"
-  },
-  "if": {
-    "prefix": "if",
-    "body": [
-      "if ${1:true} then",
-      "\t$0",
-      "end"
-    ]
+    "description": "Create a class",
+    "prefix": "cl"
   },
   "elseif": {
-    "prefix": "elseif",
     "body": [
       "elseif ${1:true} then",
       "\t$0"
-    ]
+    ],
+    "prefix": "elseif"
   },
   "for": {
-    "prefix": "for",
     "body": [
       "for $1 do",
       "\t$0",
       "end"
     ],
-    "description": "for statement"
-  },
-  "for-numeric": {
-    "prefix": "forn",
-    "body": [
-      "for ${1:i} = ${2:1}, ${3:10} do",
-      "\t$0",
-      "end"
-    ],
-    "description": "for numeric range statement"
+    "description": "for statement",
+    "prefix": "for"
   },
   "for-ipairs": {
-    "prefix": "fori",
     "body": [
       "for ${1:i}, ${2:x} in ipairs(${3:t}) do",
       "\t$0",
       "end"
     ],
-    "description": "for i, x in ipairs(t)"
+    "description": "for i, x in ipairs(t)",
+    "prefix": "fori"
+  },
+  "for-numeric": {
+    "body": [
+      "for ${1:i} = ${2:1}, ${3:10} do",
+      "\t$0",
+      "end"
+    ],
+    "description": "for numeric range statement",
+    "prefix": "forn"
   },
   "for-pairs": {
-    "prefix": "forp",
     "body": [
       "for ${1:k}, ${2:v} in pairs(${3:t}) do",
       "\t$0",
       "end"
     ],
-    "description": "for k, v in pairs(t)"
+    "description": "for k, v in pairs(t)",
+    "prefix": "forp"
   },
   "forline": {
-    "prefix": "forline",
     "body": [
       "local f = io.open(${1:${2:filename}}, \"${3:r}\")\n",
       "while true do",
@@ -105,97 +86,112 @@
       "\t${0}",
       "end"
     ],
-    "description": "Read file line by line"
+    "description": "Read file line by line",
+    "prefix": "forline"
   },
   "function": {
-    "prefix": "fu",
     "body": [
       "function ${1:name}($2)",
       "\t${0}",
       "end"
     ],
-    "description": "Define a function"
+    "description": "Define a function",
+    "prefix": "fu"
   },
-  "assign-function": {
-    "prefix": "f=",
+  "if": {
     "body": [
-      "${1:name} = function($2)",
-      "\t${0}",
+      "if ${1:true} then",
+      "\t$0",
       "end"
     ],
-    "description": "Assign a function to a variable"
+    "prefix": "if"
   },
-  "local-function": {
-    "prefix": "lfu",
+  "local": {
     "body": [
-      "local function ${1:name}($2)",
-      "\t${0}",
-      "end"
+      "local ${0}"
     ],
-    "description": "Define a local function"
+    "description": "Declare a variable",
+    "prefix": "l"
   },
   "local-assign-function": {
-    "prefix": "lf=",
     "body": [
       "local ${1:name} = function($2)",
       "\t${0}",
       "end"
     ],
-    "description": "Assign a function to a local variable"
+    "description": "Assign a function to a local variable",
+    "prefix": "lf="
   },
-  "anonymous-function": {
-    "prefix": "f)",
+  "local-function": {
     "body": [
-      "function($1)",
+      "local function ${1:name}($2)",
       "\t${0}",
       "end"
     ],
-    "description": "Create an anonymous function"
+    "description": "Define a local function",
+    "prefix": "lfu"
+  },
+  "locpcall": {
+    "body": [
+      "local ${1:status}, ${2:err_or_value} = pcall(${3:function})"
+    ],
+    "description": "Protect call a function as a variable",
+    "prefix": "lpca"
+  },
+  "locreq": {
+    "body": [
+      "local ${1:module} = require(\"${2:$1}\")$0"
+    ],
+    "description": "Require module as a variable",
+    "prefix": "lreq"
   },
   "member-function": {
-    "prefix": "f,",
     "body": [
       "${1:name} = function($2)",
       "\t${0}",
       "end,"
     ],
-    "description": "Assign a function to a table key"
+    "description": "Assign a function to a table key",
+    "prefix": "f,"
+  },
+  "pcall": {
+    "body": [
+      "pcall(${1:function})"
+    ],
+    "description": "Protect call a function",
+    "prefix": "pca"
   },
   "print": {
-    "prefix": "p",
     "body": [
       "print(${0})"
-    ]
+    ],
+    "prefix": "p"
+  },
+  "require": {
+    "body": [
+      "require(${1:module})"
+    ],
+    "description": "Require module",
+    "prefix": "req"
+  },
+  "return": {
+    "body": [
+      "return $0"
+    ],
+    "description": "Return value",
+    "prefix": "rt"
   },
   "self": {
-    "prefix": "self:",
     "body": [
       "function self:${1:methodName}($2)",
       "\t$0",
       "end"
-    ]
-  },
-  "while": {
-    "prefix": "while",
-    "body": [
-      "while ${1:true} do",
-      "\t$0",
-      "end"
-    ]
-  },
-  "pcall": {
-    "prefix": "pca",
-    "body": [
-      "pcall(${1:function})"
     ],
-    "description": "Protect call a function"
+    "prefix": "self:"
   },
-  "locpcall": {
-    "prefix": "lpca",
-    "body": [
-      "local ${1:status}, ${2:err_or_value} = pcall(${3:function})"
-    ],
-    "description": "Protect call a function as a variable"
+  "stylua-ignore-line": {
+    "body": "-- stylua: ignore",
+    "prefix": "stylua-ignore-line"
   },
   "stylua_ignore": {
     "body": [
@@ -203,6 +199,14 @@
       "$TM_SELECTED_TEXT",
       "-- stylua: ignore end"
     ],
-    "prefix": "stylua_ignore"
+    "prefix": "stylua-ignore-block"
+  },
+  "while": {
+    "body": [
+      "while ${1:true} do",
+      "\t$0",
+      "end"
+    ],
+    "prefix": "while"
   }
 }

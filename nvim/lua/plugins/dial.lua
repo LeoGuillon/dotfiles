@@ -49,6 +49,15 @@ return {
       cyclic = true,
     })
 
+    local interval_limits = augend.constant.new({
+      elements = {
+        "]",
+        "[",
+      },
+      word = false,
+      cyclic = true,
+    })
+
     dial.augends:register_group({
       -- default augends used when no group name is specified
       default = {
@@ -60,6 +69,7 @@ return {
         capitalized_boolean,
         caps_boolean,
         logical_door,
+        interval_limits,
         augend.constant.alias.alpha, -- lowercase alphabet (a, b, c, …)
         augend.constant.alias.Alpha, -- uppercase alphabet (A, B, C, …)
       },

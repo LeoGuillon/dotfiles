@@ -42,7 +42,7 @@ return {
       { "<leader>", group = "Leader key" },
       { "<leader>c", group = "Code actions…" },
       { "<leader>o", group = "Open…" },
-      { "<leader>t", group = "Toggle UI…" },
+      { "<leader>t", group = "Toggle…" },
       { "<localleader>", group = "Local Leader key…" },
     },
   },

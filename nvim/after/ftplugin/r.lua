@@ -1,0 +1,4 @@
+-- TODO: decide how to setup this, either with :
+-- lintr, after/ftplugin or .editorconfig
+-- vim.opt_local.shiftwidth = 4
+-- vim.opt_local.tabstop = 2

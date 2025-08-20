@@ -13,10 +13,13 @@ return {
     -- SOURCES
     -- TODO: sources to add :
     -- R,
-    -- css, fonts, colors,
-    -- greek, latex symbols
+    -- css
+    -- fonts : https://github.com/amarz45/nvim-cmp-fonts
+    -- colors
+    -- greek
     "hrsh7th/cmp-buffer", -- buffer
     "hrsh7th/cmp-cmdline", -- command line commands
+    "kdheepak/cmp-latex-symbols", -- latex symbols
     "hrsh7th/cmp-nvim-lsp", -- lsp
     "hrsh7th/cmp-nvim-lua", -- lua API
     "chrisgrieser/cmp-nerdfont", -- nerdfont icons
@@ -60,6 +63,7 @@ return {
         { name = "luasnip" }, -- snippets
         { name = "path" }, -- path
         { name = "nvim_lua" }, -- lua API
+        { name = "latex_symbols", option = { strategy = 2 } }, -- latex symbols, insert the command
         { name = "cmp_r" }, -- R
         { name = "nvim_lsp" }, -- lsp
         { name = "vimtex" }, -- vimtex support
@@ -77,6 +81,7 @@ return {
             buffer = "[Buffer]",
             cmdline = "[CmdLine]",
             lazydev = "[LazyDev]",
+            latex_symbols = "[LaTeX]",
             nvim_lsp = "[LSP]",
             nvim_lua = "[Lua]",
             nerdfont = "[NerdFont]",

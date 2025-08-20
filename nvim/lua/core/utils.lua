@@ -4,6 +4,10 @@ local M = {}
 
 -- function for keymaps
 -- make sure have `local map = require("utils").map` at the beginning of a config file
+---@param mode string|string[]
+---@param lhs string
+---@param rhs string|function
+---@param opts? { desc?: string, unique?: boolean, remap?: boolean, silent?:boolean }
 function M.map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
   if opts then
@@ -43,18 +47,25 @@ end
 -- (CUSTOM ICONS)
 
 -- TODO: setup unified icons
-local icons = {
-  diagnostics = {},
+M.icons = {
+  diagnostics = {
+    error = "",
+    warn = "",
+    info = "",
+    hint = "󰌵",
+  },
   git = {},
   ui = {
-    -- lazy,
-    -- git,
-    -- harpoon,
-    -- mason,
-    -- snippets,
-    -- telescope,
-    -- treesitter,
-    -- yazi
+    checkhealth = "",
+    git = "",
+    harpoon = "󰀱",
+    lazy = "󰒲",
+    lsp = "",
+    mason = "󰟾",
+    snippets = "",
+    telescope = "󰭎",
+    treesitter = "󰔱",
+    yazi = "󰇥",
   },
 }
 

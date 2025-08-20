@@ -45,13 +45,14 @@ return {
     map("n", "<leader>sg", builtin.registers, { desc = "reGisters" }) -- not very useful thanks to which-key
     map("n", "<leader>sk", builtin.keymaps, { desc = "Keymaps" })
     map("n", "<leader>sm", builtin.marks, { desc = "marks" }) -- same remark as for registers
-    -- map("n", "<leader>sm", builtin.man_pages, { desc = "Man pages entries" })
     map("n", "<leader>so", builtin.vim_options, { desc = "vim Options" })
     map("n", "<leader>sp", builtin.planets, { desc = "Planets <3" })
     map("n", "<leader>sr", builtin.oldfiles, { desc = "Recent files" })
     map("n", "<leader>ss", builtin.live_grep, { desc = "String in cwd" })
     map("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Todos in cwd" })
     map("n", "<leader>su", "<cmd>Telescope undo<cr>", { desc = "Undos" })
+    -- stylua: ignore
+    map("n", "<leader>s.", function () builtin.find_files { cwd = vim.fn.stdpath('config')} end, { desc = "neovim [.]config" })
     map("n", "<leader>s?", builtin.help_tags, { desc = "Help tags" })
 
     require("which-key").add({ { "<leader>s", group = "Search with telescope…" } })

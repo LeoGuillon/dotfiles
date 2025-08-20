@@ -13,6 +13,7 @@ return {
       -- ────────────────────────────────────────────────────────────────────────────────
 
       local map = require("core.utils").map
+      local icons = require("core.utils").icons
 
       -- ────────────────────────────────────────────────────────────────────────────────
       -- (GO TO…)
@@ -27,11 +28,12 @@ return {
       map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Display code actions" })
 
       -- Telescope + LSP = <3
-      require("which-key").add({ { "<leader>sl", group = "LSP…", icon = "" } })
-      map("n", "<leader>sld", "<cmd>Telescope lsp_definitions<CR>", { desc = "Definitions" })
-      map("n", "<leader>sli", "<cmd>Telescope lsp_implementations<CR>", { desc = "Implementations" })
-      map("n", "<leader>slr", "<cmd>Telescope lsp_references<CR>", { desc = "References" })
-      map("n", "<leader>slt", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Type definitions" })
+      require("which-key").add({ { "<leader>sl", group = "LSP…", icon = icons.ui.lsp } })
+      map("n", "<leader>sld", require("telescope.builtin").lsp_definitions, { desc = "Definitions" })
+      map("n", "<leader>sli", require("telescope.builtin").lsp_implementations, { desc = "Implementations" })
+      map("n", "<leader>slr", require("telescope.builtin").lsp_references, { desc = "References" })
+      map("n", "<leader>sls", require("telescope.builtin").lsp_document_symbols, { desc = "document Symbols" })
+
 
       -- ────────────────────────────────────────────────────────────────────────────────
       -- (DIAGNOSTICS)
@@ -69,10 +71,10 @@ return {
         severity_sor = true,
         signs = {
           text = {
-            [vim.diagnostic.severity.ERROR] = "",
-            [vim.diagnostic.severity.WARN] = "",
-            [vim.diagnostic.severity.INFO] = "",
-            [vim.diagnostic.severity.HINT] = "󰌵",
+            [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
+            [vim.diagnostic.severity.WARN] = icons.diagnostics.warn,
+            [vim.diagnostic.severity.INFO] = icons.diagnostics.info,
+            [vim.diagnostic.severity.HINT] = icons.diagnostics.hint,
           },
         },
       })
@@ -96,12 +98,23 @@ return {
       -- (R)
 
       vim.lsp.config("r_language_server", {
+        -- TODO: setup to attach only on ft r, rmd, etc.
         cmd = { "R", "--slave", "-e", "languageserver::run()" },
         settings = {
           r = {
             lsp = {
               diagnostics = false,
               rich_documentation = true,
+            },
+          },
+        },
+      })
+
+      vim.lsp.config("vimls", {
+        settings = {
+          vim = {
+            lsp = {
+              diagnostics = false,
             },
           },
         },

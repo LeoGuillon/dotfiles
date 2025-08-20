@@ -29,7 +29,12 @@ opt.hlsearch = true
 -- cursor highlight
 opt.cursorline = true
 
--- opt.colorcolumn = { 80 } -- adds a columns if we want to limit line length
+opt.colorcolumn = {} -- adds a columns if we want to limit line length
+-- TODO: setup colorcolumn, decide between 80 and 100
+
+-- opt.inccommand = "split"
+-- not bad, but I mostly replace in visual selection,
+-- can become handy if starting to doing more file- or project-wise modifications
 
 -- termguicolors est nécessaire pour que les thèmes modernes fonctionnent
 opt.termguicolors = true
@@ -59,12 +64,8 @@ opt.spelllang = { "en", "fr" }
 
 opt.showmode = false
 
--- (INVISIBLE CHARS)
-
--- TODO: activate only for markdown files
--- opt.conceallevel = 2
-
 -- filetype override for treesitter and LSPs
+-- TODO: move theses into ftdetect or after/ftdetect
 
 -- make zsh files recognized as sh for bash-ls & treesitter
 vim.filetype.add({
@@ -80,7 +81,7 @@ vim.filetype.add({
   },
 })
 
--- make Rmd files recognized as md files for treesitter & marksman
+-- make Rmd files recognized as md files for treesitter
 vim.filetype.add({
   extension = {
     rmd = "markdown",

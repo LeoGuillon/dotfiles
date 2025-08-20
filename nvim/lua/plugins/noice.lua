@@ -22,6 +22,7 @@ return {
     },
     config = function()
       local noice = require("noice")
+      local icons = require("core.utils").icons
 
       noice.setup({
         cmdline = {
@@ -30,7 +31,7 @@ return {
           opts = {},
           format = {
             cmdline = {
-              title = "",
+              title = "Cmdline",
               pattern = "^:",
               icon = "",
               lang = "vim",
@@ -42,13 +43,21 @@ return {
               lang = "regex",
             },
             -- BUG: fix the upward search
-            -- search_up = {
-            --   kind = "search",
-            --   pattern = "\\",
-            --   icon = "󰍉 󰄿",
-            --   lang = "regex",
-            -- },
+            search_up = {
+              kind = "search",
+              pattern = "^\\",
+              icon = "󰍉 󰄿",
+              lang = "regex",
+            },
             help = { icon = "?" },
+            set = {
+              pattern = { "^:%s*set%s+" },
+              icon = "",
+            },
+            checkhealth = {
+              pattern = { "^:%s*checkhealth%s+" },
+              icon = icons.ui.checkhealth,
+            },
           },
         },
         lsp = {

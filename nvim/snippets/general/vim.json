@@ -1,4 +1,11 @@
 {
+  "iabbrev + abbreviation": {
+    "body": ":iabbrev ${1:abbreviation} ${2:expansion} ",
+    "prefix": [
+      "iabbrev",
+      "abbreviation"
+    ]
+  },
   "nnoremap": {
     "body": [
       "nnoremap $1 $2",

@@ -12,6 +12,7 @@ return {
   config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status") -- displays the number of lazy plugins updates
+    local icons = require("core.utils").icons
 
     local function get_git_root_dir()
       local root_path = vim.fs.root(0, ".git")
@@ -57,17 +58,19 @@ return {
 
     -- TODO: setup custom extension for conform window
     -- local conform_extension = custom_extension({""})
-    local harpoon_extension = custom_extension({ "harpoon" }, "HARPOON", "󰀱")
-    local lazy_extension = custom_extension({ "lazy" }, "LAZY", "󰒲")
-    local lazygit_extension = custom_extension({ "lazygit" }, "GIT", "󰊢")
-    local mason_extension = custom_extension({ "mason" }, "MASON", "󰟾")
-    local telescope_extension = custom_extension({ "TelescopePrompt" }, "FIND", "")
-    local yazi_extension = custom_extension({ "yazi" }, "YAZI", "󰇥")
+    local checkhealth_extension = custom_extension({ "checkhealth" }, "CHECKHEALTH", icons.ui.checkhealth)
+    local harpoon_extension = custom_extension({ "harpoon" }, "HARPOON", icons.ui.harpoon)
+    local lazy_extension = custom_extension({ "lazy" }, "LAZY", icons.ui.lazy)
+    local lazygit_extension = custom_extension({ "lazygit" }, "GIT", icons.ui.git)
+    local mason_extension = custom_extension({ "mason" }, "MASON", icons.ui.mason)
+    local telescope_extension = custom_extension({ "TelescopePrompt" }, "FIND", icons.ui.telescope)
+    local yazi_extension = custom_extension({ "yazi" }, "YAZI", icons.ui.yazi)
 
     -- configuration de lualine
     lualine.setup({
       extensions = {
         -- custom extensions
+        checkhealth_extension,
         harpoon_extension,
         lazy_extension,
         lazygit_extension,

@@ -54,18 +54,20 @@ return {
           "r_language_server", -- R
           -- "taplo", -- toml
           "texlab", -- latex lsp
+          "vimls", -- vimscript lsp
           "yamlls",
 
           -- ────────────────────────────────────────────────────────────────────────────────
           -- (FORMATTERS)
+          -- BUG: why putting formatters here aren’t recognized
 
-          "clang-format", -- c, c++
-          -- "jupytext", -- julia, R, Rmd
-          "prettier", -- html, css, scss, md, javascript, typescript, json
-          "ruff", -- python
-          "stylua", -- lua
-          -- "taplo", -- toml
-          "tex-fmt", -- latex
+          -- "clang-format", -- c, c++
+          -- -- "jupytext", -- julia, R, Rmd
+          -- "prettier", -- html, css, scss, md, javascript, typescript, json
+          -- "ruff", -- python
+          -- "stylua", -- lua
+          -- -- "taplo", -- toml
+          -- "tex-fmt", -- latex
         },
       })
     end,

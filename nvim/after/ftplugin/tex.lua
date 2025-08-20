@@ -1,9 +1,9 @@
-vim.o.wrap = true -- enable wrap lines for tex files
-vim.o.linebreak = true -- wrap on words instead of characters
+vim.opt_local.wrap = true -- enable wrap lines for tex files
+vim.opt_local.linebreak = true -- wrap on words instead of characters
 
 -- hides line numbers by default
-vim.o.relativenumber = false
-vim.o.number = false
+vim.opt_local.relativenumber = false
+vim.opt_local.number = false
 
 local map = require("core.utils").map
 
@@ -25,30 +25,20 @@ map("n", "<leader>\\", "<plug>vimtex-cmd-toggle-break", { desc = "add line break
 -- (TEXT OBJECTS)
 -- ────────────────────────────────────────────────────────────────────────────────
 
--- [d]elimiters (also covers \left\right, which is nice)
-map({ "x", "o" }, "id", "<plug>(vimtex-id)", { desc = "Delimiters" })
-map({ "x", "o" }, "ad", "<plug>(vimtex-ad)", { desc = "Delimiters" })
+local custom_latex_text_objects = {
+  { "d", "d", "Delimiters" },
+  { "e", "e", "Environment" },
+  { "l", "c", "LaTeX command" },
+  { "m", "$", "Math block" },
+  { "i", "m", "Item" }, -- override [i]nline code, as backticks are quit rare in LaTeX
+  { "x", "P", "sect(X)ion" },
+}
 
--- [e]nvironment
-map({ "x", "o" }, "ie", "<plug>(vimtex-ie)", { desc = "Environment" })
-map({ "x", "o" }, "ae", "<plug>(vimtex-ae)", { desc = "Environment" })
-
--- [l]aTeX command
-map({ "x", "o" }, "il", "<plug>(vimtex-ic)", { desc = "LaTeX command" })
-map({ "x", "o" }, "al", "<plug>(vimtex-ac)", { desc = "LaTeX command" })
-
--- [m]ath block
-map({ "x", "o" }, "im", "<plug>(vimtex-i$)", { desc = "Math block" })
-map({ "x", "o" }, "am", "<plug>(vimtex-a$)", { desc = "Math block" })
-
--- se[x]ion
-map({ "x", "o" }, "ix", "<plug>(vimtex-iP)", { desc = "sect(X)ion" })
-map({ "x", "o" }, "ax", "<plug>(vimtex-aP)", { desc = "sect(X)ion" })
-
--- itemize/enumerate item
--- TODO: find a mapping for this one
--- [i]tem would be the most logical, but already taken by [i]nline code
--- so maybe relevant to remap [i]nline code to something else ?
+for _, value in pairs(custom_latex_text_objects) do
+  local remap, original, label = unpack(value)
+  map({ "x", "o" }, "i" .. remap, "<plug>(vimtex-i" .. original .. ")", { desc = label })
+  map({ "x", "o" }, "a" .. remap, "<plug>(vimtex-a" .. original .. ")", { desc = label })
+end
 
 -- ────────────────────────────────────────────────────────────────────────────────
 -- (SURROUND COMMANDS)
@@ -112,7 +102,7 @@ map({ "n", "x", "o" }, "]F", "<plug>(vimtex-]R)", { desc = "Next Frame end" })
 map({ "n", "x", "o" }, "[F", "<plug>(vimtex-[R)", { desc = "Previous Frame end" })
 
 -- go to matching pair, adapted to LaTeX delimiters
-map({ "n", "v" }, "%", "<plug>(vimtex-%)", { desc = "Go to matching pair" })
+map({ "n", "v" }, "%", "<plug>(vimtex-%)", { desc = "Go to matching delimiter" })
 
 -- ────────────────────────────────────────────────────────────────────────────────
 -- (LOCALLEADER COMMANDS)
