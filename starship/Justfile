@@ -2,3 +2,6 @@ set quiet := true
 
 docs:
   open 'https://starship.rs/config/'
+
+icons:
+  open 'https://www.nerdfonts.com/cheat-sheet'

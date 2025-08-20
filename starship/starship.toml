@@ -9,36 +9,35 @@ add_newline = true
 
 palette = "catppuccin_mocha"
 
-# ---------------------------------------------------------------------------------
+# ────────────────────────────────────────────────────────────────────────────────
 # (FORMAT)
-# ---------------------------------------------------------------------------------
+# ────────────────────────────────────────────────────────────────────────────────
 
 format = """\
 $directory$git_branch$git_status $character
 """
 
-# right_format = """\
-# $git_branch$git_status $lua$rlang$julia
-# """
-
-# ---------------------------------------------------------------------------------
+# ────────────────────────────────────────────────────────────────────────────────
 # (MODULES)
-# ---------------------------------------------------------------------------------
+# ────────────────────────────────────────────────────────────────────────────────
 
-# (LEFT SIDE)
-
-# path
+# ────────────────────────────────────────────────────────────────────────────────
+# (PATH)
 
 [directory]
-# TODO: set custom directories name once JDS is set up
-# technically, no more than 5 levels, right ?
-# system -> area -> category -> ID -> element, which should be a git folder
-truncation_length = 3
+truncation_length = 6
 truncate_to_repo = true
 style = "bold fg:lavender"
 format = "[$path]($style)"
 
-# git
+# using directory substitutions for volumes,
+# such as cloud or external hard drives
+[directory.substitutions]
+'~/Dropbox' = ''
+'~/ownCloud' = ''
+
+# ────────────────────────────────────────────────────────────────────────────────
+# (GIT)
 
 [git_branch]
 symbol = ""
@@ -56,39 +55,17 @@ modified = '*'
 style = "bold mauve"
 format = '[$all_status$ahead_behind]($style)'
 
-# (RIGHT SIDE)
-
-[lua]
-symbol = ""
-style = "blue bold"
-format = "via [$symbol ($version)]($style)"
-
-[rlang]
-detect_files = []
-symbol = ""
-style = "blue bold"
-format = "via [$symbol ($version)]($style)"
-
-[julia]
-detect_files = []
-symbol = "ஃ"
-style = "bold mauve"
-format = "via [$symbol ($version)]($style)"
-
-# (PROMPT LINE)
+# ────────────────────────────────────────────────────────────────────────────────
+# (CHARACTER)
 
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
 vimcmd_symbol = "[❯](bold lavender)"
-# [character] # ▓▒░    nerdfont ids start with `nf-ple-`
-# success_symbol = "[ ](fg:black)"
-# error_symbol = "[ ](fg:red)"
-# vimcmd_symbol = "[ ](fg:cyan)"
 
-# ---------------------------------------------------------------------------------
+# ────────────────────────────────────────────────────────────────────────────────
 # (PALETTES)
-# ---------------------------------------------------------------------------------
+# ────────────────────────────────────────────────────────────────────────────────
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
