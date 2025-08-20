@@ -17,27 +17,8 @@ matches:
     replace: "←"
     word: true
 
-  - trigger: "<->"
-    replace: "↔︎"
-    word: true
-
-  - trigger: "<=>"
-    replace: "⟺"
-    word: true
-
   - triggers: ["!=", "/="]
     replace: "≠"
-    word: true
-
-    # ────────────────────────────────────────────────────────────────────────────────
-    # (DASHES)
-
-  - trigger: "--"
-    replace: "–"
-    word: true
-
-  - trigger: "---"
-    replace: "—"
     word: true
 
   - trigger: "<<"

@@ -13,7 +13,6 @@ matches:
   - trigger: "ecole polytechnique"
     replace: "École Polytechnique"
     word: true
-    propagate_case: true
 
   - trigger: "deja"
     replace: "déjà"
@@ -76,6 +75,11 @@ matches:
 
   - trigger: "oeuf"
     replace: "œuf"
+    word: true
+    propagate_case: true
+
+  - trigger: "oeufs"
+    replace: "œufs"
     word: true
     propagate_case: true
 

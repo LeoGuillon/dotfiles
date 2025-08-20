@@ -3,6 +3,9 @@
 
 matches:
   # just for fun
+  - triggers: [":arch", ":btw"]
+    replace: "I use Arch, btw"
+
   - trigger: ":asmo"
     replace: "Asmoranomardicadaistinaculdacar"
 

@@ -6,7 +6,7 @@ filter_exec: WezTerm|iTerm|Visual Studio Code|Citrix Viewer|RStudio
 # we exclude all trigger not starting by ":", to avoid conflict with vim mappings
 extra_excludes:
   - "../match/autofills.yml" # handled in config files
-  - "../match/expr.yml"
+  - "../match/expr.yml" # handled by parsing yaml file in lua
   - "../match/ligatures_emulation.yml"
   - "../match/spellcheck-fr.yml"
   - "../match/typography.yml"

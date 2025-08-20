@@ -28,18 +28,17 @@ matches:
   - trigger: "c"
     replace: "c’est"
     word: true
+    propagate_case: false
 
   - trigger: "C"
     replace: "C’est"
     word: true
+    propagate_case: false
 
   - trigger: "cad"
     replace: "c’est-à-dire"
     word: true
     propagate_case: true
-
-  - trigger: ",cad"
-    replace: "c.-à-d."
 
   - trigger: "cb"
     replace: "combien"
@@ -87,7 +86,7 @@ matches:
     word: true
     propagate_case: true
 
-  - triggers: ["mnt", "mtn", "mtnt"]
+  - trigger: "mtn"
     replace: "maintenant"
     word: true
     propagate_case: true
@@ -139,7 +138,7 @@ matches:
     word: true
     propagate_case: true
 
-  - triggers: ["qq", "qlq"]
+  - trigger: "qq"
     replace: "quelque"
     word: true
     propagate_case: true
@@ -171,11 +170,6 @@ matches:
 
   - trigger: "ssi"
     replace: "si et seulement si"
-    word: true
-    propagate_case: true
-
-  - triggers: ["vmt", "vrmt"]
-    replace: "vraiment"
     word: true
     propagate_case: true
 
