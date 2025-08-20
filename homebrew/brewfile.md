@@ -1,5 +1,6 @@
 # brew
 
+- bat
 - curl
 - eza
 - fzf
@@ -8,6 +9,7 @@
 - just
 - lazygit
 - lua
+- luarocks
 - mas
 - mupdf
 - neovim
@@ -19,7 +21,6 @@
 - sevenzip
 - starship
 - stow
-- thefuck
 - tealdeer
 - tmux
 - tokei
