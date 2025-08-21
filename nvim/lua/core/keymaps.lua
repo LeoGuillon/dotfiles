@@ -203,7 +203,6 @@ map("n", "k", "i<CR><Esc>", { desc = "Unjoin to the next line" })
 -- [l]ean back : just a shortcut for ge/gE
 -- map({ "n", "x", "o" }, "l", "ge", { desc = "go to previous end (Lean back)" })
 -- map({ "n", "x", "o" }, "L", "gE", { desc = "go to previous END (Lean back)" })
--- NOTE: better version with nvim-spider
 
 map("n", "\\", "?", { desc = "Search backwards" }) -- due to the symmetry between \ and / on symbol layer
 
@@ -368,7 +367,9 @@ map("n", "<leader>ol", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- UI [t]oggles
 -- TODO: add a command to toggle the colorcolumn at 80
--- map("n", "<leader>tc", function () vim.opt.colorcolumn = vim.opt.colorcolumn == {} and {80} or {} end, { desc = "Color Column" })
+map("n", "<leader>tc", function()
+  vim.opt.colorcolumn = vim.opt.colorcolumn == {} and { "80" } or {}
+end, { desc = "Color Column" })
 
 -- stylua: ignore start
 map("n", "<leader>tl", function() vim.wo.conceallevel = vim.wo.conceallevel == 0 and 2 or 0 end, { desc = "conceaL Level" })

@@ -60,6 +60,7 @@ return {
         ["<C-Space>"] = cmp.mapping.complete(), -- popout the completion window
       }),
       sources = cmp.config.sources({ -- sources for autocompletion, sorted by decreasing priority
+        -- TODO: reconsider the order, notably putting languages-specific and lsp source in first
         { name = "luasnip" }, -- snippets
         { name = "path" }, -- path
         { name = "nvim_lua" }, -- lua API

@@ -37,6 +37,8 @@ return {
       { "z", desc = "foldZ etc. …" },
       { "[", desc = "previous…" },
       { "]", desc = "next…" },
+      { "*", desc = "search forward for word under cursor" },
+      { "#", desc = "search backward for word under cursor" },
 
       -- leader groups and subgroups
       { "<leader>", group = "Leader key" },

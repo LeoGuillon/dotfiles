@@ -3,6 +3,7 @@
 - bat
 - curl
 - eza
+- fastfetch
 - fzf
 - git
 - jupyterlab
@@ -11,7 +12,6 @@
 - lua
 - luarocks
 - mas
-- mupdf
 - neovim
 - npm
 - pandoc
@@ -22,6 +22,7 @@
 - starship
 - stow
 - tealdeer
+- thefuck
 - tmux
 - tokei
 - tree

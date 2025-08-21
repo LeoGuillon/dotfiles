@@ -134,7 +134,7 @@ keymap = [
   # Goto
   { on = [ "g", "a", ], run = "cd ~/A18", desc = "A18" },
   { on = [ "g", "c", ], run = "cd ~/.config", desc = ".config" },
-  { on = [ "g", "d", ], run = "cd ~/Documents", desc = "Documents" },
+  { on = [ "g", "d", ], run = "cd ~/Dropbox", desc = "Dropbox" },
   { on = [ "g", "h", ], run = "cd ~", desc = "Home" },
   { on = [ "g", "i", ], run = "cd ~/Pictures", desc = "Pictures" },
   { on = [ "g", "k", ], run = "cd /Volumes/KOBOeReader", desc = "Kobo" },
