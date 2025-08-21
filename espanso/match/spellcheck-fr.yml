@@ -19,28 +19,11 @@ matches:
     word: true
     propagate_case: true
 
-  - trigger: "ete"
-    replace: "été"
-    word: true
-    propagate_case: true
-
-  # e -> ê
-  - trigger: "etre"
-    replace: "être"
-    word: true
-    propagate_case: true
-
-  # —————————————————————————————————————————————————————————————————————————————
-  # ()
-
   # c -> ç
   - trigger: "ca"
     replace: "ça"
     word: true
     propagate_case: true
-
-  # —————————————————————————————————————————————————————————————————————————————
-  # (DIACRITICS)
 
   # oe -> œ
   - trigger: "boeuf"

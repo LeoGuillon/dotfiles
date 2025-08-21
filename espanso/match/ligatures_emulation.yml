@@ -17,18 +17,6 @@ matches:
     replace: "←"
     word: true
 
-  - triggers: ["!=", "/="]
-    replace: "≠"
-    word: true
-
-  - trigger: "<<"
-    replace: "«"
-    word: true
-
-  - trigger: ">>"
-    replace: "»"
-    word: true
-
   # ────────────────────────────────────────────────────────────────────────────────
   # (MISC)
 
