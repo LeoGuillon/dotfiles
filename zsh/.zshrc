@@ -35,7 +35,7 @@ for filename in "${CONFIG_FILES[@]}"; do
 done
 
 eval "$(starship init zsh)"
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh

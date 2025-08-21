@@ -61,6 +61,22 @@ nnoremap <A-Left> xhhp
 nnoremap <A-Right> xp
 
 " ——————————————————————————————————————————————————————————————————————————————
+" (MOVING LINES)
+
+exmap lineUp obcommand editor:swap-line-up
+exmap lineDown obcommand editor:swap-line-down
+nnoremap <A-Down> :lineDown<CR>
+nnoremap <A-Up> :lineUp<CR>
+
+" ────────────────────────────────────────────────────────────────────────────────
+" (COMMENTS)
+
+exmap togglecomment obcommand editor:
+" nnoremap gcc :togglecomment<CR>
+vnoremap gc :togglecomment<CR>
+
+
+" ——————————————————————————————————————————————————————————————————————————————
 " (ERGO-L LAYOUT SPECIFIC KEYMAPS)
 " ——————————————————————————————————————————————————————————————————————————————
 " credits : https://ergol.org/articles/vim_pour_les_ergonautes/
@@ -103,10 +119,6 @@ onoremap l ge
 nnoremap L gE
 vnoremap L gE
 onoremap L gE
-
-" new lines on =/≠
-nnoremap = mzo<Esc>`z
-nnoremap ≠ mzO<Esc>`z
 
 
 " ——————————————————————————————————————————————————————————————————————————————
@@ -189,14 +201,9 @@ nnoremap gx :openlink<CR>
 exmap closetab obcommand workspace:close
 nnoremap ZZ :closetab<CR>
 
-" close window (without git backup)
-exmap closewindow obcommand workspace:close-window
+" close window
+exmap closewindow obcommand obsidian-git:backup-and-close
 nnoremap ZQ :closewindow<CR>
-
-" close vault (with git backup)
-exmap quitvault obcommand obsidian-git:backup-and-close
-nnoremap ZA :quitvault<CR>
-
 
 " forward/backward in the history
 exmap goBack obcommand app:go-back
@@ -378,6 +385,9 @@ inoremap Qo Quo
 " Can’t set a leader key, so every occurence must be written by hand
 unmap <Space>
 
+" new line above or below without entering insert mode
+nnoremap <CR> mzo<Esc>`z
+
 " adding a , ; or . at the end of line
 nnoremap <Space>, mzA,<Esc>`z
 nnoremap <Space>; mzA<Space>;<Esc>`z
@@ -386,26 +396,22 @@ nnoremap <Space>. mzA.<Esc>`z
 " quick toggle casing ; credits : https://nanotipsforvim.prose.sh/quickly-toggle-casing
 nnoremap <Space>~ mzlblgueh~`z
 
-" ────────────────────────────────────────────────────────────────────────────────
-" (NAVIGATION)
-
-" analog to cmd/ctrl+(shift+)w, or cmd/ctrl+q
-nnoremap <Space>w :closetab<CR>
-nnoremap <Space>W :closewindow<CR>
-nnoremap <Space>q :quitvault<CR>
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (NOTE CREATION)
 " [n]ew…
 
-" [b]ook
-exmap newbook obcommand obsidian-book-search-plugin:open-book-search-modal
-nnoremap <Space>nb :newbook<CR>
+" [b]ase
+exmap newbase obcommand bases:new-file
+nnoremap <Space>nb :newbase<CR>
 
 " [c]anvas
 exmap newcanvas obcommand canvas:new-file
 nnoremap <Space>nc :newcanvas<CR>
 
+" [l]ivre (book)
+exmap newbook obcommand obsidian-book-search-plugin:open-book-search-modal
+nnoremap <Space>nl :newbook<CR>
 
 " [n]ote
 exmap newnote obcommand file-explorer:new-file
@@ -439,9 +445,13 @@ nnoremap <Space>nz :newzotero<CR>
 
 " NOTE: we add “i” at the end of each command to be in insert mode right away
 
-" ta[b]le
-exmap inserttable obcommand editor:insert-table
-nnoremap <Space>ib :inserttable<CR>i
+" [b]ase
+exmap insertbase obcommand bases:insert
+nnoremap <Space>ib :insertbase<CR>
+
+" " ta[b]le
+" exmap inserttable obcommand editor:insert-table
+" nnoremap <Space>ib :inserttable<CR>i
 
 " [c]allout
 exmap insertcallout obcommand editor:insert-callout
@@ -604,10 +614,10 @@ nnoremap <Space>o, :opensettings<CR>
 " TODO: add https://github.com/artemDvoryadkin/obsidian-vim-marker-sharpener
 " plugin to add visual toggle commands
 
-" [b]old
-exmap togglebold obcommand editor:toggle-bold
-nnoremap <Space>tb :togglebold<CR>
-vnoremap <Space>tb :togglebold<CR>
+" " [b]old
+" exmap togglebold obcommand editor:toggle-bold
+" nnoremap <Space>tb :togglebold<CR>
+" vnoremap <Space>tb :togglebold<CR>
 
 " file [e]xplorer / [l]eft sidebar
 exmap togglefileexplorer obcommand app:toggle-left-sidebar
@@ -619,10 +629,10 @@ exmap togglefocusmode obcommand obsidian-hider:toggle-tab-containers
 nnoremap <Space>tf :togglefocusmode<CR>
 nnoremap <Space>tt :togglefocusmode<CR>
 
-" [i]talics
-exmap toggleitalics obcommand editor:toggle-italics
-nnoremap <Space>ti :toggleitalics<CR>
-vnoremap <Space>ti :toggleitalics<CR>
+" " [i]talics
+" exmap toggleitalics obcommand editor:toggle-italics
+" nnoremap <Space>ti :toggleitalics<CR>
+" vnoremap <Space>ti :toggleitalics<CR>
 
 " stac[k]ed tabs
 exmap togglestackedtabs obcommand workspace:toggle-stacked-tabs
@@ -632,10 +642,10 @@ nnoremap <Space>tk :togglestackedtabs<CR>
 exmap togglemode obcommand editor:toggle-source
 nnoremap <Space>tm :togglemode<CR>
 
-" [q]uote block
-exmap togglequote obcommand editor:toggle-blockquote
-nnoremap <Space>tq :togglequote<CR>
-vnoremap <Space>tq :togglequote<CR>
+" " [q]uote block
+" exmap togglequote obcommand editor:toggle-blockquote
+" nnoremap <Space>tq :togglequote<CR>
+" vnoremap <Space>tq :togglequote<CR>
 
 " [r]ight sidebar
 exmap togglerightsidebar obcommand app:toggle-right-sidebar

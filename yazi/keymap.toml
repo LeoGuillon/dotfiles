@@ -137,6 +137,7 @@ keymap = [
   { on = [ "g", "d", ], run = "cd ~/Documents", desc = "Documents" },
   { on = [ "g", "h", ], run = "cd ~", desc = "Home" },
   { on = [ "g", "i", ], run = "cd ~/Pictures", desc = "Pictures" },
+  { on = [ "g", "k", ], run = "cd /Volumes/KOBOeReader", desc = "Kobo" },
   { on = [ "g", "l", ], run = "cd ~/Downloads", desc = "Downloads" },
   { on = [ "g", "r", ], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = "Git root" },
   { on = [ "g", "v", ], run = "cd ~/dev", desc = "dev" },

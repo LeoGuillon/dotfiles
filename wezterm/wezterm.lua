@@ -8,14 +8,15 @@ config.default_cursor_style = "SteadyBar"
 
 -- font
 config.font = wezterm.font({
-  family = "Lilex Nerd Font Mono",
-  weight = "Regular",
+	family = "Lilex Nerd Font Mono",
+	weight = "Medium",
 })
 config.font_size = 13
 config.harfbuzz_features = {
-  "zero=1", -- slashed zero
-  "cv08=1", -- alt inequalities
-  "ss01=1", -- restore arrows
+	"zero=1", -- slashed zero
+	"cv02=1", -- alt. g
+	"cv08=1", -- alt inequalities
+	"ss01=1", -- restore arrows
 }
 
 config.color_scheme = "Catppuccin Mocha"
@@ -23,10 +24,10 @@ config.color_scheme = "Catppuccin Mocha"
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_padding = {
-  left = 10,
-  right = 0,
-  top = 5,
-  bottom = 2,
+	left = 10,
+	right = 0,
+	top = 5,
+	bottom = 2,
 }
 
 -- NOTE: for an unknown reason, setting the opacity at 1
