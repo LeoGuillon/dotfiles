@@ -42,6 +42,8 @@ return {
     map("n", "<leader>sb", builtin.buffers, { desc = "files in Buffers" })
     map("n", "<leader>sc", builtin.commands, { desc = "Commands" })
     map("n", "<leader>sf", builtin.find_files, { desc = "Files in cwd" })
+    -- stylua: ignore
+    map("n", "<leader>sF", "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", { desc = "Files in cwd (show hidden)" }) -- useful to be able to find hidden files
     map("n", "<leader>sg", builtin.registers, { desc = "reGisters" }) -- not very useful thanks to which-key
     map("n", "<leader>sk", builtin.keymaps, { desc = "Keymaps" })
     map("n", "<leader>sm", builtin.marks, { desc = "marks" }) -- same remark as for registers

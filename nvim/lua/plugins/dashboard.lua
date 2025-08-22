@@ -48,10 +48,15 @@ return {
         center = {
           { action = "ene | startinsert", desc = " New File", icon = " ", key = "n" },
           { action = "Telescope find_files", desc = " Find File", icon = " ", key = "f" },
+          {
+            action = "Telescope find_files hidden=true no_ignore=true",
+            desc = " Find File (show hidden)",
+            icon = " ",
+            key = "F",
+          },
           { action = "Telescope oldfiles", desc = " Recent Files", icon = " ", key = "r" },
           -- TODO: add config quick opener
           -- { action = "Telescope find_files(cwd=vim.fn.stdpath('config'))", desc = " Config", icon = " ", key = "c" },
-          -- TODO: add restore session
           { action = "LazyGit", desc = " Git", icon = "󰊢 ", key = "g" },
           { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
           { action = "Mason", desc = " Mason", icon = "󰟾 ", key = "m" },

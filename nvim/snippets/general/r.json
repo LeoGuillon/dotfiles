@@ -3,6 +3,15 @@
     "body": "apply(${1:array}, ${2:margin}, ${3:...})",
     "prefix": "apply"
   },
+  "case_when": {
+    "body": [
+      "case_when(",
+      "  ${1:condition} ~ ${2:outcome},",
+      "  .default = ${3:default outcome}",
+      ")"
+    ],
+    "prefix": "case_when"
+  },
   "else": {
     "body": [
       "else {",

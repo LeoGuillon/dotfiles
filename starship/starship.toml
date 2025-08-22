@@ -27,7 +27,7 @@ $directory$git_branch$git_status $character
 [directory]
 truncation_length = 6
 truncate_to_repo = true
-style = "bold fg:lavender"
+style = "bold fg:blue"
 format = "[$path]($style)"
 
 # using directory substitutions for volumes,
@@ -61,7 +61,7 @@ format = '[$all_status$ahead_behind]($style)'
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
-vimcmd_symbol = "[▌](bold lavender)"
+vimcmd_symbol = "[▌](bold blue)"
 
 # ────────────────────────────────────────────────────────────────────────────────
 # (PALETTES)

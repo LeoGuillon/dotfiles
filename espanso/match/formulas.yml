@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+# ───────────────────────────────────────────────────────────────────────────────
+
+matches:
+  - trigger: ":dispo"
+    replace: "Je reste à votre disposition pour toute information supplémentaire"
+
+  - trigger: ":gptcontext"
+    replace: "Ne me réponds que si tu es sûr à 95% de ta réponse, sinon je peux te donner plus d’éléments si nécessaire."
