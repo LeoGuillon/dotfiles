@@ -366,10 +366,7 @@ map("n", "<leader>Q", "<cmd>wqa<cr>", { desc = "save and Quit all buffers" })
 map("n", "<leader>ol", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- UI [t]oggles
--- TODO: add a command to toggle the colorcolumn at 80
-map("n", "<leader>tc", function()
-  vim.opt.colorcolumn = vim.opt.colorcolumn == {} and { "80" } or {}
-end, { desc = "Color Column" })
+-- TODO: setup toggles properly with snacks.nvim
 
 -- stylua: ignore start
 map("n", "<leader>tl", function() vim.wo.conceallevel = vim.wo.conceallevel == 0 and 2 or 0 end, { desc = "conceaL Level" })
