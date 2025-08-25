@@ -16,6 +16,7 @@ CONFIG_FILES=(
   fzf
   git
   homebrew
+  johnny
   matrix
   navigation
   tmux

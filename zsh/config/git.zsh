@@ -5,7 +5,7 @@
 
 # nb : aliases are matched as close as lazygit's keybindings
 alias g='git'
-alias gp='git pull'
+alias gp='git pull --quiet'
 alias gs='git status --short --branch'
 alias ga='git add'
 alias gaa='git add --all'
