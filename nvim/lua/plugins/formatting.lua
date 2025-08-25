@@ -23,6 +23,7 @@ return {
           -- r = { "air" },
           -- rmd = { "jupytext" },
           scss = { "prettier" },
+          sh = { "shfmt" },
           sty = { "tex-fmt" },
           tex = { "tex-fmt" },
           -- toml = { "taplo" }, -- waiting to configure taplo properly

@@ -19,6 +19,7 @@ return {
     -- greek
     "hrsh7th/cmp-buffer", -- buffer
     "hrsh7th/cmp-cmdline", -- command line commands
+    "amarz45/nvim-cmp-fonts", -- fonts installed on the system
     "kdheepak/cmp-latex-symbols", -- latex symbols
     "hrsh7th/cmp-nvim-lsp", -- lsp
     "hrsh7th/cmp-nvim-lua", -- lua API
@@ -69,6 +70,7 @@ return {
         { name = "nvim_lsp" }, -- lsp
         { name = "vimtex" }, -- vimtex support
         { name = "lazydev", group_index = 0 }, -- lazydev
+        -- { name = "fonts", option = { space_filter = "-" } }, -- fonts
         { name = "nerdfont" }, -- nerdfont icons
         { name = "buffer" }, -- text in buffer
       }),
@@ -81,16 +83,26 @@ return {
           menu = {
             buffer = "[Buffer]",
             cmdline = "[CmdLine]",
+            -- fonts = "[Font]",
             lazydev = "[LazyDev]",
             latex_symbols = "[LaTeX]",
             nvim_lsp = "[LSP]",
             nvim_lua = "[Lua]",
             nerdfont = "[NerdFont]",
             path = "[Path]",
+            cmp_r = "[R]",
             luasnip = "[LuaSnip]",
-            vimtex = "[Vimtex]",
+            vimtex = "[VimTeX]",
           },
         }),
+      },
+    })
+
+    -- setup for specific filetypes
+    cmp.setup.filetype({ "tex" }, {
+      sources = {
+        { name = "vimtex" },
+        { name = "latex_symbols", option = { strategy = 2 } }, -- latex symbols, insert the command
       },
     })
 

@@ -1,94 +1,102 @@
 {
-  "Insert link": {
-    "body": "[${1:alias}](${2:url})",
-    "prefix": [
-      "url",
-      "link",
-      "[]()"
-    ],
-    "description": "Insert an URL link"
-  },
-  "header 1": {
-    "prefix": "h1",
-    "body": [
-      "# ${1}",
-      " ",
-      "$0"
-    ],
-    "description": "Add header level 1"
-  },
-  "header 2": {
-    "prefix": "h2",
-    "body": [
-      "## ${0}"
-    ],
-    "description": "Add header level 2"
-  },
-  "header 3": {
-    "prefix": "h3",
-    "body": [
-      "### ${0}"
-    ],
-    "description": "Add header level 3"
-  },
-  "img": {
-    "prefix": [
-      "img",
-      "image"
-    ],
-    "body": [
-      "![${1:alt text}](${2:path}) ${0}"
-    ],
-    "description": "Add image"
-  },
-  "Insert bold text": {
-    "prefix": [
-      "bold",
-      "b"
-    ],
-    "body": "**${1}** $0",
-    "description": "Insert bold text"
-  },
-  "Insert italic text": {
-    "prefix": [
-      "i",
-      "italic"
-    ],
-    "body": "*${1}* $0",
-    "description": "Insert italic text"
-  },
   "Insert bold and italic text": {
+    "body": "***${1}*** $0",
+    "description": "Insert bold and italic text",
     "prefix": [
       "bold and italic",
       "bi"
-    ],
-    "body": "***${1}*** $0",
-    "description": "Insert bold and italic text"
+    ]
   },
-  "Insert quoted text": {
-    "prefix": "quote",
-    "body": "> ${1}",
-    "description": "Insert quoted text"
+  "Insert bold text": {
+    "body": "**${1}** $0",
+    "description": "Insert bold text",
+    "prefix": [
+      "bold",
+      "b"
+    ]
   },
   "Insert code": {
+    "body": "`${1}` $0",
+    "description": "Insert code",
     "prefix": [
       "code"
-    ],
-    "body": "`${1}` $0",
-    "description": "Insert code"
+    ]
   },
   "Insert code block": {
-    "prefix": "codeblock",
     "body": [
       "```${1:language}",
       "$0",
       "```"
     ],
-    "description": "Insert fenced code block"
+    "description": "Insert fenced code block",
+    "prefix": "codeblock"
   },
   "Insert horizontal rule": {
-    "prefix": "horizontal rule",
     "body": "---\n",
-    "description": "Insert horizontal rule"
+    "description": "Insert horizontal rule",
+    "prefix": "horizontal rule"
+  },
+  "Insert italic text": {
+    "body": "*${1}* $0",
+    "description": "Insert italic text",
+    "prefix": [
+      "i",
+      "italic"
+    ]
+  },
+  "Insert link": {
+    "body": "[${1:alias}](${2:url})",
+    "description": "Insert an URL link",
+    "prefix": [
+      "url",
+      "link",
+      "[]()"
+    ]
+  },
+  "Insert quoted text": {
+    "body": "> ${1}",
+    "description": "Insert quoted text",
+    "prefix": "quote"
+  },
+  "header 1": {
+    "body": [
+      "# ${1}",
+      " ",
+      "$0"
+    ],
+    "description": "Add header level 1",
+    "prefix": "h1"
+  },
+  "header 2": {
+    "body": [
+      "## ${0}"
+    ],
+    "description": "Add header level 2",
+    "prefix": "h2"
+  },
+  "header 3": {
+    "body": [
+      "### ${0}"
+    ],
+    "description": "Add header level 3",
+    "prefix": "h3"
+  },
+  "img": {
+    "body": [
+      "![${1:alt text}](${2:path}) ${0}"
+    ],
+    "description": "Add image",
+    "prefix": [
+      "img",
+      "image"
+    ]
+  },
+  "rcodeblock": {
+    "body": [
+      "```{r ${1:}}",
+      "$0",
+      "```"
+    ],
+    "prefix": "rcodeblock"
   }
 }

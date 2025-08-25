@@ -3,3 +3,7 @@ vim.opt_local.linebreak = true -- wrap on words instead of characters
 
 vim.opt_local.number = false
 vim.opt_local.relativenumber = false
+
+-- TODO: ajouter des commandes inspirées des raccourcis clavier usuels pour metter en forme :
+-- - italique -> ⌘I
+-- - gras -> ⌘B
