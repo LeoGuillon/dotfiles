@@ -25,8 +25,6 @@
 - thefuck
 - tmux
 - tokei
-- tree
-- tree-sitter
 - yazi
 - zoxide
 

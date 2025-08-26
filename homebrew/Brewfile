@@ -1,0 +1,137 @@
+# DOCS https://docs.brew.sh/Brew-Bundle-and-Brewfile
+#───────────────────────────────────────────────────────────────────────────────
+
+tap "homebrew-zathura/zathura"
+tap "homebrew/services"
+
+# ──────────────────────────────────────────────────────────────────────────────
+# CLI
+
+brew "bat"
+tap "espanso/espanso"
+brew "eza"
+brew "fastfetch"
+brew "fd"
+brew "fzf"
+brew "gh"
+brew "gnu-sed"
+brew "imagemagick"
+brew "jq"
+brew "just"
+brew "lazygit"
+brew "libyaml"
+brew "lua"
+brew "luarocks"
+brew "mas"
+brew "md5sha1sum"
+brew "python@3.13"
+brew "neovim"
+brew "node"
+brew "pandoc"
+brew "pipx"
+brew "r"
+brew "ripgrep"
+brew "sevenzip"
+tap "felixkratz/formulae"; brew "felixkratz/formulae/sketchybar"
+brew "starship"
+brew "stow"
+brew "tealdeer"
+brew "thefuck"
+brew "tmux"
+brew "tokei"
+brew "yazi"
+brew "zoxide"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+
+# ──────────────────────────────────────────────────────────────────────────────
+# FONTS
+
+cask "font-lilex-nerd-font"
+cask "font-ibm-plex-mono"
+cask "font-ibm-plex-sans"
+cask "font-ibm-plex-sans-jp"
+cask "font-ibm-plex-serif"
+
+# ────────────────────────────────────────────────────────────────────────────────
+# (CASKS AND MAS)
+
+# nb: only install these when on personal device
+
+computerName = `scutil --get ComputerName`
+
+if computerName.include?("oui")
+# TODO: check and complete cask list
+  cask "1password"
+  cask "1password-cli"
+  cask "alfred"
+  cask "alt-tab"
+  cask "appcleaner"
+  cask "beeper"
+  cask "ccleaner"
+  cask "chatgpt"
+  cask "cold-turkey-blocker"
+  cask "discord"
+  cask "dockey"
+  cask "espanso"
+  cask "flux"
+  cask "firefox"
+  cask "hiddenbar"
+  cask "iterm2"
+  cask "karabiner-elements"
+  cask "latest"
+  cask "libreoffice"
+  cask "mactex-no-gui"
+  cask "messenger"
+  cask "monitorcontrol"
+  cask "nordvpn"
+  cask "notion"
+  cask "numi"
+  cask "obsidian"
+  cask "r"
+  cask "raindropio"
+  cask "rectangle"
+  cask "rstudio"
+  cask "scroll-reverser"
+  cask "sioyek"
+  cask "slimhud"
+  cask "stretchly"
+  cask "telegram"
+  cask "tex-live-utility"
+  cask "thunderbird"
+  cask "vlc"
+  cask "vscode"
+  cask "wezterm"
+  cask "zen-browser"
+  cask "zotero"
+
+  # TODO: add mas
+end
+
+# ──────────────────────────────────────────────────────────────────────────────
+# VSCODE EXTENSIONS
+
+vscode "adpyke.codesnap"
+vscode "catppuccin.catppuccin-vsc"
+vscode "catppuccin.catppuccin-vsc-icons"
+vscode "catppuccin.catppuccin-vsc-pack"
+vscode "editorconfig.editorconfig"
+vscode "idleberg.applescript"
+vscode "james-yu.latex-workshop"
+vscode "jbockle.jbockle-format-files"
+vscode "mechatroner.rainbow-csv"
+vscode "mikeylau.typewriter-auto-scroll"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "rdebugger.r-debugger"
+vscode "reditorsupport.r"
+vscode "reditorsupport.r-syntax"
+vscode "stefanarmijo.tabs-toggle"
+vscode "tamasfe.even-better-toml"
+vscode "tonybaloney.vscode-pets"
+vscode "vintharas.learn-vim"
+vscode "vscodevim.vim"
+
+
