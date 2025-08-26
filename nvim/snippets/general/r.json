@@ -77,6 +77,10 @@
     "body": "matrix(${1:data}, nrow = ${2:rows}, ncol = ${3:cols})",
     "prefix": "mat"
   },
+  "mpipe": {
+    "body": "%<>%",
+    "prefix": "mpipe"
+  },
   "rapply": {
     "body": "rapply(${1:list}, ${2:function})",
     "prefix": "rapply"
