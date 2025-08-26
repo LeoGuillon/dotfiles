@@ -1,5 +1,3 @@
-bindkey -v
-
 export DOTFILES=$HOME/dotfiles
 
 export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml
@@ -20,6 +18,7 @@ CONFIG_FILES=(
   matrix
   navigation
   tmux
+  vim_mode
 )
 
 for filename in "${CONFIG_FILES[@]}"; do
@@ -34,4 +33,3 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^I' autosuggest-accept
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
