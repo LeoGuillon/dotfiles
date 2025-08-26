@@ -1,6 +1,7 @@
 # brew
 
 - bat
+- btop
 - curl
 - eza
 - fastfetch
