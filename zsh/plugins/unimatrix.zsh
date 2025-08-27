@@ -35,16 +35,3 @@ function mtx {
   unimatrix -a -c black -f -s 92 -l $letters -u $custom
 }
 
-deep () {
-  mode="${1:-default}"
-
-  osascript $DOTFILES/applescripts/work_session.applescript
-  # mtx $mode
-}
-
-Deep () {
-  mode="${1:-default}"
-
-  osascript $DOTFILES/applescripts/work_session_with_start.applescript
-  # mtx $mode
-}

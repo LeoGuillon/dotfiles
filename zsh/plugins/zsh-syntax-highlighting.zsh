@@ -1,3 +1,4 @@
+# ──────────────────────────────────────────────────────────────────────────────
 # Catppuccin Mocha Theme (for zsh-syntax-highlighting)
 #
 # Paste this files contents inside your ~/.zshrc before you activate zsh-syntax-highlighting
@@ -77,3 +78,7 @@ ZSH_HIGHLIGHT_STYLES[redirection]='fg=#cdd6f4'
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=#cdd6f4'
 ZSH_HIGHLIGHT_STYLES[default]='fg=#cdd6f4'
 ZSH_HIGHLIGHT_STYLES[cursor]='fg=#cdd6f4'
+
+# ──────────────────────────────────────────────────────────────────────────────
+
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -4,19 +4,35 @@
 # ref : https://github.com/chrisgrieser/.config/blob/82b9f87670d2a3cd80876f0092e891f51ffaf6f4/zsh/config/navigation.zsh
 #───────────────────────────────────────────────────────────────────────────────
 
-# ---------------------------------------------------------------------------------
-# (FILES AND FOLDERS NAVIGATION)
-# ---------------------------------------------------------------------------------
+# ──────────────────────────────────────────────────────────────────────────────
+# OPTIONS
 
-eval "$(zoxide init zsh)"
+setopt CD_SILENT   # don’t echo the directory
+setopt CHASE_LINKS # follow symlinks on cd
 
-# uses zoxide as default cd
-alias cd="z"
-alias cdi="zi"
+# ──────────────────────────────────────────────────────────────────────────────
+# UTILS
+
+# HARPOOOOOON in the cmdline !
+# go to jds or dotfiles
+# TODO: setup a keybinding for harpoon
+function harpoon {
+  local target="$HOME/A18"
+  [[ "$PWD" == "$target" ]] && target="$DOTFILES"
+
+  cd -q "$target" || return 1
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# ALIASES
 
 alias ..=" cd .."
 alias ...=" cd ../.."
 alias ....=" cd ../../.."
+
+alias ..g=' cd "$(git rev-parse --show-toplevel)"' # goto git root
+
+alias h="harpoon"
 
 # create a directory and move into it
 function mcd {
@@ -28,16 +44,3 @@ function mcd {
 function topen {
   touch "$1" && $EDITOR "$1"
 }
-# ---------------------------------------------------------------------------------
-# (YAZI)
-# ---------------------------------------------------------------------------------
-
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
-
