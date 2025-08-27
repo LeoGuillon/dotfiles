@@ -14,7 +14,8 @@ palette = "catppuccin_mocha"
 # ────────────────────────────────────────────────────────────────────────────────
 
 format = """\
-$directory$git_branch$git_status $character
+$directory$git_branch$git_status
+$character
 """
 
 # ────────────────────────────────────────────────────────────────────────────────
@@ -60,8 +61,10 @@ format = '[$all_status$ahead_behind]($style)'
 # (CHARACTER)
 
 [character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
+# success_symbol = "[❯](bold green)"
+# error_symbol = "[❯](bold red)"
+success_symbol = "[󱞪](bold green)"
+error_symbol = "[󱞪](bold red)"
 vimcmd_symbol = "[▌](bold blue)"
 
 # ────────────────────────────────────────────────────────────────────────────────
