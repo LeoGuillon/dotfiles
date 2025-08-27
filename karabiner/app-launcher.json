@@ -33,10 +33,37 @@
           "value": 1
         }
       ],
-      "description": "n -> navigateur: Firefox/Zen/Chrome",
+      "description": "n -> navigateur: Zen",
       "from": {
         "key_code": "f",
         "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "shell_command": "open -a 'Zen Browser.app'"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "N -> autre navigateur : Firefox",
+      "from": {
+        "key_code": "f",
+        "modifiers": {
+          "mandatory": [
+            "right_shift"
+          ],
           "optional": [
             "any"
           ]
@@ -225,6 +252,33 @@
           "value": 1
         }
       ],
+      "description": "A -> Cider Music (Apple Music alternative)",
+      "from": {
+        "key_code": "a",
+        "modifiers": {
+          "mandatory": [
+            "right_shift"
+          ],
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "shell_command": "open -a 'Cider.app'"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
       "description": "e -> terminal",
       "from": {
         "key_code": "d",
@@ -285,6 +339,57 @@
       "to": [
         {
           "shell_command": "open -a 'sioyek.app'"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "- -> karabiner",
+      "from": {
+        "key_code": "x",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "shell_command": "open -a 'Karabiner-Elements.app'"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "name": "APP",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "description": "? -> karabiner event viewer",
+      "from": {
+        "key_code": "x",
+        "modifiers": {
+          "mandatory": [
+            "right_shift"
+          ],
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "to": [
+        {
+          "shell_command": "open -a 'Karabiner-EventViewer.app'"
         }
       ],
       "type": "basic"
