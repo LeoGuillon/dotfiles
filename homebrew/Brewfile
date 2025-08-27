@@ -1,19 +1,20 @@
 # DOCS https://docs.brew.sh/Brew-Bundle-and-Brewfile
 #───────────────────────────────────────────────────────────────────────────────
 
-tap "homebrew-zathura/zathura"
-tap "homebrew/services"
-
 # ──────────────────────────────────────────────────────────────────────────────
 # CLI
 
 brew "bat"
+brew "btop"
+brew "curl"
 tap "espanso/espanso"
 brew "eza"
 brew "fastfetch"
 brew "fd"
 brew "fzf"
 brew "gh"
+brew "ghostscript"
+brew "git"
 brew "gnu-sed"
 brew "imagemagick"
 brew "jq"
@@ -22,18 +23,17 @@ brew "lazygit"
 brew "libyaml"
 brew "lua"
 brew "luarocks"
-brew "mas"
-brew "md5sha1sum"
-brew "python@3.13"
 brew "neovim"
 brew "node"
 brew "pandoc"
+brew "python@3.13"
 brew "pipx"
 brew "r"
 brew "ripgrep"
 brew "sevenzip"
 tap "felixkratz/formulae"; brew "felixkratz/formulae/sketchybar"
 brew "starship"
+brew "sl"
 brew "stow"
 brew "tealdeer"
 brew "thefuck"
@@ -47,11 +47,12 @@ brew "zsh-syntax-highlighting"
 # ──────────────────────────────────────────────────────────────────────────────
 # FONTS
 
-cask "font-lilex-nerd-font"
 cask "font-ibm-plex-mono"
 cask "font-ibm-plex-sans"
 cask "font-ibm-plex-sans-jp"
 cask "font-ibm-plex-serif"
+cask "font-lilex-nerd-font"
+cask "font-symbols-only-nerd-font"
 
 # ────────────────────────────────────────────────────────────────────────────────
 # (CASKS AND MAS)
@@ -60,8 +61,7 @@ cask "font-ibm-plex-serif"
 
 computerName = `scutil --get ComputerName`
 
-if computerName.include?("oui")
-# TODO: check and complete cask list
+if computerName.include?("MacBook de Léo")
   cask "1password"
   cask "1password-cli"
   cask "alfred"
@@ -78,17 +78,18 @@ if computerName.include?("oui")
   cask "firefox"
   cask "hiddenbar"
   cask "iterm2"
+  cask "julia-app"
   cask "karabiner-elements"
   cask "latest"
   cask "libreoffice"
   cask "mactex-no-gui"
   cask "messenger"
+  cask "microsoft-auto-update"
   cask "monitorcontrol"
   cask "nordvpn"
   cask "notion"
   cask "numi"
   cask "obsidian"
-  cask "r"
   cask "raindropio"
   cask "rectangle"
   cask "rstudio"
@@ -98,14 +99,17 @@ if computerName.include?("oui")
   cask "stretchly"
   cask "telegram"
   cask "tex-live-utility"
+  cask "the-unarchiver"
   cask "thunderbird"
   cask "vlc"
   cask "vscode"
   cask "wezterm"
-  cask "zen-browser"
+  cask "zen"
   cask "zotero"
 
-  # TODO: add mas
+  brew "mas"
+  mas "Amphetamine", id: 937984704
+  mas "CleanMyKeyboard", id: 6468120888
 end
 
 # ──────────────────────────────────────────────────────────────────────────────
