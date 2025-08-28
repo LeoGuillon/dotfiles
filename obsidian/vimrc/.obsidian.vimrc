@@ -105,11 +105,10 @@ vnoremap L gE
 onoremap L gE
 
 " new line above or below without entering insert mode
-nnoremap <CR> mzo<Esc>`z
 nnoremap = mzo<Esc>`z
 
-nnoremap <S-CR> mzO<Esc>`z
-nnoremap <S-=> mzO<Esc>`z
+" BUG: the ≠ symbol isn’t recognized by Vim ?
+nnoremap ≠ mzO<Esc>`z
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (VISUAL MODE)
@@ -596,6 +595,10 @@ nnoremap <Space>of :openflashcards<CR>
 " [g]raph view
 exmap opengraph obcommand graph:open
 nnoremap <Space>og :opengraph<CR>
+
+" [h]omepage
+exmap openhomepage obcommand homepage:open-homepage
+nnoremap <Space>oh :openhomepage<CR>
 
 " [p]rojects
 exmap openprojects obcommand obsidian-projects:show-projects

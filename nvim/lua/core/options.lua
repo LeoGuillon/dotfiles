@@ -88,3 +88,10 @@ vim.filetype.add({
     Rmd = "markdown",
   },
 })
+
+-- makes obsidian bases recognized as yaml
+vim.filetype.add({
+  extension = {
+    base = "yaml",
+  },
+})
