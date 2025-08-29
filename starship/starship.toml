@@ -14,7 +14,7 @@ palette = "catppuccin_mocha"
 # ────────────────────────────────────────────────────────────────────────────────
 
 format = """\
-$directory$git_branch$git_status
+$directory$git_branch$git_status$lua$rlang
 $character
 """
 
@@ -56,6 +56,28 @@ format = '\([+$added]($added_style) [-$deleted]($deleted_style)\)'
 modified = '*'
 style = "bold mauve"
 format = '[$all_status$ahead_behind]($style)'
+
+# ──────────────────────────────────────────────────────────────────────────────
+# LANGUAGES VERSION
+
+# TODO: other languages to add : c/c++, rust, ocaml
+
+[lua]
+format = " via [$symbol ($version)]($style)"
+symbol = ""
+style = "sapphire bold"
+
+[rlang]
+format   = " via [$symbol ($version)]($style)"
+symbol = ""
+style = "sapphire bold"
+
+# ──────────────────────────────────────────────────────────────────────────────
+# COMMAND DURATION
+
+[cmd_duration]
+min_time = 5_000
+style = "bold peach"
 
 # ────────────────────────────────────────────────────────────────────────────────
 # (CHARACTER)
