@@ -1,9 +1,17 @@
+-- ────────────────────────────────────────────────────────────────────────────────
+-- OPTIONS
+-- ────────────────────────────────────────────────────────────────────────────────
+
 vim.opt_local.wrap = true -- enable wrap lines for tex files
 vim.opt_local.linebreak = true -- wrap on words instead of characters
 
 -- hides line numbers by default
 vim.opt_local.relativenumber = false
 vim.opt_local.number = false
+
+-- ────────────────────────────────────────────────────────────────────────────────
+-- KEYMAPS
+-- ────────────────────────────────────────────────────────────────────────────────
 
 local map = require("core.utils").map
 
@@ -119,3 +127,20 @@ map("n", "<locallleader>l", "<cmd>VimtexCountLetters<cr>", { desc = "count Lette
 map("n", "<locallleader>L", "<cmd>VimtexCountLetters!<cr>", { desc = "count Letters for each file" })
 map("n", "<locallleader>w", "<cmd>VimtexCountWords<cr>", { desc = "count Words in project" })
 map("n", "<locallleader>W", "<cmd>VimtexCountWords!<cr>", { desc = "count Words for each file" })
+
+-- ────────────────────────────────────────────────────────────────────────────────
+-- (COMPLETION SETUP)
+-- ────────────────────────────────────────────────────────────────────────────────
+
+local cmp = require("cmp")
+cmp.setup.buffer({
+  sources = {
+    { name = "luasnip" },
+    { name = "vimtex" },
+    { name = "nvim_lsp" },
+    { name = "latex_symbols", option = { strategy = 2 } }, -- latex symbols, insert the command
+    { name = "cmdline" },
+    { name = "path" },
+    { name = "buffer" },
+  },
+})

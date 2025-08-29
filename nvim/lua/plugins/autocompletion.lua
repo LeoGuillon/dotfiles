@@ -61,15 +61,11 @@ return {
         ["<C-Space>"] = cmp.mapping.complete(), -- popout the completion window
       }),
       sources = cmp.config.sources({ -- sources for autocompletion, sorted by decreasing priority
-        -- TODO: reconsider the order, notably putting languages-specific and lsp source in first
+        -- default sources
+        -- sources are customized depending on the filetype, see after/ftplugin for the corresponding sources
+        { name = "nvim_lsp" }, -- lsp
         { name = "luasnip" }, -- snippets
         { name = "path" }, -- path
-        { name = "nvim_lua" }, -- lua API
-        { name = "latex_symbols", option = { strategy = 2 } }, -- latex symbols, insert the command
-        { name = "cmp_r" }, -- R
-        { name = "nvim_lsp" }, -- lsp
-        { name = "vimtex" }, -- vimtex support
-        { name = "lazydev", group_index = 0 }, -- lazydev
         -- { name = "fonts", option = { space_filter = "-" } }, -- fonts
         { name = "nerdfont" }, -- nerdfont icons
         { name = "buffer" }, -- text in buffer
@@ -83,7 +79,7 @@ return {
           menu = {
             buffer = "[Buffer]",
             cmdline = "[CmdLine]",
-            -- fonts = "[Font]",
+            fonts = "[Font]",
             lazydev = "[LazyDev]",
             latex_symbols = "[LaTeX]",
             nvim_lsp = "[LSP]",
@@ -98,15 +94,14 @@ return {
       },
     })
 
-    -- setup for specific filetypes
-    cmp.setup.filetype({ "tex" }, {
-      sources = {
-        { name = "vimtex" },
-        { name = "latex_symbols", option = { strategy = 2 } }, -- latex symbols, insert the command
-      },
+    cmp_r.setup({
+      filetypes = { "r", "rmd" },
     })
 
-    -- setup for search forward (`/`)
+    -- ──────────────────────────────────────────────────────────────────────────────
+    -- COMMAND LINE
+
+    -- setup for search forward and backwards (`/`)
     cmp.setup.cmdline("/", {
       mapping = cmp.mapping.preset.cmdline(),
       sources = {
@@ -123,10 +118,6 @@ return {
           ignore_cmds = { "Man", "!" },
         } },
       }),
-    })
-
-    cmp_r.setup({
-      filetypes = { "r", "rmd" },
     })
   end,
 }

@@ -81,14 +81,6 @@ vim.filetype.add({
   },
 })
 
--- make Rmd files recognized as md files for treesitter
-vim.filetype.add({
-  extension = {
-    rmd = "markdown",
-    Rmd = "markdown",
-  },
-})
-
 -- makes obsidian bases recognized as yaml
 vim.filetype.add({
   extension = {

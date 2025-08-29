@@ -31,7 +31,7 @@ return {
             -- BUG: fix the upward search
             search_up = {
               kind = "search",
-              pattern = "^\\",
+              pattern = "^%?",
               icon = "󰍉 󰄿",
               lang = "regex",
             },

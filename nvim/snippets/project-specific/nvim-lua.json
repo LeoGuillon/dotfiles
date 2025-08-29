@@ -11,13 +11,6 @@
     "body": "map(\"${1:mode}\", \"<locallleader>${2:keymap}\", \"${3:action}\", { desc = \"${4:desc}\" })",
     "prefix": "map-localleader"
   },
-  "require-map + map-require": {
-    "body": "local map = require(\"core.utils\").map",
-    "prefix": [
-      "require-map",
-      "map-require"
-    ]
-  },
   "which-key_group": {
     "body": "require(\"which-key\").add({ { \"${1:keymap}\", group = \"${2:name}\", icon = \"$3\"}})",
     "prefix": "which-key_group"

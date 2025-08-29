@@ -1,9 +1,9 @@
--- local abbr = require("config.utils").buffer_abbrev
+local map = require("core.utils").map
 
 -- ────────────────────────────────────────────────────────────────────────────────
 -- (FIXES DUE TO HABITS IN OTHER LANGUAGES)
 
--- abbr("!=", "~=")
+map("ia", "!=", "~=")
 
 -- ────────────────────────────────────────────────────────────────────────────────
 -- (AUTO-COMMA FOR TABLES)
@@ -24,17 +24,21 @@
 --   end,
 -- })
 
--- ────────────────────────────────────────────────────────────────────────────────
+-- ──────────────────────────────────────────────────────────────────────────────
+-- COMPLETION
+-- ──────────────────────────────────────────────────────────────────────────────
 
-return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        "lua",
-        "luadoc",
-        "luap",
-      })
-    end,
+local cmp = require("cmp")
+cmp.setup.buffer({
+  sources = {
+    { name = "luasnip" },
+    { name = "nvim_lua" },
+    { name = "nvim_lsp" },
+    { name = "lazydev" },
+    { name = "nerdfont" },
+    { name = "path" },
+    { name = "buffer" },
   },
-}
+})
+
+-- ────────────────────────────────────────────────────────────────────────────────

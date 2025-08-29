@@ -1,0 +1,14 @@
+{
+  "rcodeblock + chunk": {
+    "body": [
+      "```{r ${1:chunk title}}",
+      "$2",
+      "```",
+      "$0"
+    ],
+    "prefix": [
+      "rcodeblock",
+      "chunk"
+    ]
+  }
+}

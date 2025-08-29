@@ -3,6 +3,10 @@
 -- vim.opt_local.shiftwidth = 4
 -- vim.opt_local.tabstop = 2
 
+-- ──────────────────────────────────────────────────────────────────────────────
+-- OPTIONS
+-- ──────────────────────────────────────────────────────────────────────────────
+
 -- ────────────────────────────────────────────────────────────────────────────────
 -- (KEYMAPS)
 -- ────────────────────────────────────────────────────────────────────────────────
@@ -54,3 +58,17 @@ map("n", "<locallleader>sc", "<Plug>RDSendChunk", { desc = "current Chunk" })
 
 -- entire [F]ile
 map("n", "<locallleader>sF", "<Plug>RSendFile", { desc = "entire File" })
+
+-- ──────────────────────────────────────────────────────────────────────────────
+-- COMPLETION
+-- ──────────────────────────────────────────────────────────────────────────────
+
+local cmp = require("cmp")
+cmp.setup.buffer({
+  sources = {
+    { name = "luasnip" },
+    { name = "cmp_r" }, -- no lsp since most of the completions are handled by R.nvim
+    { name = "path" },
+    { name = "buffer" },
+  },
+})

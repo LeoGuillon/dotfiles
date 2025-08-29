@@ -131,14 +131,6 @@ map("n", "<leader>~", "mzlblgueh~`z", { desc = "Smart word togglecasing" })
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (NEW LINES)
 
-map("n", "<CR>", "]<Space>", { desc = "Add an empty line below", remap = true })
--- map("n", "<S-CR>", "[<Space>", { desc = "Add an empty line above", remap = true })
--- BUG: make the combo <S-CR> work on iTerm and WezTerm
-
--- I don’t use that much the `=` comamnd anyway
-map("n", "=", "]<Space>", { desc = "Add an empty line below", remap = true })
-map("n", "≠", "[<Space>", { desc = "Add an empty line above", remap = true }) -- shifted = in ergo-l layout
-
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (TRAILING CHARS)
 -- credits : https://github.com/chrisgrieser/.config/blob/9fb7bea009be951f9676ef52634a7d12d9717953/nvim/lua/config/leader-keybindings.lua
@@ -185,6 +177,11 @@ map({ "n", "v" }, "-", "<C-x>", { desc = "Decrement" })
 map({ "n", "v" }, "g+", "<C-a>", { desc = "g-Increment" })
 map({ "n", "v" }, "g-", "<C-x>", { desc = "g-Decrement" })
 
+-- =/≠ to add empty line below/above
+-- I don’t use that much the `=` command anyway
+map("n", "=", "]<Space>", { desc = "Add an empty line below", remap = true })
+map("n", "≠", "[<Space>", { desc = "Add an empty line above", remap = true }) -- shifted `=` in ergo-l layout
+
 -- remapping of hjkl to other functions
 -- as regular arrow movements are mapped to the arrow keys, to another layer
 
@@ -203,6 +200,7 @@ map("n", "k", "i<CR><Esc>", { desc = "Unjoin to the next line" })
 -- [l]ean back : just a shortcut for ge/gE
 -- map({ "n", "x", "o" }, "l", "ge", { desc = "go to previous end (Lean back)" })
 -- map({ "n", "x", "o" }, "L", "gE", { desc = "go to previous END (Lean back)" })
+-- see nvim-spider plugin
 
 map("n", "\\", "?", { desc = "Search backwards" }) -- due to the symmetry between \ and / on symbol layer
 

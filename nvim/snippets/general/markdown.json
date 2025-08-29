@@ -90,13 +90,5 @@
       "img",
       "image"
     ]
-  },
-  "rcodeblock": {
-    "body": [
-      "```{r ${1:}}",
-      "$0",
-      "```"
-    ],
-    "prefix": "rcodeblock"
   }
 }

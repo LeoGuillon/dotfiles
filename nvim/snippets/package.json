@@ -41,13 +41,20 @@
       {
         "path": "./general/markdown.json",
         "language": [
-          "markdown"
+          "markdown",
+          "rmd"
         ]
       },
       {
         "path": "./general/r.json",
         "language": [
           "r"
+        ]
+      },
+      {
+        "path": "./general/rmd.json",
+        "language": [
+          "rmd"
         ]
       },
       {
@@ -67,7 +74,8 @@
       {
         "path": "./general/tex/misc.json",
         "language": [
-          "language"
+          "tex",
+          "plaintex"
         ]
       },
       {
