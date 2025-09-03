@@ -14,7 +14,7 @@ palette = "catppuccin_mocha"
 # ────────────────────────────────────────────────────────────────────────────────
 
 format = """\
-$directory$git_branch$git_status$lua$rlang
+$directory$git_branch$git_status$c$cpp$lua$ocaml$python$rlang$rust$package
 $character
 """
 
@@ -29,7 +29,7 @@ $character
 truncation_length = 6
 truncate_to_repo = true
 style = "bold fg:blue"
-format = "[$path]($style)"
+format = "[$path]($style) "
 
 # using directory substitutions for volumes,
 # such as cloud or external hard drives
@@ -44,40 +44,62 @@ format = "[$path]($style)"
 [git_branch]
 symbol = ""
 style = "fg:bold mauve"
-format = " on [$symbol $branch]($style)"
-
-[git_metrics]
-disabled = false
-added_style = "green"
-deleted_style = "red"
-format = '\([+$added]($added_style) [-$deleted]($deleted_style)\)'
+format = "on [$symbol $branch]($style)"
 
 [git_status]
 modified = '*'
 style = "bold mauve"
-format = '[$all_status$ahead_behind]($style)'
+format = '[$all_status$ahead_behind]($style) '
 
 # ──────────────────────────────────────────────────────────────────────────────
 # LANGUAGES VERSION
 
-# TODO: other languages to add : c/c++, rust, ocaml
+[c]
+format = "via [$symbol ($version)]($style) "
+symbol = ""
+style = "yellow bold"
+
+[cpp]
+format = "via [$symbol ($version)]($style) "
+symbol = ""
+style = "peach bold"
+
+[julia]
+format = "via [$symbol ($version)]($style) "
+symbol = ""
+style = "mauve bold"
 
 [lua]
-format = " via [$symbol ($version)]($style)"
+format = "via [$symbol ($version)]($style) "
 symbol = ""
 style = "sapphire bold"
 
+[ocaml]
+format = "via [$symbol ($version)]($style) "
+symbol = ""
+style = "maroon bold"
+
+[python]
+symbol = ""
+
 [rlang]
-format   = " via [$symbol ($version)]($style)"
+format = "via [$symbol ($version)]($style) "
 symbol = ""
 style = "sapphire bold"
 
-# ──────────────────────────────────────────────────────────────────────────────
-# COMMAND DURATION
+[rust]
+format = "via [$symbol ($version)]($style) "
+symbol = ""
+style = "peach bold"
 
-[cmd_duration]
-min_time = 5_000
-style = "bold peach"
+# ──────────────────────────────────────────────────────────────────────────────
+# PACKAGE VERSION
+
+[package]
+format = "in [$symbol ($version)]($style)"
+symbol = ""
+style = "maroon bold"
+
 
 # ────────────────────────────────────────────────────────────────────────────────
 # (CHARACTER)
