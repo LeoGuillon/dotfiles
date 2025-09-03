@@ -59,7 +59,7 @@ do
   end, { desc = "Yank", expr = true })
   map("n", "Y", function()
     cursorPreYank = vim.api.nvim_win_get_cursor(0)
-    return "y$" -- TODO: transform to "yg$" ?
+    return "y$"
   end, { desc = "Yank to the end of line", expr = true })
   vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()

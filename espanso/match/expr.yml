@@ -173,6 +173,11 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "tq"
+    replace: "tel que"
+    word: true
+    propagate_case: true
+
   # NOTE: can’t be ”we” so that it’s usable in english as well
   # the only conflict I can think of currently is the “White Knight” acronym lol
   - trigger: "wk"

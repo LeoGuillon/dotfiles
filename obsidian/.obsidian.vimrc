@@ -488,12 +488,12 @@ nnoremap <Space>dn :deletenote<CR>
 " [l]int  [n]ote
 exmap lintnote obcommand obsidian-linter:lint-file
 nnoremap <Space>ln :lintnote<CR>
-nnoremap <Space>ll :lintnote<CR>
+" nnoremap <Space>ll :lintnote<CR>
 
 " [m]ove [n]ote
 exmap movenote obcommand file-explorer:move-file
 nnoremap <Space>mn :movenote<CR>
-nnoremap <Space>mm :movenote<CR>
+" nnoremap <Space>mm :movenote<CR>
 
 " [p]in [n]ote
 " NOTE: this one is kinda annoying with the ergo-l layout,
@@ -506,7 +506,7 @@ nnoremap <Space>pp :pinnote<CR>
 " [r]ename [n]ote
 exmap renamenote obcommand workspace:edit-file-title
 nnoremap <Space>rn :renamenote<CR>
-nnoremap <Space>rr :renamenote<CR>
+" nnoremap <Space>rr :renamenote<CR>
 
 " [r]eplace [t]emplates
 exmap replacetemplates obcommand templater-obsidian:replace-in-file-templater
