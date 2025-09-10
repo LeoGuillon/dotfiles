@@ -9,16 +9,17 @@ config.cursor_blink_rate = 0
 
 -- font
 config.font = wezterm.font({
-	family = "Lilex Nerd Font Mono",
+	family = "Lilex Nerd Font Mono GS", -- my own variant of Lilex, with slashed zero and open g
+	-- family = "Lilex Nerd Font Mono"
 	weight = "Medium",
 })
 config.font_size = 13
-config.harfbuzz_features = {
-	"zero=1", -- slashed zero
-	"cv02=1", -- open g
-	"cv08=1", -- alt inequalities
-	"ss01=1", -- restore arrows
-}
+-- config.harfbuzz_features = {
+-- 	"zero=1", -- slashed zero
+-- 	"cv02=1", -- open g
+-- 	"cv08=1", -- alt inequalities
+-- 	"ss01=1", -- restore arrows
+-- }
 
 config.color_scheme = "Catppuccin Mocha"
 
@@ -31,9 +32,7 @@ config.window_padding = {
 	bottom = 2,
 }
 
--- NOTE: for an unknown reason, setting the opacity at 1
--- makes the macOS window control super laggy
-config.window_background_opacity = 0.99
+config.window_background_opacity = 1
 
 -- and finally, return the configuration to wezterm
 return config
