@@ -1,4 +1,3 @@
-
 # options
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --strip-cwd-prefix --exclude .git"
 export FZF_DEFAULT_OPTS=" \
@@ -10,6 +9,10 @@ export FZF_DEFAULT_OPTS=" \
 --layout=default \
 --multi
 --preview=\"bat --color=always {}\""
+
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic"
 
 export FZF_ALT_C_OPTS=" \
 --preview 'eza --tree --icons=never --no-user --show-symlinks --sort=type {}'"

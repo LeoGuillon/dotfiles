@@ -392,6 +392,7 @@ nnoremap <Space>~ mzlblgueh~`z
 
 " we map previous Z+… on leader mappings
 nnoremap <Space>w :closetab<CR>
+nnoremap <Space>x :closetab<CR>
 nnoremap <Space>W :closewindow<CR>
 nnoremap <Space>q :quit<CR>
 
@@ -603,6 +604,10 @@ nnoremap <Space>oh :openhomepage<CR>
 " [p]rojects
 exmap openprojects obcommand obsidian-projects:show-projects
 nnoremap <Space>op :openprojects<CR>
+
+" [r]andom note
+exmap openrandomnote obcommand random-note
+nnoremap <Space>or :openrandomnote<CR>
 
 " [,] settings
 exmap opensettings obcommand app:open-settings

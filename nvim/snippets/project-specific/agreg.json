@@ -14,5 +14,22 @@
       "\\end{proof}"
     ],
     "prefix": "agreg-dev"
+  },
+  "agreg-lesson": {
+    "body": [
+      "\\addcontentsline{toc}{subsection}{${1:lesson}}",
+      "\\subsection*{${1:lesson}}\\label{lesson:${2:lesson-number}}",
+      "",
+      "\\paragraph{Introduction}",
+      "",
+      "\\paragraph{Plan}",
+      "",
+      "\\paragraph{Développements}",
+      "",
+      "\\paragraph{Notes}",
+      "",
+      "\\paragraph{Sources}"
+    ],
+    "prefix": "agreg-lesson"
   }
 }

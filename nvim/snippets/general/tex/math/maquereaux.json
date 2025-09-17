@@ -14,8 +14,8 @@
   },
   "Primes": {
     "body": "\\Primes",
-    "prefix": "Primes",
-    "mathOnly": true
+    "mathOnly": true,
+    "prefix": "Primes"
   },
   "Prob": {
     "body": "\\Prob{${1:event}}",
@@ -147,6 +147,13 @@
   "subgroup": {
     "body": "\\subgroup",
     "prefix": "subgroup"
+  },
+  "sym + groupe-symetrique": {
+    "body": "\\Sym_${1:n}",
+    "prefix": [
+      "sym",
+      "groupe-symetrique"
+    ]
   },
   "tr + trace": {
     "body": "\\tr",

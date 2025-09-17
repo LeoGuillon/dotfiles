@@ -139,7 +139,6 @@ cmp.setup.buffer({
     { name = "vimtex" },
     { name = "nvim_lsp" },
     { name = "latex_symbols", option = { strategy = 2 } }, -- latex symbols, insert the command
-    { name = "cmdline" },
     { name = "path" },
     { name = "buffer" },
   },

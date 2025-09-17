@@ -71,6 +71,11 @@ matches:
   #   word: true
   #   propagate_case: true
 
+  - trigger: "gpe"
+    replace: "groupe"
+    word: true
+    propagate_case: true
+
   - trigger: "gt"
     replace: "j’étais"
     word: true

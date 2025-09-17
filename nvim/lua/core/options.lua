@@ -81,6 +81,13 @@ vim.filetype.add({
   },
 })
 
+-- makes latex configs get recognized as .tex
+vim.filetype.add({
+  extension = {
+    cfg = "tex",
+  },
+})
+
 -- makes obsidian bases recognized as yaml
 vim.filetype.add({
   extension = {
