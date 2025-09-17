@@ -391,6 +391,7 @@ nnoremap <Space>~ mzlblgueh~`z
 " (FILE MANIP)
 
 " we map previous Z+… on leader mappings
+" similar to ⌘+… usual keymaps
 nnoremap <Space>w :closetab<CR>
 nnoremap <Space>x :closetab<CR>
 nnoremap <Space>W :closewindow<CR>
