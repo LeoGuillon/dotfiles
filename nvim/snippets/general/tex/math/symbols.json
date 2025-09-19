@@ -15,6 +15,10 @@
     "body": "\\forall",
     "prefix": "forall"
   },
+  "iff": {
+    "body": "\\iff",
+    "prefix": "iff"
+  },
   "in": {
     "body": "\\in",
     "prefix": "in"
@@ -39,6 +43,10 @@
       "mapsto",
       "|>"
     ]
+  },
+  "notin": {
+    "body": "\\notin",
+    "prefix": "notin"
   },
   "overrightarrow": {
     "body": "\\overrightarrow{$1}",

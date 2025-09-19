@@ -53,6 +53,10 @@
     "body": "\\definecolor{${1:name}}{RGB}{${2:R},${3:G},${4:B}}",
     "prefix": "definecolor_RGB"
   },
+  "defterm": {
+    "body": "\\defterm{$1}",
+    "prefix": "defterm"
+  },
   "em": {
     "body": "\\emph{${1:${TM_SELECTED_TEXT}}}$0",
     "prefix": [
@@ -94,6 +98,14 @@
   "strong": {
     "body": "\\strong{${1:${TM_SELECTED_TEXT}}}",
     "prefix": "strong"
+  },
+  "text": {
+    "body": "\\text{$1}",
+    "prefix": "text"
+  },
+  "text-1": {
+    "body": "\\text{$1}",
+    "prefix": "text"
   },
   "title + maketitle": {
     "body": "\\maketitle",

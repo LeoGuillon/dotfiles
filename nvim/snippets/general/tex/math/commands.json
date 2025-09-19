@@ -51,6 +51,14 @@
       "rm"
     ]
   },
+  "pow + puissance + ^": {
+    "body": "^{$1}",
+    "prefix": [
+      "pow",
+      "puissance",
+      "^"
+    ]
+  },
   "power + exponent": {
     "body": "^{$1}",
     "prefix": [

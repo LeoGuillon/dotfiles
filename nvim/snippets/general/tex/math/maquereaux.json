@@ -3,9 +3,31 @@
     "body": "C",
     "prefix": "C"
   },
+  "EnsA + SetA": {
+    "body": "\\SetA{${1:function}}{${2:elements}}",
+    "prefix": [
+      "EnsA",
+      "SetA"
+    ]
+  },
+  "EnsP + SetP": {
+    "body": "\\SetP{${1:elements}}{${2:property}}",
+    "prefix": [
+      "EnsP",
+      "SetP"
+    ]
+  },
   "Esp": {
     "body": "\\Esp{${1:random variable}}",
     "prefix": "Esp"
+  },
+  "M + Mn + Matrices": {
+    "body": "\\M_${1:n}(${2:\\R})",
+    "prefix": [
+      "M",
+      "Mn",
+      "Matrices"
+    ]
   },
   "N": {
     "body": "\\N",
@@ -39,6 +61,18 @@
       "R",
       "réels"
     ]
+  },
+  "S + Sn + Symetriques": {
+    "body": "\\S_${1:n}$2(${3:\\R})",
+    "prefix": [
+      "S",
+      "Sn",
+      "Symetriques"
+    ]
+  },
+  "TAU": {
+    "body": "\\TAU",
+    "prefix": "TAU"
   },
   "Var": {
     "body": "\\Var{${1:random variable}}",
@@ -86,6 +120,13 @@
     "prefix": [
       "e",
       "exp"
+    ]
+  },
+  "front + frontiere": {
+    "body": "\\front{${1:A}}",
+    "prefix": [
+      "front",
+      "frontiere"
     ]
   },
   "function + fonction": {

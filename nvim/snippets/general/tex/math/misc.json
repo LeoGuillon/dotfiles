@@ -1,4 +1,11 @@
 {
+  "Ens + Set": {
+    "body": "\\Set{$1}",
+    "prefix": [
+      "Ens",
+      "Set"
+    ]
+  },
   "Ne": {
     "body": "\\N^{*}",
     "prefix": "Ne"
