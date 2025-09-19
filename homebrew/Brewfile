@@ -72,7 +72,6 @@ if computerName.include?("MacBook de Léo")
   cask "chatgpt"
   cask "cold-turkey-blocker"
   cask "discord"
-  cask "dockey"
   cask "espanso"
   cask "flux"
   cask "firefox"
