@@ -9,8 +9,8 @@ config.cursor_blink_rate = 0
 
 -- font
 config.font = wezterm.font({
-	family = "Lilex Nerd Font Mono GS", -- my own variant of Lilex, with slashed zero and open g
-	-- family = "Lilex Nerd Font Mono"
+	-- family = "Lilex Nerd Font Mono GS", -- my own variant of Lilex, with slashed zero and open g
+	family = "Lilex Nerd Font Mono",
 	weight = "Medium",
 })
 config.font_size = 13
