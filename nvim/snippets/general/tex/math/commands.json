@@ -33,6 +33,13 @@
     "body": "\\frac{${1:numerator}}{${2:denominator}}",
     "prefix": "frac"
   },
+  "hat + chapeau": {
+    "body": "\\hat{$1}",
+    "prefix": [
+      "hat",
+      "chapeau"
+    ]
+  },
   "indice": {
     "body": "_{$1}",
     "prefix": "indice"
@@ -64,6 +71,18 @@
     "prefix": [
       "power",
       "exponent"
+    ]
+  },
+  "prod": {
+    "body": "\\prod_{${1:i=1}}^{${2:n}}",
+    "prefix": "prod"
+  },
+  "sqrt + squareroot + racinecarree": {
+    "body": "\\sqrt{$1}",
+    "prefix": [
+      "sqrt",
+      "squareroot",
+      "racinecarree"
     ]
   }
 }

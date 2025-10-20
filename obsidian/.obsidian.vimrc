@@ -602,8 +602,11 @@ nnoremap <Space>og :opengraph<CR>
 exmap openhomepage obcommand homepage:open-homepage
 nnoremap <Space>oh :openhomepage<CR>
 
+exmap openlessons obcommand obsidian-projects:show:95320842-856d-426a-b0f1-12ec3b662566
+nnoremap <Space>ol :openlessons<CR>
+
 " [p]rojects
-exmap openprojects obcommand obsidian-projects:show-projects
+exmap openprojects obcommand obsidian-projects:show:869af070-c500-4427-943a-0e244fb8e541
 nnoremap <Space>op :openprojects<CR>
 
 " [r]andom note

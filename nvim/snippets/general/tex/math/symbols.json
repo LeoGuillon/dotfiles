@@ -23,6 +23,21 @@
     "body": "\\in",
     "prefix": "in"
   },
+  "infty + infini + infinity": {
+    "body": "\\infty",
+    "prefix": [
+      "infty",
+      "infini",
+      "infinity"
+    ]
+  },
+  "int + integral": {
+    "body": "\\int_{$1}^{$2}{$3}",
+    "prefix": [
+      "int",
+      "integral"
+    ]
+  },
   "longmapsto + |->": {
     "body": "\\longmapsto",
     "prefix": [

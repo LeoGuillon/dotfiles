@@ -1,6 +1,6 @@
 {
   "C": {
-    "body": "C",
+    "body": "\\C",
     "prefix": "C"
   },
   "EnsA + SetA": {
@@ -79,7 +79,7 @@
     "prefix": "Var"
   },
   "Z": {
-    "body": "Z",
+    "body": "\\Z",
     "prefix": "Z"
   },
   "Zmod + ZnZ": {
@@ -88,6 +88,14 @@
     "prefix": [
       "Zmod",
       "ZnZ"
+    ]
+  },
+  "abs + valeur-absolue + module": {
+    "body": "\\abs{$1}",
+    "prefix": [
+      "abs",
+      "valeur-absolue",
+      "module"
     ]
   },
   "card + cardinal": {
@@ -158,6 +166,13 @@
   "ker": {
     "body": "\\ker",
     "prefix": "ker"
+  },
+  "kro + kronecker": {
+    "body": "\\kro{$1}{$2}",
+    "prefix": [
+      "kro",
+      "kronecker"
+    ]
   },
   "parts": {
     "body": "\\parts{${1:set}}",

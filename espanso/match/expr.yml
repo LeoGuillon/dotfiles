@@ -143,6 +143,11 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "qlq"
+    replace: "quelconque"
+    word: true
+    propagate_case: true
+
   - trigger: "qq"
     replace: "quelque"
     word: true
@@ -219,6 +224,26 @@ matches:
 
   # ────────────────────────────────────────────────────────────────────────────────
   # (MATHS)
+
+  - trigger: "apcr"
+    replace: "à partir d’un certain rang"
+    word: true
+    propagate_case: true
+
+  - trigger: "ev"
+    replace: "espace vectoriel"
+    word: true
+    propagate_case: true
+
+  - trigger: "evn"
+    replace: "espace vectoriel normé"
+    word: true
+    propagate_case: true
+
+  - trigger: "sev"
+    replace: "sous-espace vectoriel"
+    word: true
+    propagate_case: true
 
   - trigger: "thm"
     replace: "théorème"
