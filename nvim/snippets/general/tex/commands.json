@@ -79,6 +79,13 @@
       "italic"
     ]
   },
+  "mathfrak + frak": {
+    "body": "\\mathfrak{$1}",
+    "prefix": [
+      "mathfrak",
+      "frak"
+    ]
+  },
   "newcommand": {
     "body": "\\newcommand\\\\$1[${2:parameters_number}]{${3:command}} % ${4:description}",
     "prefix": "newcommand-parameters"
