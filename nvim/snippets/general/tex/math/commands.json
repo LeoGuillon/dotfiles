@@ -84,5 +84,12 @@
       "squareroot",
       "racinecarree"
     ]
+  },
+  "sum + somme": {
+    "body": "\\sum_{${1:i=1}}^{${2:n}}{$3}",
+    "prefix": [
+      "sum",
+      "somme"
+    ]
   }
 }

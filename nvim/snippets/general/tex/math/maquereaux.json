@@ -22,7 +22,7 @@
     "prefix": "Esp"
   },
   "M + Mn + Matrices": {
-    "body": "\\M_${1:n}(${2:\\R})",
+    "body": "\\M_${1:n}(${2:K})",
     "prefix": [
       "M",
       "Mn",

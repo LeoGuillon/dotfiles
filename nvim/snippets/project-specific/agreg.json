@@ -1,13 +1,13 @@
 {
   "agreg-dev": {
     "body": [
-      "\\subsection{${1:name}}\\label{dev:${2:label}}",
+      "\\subsection{${1:name}}",
       "",
       "Leçons correspondantes : ${3:lessons}",
       "",
-      "\\begin{${4:env}*}{}{}",
+      "\\begin{${4:env}}{}{}",
       "  ${5:question}",
-      "\\end{${4:env}*}",
+      "\\end{${4:env}}",
       "",
       "\\begin{proof}",
       "  ${6:proof}",
