@@ -1,4 +1,15 @@
 {
+  "Alt": {
+    "body": "\\Alt_n",
+    "prefix": "Alt"
+  },
+  "Aut + Automorphismes": {
+    "body": "\\Aut",
+    "prefix": [
+      "Aut",
+      "Automorphismes"
+    ]
+  },
   "C": {
     "body": "\\C",
     "prefix": "C"
@@ -112,6 +123,13 @@
       "complementary"
     ]
   },
+  "conj + conjugue": {
+    "body": "\\conj{${1:z}}",
+    "prefix": [
+      "conj",
+      "conjugue"
+    ]
+  },
   "disting": {
     "body": "\\normal",
     "prefix": "normal"
@@ -161,6 +179,13 @@
     "prefix": [
       "im",
       "image"
+    ]
+  },
+  "iso + isomorphe": {
+    "body": "\\iso",
+    "prefix": [
+      "iso",
+      "isomorphe"
     ]
   },
   "ker": {

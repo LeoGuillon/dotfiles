@@ -29,6 +29,13 @@
       "mathcal"
     ]
   },
+  "cos + cosinus": {
+    "body": "\\cos",
+    "prefix": [
+      "cos",
+      "cosinus"
+    ]
+  },
   "frac": {
     "body": "\\frac{${1:numerator}}{${2:denominator}}",
     "prefix": "frac"
@@ -44,12 +51,34 @@
     "body": "_{$1}",
     "prefix": "indice"
   },
+  "int + integral": {
+    "body": "\\int_{$1}^{$2}{$3\\d $4}",
+    "prefix": [
+      "int",
+      "integral"
+    ]
+  },
+  "inv + -1": {
+    "body": "\\inv{$1}",
+    "prefix": [
+      "inv",
+      "-1"
+    ]
+  },
   "mathbb + bb": {
     "body": "\\mathbb{$1}",
     "prefix": [
       "mathbb",
       "bb"
     ]
+  },
+  "mathline": {
+    "body": [
+      "\\[",
+      "  $1",
+      "\\]"
+    ],
+    "prefix": "mathline"
   },
   "mathrm + rm": {
     "body": "\\mathrm{$1}",
@@ -73,23 +102,31 @@
       "exponent"
     ]
   },
-  "prod": {
-    "body": "\\prod_{${1:i=1}}^{${2:n}}",
-    "prefix": "prod"
+  "prod + product + produit": {
+    "body": "\\prod_{${1:i=1}}^{${2:n}}{$3}",
+    "prefix": [
+      "prod",
+      "product",
+      "produit"
+    ]
+  },
+  "sin + sinus": {
+    "body": "\\sin",
+    "prefix": [
+      "sin",
+      "sinus"
+    ]
   },
   "sqrt + squareroot + racinecarree": {
-    "body": "\\sqrt{$1}",
+    "body": "\\sqrt{n}",
     "prefix": [
       "sqrt",
       "squareroot",
       "racinecarree"
     ]
   },
-  "sum + somme": {
-    "body": "\\sum_{${1:i=1}}^{${2:n}}{$3}",
-    "prefix": [
-      "sum",
-      "somme"
-    ]
+  "tilde": {
+    "body": "\\tilde{$1}",
+    "prefix": "tilde"
   }
 }
