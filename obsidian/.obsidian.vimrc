@@ -515,16 +515,6 @@ exmap replacetemplates obcommand templater-obsidian:replace-in-file-templater
 nnoremap <Space>rt :replacetemplates<CR>
 
 
-" ——————————————————————————————————————————————————————————————————————————————
-" (REFACTOR)
-" [r]efactor…
-
-" TODO: check why the f… visual mode commandes don’t work
-exmap refactorfirstline obcommand note-refactor-obsidian:app:extract-selection-first-line
-vnoremap <Space>rf :refactorfirstline<CR>
-
-exmap refactorcontent obcommand note-refactor-obsidian:app:extract-content-only
-vnoremap <Space>rc :refactorcontent<CR>
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (SEARCH)
@@ -665,3 +655,10 @@ nnoremap <Space>tr :togglerightsidebar<CR>
 " [s]tatus bar
 exmap togglestatusbar obcommand obsidian-hider:toggle-hider-status
 nnoremap <Space>ts :togglestatusbar<CR>
+
+" ──────────────────────────────────────────────────────────────────────────────
+" Misc leader commands
+
+" [u]ncheck [a]ll
+exmap uncheckall obcommand uncheck-all:uncheck-all
+nnoremap <Space>ua :uncheckall<CR>

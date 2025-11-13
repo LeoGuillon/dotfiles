@@ -359,6 +359,7 @@ map("n", "<leader>w", "<cmd>w<cr>", { desc = "save (Write) current buffer" })
 map("n", "<leader>W", "<cmd>wa<cr>", { desc = "save (Write) all buffers" })
 map("n", "<leader>q", "<cmd>wq<cr>", { desc = "save and Quit current buffer" })
 map("n", "<leader>Q", "<cmd>wqa<cr>", { desc = "save and Quit all buffers" })
+map("n", "<leader>x", "<cmd>wq<cr>", { desc = "save and close (X) current buffer" })
 
 -- [o]pen …
 map("n", "<leader>ol", "<cmd>Lazy<cr>", { desc = "Lazy" })
