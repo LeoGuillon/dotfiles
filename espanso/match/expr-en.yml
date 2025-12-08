@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+# ───────────────────────────────────────────────────────────────────────────────
+
+matches:
+  - trigger: "bc"
+    replace: "because"
+    word: true
+    propagate_case: true
+
+  - trigger: "eg"
+    replace: "e.g."
+    word: true
+
+  - trigger: "fex"
+    replace: "for example"
+    word: true
+    propagate_case: true
+
+  - trigger: "ie"
+    replace: "i.e."
+    word: true
+
+  - trigger: "otw"
+    replace: "otherwise"
+    word: true
+    propagate_case: true

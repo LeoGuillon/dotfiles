@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+#───────────────────────────────────────────────────────────────────────────────
+
+matches:
+  - trigger: "apcr"
+    replace: "à partir d’un certain rang"
+    word: true
+    propagate_case: true
+
+  - trigger: "dsq"
+    replace: "de sorte que"
+    word: true
+    propagate_case: true
+
+  - trigger: "mtq"
+    replace: "Montrons que"
+    word: true
+    propagate_case: true
+
+  - trigger: "psell"
+    replace: "par symétrie en les lettres"
+    word: true
+    propagate_case: true
+
+  - trigger: "spdg"
+    replace: "sans pertes de généralités"
+    word: true
+    propagate_case: true
+
+  - trigger: "thm"
+    replace: "théorème"
+    word: true
+    propagate_case: true
+
+  - trigger: "thms"
+    replace: "théorèmes"
+    word: true
+    propagate_case: true

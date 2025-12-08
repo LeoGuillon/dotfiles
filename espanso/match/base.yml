@@ -7,14 +7,14 @@ matches:
     replace: "Léo Guillon"
 
   - trigger: ":mpro"
-    replace: "leo.guillon@icm-institute.org"
+    replace: "leo.guillon@mailo.com"
 
   - trigger: ":github"
     replace: "https://github.com/LeoGuillon"
 
   # ————————————————————————————————————————————————————————————————————————————
   # DATES
-  - trigger: ":ajd"
+  - trigger: ":today"
     replace: "{{today}}"
     vars:
       - name: today

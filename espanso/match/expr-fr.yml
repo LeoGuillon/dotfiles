@@ -1,10 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
-#───────────────────────────────────────────────────────────────────────────────
+# ───────────────────────────────────────────────────────────────────────────────
 
 matches:
-  # ────────────────────────────────────────────────────────────────────────────────
-  # (EXPRESSIONS)
-
   # NOTE: all of these triggers are enabled within Obsidian, so make sure to
   # double check if the trigger doesn’t conflict with some Vim shortcuts
 
@@ -25,15 +22,16 @@ matches:
 
   # NOTE: no propagate_case, because it transforms "C" in "C’EST"
   # (or C in C’Est if uppercase_style is set to "capitalize_words")
-  - trigger: "c"
-    replace: "c’est"
-    word: true
-    propagate_case: false
-
-  - trigger: "C"
-    replace: "C’est"
-    word: true
-    propagate_case: false
+  # removed for now, bc too much issues with this one
+  # - trigger: "c"
+  #   replace: "c’est"
+  #   word: true
+  #   propagate_case: false
+  #
+  # - trigger: "C"
+  #   replace: "C’est"
+  #   word: true
+  #   propagate_case: false
 
   - trigger: "cad"
     replace: "c’est-à-dire"
@@ -203,64 +201,5 @@ matches:
   - trigger: "wk"
     replace: "week-end"
     # replace: "fin de semaine" # pour être en bon québecois lâ
-    word: true
-    propagate_case: true
-
-  # ────────────────────────────────────────────────────────────────────────────────
-  # (ENGLISH)
-
-  - trigger: "bc"
-    replace: "because"
-    word: true
-    propagate_case: true
-
-  - trigger: "eg"
-    replace: "e.g."
-    word: true
-
-  - trigger: "fex"
-    replace: "for example"
-    word: true
-    propagate_case: true
-
-  - trigger: "ie"
-    replace: "i.e."
-    word: true
-
-  - trigger: "otw"
-    replace: "otherwise"
-    word: true
-    propagate_case: true
-
-  # ────────────────────────────────────────────────────────────────────────────────
-  # (MATHS)
-
-  - trigger: "apcr"
-    replace: "à partir d’un certain rang"
-    word: true
-    propagate_case: true
-
-  - trigger: "ev"
-    replace: "espace vectoriel"
-    word: true
-    propagate_case: true
-
-  - trigger: "evn"
-    replace: "espace vectoriel normé"
-    word: true
-    propagate_case: true
-
-  - trigger: "sev"
-    replace: "sous-espace vectoriel"
-    word: true
-    propagate_case: true
-
-  - trigger: "thm"
-    replace: "théorème"
-    word: true
-    propagate_case: true
-
-  - trigger: "thms"
-    replace: "théorèmes"
     word: true
     propagate_case: true

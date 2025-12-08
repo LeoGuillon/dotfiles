@@ -370,6 +370,13 @@ inoremap Qi Qui
 inoremap qo quo
 inoremap Qo Quo
 
+" ──────────────────────────────────────────────────────────────────────────────
+" (BRUTAL BACKSPACE)
+
+" source : kazé ce grand fou
+
+" inoremap <BS> <C-w>
+
 
 " ───────────────────────────────────────────────────────────────────────────────
 " (LEADER MAPPINGS)

@@ -7,3 +7,10 @@ matches:
 
   - trigger: ":gptcontext"
     replace: "Ne me réponds que si tu es sûr à 95% de ta réponse, sinon je peux te donner plus d’éléments si nécessaire."
+
+  - trigger: ":lbc"
+    form: |
+      Bonjour, je serais interessé par votre [[article]], si c’est toujours disponible. Je serais disponible [[dispos]] pour venir [[genre]] chercher en main propre.
+
+      Cordialement,
+      Léo

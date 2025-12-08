@@ -21,6 +21,14 @@
     ],
     "prefix": "trigger"
   },
+  "trigger-form": {
+    "body": [
+      "- trigger: \":$1\"",
+      "  form: |",
+      "    $2"
+    ],
+    "prefix": "trigger-form"
+  },
   "trigger-word": {
     "body": [
       "- trigger: \"$1\"",

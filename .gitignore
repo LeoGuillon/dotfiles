@@ -3,3 +3,4 @@
 .zsh_history
 espanso/match/private.yml
 .DS_Store
+espanso/match/coloc.yml

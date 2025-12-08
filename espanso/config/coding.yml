@@ -6,7 +6,8 @@ filter_exec: WezTerm|iTerm|Visual Studio Code|Citrix Viewer|RStudio
 # we exclude all trigger not starting by ":", to avoid conflict with vim mappings
 extra_excludes:
   - "../match/autofills.yml" # handled in config files
-  - "../match/expr.yml" # handled by parsing yaml file in lua
+  - "../match/expr-en.yml" # too much conflicts with vim commands
+  - "../match/expr-fr.yml" # also notice I still enable math text shortcuts in a coding environment, to type LaTeX math texts faster
   - "../match/ligatures_emulation.yml"
   - "../match/spellcheck-fr.yml"
   - "../match/typography.yml"
