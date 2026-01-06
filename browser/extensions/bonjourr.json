@@ -1,0 +1,136 @@
+{
+  "about": {
+    "browser": "firefox",
+    "version": "21.2.1"
+  },
+  "showall": false,
+  "lang": "en",
+  "dark": "system",
+  "favicon": "",
+  "tabtitle": "",
+  "greeting": "Léo",
+  "greetingsize": "3",
+  "pagegap": 1,
+  "pagewidth": 1600,
+  "time": true,
+  "main": true,
+  "dateformat": "auto",
+  "quicklinks": false,
+  "textShadow": 0.2,
+  "announcements": "major",
+  "review": 10,
+  "css": "",
+  "hide": {
+    "greetings": false
+  },
+  "linkstyle": "medium",
+  "linktitles": true,
+  "linkbackgrounds": true,
+  "linknewtab": false,
+  "linksrow": 6,
+  "linkgroups": {
+    "on": false,
+    "selected": "default",
+    "groups": [
+      "default"
+    ],
+    "pinned": [],
+    "synced": []
+  },
+  "backgrounds": {
+    "type": "images",
+    "fadein": 600,
+    "blur": 0,
+    "bright": 1,
+    "frequency": "tabs",
+    "color": "#185A63",
+    "urls": "",
+    "images": "bonjourr-images-daylight",
+    "videos": "bonjourr-videos-daylight",
+    "queries": {},
+    "texture": {
+      "type": "none"
+    }
+  },
+  "clock": {
+    "size": 1,
+    "ampm": false,
+    "analog": false,
+    "seconds": false,
+    "ampmlabel": false,
+    "worldclocks": false,
+    "timezone": "auto"
+  },
+  "worldclocks": [],
+  "analogstyle": {
+    "face": "none",
+    "hands": "modern",
+    "shape": "round",
+    "border": "#ffff",
+    "background": "#fff2"
+  },
+  "weather": {
+    "city": "Croth",
+    "unit": "metric",
+    "provider": "",
+    "moreinfo": "none",
+    "forecast": "auto",
+    "temperature": "actual",
+    "geolocation": "approximate"
+  },
+  "notes": {
+    "on": false,
+    "width": 40,
+    "opacity": 0.1,
+    "align": "left",
+    "text": "## Edit this note!\n\n[ ] With markdown titles, lists, and checkboxes\n\n[ ] Learn more on https://bonjourr.fr/docs/overview"
+  },
+  "searchbar": {
+    "on": false,
+    "opacity": 0.1,
+    "newtab": false,
+    "suggestions": true,
+    "engine": "default",
+    "request": "",
+    "placeholder": ""
+  },
+  "quotes": {
+    "on": true,
+    "type": "user",
+    "frequency": "tabs",
+    "author": true,
+    "last": 1765895031552,
+    "userlist": "Meik Wiking, La loyauté envers les absents prouvent notre loyauté à ceux qui sont présents.\nProverbe chinois, Donne un poisson à un homme, il mangera un jour. Apprends-lui à pêcher, il mangera toute sa vie.\nHippocrate, Que ton aliment soit ton seul médicament.\nBruce Lee, Je ne crains pas la personne qui peut faire 10 000 coups différents, je crains celle qui s’est entraînée à faire 10 000 fois le même coup de pied.\nKitano Ken, En ce bas monde, la seule chose qui nous appartiennent vraiment, c’est ce corps qu’on se forge chaque jour.\nRocky Balboa, You, me, or nobody is gonna hit as hard as life. But it ain’t about how hard you hit. It’s about how hard you can get hit and keep moving forward."
+  },
+  "font": {
+    "size": "14",
+    "family": "",
+    "system": true,
+    "weightlist": [],
+    "weight": "300"
+  },
+  "supporters": {
+    "enabled": true,
+    "closed": false,
+    "month": 12
+  },
+  "move": {
+    "selection": "single",
+    "layouts": {
+      "single": {
+        "items": {},
+        "grid": [
+          [
+            "time"
+          ],
+          [
+            "main"
+          ],
+          [
+            "quotes"
+          ]
+        ]
+      }
+    }
+  }
+}

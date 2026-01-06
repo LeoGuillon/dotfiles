@@ -40,9 +40,7 @@ matches:
     replace: "\U0001F602"
   - trigger: ":tears:"
     replace: "\U0001F602"
-  - trigger: ":rofl:"
-    replace: "\U0001F923"
-  - trigger: ":lol:"
+  - triggers: [":rofl:", ":lol:"]
     replace: "\U0001F923"
   - trigger: ":relaxed:"
     replace: "\U0001F60C"

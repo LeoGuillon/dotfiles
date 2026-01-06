@@ -17,6 +17,11 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "psec"
+    replace: "pour s’en convaincre"
+    word: true
+    propagate_case: true
+
   - trigger: "psell"
     replace: "par symétrie en les lettres"
     word: true

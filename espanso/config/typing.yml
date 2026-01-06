@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/config.schema.json
+#───────────────────────────────────────────────────────────────────────────────
+
+filter_title: Monkeytype|keybr
+
+extra_excludes:
+  - "../match/autofills.yml"
+  - "../match/expr-en.yml"
+  - "../match/expr-fr.yml"
+  - "../match/spellcheck-fr.yml"
+  - "../match/typography.yml"
