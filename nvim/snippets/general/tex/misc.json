@@ -29,7 +29,7 @@
   },
   "paragraph": {
     "body": [
-      "\\paragraph{$1}\\label{par:$2}",
+      "\\paragraph{$1}",
       "$0"
     ],
     "prefix": [

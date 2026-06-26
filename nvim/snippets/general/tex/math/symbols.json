@@ -32,10 +32,18 @@
     ]
   },
   "int + integral": {
-    "body": "\\int_{$1}^{$2}{$3}",
+    "body": "\\int_{${1:set}}{${2:integrand}\\d ${3:measure}}",
     "prefix": [
       "int",
       "integral"
+    ]
+  },
+  "ln + log + logarithme neperien": {
+    "body": "\\ln",
+    "prefix": [
+      "ln",
+      "log",
+      "logarithme neperien"
     ]
   },
   "longmapsto + |->": {

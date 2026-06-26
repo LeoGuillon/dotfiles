@@ -2,6 +2,9 @@ matches:
   # - trigger: ":chess"
   #   replace: "```chesser\npgn: |\n\t1. $|$```"
 
+  - trigger: ":cursor"
+    replace: "<% tp.file.cursor() %>"
+
   - trigger: ":data"
     replace: |
       ```dataview

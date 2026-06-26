@@ -18,7 +18,7 @@ PLUGIN_FILES=(
   eza
   fzf
   starship
-  thefuck
+  # thefuck
   unimatrix
   yazi
   zoxide

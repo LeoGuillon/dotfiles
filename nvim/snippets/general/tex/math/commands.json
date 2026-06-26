@@ -125,6 +125,13 @@
       "racinecarree"
     ]
   },
+  "sum + somme": {
+    "body": "\\sum_{${1:from}}^{${2:to}}{${3:of}}$0",
+    "prefix": [
+      "sum",
+      "somme"
+    ]
+  },
   "tilde": {
     "body": "\\tilde{$1}",
     "prefix": "tilde"

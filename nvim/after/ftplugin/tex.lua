@@ -34,18 +34,18 @@ map("n", "<leader>\\", "<plug>vimtex-cmd-toggle-break", { desc = "add line break
 -- ────────────────────────────────────────────────────────────────────────────────
 
 local custom_latex_text_objects = {
-  { "d", "d", "Delimiters" },
-  { "e", "e", "Environment" },
-  { "l", "c", "LaTeX command" },
-  { "m", "$", "Math block" },
-  { "i", "m", "Item" }, -- override [i]nline code, as backticks are quit rare in LaTeX
-  { "x", "P", "sect(X)ion" },
+	{ "d", "d", "Delimiters" },
+	{ "e", "e", "Environment" },
+	{ "l", "c", "LaTeX command" },
+	{ "m", "$", "Math block" },
+	{ "i", "m", "Item" }, -- override [i]nline code, as backticks are quit rare in LaTeX
+	{ "x", "P", "sect(X)ion" },
 }
 
 for _, value in pairs(custom_latex_text_objects) do
-  local remap, original, label = unpack(value)
-  map({ "x", "o" }, "i" .. remap, "<plug>(vimtex-i" .. original .. ")", { desc = label })
-  map({ "x", "o" }, "a" .. remap, "<plug>(vimtex-a" .. original .. ")", { desc = label })
+	local remap, original, label = unpack(value)
+	map({ "x", "o" }, "i" .. remap, "<plug>(vimtex-i" .. original .. ")", { desc = label })
+	map({ "x", "o" }, "a" .. remap, "<plug>(vimtex-a" .. original .. ")", { desc = label })
 end
 
 -- ────────────────────────────────────────────────────────────────────────────────
@@ -134,12 +134,12 @@ map("n", "<locallleader>W", "<cmd>VimtexCountWords!<cr>", { desc = "count Words 
 
 local cmp = require("cmp")
 cmp.setup.buffer({
-  sources = {
-    { name = "luasnip" },
-    { name = "vimtex" },
-    { name = "nvim_lsp" },
-    { name = "latex_symbols", option = { strategy = 2 } }, -- latex symbols, insert the command
-    { name = "path" },
-    { name = "buffer" },
-  },
+	sources = {
+		{ name = "luasnip" },
+		{ name = "vimtex" },
+		{ name = "nvim_lsp" },
+		{ name = "latex_symbols", option = { strategy = 2 } }, -- latex symbols, insert the command
+		{ name = "path" },
+		{ name = "buffer" },
+	},
 })

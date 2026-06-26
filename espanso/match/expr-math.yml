@@ -7,6 +7,11 @@ matches:
     word: true
     propagate_case: true
 
+  - trigger: "demo"
+    replace: "démonstration"
+    word: true
+    propagate_case: true
+
   - trigger: "dsq"
     replace: "de sorte que"
     word: true
@@ -14,6 +19,16 @@ matches:
 
   - trigger: "mtq"
     replace: "Montrons que"
+    word: true
+    propagate_case: true
+
+  - trigger: "mtt"
+    replace: "mutatis mutandis"
+    word: true
+    propagate_case: true
+
+  - trigger: "pes"
+    replace: "propositions équivalentes suivantes"
     word: true
     propagate_case: true
 

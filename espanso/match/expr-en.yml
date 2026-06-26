@@ -2,10 +2,11 @@
 # ───────────────────────────────────────────────────────────────────────────────
 
 matches:
-  - trigger: "bc"
-    replace: "because"
-    word: true
-    propagate_case: true
+  # NOTE: conflict with my Alfred search command for bandcamp
+  # - trigger: "bc"
+  #   replace: "because"
+  #   word: true
+  #   propagate_case: true
 
   - trigger: "eg"
     replace: "e.g."

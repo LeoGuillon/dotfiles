@@ -1,12 +1,12 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "e95c7b3"
-hash = "3996fc74044bc44144b323686f887e1"
+rev = "5d5c480"
+hash = "7b625412411be411153886894d9acaf"
 
 [[plugin.deps]]
 use = "Ape/smart-enter"
-rev = "7b84c89"
-hash = "43eb1a1f2291795fb5b0b2ce1206ebee"
+rev = "1c835cc"
+hash = "d6d6fa001c2cda9dda6eb5bc6beb96b7"
 
 [[plugin.deps]]
 use = "lpanebr/yazi-plugins:first-non-directory"
@@ -15,15 +15,15 @@ hash = "5c20ffa5171dab34042e03d273dddc5b"
 
 [[plugin.deps]]
 use = "KKV9/compress"
-rev = "c264639"
-hash = "e17c11b605d989568a1d1741ca17c584"
+rev = "e60e122"
+hash = "fbaf0adc8efc59555b748d36aab62d40"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "a63550b"
-hash = "c2021386289a0cbb3e152a052f67c177"
+rev = "a837101"
+hash = "635b0feb9215772d22020eb0abf0bb34"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "9cd2ac4"
-hash = "f54b45bdd33f607ddde47f0afad96142"
+rev = "54ab389"
+hash = "7dfe41c9c3d9be76da8a844263d0bbed"

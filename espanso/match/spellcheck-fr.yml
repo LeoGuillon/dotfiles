@@ -31,3 +31,11 @@ matches:
   - trigger: "latex"
     replace: "LaTeX"
     word: true
+
+  - trigger: "quobuz"
+    replace: "qobuz"
+    word: true
+    propagate_case: true
+
+  - trigger: "wifi"
+    replace: "WiFi"

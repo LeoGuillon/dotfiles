@@ -1,6 +1,6 @@
 # A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+# "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
 [mgr]
 
@@ -16,8 +16,8 @@ keymap = [
   # { on = "k", run = "arrow -1", desc = "Move cursor up" },
   # { on = "j", run = "arrow 1",  desc = "Move cursor down" },
 
-  { on = "<Up>", run = "arrow -1", desc = "Move cursor up" },
-  { on = "<Down>", run = "arrow 1", desc = "Move cursor down" },
+  { on = "<Up>", run = "arrow prev", desc = "Move cursor up" },
+  { on = "<Down>", run = "arrow next", desc = "Move cursor down" },
 
   { on = "<S-Up>", run = "arrow -6", desc = "Move cursor up 6 times" },
   { on = "<S-Down>", run = "arrow 6", desc = "Move cursor down 6 times" },
@@ -34,20 +34,24 @@ keymap = [
   { on = "<PageUp>", run = "arrow -100%", desc = "Move cursor up one page" },
   { on = "<PageDown>", run = "arrow 100%", desc = "Move cursor down one page" },
 
-  { on = [ "g", "g", ], run = "arrow top", desc = "Move cursor to the top" },
+  { on = [
+    "g",
+    "g",
+  ], run = "arrow top", desc = "Move cursor to the top" },
   { on = "G", run = "arrow bot", desc = "Move cursor to the bottom" },
 
   { on = "<Left>", run = "leave", desc = "Go back to the parent directory" },
+  # { on = "<Right>", run = "enter", desc = "Enter the child directory" },
   { on = "<Right>", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
-
-  # { on = "H", run = "back",    desc = "Go back to the previous directory" },
-  # { on = "L", run = "forward", desc = "Go forward to the next directory" },
 
   { on = "<S-Left>", run = "back", desc = "Go back to the previous directory" },
   { on = "<S-Right>", run = "forward", desc = "Go forward to the next directory" },
 
   # Toggle
-  { on = "<Space>", run = [ "toggle", "arrow 1", ], desc = "Toggle the current selection state" },
+  { on = "<Space>", run = [
+    "toggle",
+    "arrow 1",
+  ], desc = "Toggle the current selection state" },
   { on = "<C-a>", run = "toggle_all --state=on", desc = "Select all files" },
   { on = "<C-r>", run = "toggle_all", desc = "Invert selection of all files" },
 
@@ -95,18 +99,48 @@ keymap = [
   { on = "Z", run = "plugin fzf", desc = "Jump to a file/directory via fzf" },
 
   # Linemode
-  { on = [ "m", "s", ], run = "linemode size", desc = "Linemode: size" },
-  { on = [ "m", "p", ], run = "linemode permissions", desc = "Linemode: permissions" },
-  { on = [ "m", "b", ], run = "linemode btime", desc = "Linemode: btime" },
-  { on = [ "m", "m", ], run = "linemode mtime", desc = "Linemode: mtime" },
-  { on = [ "m", "o", ], run = "linemode owner", desc = "Linemode: owner" },
-  { on = [ "m", "n", ], run = "linemode none", desc = "Linemode: none" },
+  { on = [
+    "m",
+    "s",
+  ], run = "linemode size", desc = "Linemode: size" },
+  { on = [
+    "m",
+    "p",
+  ], run = "linemode permissions", desc = "Linemode: permissions" },
+  { on = [
+    "m",
+    "b",
+  ], run = "linemode btime", desc = "Linemode: btime" },
+  { on = [
+    "m",
+    "m",
+  ], run = "linemode mtime", desc = "Linemode: mtime" },
+  { on = [
+    "m",
+    "o",
+  ], run = "linemode owner", desc = "Linemode: owner" },
+  { on = [
+    "m",
+    "n",
+  ], run = "linemode none", desc = "Linemode: none" },
 
   # Copy
-  { on = [ "c", "c", ], run = "copy path", desc = "Copy the file path" },
-  { on = [ "c", "d", ], run = "copy dirname", desc = "Copy the directory path" },
-  { on = [ "c", "f", ], run = "copy filename", desc = "Copy the filename" },
-  { on = [ "c", "n", ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
+  { on = [
+    "c",
+    "c",
+  ], run = "copy path", desc = "Copy the file path" },
+  { on = [
+    "c",
+    "d",
+  ], run = "copy dirname", desc = "Copy the directory path" },
+  { on = [
+    "c",
+    "f",
+  ], run = "copy filename", desc = "Copy the filename" },
+  { on = [
+    "c",
+    "n",
+  ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
 
   # Filter
   { on = "f", run = "filter --smart", desc = "Filter files" },
@@ -118,31 +152,121 @@ keymap = [
   { on = "N", run = "find_arrow --previous", desc = "Goto the previous found" },
 
   # Sorting
-  { on = [ ",", "m", ], run = [ "sort mtime --reverse=no", "linemode mtime", ], desc = "Sort by modified time" },
-  { on = [ ",", "M", ], run = [ "sort mtime --reverse", "linemode mtime", ], desc = "Sort by modified time (reverse)" },
-  { on = [ ",", "b", ], run = [ "sort btime --reverse=no", "linemode btime", ], desc = "Sort by birth time" },
-  { on = [ ",", "B", ], run = [ "sort btime --reverse", "linemode btime", ], desc = "Sort by birth time (reverse)" },
-  { on = [ ",", "e", ], run = "sort extension --reverse=no", desc = "Sort by extension" },
-  { on = [ ",", "E", ], run = "sort extension --reverse", desc = "Sort by extension (reverse)" },
-  { on = [ ",", "a", ], run = "sort alphabetical --reverse=no", desc = "Sort alphabetically" },
-  { on = [ ",", "A", ], run = "sort alphabetical --reverse", desc = "Sort alphabetically (reverse)" },
-  { on = [ ",", "n", ], run = "sort natural --reverse=no", desc = "Sort naturally" },
-  { on = [ ",", "N", ], run = "sort natural --reverse", desc = "Sort naturally (reverse)" },
-  { on = [ ",", "s", ], run = [ "sort size --reverse=no", "linemode size", ], desc = "Sort by size" },
-  { on = [ ",", "S", ], run = [ "sort size --reverse", "linemode size", ], desc = "Sort by size (reverse)" },
-  { on = [ ",", "r", ], run = "sort random --reverse=no", desc = "Sort randomly" },
+  { on = [
+    ",",
+    "m",
+  ], run = [
+    "sort mtime --reverse=no",
+    "linemode mtime",
+  ], desc = "Sort by modified time" },
+  { on = [
+    ",",
+    "M",
+  ], run = [
+    "sort mtime --reverse",
+    "linemode mtime",
+  ], desc = "Sort by modified time (reverse)" },
+  { on = [
+    ",",
+    "b",
+  ], run = [
+    "sort btime --reverse=no",
+    "linemode btime",
+  ], desc = "Sort by birth time" },
+  { on = [
+    ",",
+    "B",
+  ], run = [
+    "sort btime --reverse",
+    "linemode btime",
+  ], desc = "Sort by birth time (reverse)" },
+  { on = [
+    ",",
+    "e",
+  ], run = "sort extension --reverse=no", desc = "Sort by extension" },
+  { on = [
+    ",",
+    "E",
+  ], run = "sort extension --reverse", desc = "Sort by extension (reverse)" },
+  { on = [
+    ",",
+    "a",
+  ], run = "sort alphabetical --reverse=no", desc = "Sort alphabetically" },
+  { on = [
+    ",",
+    "A",
+  ], run = "sort alphabetical --reverse", desc = "Sort alphabetically (reverse)" },
+  { on = [
+    ",",
+    "n",
+  ], run = "sort natural --reverse=no", desc = "Sort naturally" },
+  { on = [
+    ",",
+    "N",
+  ], run = "sort natural --reverse", desc = "Sort naturally (reverse)" },
+  { on = [
+    ",",
+    "s",
+  ], run = [
+    "sort size --reverse=no",
+    "linemode size",
+  ], desc = "Sort by size" },
+  { on = [
+    ",",
+    "S",
+  ], run = [
+    "sort size --reverse",
+    "linemode size",
+  ], desc = "Sort by size (reverse)" },
+  { on = [
+    ",",
+    "r",
+  ], run = "sort random --reverse=no", desc = "Sort randomly" },
   # Goto
-  { on = [ "g", "a", ], run = "cd ~/A18", desc = "A18" },
-  { on = [ "g", "c", ], run = "cd ~/.config", desc = ".config" },
-  { on = [ "g", "d", ], run = "cd ~/Dropbox", desc = "Dropbox" },
-  { on = [ "g", "h", ], run = "cd ~", desc = "Home" },
-  { on = [ "g", "i", ], run = "cd ~/Pictures", desc = "Pictures" },
-  { on = [ "g", "k", ], run = "cd /Volumes/KOBOeReader", desc = "Kobo" },
-  { on = [ "g", "l", ], run = "cd ~/Downloads", desc = "Downloads" },
-  { on = [ "g", "r", ], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = "Git root" },
-  { on = [ "g", "v", ], run = "cd ~/dev", desc = "dev" },
-  { on = [ "g", ".", ], run = "cd ~/dotfiles", desc = "dotfiles" },
-  { on = [ "g", "<Space>", ], run = "cd --interactive", desc = "Jump interactively" },
+  { on = [
+    "g",
+    "a",
+  ], run = "cd ~/A18", desc = "A18" },
+  { on = [
+    "g",
+    "c",
+  ], run = "cd ~/.config", desc = ".config" },
+  { on = [
+    "g",
+    "d",
+  ], run = "cd ~/Dropbox", desc = "Dropbox" },
+  { on = [
+    "g",
+    "h",
+  ], run = "cd ~", desc = "Home" },
+  { on = [
+    "g",
+    "i",
+  ], run = "cd ~/Pictures", desc = "Pictures" },
+  { on = [
+    "g",
+    "k",
+  ], run = "cd /Volumes/KOBOeReader", desc = "Kobo" },
+  { on = [
+    "g",
+    "l",
+  ], run = "cd ~/Downloads", desc = "Downloads" },
+  { on = [
+    "g",
+    "r",
+  ], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = "Git root" },
+  { on = [
+    "g",
+    "v",
+  ], run = "cd ~/dev", desc = "dev" },
+  { on = [
+    "g",
+    ".",
+  ], run = "cd ~/dotfiles", desc = "dotfiles" },
+  { on = [
+    "g",
+    "<Space>",
+  ], run = "cd --interactive", desc = "Jump interactively" },
 
   # Tabs
   { on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
@@ -250,11 +374,21 @@ keymap = [
 
   # Mode
   { on = "i", run = "insert", desc = "Enter insert mode" },
-  { on = "I", run = [ "move first-char", "insert", ], desc = "Move to the BOL, and enter insert mode" },
+  { on = "I", run = [
+    "move first-char",
+    "insert",
+  ], desc = "Move to the BOL, and enter insert mode" },
   { on = "a", run = "insert --append", desc = "Enter append mode" },
-  { on = "A", run = [ "move eol", "insert --append", ], desc = "Move to the EOL, and enter append mode" },
+  { on = "A", run = [
+    "move eol",
+    "insert --append",
+  ], desc = "Move to the EOL, and enter append mode" },
   { on = "v", run = "visual", desc = "Enter visual mode" },
-  { on = "V", run = [ "move bol", "visual", "move eol", ], desc = "Enter visual mode and select all" },
+  { on = "V", run = [
+    "move bol",
+    "visual",
+    "move eol",
+  ], desc = "Enter visual mode and select all" },
   { on = "r", run = "replace", desc = "Replace a single character" },
 
   # Character-wise movement
@@ -301,10 +435,19 @@ keymap = [
 
   # Cut/Yank/Paste
   { on = "d", run = "delete --cut", desc = "Cut the selected characters" },
-  { on = "D", run = [ "delete --cut", "move eol", ], desc = "Cut until the EOL" },
+  { on = "D", run = [
+    "delete --cut",
+    "move eol",
+  ], desc = "Cut until the EOL" },
   { on = "c", run = "delete --cut --insert", desc = "Cut the selected characters, and enter insert mode" },
-  { on = "C", run = [ "delete --cut --insert", "move eol", ], desc = "Cut until the EOL, and enter insert mode" },
-  { on = "x", run = [ "delete --cut", "move 1 --in-operating", ], desc = "Cut the current character" },
+  { on = "C", run = [
+    "delete --cut --insert",
+    "move eol",
+  ], desc = "Cut until the EOL, and enter insert mode" },
+  { on = "x", run = [
+    "delete --cut",
+    "move 1 --in-operating",
+  ], desc = "Cut the current character" },
   { on = "y", run = "yank", desc = "Copy the selected characters" },
   { on = "p", run = "paste", desc = "Paste the copied characters after the cursor" },
   { on = "P", run = "paste --before", desc = "Paste the copied characters before the cursor" },
@@ -345,7 +488,10 @@ keymap = [
 keymap = [
   { on = "<C-c>", run = "close", desc = "Cancel completion" },
   { on = "<Tab>", run = "close --submit", desc = "Submit the completion" },
-  { on = "<Enter>", run = [ "close --submit", "close_input --submit", ], desc = "Submit the completion and input" },
+  { on = "<Enter>", run = [
+    "close --submit",
+    "close_input --submit",
+  ], desc = "Submit the completion and input" },
 
   { on = "<A-k>", run = "arrow -1", desc = "Move cursor up" },
   { on = "<A-j>", run = "arrow 1", desc = "Move cursor down" },

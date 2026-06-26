@@ -2,86 +2,11 @@
   "vaults": [
     "AtomykVerse"
   ],
-  "template_1753170889560d18b9ep2o": {
-    "id": "1753170889560d18b9ep2o",
-    "name": "Article Medium",
-    "behavior": "create",
-    "noteNameFormat": "{{author}} - {{title}}",
-    "path": "Atlas/Sources/Articles",
-    "noteContentFormat": "\n`=elink(this.source, \"Lire sur le site d'origine\")`\n\n# Résumé\n\nresume::\n\n# Notes\n\n<% tp.file.cursor() %>",
-    "properties": [
-      {
-        "id": "1750314198208moxx80a1z",
-        "name": "up",
-        "value": "[[<% tp.file.cursor() %>]]",
-        "type": "multitext"
-      },
-      {
-        "id": "1750314245291sifafutre",
-        "name": "creation",
-        "value": "<% tp.file.creation_date(\\\"YYYY-MM-DD\\\") %>",
-        "type": "date"
-      },
-      {
-        "id": "17503142600597aei78ift",
-        "name": "tags",
-        "value": "source/article, note/develop, clip/obsidian",
-        "type": "multitext"
-      },
-      {
-        "id": "1750314248242r0wimqlc4",
-        "name": "aliases",
-        "value": "",
-        "type": "aliases"
-      },
-      {
-        "id": "1750314255409ini7ds6et",
-        "name": "icon",
-        "value": "LiNewspaper",
-        "type": "text"
-      },
-      {
-        "id": "1750314329926rvbz0ac38",
-        "name": "type",
-        "value": "Article",
-        "type": "text"
-      },
-      {
-        "id": "1750314308059eebruqumv",
-        "name": "author",
-        "value": "[[{{author}}]]",
-        "type": "text"
-      },
-      {
-        "id": "1750314352226hfiirwxzu",
-        "name": "site",
-        "value": "[[Medium]]",
-        "type": "text"
-      },
-      {
-        "id": "17503143173766dmc9svnv",
-        "name": "title",
-        "value": "{{title}}",
-        "type": "text"
-      },
-      {
-        "id": "1750314295776b0x365ge8",
-        "name": "date",
-        "value": "{{date}}",
-        "type": "date"
-      },
-      {
-        "id": "1750314364996rgmb0hbc4",
-        "name": "source",
-        "value": "{{url}}",
-        "type": "text"
-      }
-    ],
-    "triggers": [
-      "https://medium.com"
-    ],
-    "context": "",
-    "vault": "AtomykVerse"
+  "stats": {
+    "addToObsidian": 49,
+    "copyToClipboard": 0,
+    "saveFile": 0,
+    "share": 0
   },
   "highlighter_settings": {
     "highlighterEnabled": true,
@@ -94,8 +19,8 @@
     "name": "Vidéo YouTube",
     "behavior": "create",
     "noteNameFormat": "{{schema:author}} - {{schema:name}}",
-    "path": "Atlas/Sources/Videos",
-    "noteContentFormat": "\n> [!Video]+ Vidéo\n> ![]({{url}})\n\n\n```meta-bind-button\nlabel: Prendre des notes\nicon: \"\"\nhidden: false\nclass: \"\"\ntooltip: Split horizontal + Focus mode\nid: \"\"\nstyle: default\nactions:\n  - type: command\n    command: workspace:split-horizontal\n  - type: command\n    command: obsidian-minimal-settings:toggle-minimal-focus-mode\n\n```\n\n# Résumé\n\nresume::\n\n\n# Notes",
+    "path": "21 Sources/21.30 Vidéos",
+    "noteContentFormat": "\n> [!Video]+ Vidéo\n> ![]({{url}})\n\n# Résumé\n\nresume::\n\n\n# Notes\n\n<% tp.file.cursor() %>",
     "properties": [
       {
         "id": "173162123404125epzg5ni",
@@ -112,7 +37,7 @@
       {
         "id": "17316135064573odgw7vw0",
         "name": "tags",
-        "value": "source/video, note/boat, note/develop, clip/obsidian",
+        "value": "source/video, note/develop, clip/obsidian",
         "type": "multitext"
       },
       {
@@ -169,7 +94,7 @@
     "name": "Recette",
     "behavior": "create",
     "noteNameFormat": "{{title}}",
-    "path": "Atlas/Sources/Recettes",
+    "path": "21 Sources/21.15 Recettes",
     "noteContentFormat": "\n```meta-bind-button\nlabel: Préparation\nicon: \"\"\nhidden: false\nclass: \"\"\ntooltip: \"\"\nid: \"\"\nstyle: default\nactions:\n  - type: command\n    command: recipe-view:toggle-recipe-view\n\n```\n\n`=elink(this.source, \"Lire la recette en ligne\")`\n\n# Recette\n\n## Temps\n\nPréparation : {{schema:prepTime)}}\nCuisson : {{schema:cookTime}}\nTotal : {{schema:totalTime}}\n\n## Ingrédients\n\n{{schema:recipeIngredient|list}}\n\n## Préparation\n\n{{schema:recipeInstructions[*].text|list:numbered}}\n\n## Nutrition\n\n{{schema:@Recipe:nutrition|uncamel|capitalize|table|replace:(\"@type\":\"Nutrient\",\"Nutrition information\":\"Quantity\")}}\n\n# Notes",
     "context": "",
     "properties": [
@@ -232,7 +157,7 @@
     "name": "Article",
     "behavior": "create",
     "noteNameFormat": "{{author}} - {{title}}",
-    "path": "Atlas/Sources/Articles",
+    "path": "21 Sources/21.13 Articles",
     "noteContentFormat": "\n`=elink(this.source, \"Lire sur le site d'origine\")`\n\n# Résumé\n\nresume::\n\n# Notes\n\n<% tp.file.cursor() %>",
     "properties": [
       {
@@ -371,7 +296,7 @@
     "name": "Default",
     "behavior": "create",
     "noteNameFormat": "{{title}}",
-    "path": "+",
+    "path": "20 Notes System/20.01 Inbox Notes",
     "noteContentFormat": "{{content}}",
     "properties": [
       {
@@ -473,17 +398,92 @@
     "silentOpen": false,
     "saveBehavior": "addToObsidian"
   },
+  "template_1753170889560d18b9ep2o": {
+    "id": "1753170889560d18b9ep2o",
+    "name": "Article Medium",
+    "behavior": "create",
+    "noteNameFormat": "{{author}} - {{title}}",
+    "path": "21 Sources/21.13 Articles",
+    "noteContentFormat": "\n`=elink(this.source, \"Lire sur le site d'origine\")`\n\n# Résumé\n\nresume::\n\n# Notes\n\n<% tp.file.cursor() %>",
+    "properties": [
+      {
+        "id": "1750314198208moxx80a1z",
+        "name": "up",
+        "value": "[[<% tp.file.cursor() %>]]",
+        "type": "multitext"
+      },
+      {
+        "id": "1750314245291sifafutre",
+        "name": "creation",
+        "value": "<% tp.file.creation_date(\\\"YYYY-MM-DD\\\") %>",
+        "type": "date"
+      },
+      {
+        "id": "17503142600597aei78ift",
+        "name": "tags",
+        "value": "source/article, note/develop, clip/obsidian",
+        "type": "multitext"
+      },
+      {
+        "id": "1750314248242r0wimqlc4",
+        "name": "aliases",
+        "value": "",
+        "type": "aliases"
+      },
+      {
+        "id": "1750314255409ini7ds6et",
+        "name": "icon",
+        "value": "LiNewspaper",
+        "type": "text"
+      },
+      {
+        "id": "1750314329926rvbz0ac38",
+        "name": "type",
+        "value": "Article",
+        "type": "text"
+      },
+      {
+        "id": "1750314308059eebruqumv",
+        "name": "author",
+        "value": "[[{{author}}]]",
+        "type": "text"
+      },
+      {
+        "id": "1750314352226hfiirwxzu",
+        "name": "site",
+        "value": "[[Medium]]",
+        "type": "text"
+      },
+      {
+        "id": "17503143173766dmc9svnv",
+        "name": "title",
+        "value": "{{title}}",
+        "type": "text"
+      },
+      {
+        "id": "1750314295776b0x365ge8",
+        "name": "date",
+        "value": "{{date}}",
+        "type": "date"
+      },
+      {
+        "id": "1750314364996rgmb0hbc4",
+        "name": "source",
+        "value": "{{url}}",
+        "type": "text"
+      }
+    ],
+    "triggers": [
+      "https://medium.com"
+    ],
+    "context": "",
+    "vault": "AtomykVerse"
+  },
   "template_list": [
     "1753170889560d18b9ep2o",
     "1750314048490o16mbokcw",
     "17328128612370cfbrcoqm",
     "17316135064574eoqbsgk7",
     "1731615448103eft9b35ve"
-  ],
-  "stats": {
-    "addToObsidian": 49,
-    "copyToClipboard": 0,
-    "saveFile": 0,
-    "share": 0
-  }
+  ]
 }
