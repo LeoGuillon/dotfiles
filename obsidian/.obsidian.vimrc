@@ -531,9 +531,9 @@ nnoremap <Space>rt :replacetemplates<CR>
 exmap searchcommand obcommand command-palette:open
 nnoremap <Space>sc :searchcommand<CR>
 
-" [f]ile
-exmap searchfile obcommand switcher:open
-nnoremap <Space>sf :searchfile<CR>
+" " [f]ile
+" exmap searchfile obcommand switcher:open
+" nnoremap <Space>sf :searchfile<CR>
 
 " [g]lobal
 exmap searchglobal obcommand global-search:open

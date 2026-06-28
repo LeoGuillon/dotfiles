@@ -34,5 +34,17 @@ config.window_padding = {
 
 config.window_background_opacity = 1
 
+-- alt+delete in terminal
+config.keys = {
+	{
+		key = "Backspace",
+		mods = "ALT",
+		action = wezterm.action.SendKey({
+			key = "w",
+			mods = "CTRL",
+		}),
+	},
+}
+
 -- and finally, return the configuration to wezterm
 return config
