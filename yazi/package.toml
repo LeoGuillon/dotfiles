@@ -23,6 +23,11 @@ use = "Rolv-Apneseth/starship"
 rev = "a837101"
 hash = "635b0feb9215772d22020eb0abf0bb34"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "39aaf6d"
+hash = "e3260d0b1feded8c8e3ae3afa1169e30"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "54ab389"

@@ -12,14 +12,17 @@ matches:
   - trigger: ",bd"
     replace: "before damage"
 
-  - trigger: ",ge"
-    replace: "move to end step"
-
   - trigger: ",gg"
     replace: "gg goodbye"
 
   - trigger: ",gh"
     replace: "go ahead"
+
+  - trigger: ",k"
+    replace: "tapped=f6" # for the “ok” token
+
+  - trigger: ",mte"
+    replace: "move to end step"
 
   - trigger: ",mtc"
     replace: "move to combat"
@@ -27,7 +30,7 @@ matches:
   - trigger: ",nb"
     replace: "no blocks"
 
-  - trigger: ",pre"
+  - triggers: [",pre", ",pga"]
     replace: "pregame action"
 
   - trigger: ",su"

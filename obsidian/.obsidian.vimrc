@@ -308,14 +308,6 @@ onoremap av a>
 vnoremap iv i>
 vnoremap av a>
 
-" [m]ath block
-onoremap im i$
-onoremap am a$
-vnoremap im i$
-vnoremap am a$
-
-
-
 " ——————————————————————————————————————————————————————————————————————————————
 " (SURROUND)
 " ——————————————————————————————————————————————————————————————————————————————
@@ -355,6 +347,15 @@ map Sv :surround_chevrons<CR>
 
 exmap surround_math surround $ $
 map Sm :surround_math<CR>
+
+exmap surround_bold surround ** **
+map SB :surround_bold<CR>
+
+exmap surround_italic surround * *
+map SI :surround_italic<CR>
+
+exmap surround_strikethrough surround ~~ ~~
+map SS :surround_strikethrough<CR>
 
 " ────────────────────────────────────────────────────────────────────────────────
 " (INSERT MODE)
@@ -399,9 +400,9 @@ nnoremap <Space>~ mzlblgueh~`z
 
 " we map previous Z+… on leader mappings
 " similar to ⌘+… usual keymaps
-nnoremap <Space>w :closetab<CR>
+exmap save obcommand obsidian-git:push
+nnoremap <Space>w :save<CR>
 nnoremap <Space>x :closetab<CR>
-nnoremap <Space>W :closewindow<CR>
 nnoremap <Space>q :quit<CR>
 
 " ——————————————————————————————————————————————————————————————————————————————
@@ -463,6 +464,16 @@ nnoremap <Space>ib :insertbase<CR>
 " [c]allout
 exmap insertcallout obcommand editor:insert-callout
 nnoremap <Space>ic :insertcallout<CR>i
+
+" [h]eader
+exmap insertheader1 obcommand editor:set-heading-1
+exmap insertheader2 obcommand editor:set-heading-2
+exmap insertheader3 obcommand editor:set-heading-3
+exmap insertheader4 obcommand editor:set-heading-4
+nnoremap <Space>ih1 :insertheader1<CR>i 
+nnoremap <Space>ih2 :insertheader2<CR>i
+nnoremap <Space>ih3 :insertheader3<CR>i
+nnoremap <Space>ih4 :insertheader4<CR>i
 
 " wiki lin[k]
 exmap insertwikilink obcommand editor:insert-wikilink
@@ -531,9 +542,9 @@ nnoremap <Space>rt :replacetemplates<CR>
 exmap searchcommand obcommand command-palette:open
 nnoremap <Space>sc :searchcommand<CR>
 
-" " [f]ile
-" exmap searchfile obcommand switcher:open
-" nnoremap <Space>sf :searchfile<CR>
+" [f]ile
+exmap searchfile obcommand switcher:open
+nnoremap <Space>sf :searchfile<CR>
 
 " [g]lobal
 exmap searchglobal obcommand global-search:open
@@ -561,7 +572,8 @@ nnoremap <Space>sr :searchrecent<CR>
 
 " NOTE: sf, sn and sr all does the same thing ;
 " mainly to have sort of consistency across Obsidian and nvim (with telescope)
-" but tbh, I mostly use sn or sr
+" but tbh, I mostly use sn or sr, because those are the most convenient
+" keystrokes successions in Ergo-L layout
 
 " [v]ault
 exmap searchvault obcommand app:open-vault
@@ -570,8 +582,6 @@ nnoremap <Space>sv :searchvault<CR>
 " workspace [l]ayout
 exmap searchworkspacelayout obcommand workspaces:save-and-load
 nnoremap <Space>sl :searchworkspacelayout<CR>
-
-" TODO: choose between options for vault/layout searching
 
 " [,] : settings for plugin…
 " the , symbol is inspired by the macos common shortcut ⌘, for settings
@@ -595,13 +605,6 @@ nnoremap <Space>of :openflashcards<CR>
 exmap opengraph obcommand graph:open
 nnoremap <Space>og :opengraph<CR>
 
-" [h]omepage
-exmap openhomepage obcommand homepage:open-homepage
-nnoremap <Space>oh :openhomepage<CR>
-
-exmap openlessons obcommand obsidian-projects:show:95320842-856d-426a-b0f1-12ec3b662566
-nnoremap <Space>ol :openlessons<CR>
-
 " [p]rojects
 exmap openprojects obcommand obsidian-projects:show:869af070-c500-4427-943a-0e244fb8e541
 nnoremap <Space>op :openprojects<CR>
@@ -622,9 +625,9 @@ nnoremap <Space>o, :opensettings<CR>
 " TODO: add https://github.com/artemDvoryadkin/obsidian-vim-marker-sharpener
 " plugin to add visual toggle commands
 
-" " [b]old
-" exmap togglebold obcommand editor:toggle-bold
-" nnoremap <Space>tb :togglebold<CR>
+" [b]old
+exmap togglebold obcommand editor:toggle-bold
+nnoremap <Space>tb :togglebold<CR>
 " vnoremap <Space>tb :togglebold<CR>
 
 " file [e]xplorer / [l]eft sidebar
@@ -649,6 +652,10 @@ nnoremap <Space>tk :togglestackedtabs<CR>
 " editing [m]ode (source / live preview)
 exmap togglemode obcommand editor:toggle-source
 nnoremap <Space>tm :togglemode<CR>
+
+exmap togglenumberedlist obcommand editor:toggle-numbered-list
+nnoremap <Space>tn :togglenumberedlist<CR>
+nnoremap <Space>tn :togglenumberedlist<CR>
 
 " " [q]uote block
 " exmap togglequote obcommand editor:toggle-blockquote

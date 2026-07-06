@@ -29,7 +29,7 @@ matches:
     replace: |
       ```table-of-contents
       title: ## Sommaire
-      minLevel: 2
+      minLevel: 1
       ```
 
   - trigger: ":tasks"
