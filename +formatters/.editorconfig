@@ -24,3 +24,8 @@ trim_trailing_whitespace = false
 # to make sure the dashboard string lines in nvim-config don't get messy
 [{dashboard.lua}]
 trim_trailing_whitespace = false
+
+# Makefile
+[Makefile]
+indent_style = tab
+indent_size = 8

@@ -34,3 +34,5 @@ done
 for filename in "${PLUGIN_FILES[@]}"; do
   source "$DOTFILES/zsh/plugins/$filename.zsh"
 done
+
+eval $(thefuck --alias)

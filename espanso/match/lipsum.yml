@@ -2,7 +2,7 @@
 # ───────────────────────────────────────────────────────────────────────────────
 
 matches:
-  - trigger: ":lorem"
+  - triggers: [":lorem", ":lipsum"]
     replace: "{{output}}"
     vars:
       - name: output
