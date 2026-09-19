@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/ajmarkow/espanso-schema-json/master/schemas/Espanso_Config_File_Schema.json
+#───────────────────────────────────────────────────────────────────────────────
+
+filter_exec: Client PRONOTE 2026
+
+enable: false

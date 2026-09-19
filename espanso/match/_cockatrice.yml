@@ -19,7 +19,7 @@ matches:
     replace: "go ahead"
 
   - trigger: ",k"
-    replace: "tapped=f6" # for the “ok” token
+    replace: "tapped=ok for all" # for the “ok” token
 
   - trigger: ",mte"
     replace: "move to end step"

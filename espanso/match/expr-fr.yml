@@ -68,10 +68,10 @@ matches:
     word: true
     propagate_case: true
 
-  - trigger: "ct"
-    replace: "c’était"
-    word: true
-    propagate_case: true
+  # - trigger: "ct"
+  #   replace: "c’était"
+  #   word: true
+  #   propagate_case: true
 
   - trigger: "dc"
     replace: "du coup"
@@ -85,6 +85,11 @@ matches:
 
   - trigger: "devs"
     replace: "développements"
+    word: true
+    propagate_case: true
+
+  - trigger: "edt"
+    replace: "emploi du temps"
     word: true
     propagate_case: true
 
