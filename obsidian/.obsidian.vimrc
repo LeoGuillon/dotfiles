@@ -54,11 +54,6 @@ nnoremap U <C-r>
 " inoremap ; ;<C-g>u
 " inoremap : :<C-g>u
 
-" ——————————————————————————————————————————————————————————————————————————————
-" (MOVING CHARACTERS)
-
-nnoremap <A-Left> xhhp
-nnoremap <A-Right> xp
 
 " ——————————————————————————————————————————————————————————————————————————————
 " (ERGO-L LAYOUT SPECIFIC KEYMAPS)
@@ -186,17 +181,14 @@ nnoremap gf :openlink<CR>
 nnoremap gn :openlink<CR>
 nnoremap gx :openlink<CR>
 
-" close tab
+" " close tab
 exmap closetab obcommand workspace:close
-nnoremap ZZ :closetab<CR>
 
-" close window (without saving)
+" " close window (without saving)
 exmap closewindow obcommand workspace:close-window
-nnoremap ZQ :closewindow<CR>
 
-" git backup and close
+" " git backup and close
 exmap quit obcommand obsidian-git:backup-and-close
-nnoremap ZA :quit<CR>
 
 " forward/backward in the history
 exmap goBack obcommand app:go-back
@@ -371,14 +363,6 @@ inoremap Qi Qui
 inoremap qo quo
 inoremap Qo Quo
 
-" ──────────────────────────────────────────────────────────────────────────────
-" (BRUTAL BACKSPACE)
-
-" source : kazé ce grand fou
-
-" inoremap <BS> <C-w>
-
-
 " ───────────────────────────────────────────────────────────────────────────────
 " (LEADER MAPPINGS)
 " ───────────────────────────────────────────────────────────────────────────────
@@ -470,7 +454,7 @@ exmap insertheader1 obcommand editor:set-heading-1
 exmap insertheader2 obcommand editor:set-heading-2
 exmap insertheader3 obcommand editor:set-heading-3
 exmap insertheader4 obcommand editor:set-heading-4
-nnoremap <Space>ih1 :insertheader1<CR>i 
+nnoremap <Space>ih1 :insertheader1<CR>i
 nnoremap <Space>ih2 :insertheader2<CR>i
 nnoremap <Space>ih3 :insertheader3<CR>i
 nnoremap <Space>ih4 :insertheader4<CR>i
