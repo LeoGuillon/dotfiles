@@ -227,7 +227,18 @@ keymap = [
   { on = [
     "g",
     "a",
+    "h",
   ], run = "cd ~/A18", desc = "A18" },
+  { on = [
+    "g",
+    "a",
+    "t",
+  ], run = "cd ~/A18/40-49 Travail", desc = "[t]ravail" },
+  { on = [
+    "g",
+    "a",
+    "v",
+  ], run = "cd ~/A18/30-39 Dev", desc = "de[v]" },
   { on = [
     "g",
     "c",
@@ -239,7 +250,7 @@ keymap = [
   { on = [
     "g",
     "h",
-  ], run = "cd ~", desc = "Home" },
+  ], run = "cd ~", desc = "[h]ome" },
   { on = [
     "g",
     "i",
@@ -247,7 +258,7 @@ keymap = [
   { on = [
     "g",
     "k",
-  ], run = "cd /Volumes/KOBOeReader", desc = "Kobo" },
+  ], run = "cd /Volumes/KOBOeReader", desc = "[k]obo" },
   { on = [
     "g",
     "l",
@@ -259,7 +270,11 @@ keymap = [
   { on = [
     "g",
     "v",
-  ], run = "cd ~/dev", desc = "dev" },
+  ], run = "cd ~/dev", desc = "de[v]" },
+  { on = [
+    "g",
+    "V",
+  ], run = "cd /Volumes", desc = "[V]olumes" },
   { on = [
     "g",
     ".",
@@ -271,7 +286,6 @@ keymap = [
 
   # Tabs
   { on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
-  { on = "T", run = "tab_create", desc = "Create a new tab with CWD" },
 
   { on = "1", run = "tab_switch 0", desc = "Switch to the first tab" },
   { on = "2", run = "tab_switch 1", desc = "Switch to the second tab" },
@@ -298,6 +312,16 @@ keymap = [
   # Help
   { on = "~", run = "help", desc = "Open help" },
   { on = "<F1>", run = "help", desc = "Open help" },
+
+  # Tags
+  { on = [
+    "T",
+    "a",
+  ], run = "plugin mactag add", desc = "Tag selected files" },
+  { on = [
+    "T",
+    "r",
+  ], run = "plugin mactag remove", desc = "Untag selected files" },
 ]
 
 [tasks]

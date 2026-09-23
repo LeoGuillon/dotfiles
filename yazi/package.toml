@@ -28,6 +28,11 @@ use = "yazi-rs/plugins:mount"
 rev = "39aaf6d"
 hash = "e3260d0b1feded8c8e3ae3afa1169e30"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:mactag"
+rev = "f703392"
+hash = "34e3e12060f833cc21446f23a7ced8d1"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "54ab389"
