@@ -1,0 +1,34 @@
+return {
+	-- 	"saxon1964/neovim-tips",
+	-- 	version = "*", -- only update on tagged releases
+	-- 	lazy = false, -- load on startup for daily release
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"MeanderingProgrammer/render-markdown.nvim", -- choose your prefered md renderer
+	-- 	},
+	-- 	opts = {
+	-- 		daily_tip = 1, -- once per day
+	-- 		bookmark_symbol = " ",
+	-- 	},
+	-- 	init = function()
+	-- 		local map = require("core.utils").map
+	--
+	-- 		local menu_key = "N"
+	-- 		local menu_label = "[N]eovim tips"
+	--
+	-- 		local keymaps = {
+	-- 			{ "o", "NeovimTips", "[o]pen" },
+	-- 			{ "b", "NeovimTipsBookmarks", "[b]ookmarked timps" },
+	-- 			{ "e", "NeovimTipsEdit", "[e]dit" },
+	-- 			{ "?", "help neovim-tips", "help ([?])" },
+	-- 			{ "r", "NeovimTipsRandom", "show [r]andom tip" },
+	-- 			{ "p", "NeovimTipsPdf", "open [p]df" },
+	-- 		}
+	--
+	-- 		require("which-key").add({ { "<leader>" .. menu_key, group = menu_label .. "…", icon = "" } })
+	-- 		for _, value in pairs(keymaps) do
+	-- 			local key, command, label = unpack(value)
+	-- 			map("n", "<leader>" .. menu_key .. key, ":" .. command .. "<CR>", { desc = label })
+	-- 		end
+	-- 	end,
+}

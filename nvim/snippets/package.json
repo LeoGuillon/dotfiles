@@ -9,6 +9,13 @@
         ]
       },
       {
+        "path": "./general/c.json",
+        "language": [
+          "c",
+          "cpp"
+        ]
+      },
+      {
         "path": "./general/css.json",
         "language": [
           "css"
@@ -136,12 +143,6 @@
         "path": "./general/yaml.json",
         "language": [
           "yaml"
-        ]
-      },
-      {
-        "path": "./project-specific/agreg.json",
-        "language": [
-          "tex"
         ]
       },
       {

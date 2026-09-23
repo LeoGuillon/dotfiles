@@ -5,27 +5,24 @@ return {
 	config = function()
 		require("nvim-surround").setup({
 			-- keymaps = {
-			--   normal = "ys",
-			--   normal_cur = "yss",
-			--   normal_line = "yS",
-			--   normal_cur_line = "ySS",
-			--   visual = "S",
-			--   visual_line = "gS",
-			--   delete = "ds",
-			--   change = "cs",
-			--   change_line = "cS",
+			-- 	normal = "ys",
+			-- 	normal_cur = "yss",
+			-- 	normal_line = "yS",
+			-- 	normal_cur_line = "ySS",
+			-- 	visual = "S",
+			-- 	visual_line = "gS",
+			-- 	delete = "ds",
+			-- 	change = "cs",
+			-- 	change_line = "cS",
 			-- },
 			surrounds = {
-				-- TODO: complete french quotes supports
 				["»"] = {
-					add = function()
-						return { { "«" }, { "»" } }
-					end,
+					add = { "«", "»" },
+					find = "«.-»",
+					delete = "^(«)().-(»)()",
 				},
 				["«"] = {
-					add = function()
-						return { { "« " }, { " »" } }
-					end,
+					add = { "« ", " »" },
 				},
 			},
 			aliases = {
@@ -42,11 +39,18 @@ return {
 				["G"] = "«",
 				["v"] = ">", -- che[v]rons
 				["V"] = "<",
+
 				-- NOTE: vimtex memento
 				-- [e]nvironment
 				-- [l]atex command
 				-- [d]elimiters (works also with \left\right)
 				-- [m]ath block
+
+				-- NOTE: markdown memento
+				-- *, I : italic
+				-- ×, B : bold
+				-- ~, S : strikethrough
+				-- [u]rl
 			},
 			move_cursor = "sticky", -- intelligent movement of the cursor after the surround happens
 		})

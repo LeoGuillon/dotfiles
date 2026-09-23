@@ -30,15 +30,15 @@ map("ia", "!=", "~=")
 
 local cmp = require("cmp")
 cmp.setup.buffer({
-  sources = {
-    { name = "luasnip" },
-    { name = "nvim_lua" },
-    { name = "nvim_lsp" },
-    { name = "lazydev" },
-    { name = "nerdfont" },
-    { name = "path" },
-    { name = "buffer" },
-  },
+	sources = {
+		{ name = "luasnip" },
+		-- { name = "nvim_lua" },
+		{ name = "nvim_lsp" },
+		{ name = "lazydev" },
+		{ name = "nerdfont" },
+		{ name = "path" },
+		-- { name = "buffer" },
+	},
 })
 
 -- ────────────────────────────────────────────────────────────────────────────────

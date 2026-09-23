@@ -1,7 +1,7 @@
 {
   "RequirePackage": {
-    "body": "\\RequirePackage{${1:package}}",
-    "prefix": "RequirePackage"
+    "body": "\\RequirePackage[${2:options}]{${1:package}}",
+    "prefix": "RequirePackage-options"
   },
   "WarningFilter": {
     "body": "\\WarningFilter{${1:package}}{${2:command}}",
@@ -62,6 +62,13 @@
     "prefix": [
       "em",
       "emph"
+    ]
+  },
+  "enquote + quote": {
+    "body": "\\enquote{$1}",
+    "prefix": [
+      "enquote",
+      "quote"
     ]
   },
   "href": {

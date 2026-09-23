@@ -1,96 +1,101 @@
+-- ──────────────────────────────────────────────────────────────────────────────
+-- BUILT-IN PLUGINS
+-- ──────────────────────────────────────────────────────────────────────────────
+
 -- makes sure netrw plugin is disable for nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-local opt = vim.opt
+vim.g.editorconfig = false
 
--- line numbers
--- opt.relativenumber = true
--- opt.number = true
-opt.relativenumber = false
-opt.number = false
--- why ? mostly because I realized I mostly use shift + up/down
--- to move faster, and don’t rely that much on number before moves
--- or operations, so better to tidy up the interface
--- I can still rely on it in the bottom right corner,
--- or can toggle them back with <leader>tn
+-- ──────────────────────────────────────────────────────────────────────────────
+-- OPTIONS
+-- ──────────────────────────────────────────────────────────────────────────────
 
--- tabs and indentation
-opt.tabstop = 2
-opt.shiftwidth = 2
-opt.expandtab = true -- make tabs as spaces
-opt.autoindent = true -- keeps the indentation on following line
+local options = {
 
--- search
-opt.ignorecase = true
-opt.smartcase = true
-opt.hlsearch = true
+	-- line numbers
+	relativenumber = false,
+	number = false,
+	-- NOTE: why ? mostly because I realized I mostly use shift + up/down
+	--  to move faster, and don’t rely that much on number before moves
+	--  or operations, as I rely more on textobjects.
+	--  Therefore, I remove line numbers tidy up the interface
+	--  I can still rely on it in the bottom right corner,
+	--  or can toggle them back with <leader>tn
 
--- cursor highlight
-opt.cursorline = true
+	-- tabs and indentation
+	tabstop = 2,
+	shiftwidth = 2,
+	expandtab = true, -- make tabs as spaces,
+	autoindent = true, -- keeps the indentation on following line,
 
-opt.colorcolumn = {} -- adds a columns if we want to limit line length
--- TODO: setup colorcolumn, decide between 80 and 100
+	-- search
+	ignorecase = true,
+	smartcase = true,
+	hlsearch = true,
 
--- opt.inccommand = "split"
--- not bad, but I mostly replace in visual selection,
--- can become handy if starting to doing more file- or project-wise modifications
+	-- cursor highlight
+	cursorline = true,
 
--- termguicolors est nécessaire pour que les thèmes modernes fonctionnent
-opt.termguicolors = true
-opt.background = "dark" -- dark ou light en fonction de votre préférence
-opt.signcolumn = "yes" -- affiche une colonne en plus à gauche pour afficher les signes (évite de décaler le texte)
+	colorcolumn = {}, -- adds a columns if we want to limit line length,
 
--- retour
-opt.backspace = "indent,eol,start"
+	-- inccommand = "split",
+	-- not bad, but I mostly replace in visual selection,
+	-- can become handy if starting to doing more file- or project-wise modifications
 
-opt.clipboard = "unnamedplus" -- use of the system clipboard
+	-- termguicolors is mandatory so that modern thems work well
+	termguicolors = true,
+	background = "dark",
+	signcolumn = "yes", -- supplementary column for gitsigns and stuff
 
--- window split directions
-opt.splitright = true
-opt.splitbelow = true
+	-- backspace
+	backspace = "indent,eol,start",
 
-opt.swapfile = false
+	-- clipboard
+	clipboard = "unnamedplus", -- use of the system clipboard
 
-opt.iskeyword:append("-") -- the "-" character makes a unique word
+	-- window split directions
+	splitright = true,
+	splitbelow = true,
 
-opt.list = false -- masks invisible characters
+	swapfile = false,
 
-opt.scrolloff = 999 -- makes the cursor always centered
+	list = false, -- masks invisible characters
 
-opt.wrap = false -- disable word wrap
+	scrolloff = 999, -- makes the cursor always centered
 
-opt.spelllang = { "en", "fr" }
+	wrap = false, -- disable word wrap
 
-opt.showmode = false
+	spelllang = { "en", "fr" },
 
--- filetype override for treesitter and LSPs
+	showmode = false,
+
+	undofile = true, -- persistent undo across sessions
+
+	fcs = "eob: ", -- hide ~ characters at eof
+}
+
+for key, value in pairs(options) do
+	vim.opt[key] = value
+end
+
+-- ──────────────────────────────────────────────────────────────────────────────
+-- FILETYPE OVERRIDE FOR TREESITTER AND LSPS
+-- ──────────────────────────────────────────────────────────────────────────────
+
 -- TODO: move theses into ftdetect or after/ftdetect
 
 -- make zsh files recognized as sh for bash-ls & treesitter
 vim.filetype.add({
-  extension = {
-    zsh = "sh",
-    sh = "sh", -- force sh-files with zsh-shebang to still get sh as filetype
-  },
-  filename = {
-    [".zshenv"] = "sh",
-    [".zprofile"] = "sh",
-    [".zshrc"] = "sh",
-    ["sketchybarrc"] = "sh",
-  },
-})
-
--- makes latex configs get recognized as .tex
-vim.filetype.add({
-  extension = {
-    cfg = "tex",
-  },
-})
-
--- makes obsidian bases recognized as yaml
-vim.filetype.add({
-  extension = {
-    base = "yaml",
-  },
+	extension = {
+		zsh = "sh",
+		sh = "sh", -- force sh-files with zsh-shebang to still get sh as filetype
+	},
+	filename = {
+		[".zshenv"] = "sh",
+		[".zprofile"] = "sh",
+		[".zshrc"] = "sh",
+		["sketchybarrc"] = "sh",
+	},
 })

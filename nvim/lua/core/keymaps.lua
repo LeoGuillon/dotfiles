@@ -17,245 +17,16 @@ vim.g.maplocalleader = "_" -- not a high user of the og _ key
 map({ "i", "c" }, "<A-BS>", "<C-w>") -- map opt+backspace in insert and command modes
 
 -- cmd/ctrl+S = save file
-map("n", "<C-s>", "<cmd>w<cr>", { desc = "Save current buffer" })
-map("i", "<C-s>", "<esc><cmd>w<cr>a", { desc = "Save current buffer" })
-map("v", "<C-s>", "<esc><cmd>w<cr>gv", { desc = "Save current buffer" })
+map("n", "<C-s>", "<cmd>w<cr>", { desc = "[s]ave current buffer" })
+map("i", "<C-s>", "<esc><cmd>w<cr>a", { desc = "[s]ave current buffer" })
+map("v", "<C-s>", "<esc><cmd>w<cr>gv", { desc = "[s]ave current buffer" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (BETTER ESCAPE)
 -- ——————————————————————————————————————————————————————————————————————————————
 -- credits : https://nanotipsforvim.prose.sh/esc-in-normal-mode
 
-map("n", "<esc>", "<cmd>nohl<cr><cmd>echo<cr>", { desc = "Escape and clear hlsearch and command line" })
-
--- ——————————————————————————————————————————————————————————————————————————————
--- (EDITION)
--- ——————————————————————————————————————————————————————————————————————————————
-
--- ——————————————————————————————————————————————————————————————————————————————
--- (YANKING AND PASTING)
-
--- deleting and changing to the black hole register
--- credits : https://nanotipsforvim.prose.sh/keeping-your-register-clean-from-dd
-map({ "n", "v" }, "x", '"_x', { desc = "Delete under cursor" })
-map({ "n", "v" }, "c", '"_c', { desc = "Change" })
-map({ "n", "v" }, "C", '"_C', { desc = "Change until the end of line" })
-map("n", "s", '"_cl', { desc = "Substitute character" })
-map("n", "S", '"_cc', { desc = "Substitute line" })
-map("n", "dd", function()
-  if vim.fn.getline(".") == "" then
-    return '"_dd'
-  end
-  return "dd"
-end, { expr = true, desc = "Delete line" }) -- Add moves it to the black hole only if it's empty
-
--- yank by keeping the cursor at the same position
--- credits : https://nanotipsforvim.prose.sh/sticky-yank
-do
-  local cursorPreYank
-  map({ "n", "x" }, "y", function()
-    cursorPreYank = vim.api.nvim_win_get_cursor(0)
-    return "y"
-  end, { desc = "Yank", expr = true })
-  map("n", "Y", function()
-    cursorPreYank = vim.api.nvim_win_get_cursor(0)
-    return "y$"
-  end, { desc = "Yank to the end of line", expr = true })
-  vim.api.nvim_create_autocmd("TextYankPost", {
-    callback = function()
-      if vim.v.event.operator == "y" and cursorPreYank then
-        vim.api.nvim_win_set_cursor(0, cursorPreYank)
-      end
-    end,
-  })
-end
-
--- Maj operators
-map("n", "P", function()
-  local current_line = vim.api.nvim_get_current_line():gsub("%s*$", "")
-  local reg = vim.trim(vim.fn.getreg("+"))
-  vim.api.nvim_set_current_line(current_line .. " " .. reg)
-end, { desc = "Paste at the end of line" })
-map("n", "X", function()
-  local updatedLine = vim.api.nvim_get_current_line():gsub("%S%s*$", "")
-  vim.api.nvim_set_current_line(updatedLine)
-end, { desc = "Delete char" })
-
-map("v", "p", "P", { desc = "Paste" }) -- to avoid recording when yanking and pasting over a selection and keeps the yanked in register
-
--- ——————————————————————————————————————————————————————————————————————————————
--- (UNDO/REDO)
-
-map({ "n", "v" }, "U", "<C-r>", { desc = "Redo" }) -- more consistent undo keymap
-
--- more molecular checkpoints during editing
-local undo_checkpoints_chars = {
-  ";",
-  ".",
-  "!",
-  "?",
-  ":",
-}
-for _, key in pairs(undo_checkpoints_chars) do
-  map("i", key, ("%s<c-g>u"):format(key))
-end
--- ——————————————————————————————————————————————————————————————————————————————
--- (MOVING CHARACTERS)
-
-map("n", "<A-Left>", '"zdh"zph', { desc = "move character Left" })
-map("n", "<A-Right>", '"zx"zp', { desc = "move character Right" })
--- TODO: add the same moves in visual mode
-
--- ——————————————————————————————————————————————————————————————————————————————
--- (MOVING LINES)
-
-map("n", "<A-Down>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "move line Down" })
-map("n", "<A-Up>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "move line Up" })
-map("v", "<A-Down>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "move lines Down" })
-map("v", "<A-Up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "move lines Up" })
-
--- same but with shift for 6 lines up/down
-map("n", "<S-A-Down>", "<cmd>execute 'move .+' . (v:count1 + 5)<cr>==", { desc = "move line Down x6" }) -- don’t know why 5 to have 6 lines up, but it works
-map("n", "<S-A-Up>", "<cmd>execute 'move .-' . (v:count1 + 6)<cr>==", { desc = "move line Up x6" })
-map("v", "<S-A-Down>", ":<C-u>execute \"'<,'>move '>+\" . (v:count1 + 5)<cr>gv=gv", { desc = "move lines Down x6" })
-map("v", "<S-A-Up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 6)<cr>gv=gv", { desc = "move lines Up x6" })
-
--- ——————————————————————————————————————————————————————————————————————————————
--- (CASING)
-
-map("n", "~", "v~", { desc = "Togglecase a single character" }) -- without moving forward
-
--- credits : https://nanotipsforvim.prose.sh/quickly-toggle-casing
-map("n", "<leader>~", "mzlblgueh~`z", { desc = "Smart word togglecasing" })
-
--- ——————————————————————————————————————————————————————————————————————————————
--- (NEW LINES)
-
--- ——————————————————————————————————————————————————————————————————————————————
--- (TRAILING CHARS)
--- credits : https://github.com/chrisgrieser/.config/blob/9fb7bea009be951f9676ef52634a7d12d9717953/nvim/lua/config/leader-keybindings.lua
-
-local trail_chars = {
-  ",",
-  ";",
-  ".",
-  "{",
-}
-for _, char in pairs(trail_chars) do
-  map("n", "<leader>" .. char, function()
-    local updated_line = vim.api.nvim_get_current_line() .. char
-    vim.api.nvim_set_current_line(updated_line)
-  end, { desc = ("add %s to eol"):format(char) })
-end
-
--- ——————————————————————————————————————————————————————————————————————————————
--- (INDENTATION)
-
--- same command as in insert mode for more consistency
-map("n", "<Tab>", ">>", { desc = "󰉶 indent" })
-map("x", "<Tab>", ">gv", { desc = "󰉶 indent" })
-map("n", "<S-Tab>", "<<", { desc = "󰉵 outdent" })
-map("x", "<S-Tab>", "<gv", { desc = "󰉵 outdent" })
-
--- ——————————————————————————————————————————————————————————————————————————————
--- (ERGO-L LAYOUT SPECIFIC KEYMAPS)
--- ——————————————————————————————————————————————————————————————————————————————
--- credits : https://ergol.org/articles/vim_pour_les_ergonautes/
-
-map("n", ",", ";", { desc = "Go to next occurence in line" })
-map("n", ";", ",", { desc = "Go to previous occurence in line" })
-
-map("n", "<C-c>", "<C-i>", { desc = "Jump to previous location" }) -- so that they're next to each other
-
--- ——————————————————————————————————————————————————————————————————————————————
--- PERSONAL IMPROVEMENTS
-
--- +/- on increment/decrement
--- NOTE: this is handled by dial.nvim, so that's a backup
-map({ "n", "v" }, "+", "<C-a>", { desc = "Increment" })
-map({ "n", "v" }, "-", "<C-x>", { desc = "Decrement" })
-map({ "n", "v" }, "g+", "<C-a>", { desc = "g-Increment" })
-map({ "n", "v" }, "g-", "<C-x>", { desc = "g-Decrement" })
-
--- =/≠ to add empty line below/above
--- I don’t use that much the `=` command anyway
-map("n", "=", "]<Space>", { desc = "Add an empty line below", remap = true })
-map("n", "≠", "[<Space>", { desc = "Add an empty line above", remap = true }) -- shifted `=` in ergo-l layout
-
--- remapping of hjkl to other functions
--- as regular arrow movements are mapped to the arrow keys, to another layer
-
--- [h]op : see flash plugin
-
--- [j]oin lines
-map("n", "j", "J", { desc = "Join next line to the current" })
-map("n", "gj", "gJ", { desc = "Join next line to the current (without blank space)" })
-map("n", "J", "kJ", { desc = "Join current line to the previous" })
-map("n", "gJ", "kgJ", { desc = "Join current line to the previous (without blank space)" })
-
--- [k]nit lines
--- opposite functions to j/J
-map("n", "k", "i<CR><Esc>", { desc = "Unjoin to the next line" })
-
--- [l]ean back : just a shortcut for ge/gE
--- map({ "n", "x", "o" }, "l", "ge", { desc = "go to previous end (Lean back)" })
--- map({ "n", "x", "o" }, "L", "gE", { desc = "go to previous END (Lean back)" })
--- see nvim-spider plugin
-
-map("n", "\\", "?", { desc = "Search backwards" }) -- due to the symmetry between \ and / on symbol layer
-
--- ——————————————————————————————————————————————————————————————————————————————
--- (VISUAL MODE)
--- ——————————————————————————————————————————————————————————————————————————————
-
-map("v", "v", "<C-v>", { desc = "Visual block mode" }) -- double tap v to enter visual block mode
-map("v", "V", "j", { desc = "Select next line" })
-
-map("v", "<", "<gv", { desc = "Indent selection to the left" })
-map("v", ">", ">gv", { desc = "Indent selection to the right" })
-
--- ——————————————————————————————————————————————————————————————————————————————
--- (INSERT MODE)
--- ——————————————————————————————————————————————————————————————————————————————
-
--- insert mode that respect indentation
--- credits : https://github.com/chrisgrieser/.config/blob/main/nvim/lua/config/keybindings.lua
-map("n", "i", function()
-  local lineEmpty = vim.trim(vim.api.nvim_get_current_line()) == ""
-  return lineEmpty and [["_cc]] or "i"
-end, { expr = true, desc = "Insert mode" })
-map("n", "a", function()
-  local lineEmpty = vim.trim(vim.api.nvim_get_current_line()) == ""
-  return lineEmpty and [["_cc]] or "a"
-end, { expr = true, desc = "insert mode, Append" })
-
--- navigation similar to macos usual settings
--- opt + left/right = move backward/forward one word
-map("i", "<A-Left>", "<S-Left>")
-map("i", "<A-Right>", "<S-Right>")
-
--- cmd
-map("i", "<D-Left>", "<Home>")
-map("i", "<D-Right>", "<End>")
-map("i", "<D-Up>", "<C-Home>")
-map("i", "<D-Down>", "<C-End>")
-
--- ────────────────────────────────────────────────────────────────────────────────
--- (AUTOFILLS)
-
--- similar espanso autofills, to avoid colliding with normal mode commands
-
-map("i", "qe", "que", { desc = "qe autofill" })
-map("i", "qi", "qui", { desc = "qi autofill" })
-map("i", "qo", "quo", { desc = "qo autofill" })
-
--- ────────────────────────────────────────────────────────────────────────────────
--- (COMMAND MODE)
--- ────────────────────────────────────────────────────────────────────────────────
-
-map("n", "ZZ", "<CMD>wq<CR>", { desc = "save and quit current buffer" })
-map("n", "ZA", "<CMD>wqa<CR>", { desc = "save and quit all buffers" })
-map("n", "ZQ", "<CMD>q!<CR>", { desc = "quit current buffer without saving" })
+map("n", "<esc>", "<cmd>nohl<cr><cmd>echo<cr>", { desc = "escape and clear hlsearch and command line" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (NAVIGATION)
@@ -304,13 +75,247 @@ map("n", "<C-Up>", "<C-w>k", { desc = "Go to Upper Window" })
 map("n", " <C-Right>", "<C-w>l", { desc = "Go to Right Window" })
 
 -- Pane resizing
--- TODO: find how to map shift + control + arrows
-
--- ——————————————————————————————————————————————————————————————————————————————
--- (BUFFERS)
+map("n", "<C-A-Left>", "<cmd>vertical resize +4<CR>", { desc = "resize window left" })
+map("n", "<C-A-Down>", "<cmd>resize -4<CR>", { desc = "resize window down" })
+map("n", "<C-A-Up>", "<cmd>resize +4<CR>", { desc = "resize window up" })
+map("n", "<C-A-Right>", "<cmd>vertical resize -4<CR>", { desc = "resize window right" })
 
 map("n", "<C-TAB>", "<cmd>bnext<cr>", { desc = "go to next buffer" })
 map("n", "<C-S-TAB>", "<cmd>bprevious<cr>", { desc = "go to previous buffer" })
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (EDITION)
+-- ——————————————————————————————————————————————————————————————————————————————
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (YANKING AND PASTING)
+
+-- deleting and changing to the black hole register
+-- credits : https://nanotipsforvim.prose.sh/keeping-your-register-clean-from-dd
+map({ "n", "v" }, "x", '"_x', { desc = "delete under cursor" })
+map({ "n", "v" }, "X", '"_X', { desc = "delete under cursor backwards" })
+map({ "n", "v" }, "c", '"_c', { desc = "[c]hange" })
+map({ "n", "v" }, "C", '"_C', { desc = "[c]hange until the end of line" })
+map("n", "s", '"_cl', { desc = "[s]ubstitute character" })
+map("n", "S", '"_cc', { desc = "[s]ubstitute line" })
+map("n", "dd", function()
+	if vim.fn.getline(".") == "" then
+		return '"_dd'
+	end
+	return "dd"
+end, { expr = true, desc = "[d]elete line" }) -- Add moves it to the black hole only if it's empty
+
+-- yank by keeping the cursor at the same position
+-- credits : https://nanotipsforvim.prose.sh/sticky-yank
+do
+	local cursorPreYank
+	map({ "n", "x" }, "y", function()
+		cursorPreYank = vim.api.nvim_win_get_cursor(0)
+		return "y"
+	end, { desc = "[y]ank", expr = true })
+	map("n", "Y", function()
+		cursorPreYank = vim.api.nvim_win_get_cursor(0)
+		return "y$"
+	end, { desc = "[y]ank to the end of line", expr = true })
+	vim.api.nvim_create_autocmd("TextYankPost", {
+		callback = function()
+			if vim.v.event.operator == "y" and cursorPreYank then
+				vim.api.nvim_win_set_cursor(0, cursorPreYank)
+			end
+		end,
+	})
+end
+
+-- Maj operators
+map("n", "P", function()
+	local current_line = vim.api.nvim_get_current_line():gsub("%s*$", "")
+	local reg = vim.trim(vim.fn.getreg("+"))
+	vim.api.nvim_set_current_line(current_line .. " " .. reg)
+end, { desc = "[p]aste at the end of line" })
+-- map("n", "X", function()
+-- 	local updatedLine = vim.api.nvim_get_current_line():gsub("%S%s*$", "")
+-- 	vim.api.nvim_set_current_line(updatedLine)
+-- end, { desc = "[d]elete char" })
+
+map("v", "p", "P", { desc = "[p]aste" }) -- to avoid recording when yanking and pasting over a selection and keeps the yanked in register
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (UNDO/REDO)
+
+map({ "n", "v" }, "U", "<C-r>", { desc = "Redo" }) -- more consistent undo keymap
+
+-- more molecular checkpoints during editing
+local undo_checkpoints_chars = {
+	";",
+	".",
+	"!",
+	"?",
+	":",
+}
+for _, key in pairs(undo_checkpoints_chars) do
+	map("i", key, ("%s<c-g>u"):format(key))
+end
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (MOVING CHARACTERS)
+
+map("n", "<A-Left>", '"zdh"zph', { desc = "move character Left" })
+map("n", "<A-Right>", '"zx"zp', { desc = "move character Right" })
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (MOVING LINES)
+
+map("n", "<A-Down>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "move line Down" })
+map("n", "<A-Up>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "move line Up" })
+map("v", "<A-Down>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "move lines Down" })
+map("v", "<A-Up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "move lines Up" })
+
+-- same but with shift for 6 lines up/down
+map("n", "<S-A-Down>", "<cmd>execute 'move .+' . (v:count1 + 5)<cr>==", { desc = "move line Down x6" }) -- don’t know why 5 to have 6 lines up, but it works
+map("n", "<S-A-Up>", "<cmd>execute 'move .-' . (v:count1 + 6)<cr>==", { desc = "move line Up x6" })
+map("v", "<S-A-Down>", ":<C-u>execute \"'<,'>move '>+\" . (v:count1 + 5)<cr>gv=gv", { desc = "move lines Down x6" })
+map("v", "<S-A-Up>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 6)<cr>gv=gv", { desc = "move lines Up x6" })
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (CASING)
+
+map("n", "~", "v~", { desc = "togglecase a single character" }) -- without moving forward
+
+-- credits : https://nanotipsforvim.prose.sh/quickly-toggle-casing
+map("n", "<leader>~", "mzlblgueh~`z", { desc = "smart word togglecasing" })
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (TRAILING CHARS)
+-- credits : https://github.com/chrisgrieser/.config/blob/9fb7bea009be951f9676ef52634a7d12d9717953/nvim/lua/config/leader-keybindings.lua
+
+local trail_chars = {
+	",",
+	";",
+	".",
+	"{",
+}
+for _, char in pairs(trail_chars) do
+	map("n", "<leader>" .. char, function()
+		local updated_line = vim.api.nvim_get_current_line() .. char
+		vim.api.nvim_set_current_line(updated_line)
+	end, { desc = ("add %s to eol"):format(char) })
+end
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (INDENTATION)
+
+map("n", "<Tab>", ">>", { desc = "󰉶 indent" })
+map("x", "<Tab>", ">gv", { desc = "󰉶 indent" })
+map("n", "<S-Tab>", "<<", { desc = "󰉵 outdent" })
+map("x", "<S-Tab>", "<gv", { desc = "󰉵 outdent" })
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (ERGO-L LAYOUT SPECIFIC KEYMAPS)
+-- ——————————————————————————————————————————————————————————————————————————————
+-- credits : https://ergol.org/articles/vim_pour_les_ergonautes/
+
+map("n", ",", ";", { desc = "go to next occurence in line" })
+map("n", ";", ",", { desc = "go to previous occurence in line" })
+
+map("n", "<C-c>", "<C-i>", { desc = "jump to previous location" }) -- so that they're next to each other
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- PERSONAL IMPROVEMENTS
+
+-- +/- on increment/decrement
+-- NOTE: this is handled by dial.nvim, so that's a backup
+map({ "n", "v" }, "+", "<C-a>", { desc = "increment" })
+map({ "n", "v" }, "-", "<C-x>", { desc = "decrement" })
+map({ "n", "v" }, "g+", "<C-a>", { desc = "g-Increment" })
+map({ "n", "v" }, "g-", "<C-x>", { desc = "g-Decrement" })
+
+-- =/≠ to add empty line below/above
+-- I don’t use that much the `=` command anyway
+map("n", "=", "]<Space>", { desc = "Add an empty line below", remap = true })
+map("n", "≠", "[<Space>", { desc = "Add an empty line above", remap = true }) -- shifted `=` in ergo-l layout
+
+-- remapping of hjkl to other functions
+-- as regular arrow movements are mapped to the arrow keys, to another layer
+
+-- [h]op between buffers
+map("n", "h", "<cmd>bnext<CR>", { desc = "[h]op to next buffer" })
+map("n", "H", "<cmd>bprevious<CR>", { desc = "[h]op to previous buffer" })
+
+-- [j]oin lines
+map("n", "j", "J", { desc = "[j]oin next line to the current" })
+map("n", "gj", "gJ", { desc = "[j]oin next line to the current (without blank space)" })
+map("n", "J", "kJ", { desc = "[j]oin current line to the previous" })
+map("n", "gJ", "kgJ", { desc = "[j]oin current line to the previous (without blank space)" })
+
+-- [k]nit lines
+-- opposite functions to j/J
+map("n", "k", "i<CR><Esc>", { desc = "unjoin ([k]nit) to the next line" })
+map("n", "K", "i<CR><Esc>", { desc = "unjoin ([k]nit) to the next line" })
+
+-- [l]ean back : just a shortcut for ge/gE
+-- map({ "n", "x", "o" }, "l", "ge", { desc = "go to previous end (Lean back)" })
+-- map({ "n", "x", "o" }, "L", "gE", { desc = "go to previous END (Lean back)" })
+-- see nvim-spider plugin
+
+map("n", "\\", "?", { desc = "Search backwards" }) -- due to the symmetry between \ and / on symbol layer
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (VISUAL MODE)
+-- ——————————————————————————————————————————————————————————————————————————————
+
+map("v", "v", "<C-v>", { desc = "[v]isual block mode" }) -- double tap v to enter visual block mode
+map("v", "V", "j", { desc = "Select next line" })
+
+map("v", "<", "<gv", { desc = "Indent selection to the left" })
+map("v", ">", ">gv", { desc = "Indent selection to the right" })
+
+-- ——————————————————————————————————————————————————————————————————————————————
+-- (INSERT MODE)
+-- ——————————————————————————————————————————————————————————————————————————————
+
+-- insert mode that respect indentation
+-- credits : https://github.com/chrisgrieser/.config/blob/main/nvim/lua/config/keybindings.lua
+map("n", "i", function()
+	local lineEmpty = vim.trim(vim.api.nvim_get_current_line()) == ""
+	return lineEmpty and [["_cc]] or "i"
+end, { expr = true, desc = "Insert mode" })
+map("n", "a", function()
+	local lineEmpty = vim.trim(vim.api.nvim_get_current_line()) == ""
+	return lineEmpty and [["_cc]] or "a"
+end, { expr = true, desc = "insert mode, Append" })
+
+-- navigation similar to macos usual settings
+-- opt + left/right = move backward/forward one word
+map("i", "<A-Left>", "<S-Left>")
+map("i", "<A-Right>", "<S-Right>")
+
+-- cmd
+map("i", "<D-Left>", "<Home>")
+map("i", "<D-Right>", "<End>")
+map("i", "<D-Up>", "<C-Home>")
+map("i", "<D-Down>", "<C-End>")
+
+-- ────────────────────────────────────────────────────────────────────────────────
+-- (AUTOFILLS)
+-- similar espanso autofills, to avoid colliding with normal mode commands
+
+-- TODO: transfer these autofills in ~/.config/nvim/lua/core/abbreviations.lua
+
+local voyels = { "e", "i", "o" }
+local qs = { "q", "Q" }
+
+for _, q in pairs(qs) do
+	for _, voyel in pairs(voyels) do
+		map("i", q .. voyel, q .. "u" .. voyel, { desc = q .. voyel .. " autofill" })
+	end
+end
+
+-- ────────────────────────────────────────────────────────────────────────────────
+-- (COMMAND MODE)
+-- ────────────────────────────────────────────────────────────────────────────────
+
+map("n", "ZZ", "<CMD>wq<CR>", { desc = "save and quit current buffer" })
+map("n", "ZA", "<CMD>wqa<CR>", { desc = "save and quit all buffers" })
+map("n", "ZQ", "<CMD>q!<CR>", { desc = "quit current buffer without saving" })
 
 -- ——————————————————————————————————————————————————————————————————————————————
 -- (TEXT OBJECTS)
@@ -326,26 +331,32 @@ map("n", "<C-S-TAB>", "<cmd>bprevious<cr>", { desc = "go to previous buffer" })
 -- [b]rackets
 
 local custom_text_objects = {
-  { "c", "}", "󰅩", "Curly braces" },
-  { "r", "]", "󰅪", "Rectangular brackets" },
-  { "v", ">", "󰅴", "cheVrons" },
-  { "q", '"', '"', "Quote" },
-  { "a", "'", "'", "Apostrophe" },
-  { "i", "`", "`", "Inline code" },
+	{ "a", "'", "'", "[a]postrophe" },
+	{ "b", ")", "󰅲", "[b]rackets" },
+	{ "c", "}", "󰅩", "[c]urly braces" },
+	{ "i", "`", "`", "[i]nline code" },
+	{ "q", '"', '"', "[q]uote" },
+	{ "r", "]", "󰅪", "[r]ectangular brackets" },
+	{ "v", ">", "󰅴", "che[v]rons" },
 }
 
 for _, value in ipairs(custom_text_objects) do
-  local remap, original, icon, label = unpack(value)
-  map({ "x", "o" }, "i" .. remap, "i" .. original, { desc = icon .. " (" .. label .. ")" })
-  map({ "x", "o" }, "a" .. remap, "a" .. original, { desc = icon .. " (" .. label .. ")" })
+	local remap, original, icon, label = unpack(value)
+	map({ "x", "o" }, "i" .. remap, "i" .. original, { desc = icon .. " (" .. label .. ")" })
+	map({ "x", "o" }, "a" .. remap, "a" .. original, { desc = icon .. " (" .. label .. ")" })
 end
 
 -- NOTE: treesitter’s text objects memo :
 -- all of them starts with [o]
 
+-- NOTE: various-textobjs text objects memo :
+-- [n]umber
+-- [#] color code
+
 -- NOTE: vimtex's text objects memo :
 -- [d]elimiters
 -- [e]nvironnement
+-- [i]tem (overrides inline code)
 -- [l]aTeX command
 -- [m]ath block
 -- se[x]ion
@@ -357,9 +368,9 @@ end
 -- common file actions
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "save (Write) current buffer" })
 map("n", "<leader>W", "<cmd>wa<cr>", { desc = "save (Write) all buffers" })
-map("n", "<leader>q", "<cmd>wq<cr>", { desc = "save and Quit current buffer" })
-map("n", "<leader>Q", "<cmd>wqa<cr>", { desc = "save and Quit all buffers" })
-map("n", "<leader>x", "<cmd>wq<cr>", { desc = "save and close (X) current buffer" })
+map("n", "<leader>q", "<cmd>wq!<cr>", { desc = "save and Quit current buffer" })
+map("n", "<leader>Q", "<cmd>wqa!<cr>", { desc = "save and Quit all buffers" })
+map("n", "<leader>x", "<cmd>wq!<cr>", { desc = "save and close (X) current buffer" })
 
 -- [o]pen …
 map("n", "<leader>ol", "<cmd>Lazy<cr>", { desc = "Lazy" })
@@ -372,3 +383,13 @@ map("n", "<leader>tl", function() vim.wo.conceallevel = vim.wo.conceallevel == 0
 -- stylua: ignore end
 map("n", "<leader>tn", "<cmd>set number!<cr><cmd>set relativenumber!<cr>", { desc = "line Numbers" })
 map("n", "<leader>tw", "<cmd>set wrap!<cr>", { desc = "line Wrap" })
+
+-- NOTE: vimtex’s toggles :
+-- [b]reak
+-- [e]nvironment
+-- [f]raction mode
+-- [m]ath delimiters
+-- [s]tarred environment
+
+-- NOTE: this is a special command made specially to refactor my config
+map("n", "<leader>k", "vgui[<esc><right><right>i]<esc>", { desc = "refactor which-[k]ey label" })

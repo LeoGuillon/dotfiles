@@ -41,18 +41,19 @@ return {
 		local map = vim.keymap.set
 
     -- stylua: ignore start
-    require("which-key").add({ { "<leader>h", group = "Harpoon…", icon = icons.ui.harpoon } })
-    map("n", "<leader>ha", function() harpoon:list():add() end, { desc = "Add current buffer to harpoon" })
-    map("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Open Harpoon List" })
-    map("n", "<leader>oh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon" })
+    require("which-key").add({ { "<leader>h", group = "[h]arpoon…", icon = icons.ui.harpoon } })
+    map("n", "<leader>ha", function() harpoon:list():add() end, { desc = "[a]dd current buffer" })
+    map("n", "<leader>hh", function() harpoon:list():add() end, { desc = "entire buffer" })
+    map("n", "<leader>ho", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "[o]pen list" })
     map("n", "<leader>hs", function() toggle_telescope(harpoon:list()) end, { desc = "Toggle harpoon telescope search" })
-    map("n", "<leader>sh", function() toggle_telescope(harpoon:list()) end, { desc = "Harpoon" })
 
-    -- TODO: create the mappings with a for loop
-    for i = 1, 4 do
+    map("n", "<leader>sh", function() toggle_telescope(harpoon:list()) end, { desc = "[h]arpoon" })
+
+    map("n", "<leader>oh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "[h]arpoon" })
+
+    for i = 1, 5 do
       map("n", "<leader>" .. i, function () harpoon:list():select(i) end, { desc = "Go to harpoon " .. i })
     end
-		-- TODO: setup these mappings with a modifier key + 1–4
 		-- stylua: ignore end
 	end,
 }

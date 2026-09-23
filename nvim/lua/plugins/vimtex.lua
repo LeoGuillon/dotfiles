@@ -42,14 +42,19 @@ return {
 		vim.g.vimtex_mappings_enabled = 0 -- because I like tuning really precisely my config
 		vim.g.vimtex_imaps_enabled = 0 -- because we use snippets to handle this better
 
-		-- TODO: setup toggle env commands properly
-		-- matrix -> pmatrix -> bmatrix -> Bmatrix -> vmatrix -> Vmatrix ?
 		vim.g.vimtex_env_toggle_math_map = {
-			["$"] = "\\(",
-			["$$"] = "\\[",
 			["\\("] = "\\[",
 			["\\["] = "equation",
-			["equation"] = "\\(",
+			["equation"] = "align",
+			["align"] = "\\[",
+			["$"] = "\\(",
+			["$$"] = "\\[",
+		}
+
+		vim.g.vimtex_toggle_fractions = {
+			["INLINE"] = "frac",
+			["frac"] = "dfrac",
+			["dfrac"] = "INLINE",
 		}
 
 		-- table of contents
@@ -60,13 +65,12 @@ return {
 			show_help = 0,
 			split_pos = "full",
 		}
+
 		-- compilation
 		vim.g.vimtex_compiler_method = "latexmk"
 		vim.g.vimtex_compiler_latexmk = {
-			-- TODO: setup “outputs” directory
-			-- TODO: setup different options depending on the classes
 			aux_dir = "aux",
-			out_dir = "outputs",
+			-- out_dir = "outputs",
 			options = {
 				"-pdflatex=lualatex",
 				"-synctex=1",
@@ -81,6 +85,12 @@ return {
 			"LaTeX Warning: Unused global option(s):",
 			"Package unicode-math Warning: Using ",
 			"Package unicode-math Warning: I'm going to overwrite the following commands",
+		}
+		vim.g.vimtex_log_ignore = { -- Suppress specific log messages
+			"Underfull",
+			"Overfull",
+			"specifier changed to",
+			"Token not allowed in a PDF string",
 		}
 
 		-- pdf viewing

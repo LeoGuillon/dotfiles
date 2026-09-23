@@ -1,62 +1,62 @@
 return {
-  "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- fzf implemented in C for moar speed
-    "nvim-telescope/telescope-ui-select.nvim", -- ui selection
-    "debugloop/telescope-undo.nvim", -- undo tree
-    "nvim-tree/nvim-web-devicons",
-    "folke/todo-comments.nvim",
-    "folke/which-key.nvim",
-  },
-  config = function()
-    local telescope = require("telescope")
-    local actions = require("telescope.actions")
+	"nvim-telescope/telescope.nvim",
+	branch = "0.1.x",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- fzf implemented in C for moar speed
+		"nvim-telescope/telescope-ui-select.nvim", -- ui selection
+		"debugloop/telescope-undo.nvim", -- undo tree
+		"nvim-tree/nvim-web-devicons",
+		"folke/todo-comments.nvim",
+		"folke/which-key.nvim",
+	},
+	config = function()
+		local telescope = require("telescope")
+		local actions = require("telescope.actions")
 
-    telescope.setup({
-      defaults = {
-        path_display = { "smart" },
-        file_ignore_patterns = { ".git/", "node_modules" },
-        mappings = {
-          i = {
-            ["<C-v>"] = actions.select_horizontal,
-            ["<C-h>"] = actions.select_vertical,
-          },
-        },
-      },
-      extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown({}),
-        },
-      },
-    })
+		telescope.setup({
+			defaults = {
+				path_display = { "smart" },
+				file_ignore_patterns = { ".git/", "node_modules" },
+				mappings = {
+					i = {
+						["<C-v>"] = actions.select_horizontal,
+						["<C-h>"] = actions.select_vertical,
+					},
+				},
+			},
+			extensions = {
+				["ui-select"] = {
+					require("telescope.themes").get_dropdown({}),
+				},
+			},
+		})
 
-    telescope.load_extension("fzf")
-    telescope.load_extension("ui-select")
-    telescope.load_extension("undo")
+		telescope.load_extension("fzf")
+		telescope.load_extension("ui-select")
+		telescope.load_extension("undo")
 
-    local map = vim.keymap.set
+		local map = vim.keymap.set
 
-    local builtin = require("telescope.builtin")
-    map("n", "<leader>sb", builtin.buffers, { desc = "files in Buffers" })
-    map("n", "<leader>sc", builtin.commands, { desc = "Commands" })
-    map("n", "<leader>sf", builtin.find_files, { desc = "Files in cwd" })
+		local builtin = require("telescope.builtin")
+		map("n", "<leader>sb", builtin.buffers, { desc = "files in [b]uffers" })
+		map("n", "<leader>sc", builtin.commands, { desc = "[c]ommands" })
+		map("n", "<leader>sf", builtin.find_files, { desc = "[f]iles in cwd" })
     -- stylua: ignore
-    map("n", "<leader>sF", "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", { desc = "Files in cwd (show hidden)" }) -- useful to be able to find hidden files
-    map("n", "<leader>sg", builtin.registers, { desc = "reGisters" }) -- not very useful thanks to which-key
-    map("n", "<leader>sk", builtin.keymaps, { desc = "Keymaps" })
-    map("n", "<leader>sm", builtin.marks, { desc = "marks" }) -- same remark as for registers
-    map("n", "<leader>so", builtin.vim_options, { desc = "vim Options" })
-    map("n", "<leader>sp", builtin.planets, { desc = "Planets <3" })
-    map("n", "<leader>sr", builtin.oldfiles, { desc = "Recent files" })
-    map("n", "<leader>ss", builtin.live_grep, { desc = "String in cwd" })
-    map("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Todos in cwd" })
-    map("n", "<leader>su", "<cmd>Telescope undo<cr>", { desc = "Undos" })
+    map("n", "<leader>sF", "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", { desc = "[f]iles in cwd (show hidden)" }) -- useful to be able to find hidden files
+		map("n", "<leader>sg", builtin.registers, { desc = "re[g]isters" }) -- not very useful thanks to which-key
+		map("n", "<leader>sk", builtin.keymaps, { desc = "[k]eymaps" })
+		map("n", "<leader>sm", builtin.marks, { desc = "[m]arks" }) -- same remark as for registers
+		map("n", "<leader>so", builtin.vim_options, { desc = "vim [o]ptions" })
+		map("n", "<leader>sp", builtin.planets, { desc = "[p]lanets <3" })
+		map("n", "<leader>sr", builtin.oldfiles, { desc = "[r]ecent files" })
+		map("n", "<leader>ss", builtin.live_grep, { desc = "[s]tring in cwd" })
+		map("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "[t]odos in cwd" })
+		map("n", "<leader>su", "<cmd>Telescope undo<cr>", { desc = "[u]ndo tree" })
     -- stylua: ignore
     map("n", "<leader>s.", function () builtin.find_files { cwd = vim.fn.stdpath('config')} end, { desc = "neovim [.]config" })
-    map("n", "<leader>s?", builtin.help_tags, { desc = "Help tags" })
+		map("n", "<leader>s?", builtin.help_tags, { desc = "help tags" })
 
-    require("which-key").add({ { "<leader>s", group = "Search with telescope…" } })
-  end,
+		require("which-key").add({ { "<leader>s", group = "[s]earch with telescope…" } })
+	end,
 }

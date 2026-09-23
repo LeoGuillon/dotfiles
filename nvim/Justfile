@@ -1,6 +1,5 @@
 set quiet := true
 
-
 friendly-snippets:
   open "https://github.com/rafamadriz/friendly-snippets"
 

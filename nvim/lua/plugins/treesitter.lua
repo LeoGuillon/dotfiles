@@ -1,132 +1,85 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPre", "BufNewFile" },
-  build = ":TSUpdate",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    "nvim-treesitter/nvim-treesitter-context",
-    "folke/which-key.nvim",
-  },
-  config = function()
-    ---@diagnostic disable-next-line: missing-fields
-    require("nvim-treesitter.configs").setup({
-      auto_install = true,
-      highlight = {
-        enable = true, -- enable syntax highlighting
-        disable = { "latex" }, -- but disable for tex files, as we use vimtex’s syntax highlighting
-      },
-      indent = { enable = true }, -- enable indentation
+	{
+		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
+		event = { "BufReadPre", "BufNewFile" },
+		build = ":TSUpdate",
+		config = function()
+			local map = require("core.utils").map
 
-      ensure_installed = {
-        "bash",
-        "bibtex",
-        "c",
-        "cpp",
-        "css",
-        "csv",
-        "editorconfig",
-        "gitignore",
-        "html",
-        "javascript",
-        "json",
-        "latex",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "r",
-        "rnoweb",
-        "regex",
-        "rnoweb",
-        "tmux",
-        "toml",
-        "typescript",
-        "vim",
-        "vimdoc",
-        "yaml",
-      },
+			map("n", "<leader>ot", "<cmd>InspectTree<cr>", { desc = "[t]reesitter" })
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		branch = "main",
+		init = function()
+			-- Disable entire built-in ftplugin mappings to avoid conflicts.
+			-- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
+			vim.g.no_plugin_maps = true
+		end,
+		config = function()
+			require("nvim-treesitter-textobjects").setup({
+				select = {
+					enable = true,
+					lookahead = true,
+				},
+			})
 
-      -- incremental selection : select current block
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<leader>Tv",
-          node_incremental = "<leader>Tn",
-          scope_incremental = "<leader>Ts",
-          node_decremental = "<leader>Td",
-        },
-      },
+			-- ──────────────────────────────────────────────────────────────────────────────
+			-- (KEYMAPS)
 
-      -- text objects setup
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true, -- allows to look forward for text-objects
+			local map = require("core.utils").map
+			local wk = require("which-key")
+			local treesitter_icon = require("core.utils").icons.ui.treesitter
 
-          keymaps = {
+			wk.add({ { "io", group = "treesitter text[o]bject…", mode = { "x", "o" }, icon = treesitter_icon } })
+			wk.add({ { "ao", group = "treesitter text[o]bject…", mode = { "x", "o" }, icon = treesitter_icon } })
 
-            -- TODO: mettre aussi sur l’enchaînement aoc/aogc ?
+			local textobjects = {
+				-- TODO: find a way to map @assignement.lhs/rhs
+				{ "a", "assignement", "[a]ssignment" },
+				{ "b", "block", "[b]lock" },
+				{ "c", "class", "[c]lass" },
+				{ "d", "function", "function [d]efinition" },
+				{ "f", "call", "[f]unction call" },
+				{ "gc", "comment", "[c]omment" },
+				{ "i", "conditional", "[i]f-else" },
+				{ "l", "loop", "[l]oop" },
+				{ "p", "parameter", "function [p]arameter" },
+				{ "r", "return", "function [r]eturn" },
+				{ "x", "regex", "rege[x]" },
+				-- TODO: other textobjects to add :
+				-- - attribute (probably relevant only for C++)
+				-- - number (only inner available)
+			}
 
-            -- coding text [o]bjects
+			local select_textobject = require("nvim-treesitter-textobjects.select").select_textobject
 
-            -- [a]ssignment
-            ["aoa"] = { query = "@assignment.outer", desc = "Assignment" },
-            ["ioa"] = { query = "@assignment.inner", desc = "Assignment" },
-            -- ["loa"] = { query = "@assignment.lhs", desc = "left hand side of an Assignment" },
-            -- ["roa"] = { query = "@assignment.rhs", desc = "right hand side of an Assignment" },
+			-- TODO: implement jumps, cf. https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 
-            -- [c]omment
-            ["aoc"] = { query = "@comment.outer", desc = "Comment" },
-            ["ioc"] = { query = "@comment.inner", desc = "Comment" },
-
-            -- function/method [d]efinition
-            ["aod"] = { query = "@function.outer", desc = "function Definition" },
-            ["iod"] = { query = "@function.inner", desc = "function Definition" },
-
-            -- [f]unction call
-            ["aof"] = { query = "@call.outer", desc = "Function call" },
-            ["iof"] = { query = "@call.inner", desc = "Function call" },
-
-            -- [i]f else
-            ["aoi"] = { query = "@conditional.outer", desc = "conditional If/else" },
-            ["ioi"] = { query = "@conditional.inner", desc = "conditional If/else" },
-
-            -- [l]oop
-            ["aol"] = { query = "@loop.outer", desc = "Loop" },
-            ["iol"] = { query = "@loop.inner", desc = "Loop" },
-
-            -- function [p]arameter
-            ["aop"] = { query = "@parameter.outer", desc = "function Parameter" },
-            ["iop"] = { query = "@parameter.inner", desc = "function Parameter" },
-
-            -- function [r]eturn
-            ["aor"] = { query = "@return.outer", desc = "function Return" },
-            ["ior"] = { query = "@return.inner", desc = "function Return" },
-          },
-        },
-      },
-    })
-
-    local treesitter_context = require("treesitter-context")
-
-    treesitter_context.setup({
-      enable = true,
-    })
-
-    -- keymaps
-
-    local map = require("core.utils").map
-    local wk = require("which-key")
-    local treesitter_icon = require("core.utils").icons.ui.treesitter
-
-    map("n", "<leader>ot", "<cmd>InspectTree<cr>", { desc = "TreeSitter" })
-    -- stylua: ignore start
-    -- map("n", "<leader>tc", function() treesitter_context.go_to_context(vim.v.count1)end, { desc = "go back to Context", silent = true })
-    map("n", "[c", function() treesitter_context.go_to_context(vim.v.count1)end, { desc = "go back to Context", silent = true })
-    wk.add({ { "<leader>T", group = "TreeSitter…", icon = { icon = treesitter_icon } }, })
-    wk.add({ { "io", group = "treesitter text Object…", mode = { "x", "o" }, icon = treesitter_icon }, })
-    wk.add({ { "ao", group = "treesitter text Object…", mode = { "x", "o" }, icon = treesitter_icon }, })
-    -- stylua: ignore end
-  end,
+			for _, value in pairs(textobjects) do
+				local keymap, object, desc = unpack(value)
+				local prepend_keymap = "o"
+				if object == "comment" then
+					prepend_keymap = ""
+				end
+				map({ "x", "o" }, "i" .. prepend_keymap .. keymap, function()
+					select_textobject("@" .. object .. ".inner", "textobjects")
+				end, { desc = desc })
+				map({ "x", "o" }, "a" .. prepend_keymap .. keymap, function()
+					select_textobject("@" .. object .. ".outer", "textobjects")
+				end, { desc = desc })
+			end
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			local map = require("core.utils").map
+			map("n", "[c", function()
+				require("treesitter-context").go_to_context(vim.v.count1)
+			end, { desc = "treesitter [c]ontext", silent = true })
+		end,
+	},
 }

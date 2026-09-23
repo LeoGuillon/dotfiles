@@ -74,12 +74,12 @@ return {
 			-- keymaps
 			local map = vim.keymap.set
 
+			require("which-key").add({ { "<leader>S", group = "[s]nippets…", icon = "" } })
+
       -- stylua: ignore start
       map("n", "<leader>Se", function() scissors.editSnippet() end, { desc = "Snippet: Edit" })
       map({ "n", "x" }, "<leader>Sa", function() scissors.addNewSnippet() end, { desc = "Snippet: Add" })
 			-- stylua: ignore end
-
-			require("which-key").add({ { "<leader>S", group = "Snippets…", icon = "" } })
 		end,
 	},
 }
